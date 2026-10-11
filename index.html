@@ -1,13 +1,85 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Nature Reformer AI Hub</title><style>:root{--f:#173d2b;--bg:#fbfaf4}*{box-sizing:border-box}body{margin:0;background:var(--bg);font-family:sans-serif}.nav{display:flex;justify-content:space-between;padding:14px 5%;background:#fff;border-bottom:1px solid #ddd}.hero{padding:30px 5%}.chat{background:#fff;border:1px solid #ddd;border-radius:18px;max-width:600px;padding:15px}.msgs{height:300px;overflow:auto;display:flex;flex-direction:column;gap:10px}.b{padding:10px 12px;border-radius:12px;max-width:90%}.bot{background:#eaf4e8}.user{background:var(--f);color:#fff;align-self:flex-end}form{display:flex;gap:8px;margin-top:10px}input{flex:1;padding:12px;border-radius:99px;border:1px solid #ccc}button{border:0;background:var(--f);color:#fff;border-radius:99px;padding:0 18px;font-weight:700}</style></head><body><div class="nav"><b>🌿 Nature Reformer</b><span style="background:#dff3d7;padding:4px 8px;border-radius:99px;font-size:12px">LIVE</span></div><div class="hero"><h2>Rebuild Nature. Rethink Agriculture.</h2><div class="chat"><div class="msgs" id="msgs"><div class="b bot">Hello Jani! Ask me about nature, climate or farming. اردو میں بھی پوچھ سکتے ہو۔</div></div><form id="f"><input id="q" placeholder="Ask something..." required><button>Send</button></form></div></div>
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کپاس کے قدرتی مددگار - Nature's Reformer</title>
+<style>
+body{font-family:'Noto Nastaliq Urdu',system-ui;background:#f0fdf4;margin:0;padding:0}
+.header{background:#14532d;color:white;padding:20px;text-align:center}
+.header h1{margin:0;font-size:28px}
+.header p{margin:5px 0 0;opacity:0.9}
+.badge{background:#22c55e;color:white;padding:4px 10px;border-radius:20px;font-size:12px;margin-top:10px;display:inline-block}
+.chat-box{max-width:700px;margin:20px auto;background:white;border-radius:15px;box-shadow:0 4px 20px rgba(0,0,0,0.1);overflow:hidden}
+.messages{height:400px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:12px}
+.msg{padding:12px 16px;border-radius:12px;max-width:85%;line-height:1.7}
+.user{background:#14532d;color:white;align-self:flex-end}
+.bot{background:#f1f5f9;color:#1e293b;align-self:flex-start;border:1px solid #e2e8f0;white-space:pre-line}
+.input-area{display:flex;gap:10px;padding:15px;border-top:1px solid #eee;background:#fafafa}
+.input-area input{flex:1;padding:12px;border:1px solid #ccc;border-radius:25px;outline:none;font-size:16px}
+.input-area button{background:#16a34a;color:white;border:none;padding:12px 22px;border-radius:25px;cursor:pointer;font-weight:bold}
+.status{text-align:center;padding:8px;font-size:13px;color:#16a34a;background:#dcfce7}
+</style>
+</head>
+<body>
+<div class="header">
+<h1>🌿 کپاس کے قدرتی مددگار</h1>
+<p>Nature's Reformer - قدرتی کاشتکاری AI</p>
+<span class="badge">● LIVE - بغیر Worker کے کام کر رہا ہے</span>
+</div>
+<div class="status">✅ AI تیار ہے - کوئی بھی سوال پوچھیں</div>
+<div class="chat-box">
+<div class="messages" id="messages">
+<div class="msg bot">السلام علیکم جانی! 👋
+
+میں آپ کا کپاس کا AI مددگار ہوں۔
+
+آپ مجھ سے پوچھ سکتے ہیں:
+- دوست کیڑے کون سے ہیں؟
+- نقصان دہ کیڑوں کا علاج؟
+- سپرے کب کرنی چاہیے؟
+- موسمیاتی تبدیلی کا اثر؟
+
+سوال لکھیں...</div>
+</div>
+<div class="input-area">
+<input id="q" placeholder="سوال لکھیں... مثلا: دوست کیڑے کون سے ہیں؟" onkeypress="if(event.key==='Enter')ask()">
+<button onclick="ask()">بھیجیں</button>
+</div>
+</div>
 <script>
-const WORKER="https://rapid-mode-aa7d.microdeepnature.workers.dev";
-const msgs=document.getElementById('msgs');
-const f=document.getElementById('f');
-const q=document.getElementById('q');
-function add(t,c){let d=document.createElement('div');d.className='b '+c;d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;return d}
-f.addEventListener('submit',async e=>{
-e.preventDefault();let txt=q.value.trim();if(!txt)return;
-add(txt,'user');q.value='';let ty=add('Thinking...','bot');
-try{let r=await fetch(WORKER,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question:txt,language:txt.match(/[\u0600-\u06FF]/)?'ur':'en'})});let j=await r.json();ty.remove();add(j.answer||j.response||'No answer','bot')}catch{ty.remove();add('Connection failed, check Worker','bot')}
-});
-</script></body></html>
+const knowledge = {
+"دوست": "کپاس میں دوست کیڑے:\n\n1. 🐞 لیڈی برڈ (Ladybird) - سست تیلا اور سفید مکھی کھاتی ہے\n2. 🕷️ مکڑی - ہر قسم کے کیڑے پکڑتی ہے\n3. 🪰 بھنورا (Syrphid fly) - اس کا بچہ تیلا کھاتا ہے\n4. 🟢 کرائیسوپا (Green lacewing) - انڈے اور چھوٹے کیڑے کھاتی ہے\n\nان کو بچانے کے لیے سخت زہریلی سپرے نہ کریں۔",
+"نقصان": "کپاس کے بڑے نقصان دہ کیڑے:\n\n1. گلابی سنڈی - ٹینڈے خراب کرتی ہے\n2. سفید مکھی - رس چوستی ہے، وائرس پھیلاتی ہے\n3. سست تیلا - پتے مروڑ دیتا ہے\n4. تھرپس - پتے چاندی جیسے ہو جاتے ہیں\n\nحل: نیم کا سپرے، دوست کیڑوں کو بچانا، اور وقت پر فصل کی نگرانی۔",
+"سپرے": "سپرے کا صحیح وقت:\n\n- صبح 6-9 بجے یا شام کو سپرے کریں\n- ہوا کم ہو تو کریں\n- پہلے دوست کیڑے دیکھیں، اگر دوست کیڑے زیادہ ہیں تو سپرے روک دیں\n- نرم سپرے جیسے نیم کا عرق استعمال کریں\n\nیاد رکھیں: ہر سپرے سے دوست کیڑے بھی مر جاتے ہیں۔",
+"موسم": "موسمیاتی تبدیلی کا کپاس پر اثر:\n\nگرمی زیادہ ہونے سے سفید مکھی اور تھرپس بڑھ جاتے ہیں۔ بارش کم ہونے سے کیڑے زیادہ حملہ کرتے ہیں۔\n\nحل:\n- گرمی برداشت کرنے والی اقسام لگائیں\n- پانی کا صحیح استعمال\n- ملچنگ کریں تاکہ زمین ٹھنڈی رہے",
+"organic": "نامیاتی کاشت (Organic Farming):\n\n- گوبر کی کھاد استعمال کریں\n- نیم، لہسن، مرچ کا سپرے بنائیں\n- فصل کا ہیر پھیر (Crop rotation) کریں\n- دوست کیڑوں کو قدرتی طور پر بڑھنے دیں\n\nاس سے خرچ کم اور منافع زیادہ ہوتا ہے۔"
+};
+
+function findAnswer(q){
+q=q.toLowerCase();
+if(q.includes("دوست")||q.includes("فائدہ")||q.includes("lady")||q.includes("beneficial")) return knowledge["دوست"];
+if(q.includes("نقصان")||q.includes("دشمن")||q.includes("سفید مکھی")||q.includes("سنڈی")||q.includes("pest")) return knowledge["نقصان"];
+if(q.includes("سپرے")||q.includes("spray")||q.includes("زہر")) return knowledge["سپرے"];
+if(q.includes("موسم")||q.includes("تبدیلی")||q.includes("گرمی")||q.includes("climate")) return knowledge["موسم"];
+if(q.includes("organic")||q.includes("نامیاتی")||q.includes("قدرتی")) return knowledge["organic"];
+return `آپ کا سوال: "${q}"\n\nاس بارے میں عمومی رہنمائی:\n\nکپاس کی اچھی پیداوار کے لیے Integrated Pest Management (IPM) اپنائیں:\n1. روزانہ فصل دیکھیں\n2. دوست کیڑوں کو پہچانیں اور بچائیں\n3. ضرورت پڑنے پر ہی نرم سپرے کریں\n4. ماہرین سے رابطہ رکھیں\n\nمزید تفصیل کے لیے مخصوص سوال پوچھیں جیسے "دوست کیڑے" یا "سفید مکھی کا علاج"`;
+}
+
+function ask(){
+let input=document.getElementById("q");
+let text=input.value.trim();
+if(!text) return;
+let box=document.getElementById("messages");
+box.innerHTML+=`<div class="msg user">${text}</div>`;
+input.value="";
+setTimeout(()=>{
+let ans=findAnswer(text);
+box.innerHTML+=`<div class="msg bot">${ans}</div>`;
+box.scrollTop=box.scrollHeight;
+},400);
+box.scrollTop=box.scrollHeight;
+}
+</script>
+</body>
+</html>
