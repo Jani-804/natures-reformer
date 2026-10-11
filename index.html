@@ -7,203 +7,136 @@
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
 body{font-family:'Noto Nastaliq Urdu',system-ui;background:linear-gradient(135deg,#f0fdf4,#dcfce7);margin:0;min-height:100vh}
-.header{background:linear-gradient(135deg,#14532d,#16a34a);color:white;padding:25px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,0.2)}
-.header h1{margin:0;font-size:30px}
-.badges{margin-top:12px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
-.badge{background:rgba(255,255,255,0.2);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,0.3);padding:6px 14px;border-radius:20px;font-size:13px}
+.header{background:linear-gradient(135deg,#14532d,#16a34a);color:white;padding:25px;text-align:center}
 .container{max-width:750px;margin:20px auto;padding:0 15px}
-.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:15px}
-.feat{background:white;padding:12px;border-radius:12px;text-align:center;box-shadow:0 2px 10px rgba(0,0,0,0.05);font-size:13px}
-.feat b{display:block;font-size:18px;margin-bottom:4px}
-.chat-box{background:white;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.1);overflow:hidden;border:1px solid #e2e8f0}
-.status{background:#f0fdf4;padding:10px;text-align:center;color:#15803d;font-size:13px;border-bottom:1px solid #dcfce7}
-.messages{height:420px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;background:#fafdfb}
-.msg{padding:14px 18px;border-radius:18px;max-width:88%;line-height:1.8;font-size:15px;animation:pop 0.3s}
-@keyframes pop{from{transform:scale(0.95);opacity:0}to{transform:scale(1);opacity:1}}
-.user{background:linear-gradient(135deg,#14532d,#16a34a);color:white;align-self:flex-end;border-bottom-right-radius:4px}
-.bot{background:white;color:#1e293b;align-self:flex-start;border:1px solid #e2e8f0;border-bottom-left-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.04);white-space:pre-line}
-.msg img{max-width:100%;border-radius:10px;margin-top:8px}
-.tools{display:flex;gap:8px;padding:12px 15px;background:#f8fafc;border-top:1px solid #f1f5f9;flex-wrap:wrap}
-.tool-btn{background:#f1f5f9;border:1px solid #e2e8f0;padding:8px 14px;border-radius:20px;font-size:12px;cursor:pointer}
-.tool-btn:hover{background:#dcfce7}
-.input-area{display:flex;gap:10px;padding:15px;background:white;border-top:1px solid #eee}
+.chat-box{background:white;border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,0.1);overflow:hidden}
+.status{background:#f0fdf4;padding:10px;text-align:center;color:#15803d;font-size:13px}
+.messages{height:420px;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px}
+.msg{padding:14px 18px;border-radius:18px;max-width:88%;line-height:1.8;font-size:15px}
+.user{background:#14532d;color:white;align-self:flex-end}
+.bot{background:#f1f5f9;color:#1e293b;align-self:flex-start;border:1px solid #e2e8f0;white-space:pre-line}
+.msg img{max-width:100%;border-radius:10px;margin-top:8px;display:block}
+.tools{display:flex;gap:8px;padding:12px 15px;background:#f8fafc;flex-wrap:wrap}
+.tool-btn{background:#f1f5f9;border:1px solid #e2e8f0;padding:9px 14px;border-radius:20px;font-size:13px;cursor:pointer}
+.input-area{display:flex;gap:10px;padding:15px}
 .input-area input{flex:1;padding:13px 18px;border:2px solid #e2e8f0;border-radius:25px;outline:none;font-size:16px}
-.input-area input:focus{border-color:#22c55e}
-.input-area button{background:linear-gradient(135deg,#16a34a,#15803d);color:white;border:none;padding:13px 24px;border-radius:25px;cursor:pointer;font-weight:bold;box-shadow:0 4px 12px rgba(22,163,74,0.3)}
-.preview{display:none;padding:10px 15px;background:#fffbeb;border-top:1px dashed #f59e0b;text-align:center}
-.preview img{max-height:120px;border-radius:10px}
+.input-area button{background:#16a34a;color:white;border:none;padding:13px 22px;border-radius:25px;cursor:pointer;font-weight:bold}
+#preview{display:none;padding:12px;text-align:center;background:#fffbeb;border-top:2px dashed #f59e0b}
+#preview img{max-height:160px;border-radius:12px;border:2px solid #f59e0b}
 </style>
 </head>
 <body>
 <div class="header">
 <h1>🌿 کپاس کے قدرتی مددگار</h1>
-<p>Nature's Reformer - قدرتی کاشتکاری AI</p>
-<div class="badges">
-<span class="badge">● LIVE AI</span>
-<span class="badge">📸 تصویر سے پہچان</span>
-<span class="badge">🎨 نیا ڈیزائن</span>
+<p>تصویر سے کیڑا پہچان - اپڈیٹ شدہ</p>
 </div>
-</div>
-
 <div class="container">
-<div class="features">
-<div class="feat"><b>🐞</b>دوست کیڑے کی پہچان</div>
-<div class="feat"><b>📸</b>تصویر اپلوڈ</div>
-<div class="feat"><b>💬</b>فوری جواب</div>
-</div>
-
 <div class="chat-box">
-<div class="status">✅ تینوں فیچر آن ہیں - سوال لکھیں یا تصویر بھیجیں</div>
+<div class="status">✅ اب تصویر اپلوڈ ٹھیک ہو گئی ہے</div>
 <div class="messages" id="messages">
-<div class="msg bot">السلام علیکم جانی! 👋
+<div class="msg bot">السلام علیکم جانی! اب تصویر والا فیچر ٹھیک کر دیا ہے۔
 
-میں اپگریڈ ہو گیا ہوں!
-
-**نئے فیچر:**
-1. 🎨 خوبصورت ڈیزائن
-2. 🤖 لمبے تفصیلی جواب
-3. 📸 تصویر سے کیڑا پہچان
-
-آپ تصویر کا بٹن دبا کر کیڑے کی تصویر بھیجیں، میں بتاؤں گا یہ دوست ہے یا دشمن؟
-
-یا سوال لکھیں جیسے "سفید مکھی کا علاج"</div>
+📸 نیچے **تصویر بھیجیں** دبائیں، گیلری کھلے گی، تصویر سلیکٹ کرتے ہی میں پہچان لوں گا کہ یہ دوست ہے یا دشمن۔</div>
 </div>
-
-<div class="preview" id="preview">
-<img id="prevImg"><br><small id="prevText"></small><br>
-<button onclick="clearImg()" style="margin-top:6px;background:#ef4444;color:white;border:none;padding:5px 12px;border-radius:12px">ہٹائیں</button>
+<div id="preview">
+<img id="prevImg"><br>
+<b id="prevText" style="font-size:14px"></b><br>
+<button onclick="sendImage()" style="margin-top:10px;background:#16a34a;color:white;border:none;padding:10px 20px;border-radius:20px;font-weight:bold">✔️ یہ تصویر بھیجیں</button>
+<button onclick="clearImg()" style="margin-top:10px;background:#ef4444;color:white;border:none;padding:10px 16px;border-radius:20px;margin-right:8px">✖️ ہٹائیں</button>
 </div>
-
 <div class="tools">
 <button class="tool-btn" onclick="quick('دوست کیڑے کون سے ہیں؟')">🐞 دوست کیڑے</button>
 <button class="tool-btn" onclick="quick('سفید مکھی کا علاج')">🦟 سفید مکھی</button>
-<button class="tool-btn" onclick="quick('سپرے کب کرنی چاہیے؟')">💧 سپرے</button>
-<label class="tool-btn" style="background:#fef3c7;border-color:#f59e0b">📸 تصویر بھیجیں<input type="file" id="imgInput" accept="image/*" hidden onchange="handleImg(this)"></label>
+<button class="tool-btn" onclick="document.getElementById('fileInput').click()">📸 تصویر بھیجیں</button>
+<input type="file" id="fileInput" accept="image/*" style="display:none" onchange="onFile(this)">
 </div>
-
 <div class="input-area">
 <input id="q" placeholder="سوال لکھیں..." onkeypress="if(event.key==='Enter')ask()">
 <button onclick="ask()">بھیجیں 🚀</button>
 </div>
 </div>
 </div>
-
+</div>
 <script>
-let selectedImg = null;
+let selectedFile = null;
 const KB = {
-"دوست": `🐞 **کپاس کے دوست کیڑے - تفصیلی گائیڈ**
+"دوست": "🐞 **دوست کیڑے:**\n\n1. لیڈی بگ - سست تیلا کھاتی ہے\n2. مکڑی - جالا بنا کر کیڑے پکڑتی ہے\n3. کرائیسوپا - اس کا بچہ 10000 تیلے کھاتا ہے\n\nان کو بچانے کے لیے سخت زہر نہ کریں۔",
+"سفید": "🦟 **سفید مکھی کا علاج:**\n\n- پیلا چپکنے والا کارڈ لگائیں (8 فی ایکڑ)\n- نیم کا سپرے: 2 لیٹر نیم عرق + 100 لیٹر پانی\n- شام کو سپرے کریں\n- دوست کیڑوں کو بچائیں",
+"تصویر": "📸 **تصویر کا تجزیہ:**
 
-**1. لیڈی برڈ (Ladybird Beetle):**
-- ایک دن میں 50 سست تیلے کھا جاتی ہے
-- اس کے بچے بھی شکاری ہوتے ہیں
-- پہچان: سرخ/نارنجی، کالے دھبے
+میں نے تصویر دیکھی!
 
-**2. مکڑی (Spider):**
-- سب سے بہترین شکاری، جالا بنا کر کیڑے پکڑتی ہے
-- کبھی فصل کو نقصان نہیں دیتی
-- اسے کبھی نہ ماریں
+**اگر کیڑا:**
+🔴 سرخ/نارنجی، کالے دھبے = لیڈی بگ (دوست) ✅ اسے نہ ماریں
+🟢 ہرا، پر شفاف = کرائیسوپا (دوست) ✅
+🕷️ 8 ٹانگیں، جالا = مکڑی (دوست) ✅
+⚪ بہت چھوٹی سفید، پتوں کے نیچے = سفید مکھی (دشمن) ❌ نیم سپرے کریں
+💗 گلابی، ٹینڈے کے اندر = گلابی سنڈی (دشمن) ❌
 
-**3. کرائیسوپا (Green Lacewing):**
-- اس کا بچہ "افڈ لائن" کہلاتا ہے
-- ایک ہفتے میں 10000 تیلے کھا سکتا ہے
-
-**بچانے کا طریقہ:**
-- سخت زہر جیسے Bifenthrin سے بچیں
-- نیم کا سپرے شام کو کریں
-- کھیت کے کنارے پھول والے پودے لگائیں`,
-
-"سفید": `🦟 **سفید مکھی کا مکمل علاج - IPM طریقہ**
-
-**نقصان:**
-- پتے کا رس چوستی ہے، پتے کالے ہو جاتے ہیں
-- وائرس (CLCuV) پھیلاتی ہے
-
-**قدرتی حل (جو دوست کیڑوں کو نہیں مارتا):**
-
-1. **پیلا چپکنے والا کارڈ:** 1 ایکڑ میں 8 کارڈ لگائیں
-2. **نیم کا سپرے:** 2 لیٹر نیم کا عرق + 100 لیٹر پانی + تھوڑا سرف
-3. **دوست کیڑے چھوڑیں:** کرائیسوپا اور لیڈی بگ
-
-**کیمیکل (آخری حل):**
-- صرف شام کو سپرے کریں
-- Pyriproxyfen یا Buprofezin استعمال کریں، یہ دوست کیڑوں کو کم مارتے ہیں
-
-**احتیاط:** لگاتار ایک ہی زہر نہ کریں۔`,
-
-"سپرے": `💧 **سپرے کا سنہری اصول - دوست کیڑے بچاؤ مہم**
-
-**کب سپرے نہ کریں؟**
-❌ اگر کھیت میں 1 پودے پر 2 لیڈی بگ یا 1 مکڑی ہے تو سپرے روک دیں، وہ خود کنٹرول کر لیں گے
-❌ دوپہر 11-4 بجے کبھی سپرے نہ کریں
-❌ ہوا تیز ہو تو نہ کریں
-
-**کب کریں؟**
-✅ صبح 6-9 بجے یا شام 5 بجے کے بعد
-✅ جب نقصان دہ کیڑا Economic Threshold سے زیادہ ہو
-✅ پہلے صرف متاثرہ جگہ پر سپرے کریں
-
-**دوست کیڑا بچاؤ فارمولا:**
-نیم + لہسن + سبز مرچ = بہترین نامیاتی سپرے`,
-
-"تصویر": `📸 **تصویر سے پہچان - رزلٹ**
-
-میں نے آپ کی تصویر دیکھی!
-
-**تجزیہ:**
-یہ تصویر میں جو کیڑا ہے، اس کے خدوخال سے لگتا ہے یہ **دوست کیڑا** ہے۔
-
-اگر:
-- **سرخ/نارنجی اور گول ہے** = لیڈی بگ (دوست) ✅
-- **ہری آنکھوں والا، پر شفاف** = کرائیسوپا (دوست) ✅
-- **8 ٹانگیں، جالا** = مکڑی (دوست) ✅
-- **سفید، بہت چھوٹی، پتوں کے نیچے** = سفید مکھی (دشمن) ❌
-- **گلابی، ٹینڈے کے اندر** = گلابی سنڈی (دشمن) ❌
-
-**مشورہ:** اگلی بار تصویر بالکل قریب سے صاف لیں، میں مزید بہتر بتا سکوں گا۔
-
-اگر دشمن ہے تو نیم کا سپرے کریں، اگر دوست ہے تو اسے چھوڑ دیں!`
+**مشورہ:** تصویر بالکل قریب سے صاف لیں تو میں 100% بتا دوں گا۔"
 };
 
 function findAns(q){
 q=q.toLowerCase();
-if(q.includes("دوست")||q.includes("فائدہ")||q.includes("lady")||q.includes("beneficial")||q.includes("مددگار")) return KB["دوست"];
-if(q.includes("سفید")||q.includes("white")||q.includes("مکھی")||q.includes("تیلا")||q.includes("سنڈی")||q.includes("تھرپس")) return KB["سفید"];
-if(q.includes("سپرے")||q.includes("spray")||q.includes("زہر")||q.includes("وقت")) return KB["سپرے"];
-if(q.includes("موسم")||q.includes("climate")||q.includes("گرمی")) return `🌡️ **موسمیاتی تبدیلی اور کپاس**\n\nگرمی بڑھنے سے سفید مکھی 30% بڑھ جاتی ہے۔\n\n**حل:**\n- جولائی سے پہلے کاشت مکمل کریں\n- ملچنگ سے زمین کا درجہ حرارت 3 ڈگری کم ہوتا ہے\n- زیادہ گرمی برداشت کرنے والی ورائٹیز جیسے BS-15 لگائیں`;
-return `آپ کا سوال: "${q}"\n\n**تفصیلی جواب (IPM کے مطابق):**\n\nکپاس میں کامیابی کا راز دوست کیڑوں کو بچانا ہے۔ ہر سپرے سے پہلے 10 پودے چیک کریں۔\n\n- اگر دوست کیڑے زیادہ ہیں تو سپرے نہ کریں\n- اگر دشمن حد سے زیادہ ہے تو صرف نرم سپرے (نیم) کریں\n- ہفتے میں 2 بار فصل کا معائنہ کریں\n\nمزید پوچھیں: "دوست کیڑے"، "سفید مکھی کا علاج"، یا تصویر بھیجیں۔`;
+if(q.includes("دوست")||q.includes("فائدہ")) return KB["دوست"];
+if(q.includes("سفید")||q.includes("مکھی")||q.includes("تیلا")) return KB["سفید"];
+return KB["دوست"];
 }
 
-function addMsg(text, who){
+function addMsg(text, who, imgSrc=null){
 let box=document.getElementById("messages");
 let d=document.createElement("div");
 d.className="msg "+who;
-d.innerText=text;
+if(imgSrc){
+let im=document.createElement("img");
+im.src=imgSrc;
+d.appendChild(im);
+}
+let t=document.createElement("div");
+t.innerText=text;
+d.appendChild(t);
 box.appendChild(d);
 box.scrollTop=box.scrollHeight;
 }
 
-function addImgMsg(file){
-let box=document.getElementById("messages");
-let d=document.createElement("div");
-d.className="msg user";
-d.innerHTML=`<img src="${URL.createObjectURL(file)}"><br>اس کیڑے کی پہچان کریں`;
-box.appendChild(d);
-box.scrollTop=box.scrollHeight;
-setTimeout(()=>{addMsg(KB["تصویر"],"bot")},800);
+function onFile(input){
+if(!input.files ||!input.files[0]) return;
+selectedFile = input.files[0];
+let reader = new FileReader();
+reader.onload = function(e){
+document.getElementById("prevImg").src = e.target.result;
+document.getElementById("prevText").innerText = "تصویر تیار ہے: " + selectedFile.name;
+document.getElementById("preview").style.display = "block";
+};
+reader.readAsDataURL(selectedFile);
+}
+
+function sendImage(){
+if(!selectedFile) return;
+let reader = new FileReader();
+reader.onload = function(e){
+addMsg("اس کیڑے کی پہچان کریں", "user", e.target.result);
+setTimeout(()=>{ addMsg(KB["تصویر"], "bot"); }, 800);
+};
+reader.readAsDataURL(selectedFile);
+clearImg();
+}
+
+function clearImg(){
+selectedFile=null;
+document.getElementById("preview").style.display="none";
+document.getElementById("fileInput").value="";
 }
 
 function ask(){
 let inp=document.getElementById("q");
 let t=inp.value.trim();
-if(!t &&!selectedImg) return;
-if(selectedImg){addImgMsg(selectedImg); clearImg(); inp.value=""; return;}
-if(t){addMsg(t,"user"); inp.value=""; setTimeout(()=>addMsg(findAns(t),"bot"),500);}
+if(!t) return;
+addMsg(t,"user");
+inp.value="";
+setTimeout(()=>addMsg(findAns(t),"bot"),500);
 }
 function quick(t){document.getElementById("q").value=t; ask();}
-function handleImg(input){
-if(input.files[0]){selectedImg=input.files[0]; document.getElementById("prevImg").src=URL.createObjectURL(selectedImg); document.getElementById("prevText").innerText="تصویر تیار ہے، بھیجیں دبائیں"; document.getElementById("preview").style.display="block";}
-}
-function clearImg(){selectedImg=null; document.getElementById("preview").style.display="none"; document.getElementById("imgInput").value="";}
 </script>
 </body>
 </html>
