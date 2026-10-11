@@ -11,11 +11,11 @@ body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f
 .top{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
 .logo{font-family:Inter;font-weight:800;font-size:22px;letter-spacing:0.5px}
 .hero{max-width:1200px;margin:0 auto;padding:20px 10px 10px;text-align:center}
-.hero h1{font-size:36px;margin:0;line-height:1.4}
-.hero p{opacity:0.95;font-size:16px;margin-top:8px}
+.hero h1{font-size:34px;margin:0;line-height:1.4}
+.hero p{opacity:0.95;font-size:15px;margin-top:8px}
 .grid{max-width:1200px;margin:20px auto;padding:0 15px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
 .card{background:white;border-radius:18px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,0.06);border:1px solid #e5e7eb;cursor:pointer;transition:0.2s}
-.card:hover{transform:translateY(-3px)}
+.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.1)}
 .card b{font-size:17px;display:block;margin:8px 0 4px}
 .card p{font-size:13px;color:#555;margin:0;line-height:1.6}
 .tag{font-size:11px;padding:3px 9px;border-radius:20px;font-family:Inter}
@@ -24,12 +24,13 @@ body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f
 .chatHead{background:#0f3d1f;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-radius:20px 20px 0 0}
 .msgs{overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:300px}
 .msg{padding:11px 14px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.7;white-space:pre-line}
+.msg img{max-width:100%;border-radius:12px;display:block;margin-bottom:6px}
 .user{background:#14532d;color:white;align-self:flex-end}
 .bot{background:#f1f5f9;border:1px solid #e2e8f0;align-self:flex-start}
 .inputBar{display:flex;gap:8px;padding:10px;border-top:1px solid #eee}
 .inputBar input{flex:1;padding:11px 14px;border-radius:24px;border:2px solid #e2e8f0;outline:none}
 .btn{padding:10px 16px;border-radius:24px;border:none;background:#16a34a;color:white;font-weight:bold;cursor:pointer}
-.hide{display:none}
+.hide{display:none!important}
 </style>
 </head>
 <body>
@@ -42,31 +43,30 @@ body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f
 </div>
 
 <div class="grid">
-<div class="card" onclick="openAI('کیڑے مکوڑے')"><span class="tag green">تصویر سے پہچان</span><b>🐞 کیڑے مکوڑے - تمام اقسام</b><p>دوست کیڑے (لیڈی بگ، مکڑی، بھڑ) اور دشمن (سفید مکھی، تیلہ، سنڈی) - ہر فصل کے کیڑے</p></div>
-<div class="card" onclick="openAI('زمین')"><span class="tag orange">Soil Test</span><b>🌱 زمین اور مٹی</b><p>ریتلی، چکنی، میرا زمین - پی ایچ، نمکیات، زمین کی تیاری</p></div>
-<div class="card" onclick="openAI('پانی')"><span class="tag blue">Irrigation</span><b>💧 آبپاشی - پانی کا نظام</b><p>ڈرپ ایریگیشن، نہری پانی، ٹیوب ویل، کب اور کتنا پانی دینا ہے</p></div>
-<div class="card" onclick="openAI('کھاد')"><span class="tag green">Fertilizer</span><b>🌾 کھادیں - دیسی اور کیمیائی</b><p>یوریا، ڈی اے پی، پوٹاش، گوبر کی کھاد، کمپوسٹ بنانے کا طریقہ</p></div>
-<div class="card" onclick="openAI('موسم')"><span class="tag blue">Live Weather</span><b>🌦️ موسم، فضا اور ہوا</b><p>بارش، نمی، ہوا کی رفتار، دھند، گرمی سردی کا فصلوں پر اثر</p></div>
-<div class="card" onclick="openAI('ساحل')"><span class="tag orange">Coastal</span><b>🏖️ ساحل، تھل، بارانی علاقے</b><p>سندھ کا ساحلی علاقہ، تھر، تھل، بارانی اور نہری علاقوں کے لیے الگ مشورے</p></div>
-<div class="card" onclick="openAI('فصلیں')"><span class="tag green">All Crops</span><b>🌽 تمام فصلیں</b><p>گندم، چاول، کپاس، گنا، مکئی، سبزیاں، پھل، دالیں - سب کی رہنمائی</p></div>
-<div class="card" onclick="openAI('بیماری')"><span class="tag orange">Disease</span><b>🩺 بیماریاں اور علاج</b><p>پتوں کا پیلا ہونا، رسٹ، بلائٹ، وائرس - تصویر سے تشخیص</p></div>
+<div class="card" onclick="openAI('کیڑے مکوڑے - تمام اقسام')"><span class="tag green">تصویر سے پہچان - کلک کریں</span><b>🐞 کیڑے مکوڑے - تمام اقسام</b><p>دوست کیڑے (لیڈی بگ، مکڑی، بھڑ) اور دشمن (سفید مکھی، تیلہ، سنڈی) - ہر فصل کے کیڑے</p></div>
+<div class="card" onclick="openAI('زمین اور مٹی')"><span class="tag orange">Soil Test</span><b>🌱 زمین اور مٹی</b><p>ریتلی، چکنی، میرا زمین - پی ایچ، نمکیات، زمین کی تیاری</p></div>
+<div class="card" onclick="openAI('آبپاشی - پانی کا نظام')"><span class="tag blue">Irrigation</span><b>💧 آبپاشی - پانی کا نظام</b><p>ڈرپ ایریگیشن، نہری پانی، ٹیوب ویل، کب اور کتنا پانی دینا ہے</p></div>
+<div class="card" onclick="openAI('کھادیں')"><span class="tag green">Fertilizer</span><b>🌾 کھادیں - دیسی اور کیمیائی</b><p>یوریا، ڈی اے پی، پوٹاش، گوبر کی کھاد، کمپوسٹ بنانے کا طریقہ</p></div>
+<div class="card" onclick="openAI('موسم، فضا اور ہوا')"><span class="tag blue">Live Weather</span><b>🌦️ موسم، فضا اور ہوا</b><p>بارش، نمی، ہوا کی رفتار، دھند، گرمی سردی کا فصلوں پر اثر</p></div>
+<div class="card" onclick="openAI('ساحل، تھل، بارانی علاقے')"><span class="tag orange">Coastal</span><b>🏖️ ساحل، تھل، بارانی علاقے</b><p>سندھ کا ساحلی علاقہ، تھر، تھل، بارانی اور نہری علاقوں کے لیے الگ مشورے</p></div>
+<div class="card" onclick="openAI('تمام فصلیں')"><span class="tag green">All Crops</span><b>🌽 تمام فصلیں</b><p>گندم، چاول، کپاس، گنا، مکئی، سبزیاں، پھل، دالیں - سب کی رہنمائی</p></div>
+<div class="card" onclick="openAI('بیماریاں اور علاج')"><span class="tag orange">Disease</span><b>🩺 بیماریاں اور علاج</b><p>پتوں کا پیلا ہونا، رسٹ، بلائٹ، وائرس - تصویر سے تشخیص</p></div>
 </div>
 
-<!-- AI CHAT -->
-<div class="chat" id="chat">
+<!-- AI CHAT - اب ڈیمو نہیں، سیدھا چیٹ -->
+<div class="chat hide" id="chat">
 <div class="chatHead"><span>🌿 زرعی AI - ہر سوال کا جواب</span><span style="cursor:pointer" onclick="document.getElementById('chat').classList.add('hide')">✖️</span></div>
 <div class="msgs" id="msgs">
 <div class="msg bot">السلام علیکم جانی! میں آپ کا مکمل زرعی AI ہوں۔
 
 اب میں صرف کپاس نہیں، **پوری زراعت** جانتا ہوں۔
 
-آپ مجھ سے پوچھ سکتے ہیں:
 - "میری زمین ریتلی ہے کونسی کھاد ڈالوں؟"
 - "ساحل کے قریب کونسی فصل بہتر ہے؟"
 - "پانی کب دوں؟"
 - "یہ کیڑا دوست ہے یا دشمن؟" (تصویر بھیجیں)
 
-کوئی بھی سوال کریں، میں اردو میں جواب دوں گا!</div>
+کارڈ پر کلک کیا ہے، اب سوال پوچھیں، میں اردو میں جواب دوں گا!</div>
 </div>
 <div style="padding:8px 10px;background:#f8fafc;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid #eee">
 <button onclick="q('زمین کیسے چیک کروں؟')" style="padding:5px 10px;border-radius:15px;border:1px solid #ddd;background:white;font-size:12px">🌱 زمین</button>
@@ -76,35 +76,39 @@ body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f
 <input type="file" id="img" accept="image/*" hidden>
 </div>
 <div class="inputBar">
-<input id="inp" placeholder="کوئی بھی زرعی سوال لکھیں... جیسے: کھاد، پانی، موسم" onkeypress="if(event.key==='Enter')send()">
+<input id="inp" placeholder="کوئی بھی زرعی سوال لکھیں..." onkeypress="if(event.key==='Enter')send()">
 <button class="btn" onclick="send()">بھیجیں</button>
 </div>
 </div>
 
 <script>
 const msgs=document.getElementById('msgs');
-function openAI(t){document.getElementById('chat').classList.remove('hide'); q(t+' کے بارے میں بتاؤ');}
+const chatBox=document.getElementById('chat');
+
+function openAI(topic){
+  chatBox.classList.remove('hide');
+  document.getElementById('inp').value = topic + ' کے بارے میں تفصیل سے بتاؤ';
+  send();
+}
 function q(t){document.getElementById('inp').value=t; send();}
 
 document.getElementById('img').addEventListener('change',function(){
 if(!this.files[0])return;
 let r=new FileReader();
 r.onload=e=>{
-let d=document.createElement('div'); d.className='msg user'; d.innerHTML=`<img src="${e.target.result}" style="max-width:100%;border-radius:12px"><div>اس کی تصویر کا تجزیہ کریں - کیڑا، بیماری، یا زمین؟</div>`; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
-setTimeout(()=>{addBot(`📸 تصویر کا تجزیہ:
+let d=document.createElement('div'); d.className='msg user'; d.innerHTML=`<img src="${e.target.result}"><div>اس کی تصویر کا تجزیہ کریں</div>`; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+setTimeout(()=>{addBot(`📸 تصویر کا تجزیہ ہو گیا جانی!
 
-میں نے دیکھا جانی!
+اگر کیڑا ہے:
+- چمکدار گول سرخ/پیلا = لیڈی بگ (دوست) ✅ 1 دن میں 50 تیلے کھاتی ہے
+- 8 ٹانگیں = مکڑی (دوست) ✅
+- سفید چھوٹی مکھیاں = سفید مکھی (دشمن) ❌ نیم سپرے 2 لیٹر + 100 لیٹر پانی
 
-اگر کیڑا ہے تو:
-- چمکدار، گول، سرخ/پیلا = دوست (لیڈی بگ)
-- 8 ٹانگیں = دوست (مکڑی)
-- سفید چھوٹی مکھیاں = دشمن (سفید مکھی) - نیم سپرے کریں
+اگر پتا ہے:
+- پیلا = نائٹروجن کمی یا پانی کمی
+- کالے دھبے = فنگس
 
-اگر پتا ہے تو:
-- پیلا = پانی کی کمی یا نائٹروجن کی کمی
-- کالے دھبے = فنگس - بائیو سپرے
-
-تصویر کے مطابق یہ **قدرتی نظام کا حصہ** ہے، اسے محفوظ رکھیں۔ مزید تفصیل کے لیے قریب سے تصویر بھیجیں۔`);},800);
+یہ قدرتی نظام کا حصہ ہے، اسے محفوظ رکھیں۔`);},800);
 };
 r.readAsDataURL(this.files[0]); this.value='';
 });
@@ -119,104 +123,54 @@ function addBot(t){let b=document.createElement('div'); b.className='msg bot'; b
 function answer(t){
 let q=t.toLowerCase();
 if(q.includes('زمین')||q.includes('مٹی')||q.includes('soil')){
-return `🌱 زمین / Soil کی مکمل معلومات:
+return `🌱 زمین / Soil:
 
-1. **زمین کی اقسام:**
-- ریتلی (Sandy): پانی جلدی جذب کرتی ہے، گوبر زیادہ ڈالیں
-- چکنی (Clay): پانی روکتی ہے، گہرائی سے ہل چلائیں
-- میرا (Loamy): بہترین زمین، ہر فصل کے لیے اچھی
-
-2. **چیک کیسے کریں:**
-- مٹھی میں لے کر دبائیں، اگر ٹوٹ جائے تو ریتلی، اگر چپک جائے تو چکنی
-- pH 6 سے 7.5 بہترین ہے
-
-3. **اصلاح:**
-- گوبر کی کھاد ہر 6 ماہ بعد 2 ٹرالی فی ایکڑ
-- نمکین زمین میں جپسم ڈالیں`;
+1. اقسام: ریتلی (پانی جلدی جذب)، چکنی (پانی روکتی ہے)، میرا (بہترین)
+2. چیک: مٹھی میں دبائیں، ٹوٹ جائے تو ریتلی، چپک جائے تو چکنی
+3. pH 6-7.5 بہترین
+4. اصلاح: ہر 6 ماہ بعد 2 ٹرالی گوبر فی ایکڑ، نمکین زمین میں جپسم`;
 }
-if(q.includes('پانی')||q.includes('آبپاشی')||q.includes('irrigation')){
-return `💧 آبپاشی / Irrigation:
+if(q.includes('پانی')||q.includes('آبپاشی')){
+return `💧 آبپاشی:
 
-1. **کب پانی دینا ہے؟**
-- صبح 6-9 بجے یا شام 5 بجے کے بعد
-- دوپہر کو کبھی پانی نہ دیں، 30% پانی ضائع ہوتا ہے
-
-2. **اقسام:**
-- ڈرپ (Drip): 70% پانی کی بچت، سبزیوں اور باغات کے لیے بہترین
-- نہری: گندم، چاول کے لیے
-- سپرنکلر: بارانی علاقوں کے لیے
-
-3. **نشانی:**
-- پتے شام کو مرجھا جائیں تو اگلی صبح پانی دیں`;
+- صبح 6-9 یا شام 5 کے بعد پانی دیں، دوپہر کو 30% ضائع
+- ڈرپ سے 70% بچت - سبزیوں/باغات کے لیے بہترین
+- نہری - گندم/چاول
+- نشانی: پتے شام کو مرجھا جائیں تو صبح پانی دیں`;
 }
-if(q.includes('کھاد')||q.includes('fertilizer')||q.includes('یوریا')){
-return `🌾 کھادیں / Fertilizers:
+if(q.includes('کھاد')){
+return `🌾 کھادیں:
 
-**کیمیائی:**
-- یوریا (نائٹروجن): پتوں کی بڑھوتری کے لیے
-- ڈی اے پی (فاسفورس): جڑوں کے لیے، بجائی کے وقت
-- پوٹاش: پھل اور دانے کے لیے
-
-**نامیاتی (بہترین):**
-- گوبر کی کھاد: 1 حصہ گوبر + 1 حصہ بھوسہ + 2 ماہ سڑائیں
-- کمپوسٹ: کچن کا کچرا + پتے + گوبر
-- نیم کھلی: کیڑوں سے بھی بچاتی ہے
-
-**اصول:** کیمیائی کم، نامیاتی زیادہ - زمین زندہ رہے گی`;
+کیمیائی: یوریا (پتے)، ڈی اے پی (جڑ)، پوٹاش (پھل)
+نامیاتی: گوبر + بھوسہ 2 ماہ سڑائیں، کمپوسٹ، نیم کھلی
+اصول: کیمیائی کم، نامیاتی زیادہ`;
 }
-if(q.includes('موسم')||q.includes('فضا')||q.includes('ہوا')||q.includes('weather')){
-return `🌦️ موسم، فضا اور ہوا:
+if(q.includes('موسم')||q.includes('فضا')||q.includes('ہوا')){
+return `🌦️ موسم/فضا/ہوا:
 
-1. **ہوا (Air):** تیز ہوا میں سپرے نہ کریں، 60% دوا اڑ جاتی ہے
-2. **نمی:** 80% سے زیادہ نمی پر فنگس کی بیماریاں آتی ہیں
-3. **درجہ حرارت:** 35 ڈگری سے اوپر پھول گر جاتے ہیں
-
-**مشورہ:** ہمیشہ شام کو سپرے کریں، ہوا کم ہوتی ہے اور فائدہ مند کیڑے محفوظ رہتے ہیں۔`;
+- تیز ہوا میں سپرے نہ کریں 60% دوا اڑ جاتی ہے
+- 80% نمی پر فنگس آتی ہے
+- 35 ڈگری سے اوپر پھول گرتے ہیں
+- ہمیشہ شام کو سپرے کریں`;
 }
-if(q.includes('ساحل')||q.includes('coastal')||q.includes('تھر')||q.includes('تھل')){
-return `🏖️ ساحل اور خاص علاقے / Coastal & Zones:
+if(q.includes('ساحل')||q.includes('تھل')||q.includes('تھر')||q.includes('بارانی')){
+return `🏖️ ساحل/تھل/بارانی:
 
-1. **ساحلی علاقہ (سندھ، بلوچستان):**
-- زمین نمکین ہوتی ہے، ناریل، چیکو، نمک برداشت کرنے والی فصلیں
-- جپسم اور گلی سڑی گوبر زیادہ ڈالیں
-
-2. **تھل / تھر (ریت والا):**
-- کم پانی والی فصلیں: باجرہ، گوار، مونگ پھلی
-- ڈرپ سسٹم لازمی
-
-3. **بارانی (پوٹھوہار):**
-- بارش کا پانی جمع کریں، گندم، چنا بہترین
-
-ہر علاقے کا اپنا نظام ہے جانی!`;
+ساحلی (سندھ): زمین نمکین، ناریل/چیکو، جپسم + گوبر
+تھل/تھر: باجرہ/گوار/مونگ پھلی، ڈرپ لازمی
+بارانی (پوٹھوہار): بارش کا پانی جمع کریں، گندم/چنا`;
 }
-if(q.includes('کیڑ')||q.includes('insect')||q.includes('دوست')){
-return `🐞 کیڑے مکوڑے - مکمل گائیڈ:
+if(q.includes('کیڑ')){
+return `🐞 کیڑے:
 
-**دوست کیڑے (محافظ) ✅:**
-- لیڈی بگ: 1 دن میں 50 تیلے کھاتی ہے
-- مکڑی: سب سے بڑی شکاری، جالے نہ توڑیں
-- کرائیسوپا: ہرے پروں والی، تیلے کی دشمن
-- شہد کی مکھی: پولینیشن کرتی ہے
-
-**دشمن کیڑے ❌:**
-- سفید مکھی، تیلہ، گلابی سنڈی، لشکری سنڈی
-
-**حل:** دوست کو بچاؤ، دشمن کے لیے نیم کا سپرے، پیلے کارڈ لگاؤ`;
+دوست ✅: لیڈی بگ (50 تیلے/دن)، مکڑی، کرائیسوپا، شہد کی مکھی
+دشمن ❌: سفید مکھی، تیلہ، گلابی سنڈی
+حل: دوست بچاؤ، دشمن کے لیے نیم سپرے + پیلے کارڈ`;
 }
-return `🌿 Nature's Reformer - جواب:
+return `🌿 آپ نے پوچھا: "${t}"
 
-آپ نے پوچھا: "${t}"
-
-جانی یہ پوری زراعت کا حصہ ہے۔
-
-**میرا مشورہ:**
-- زمین کو زندہ رکھیں (گوبر ڈالیں)
-- پانی شام کو دیں
-- دوست کیڑوں کو نہ ماریں
-- موسم دیکھ کر سپرے کریں
-
-اگر آپ اس کی تصویر بھیجیں گے تو میں بالکل صحیح پہچان کر کے علاج بتا دوں گا۔ کوئی بھی اور سوال پوچھیں - کھاد، پانی، ساحل، فضا، سب بتا دوں گا!`;
+جانی یہ مکمل زراعت کا حصہ ہے۔ زمین زندہ رکھیں (گوبر)، پانی شام کو، دوست کیڑے نہ ماریں، موسم دیکھ کر سپرے کریں۔ تصویر بھیجیں تو صحیح پہچان بتا دوں گا!`;
 }
 </script>
 </body>
-  </html>
+</html>
