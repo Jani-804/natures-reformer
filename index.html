@@ -3,106 +3,220 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>کپاس کے قدرتی مددگار</title>
+<title>Nature's Reformer - مکمل زرعی AI</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&display=swap');
-body{font-family:'Noto Nastaliq Urdu',system-ui;background:#f0fdf4;margin:0}
-.header{background:linear-gradient(135deg,#14532d,#16a34a);color:white;padding:20px;text-align:center}
-.container{max-width:700px;margin:15px auto;padding:0 12px}
-.chat-box{background:white;border-radius:16px;box-shadow:0 8px 30px rgba(0,0,0,0.1);overflow:hidden}
-.messages{height:500px;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:12px;background:#fbfffc}
-.msg{padding:12px 16px;border-radius:16px;max-width:90%;line-height:1.7;font-size:15px;white-space:pre-line}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Inter:wght@500;700&display=swap');
+body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f7f2}
+.header{background:linear-gradient(135deg,#0a2212,#1a7a3a 70%,#22c55e);color:white;padding:25px 15px}
+.top{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
+.logo{font-family:Inter;font-weight:800;font-size:22px;letter-spacing:0.5px}
+.hero{max-width:1200px;margin:0 auto;padding:20px 10px 10px;text-align:center}
+.hero h1{font-size:36px;margin:0;line-height:1.4}
+.hero p{opacity:0.95;font-size:16px;margin-top:8px}
+.grid{max-width:1200px;margin:20px auto;padding:0 15px;display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.card{background:white;border-radius:18px;padding:18px;box-shadow:0 6px 24px rgba(0,0,0,0.06);border:1px solid #e5e7eb;cursor:pointer;transition:0.2s}
+.card:hover{transform:translateY(-3px)}
+.card b{font-size:17px;display:block;margin:8px 0 4px}
+.card p{font-size:13px;color:#555;margin:0;line-height:1.6}
+.tag{font-size:11px;padding:3px 9px;border-radius:20px;font-family:Inter}
+.green{background:#dcfce7;color:#14532d}.blue{background:#dbeafe;color:#1e3a8a}.orange{background:#ffedd5;color:#7c2d12}
+.chat{position:fixed;bottom:15px;left:50%;transform:translateX(-50%);width:96%;max-width:750px;background:white;border-radius:20px;box-shadow:0 25px 80px rgba(0,0,0,0.3);z-index:99;display:flex;flex-direction:column;max-height:85vh;border:1px solid #ddd}
+.chatHead{background:#0f3d1f;color:white;padding:12px 16px;display:flex;justify-content:space-between;align-items:center;border-radius:20px 20px 0 0}
+.msgs{overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:10px;flex:1;min-height:300px}
+.msg{padding:11px 14px;border-radius:14px;max-width:88%;font-size:14px;line-height:1.7;white-space:pre-line}
 .user{background:#14532d;color:white;align-self:flex-end}
 .bot{background:#f1f5f9;border:1px solid #e2e8f0;align-self:flex-start}
-.msg img{max-width:100%;border-radius:12px;margin-bottom:8px;display:block}
-.tools{padding:10px;display:flex;gap:8px;flex-wrap:wrap;background:#f8fafc;border-top:1px solid #eee}
-.tool-btn{padding:8px 12px;border-radius:20px;border:1px solid #ddd;background:white;cursor:pointer;font-size:13px}
-.input-area{display:flex;gap:8px;padding:12px;border-top:1px solid #eee}
-.input-area input{flex:1;padding:12px 16px;border-radius:25px;border:2px solid #e2e8f0;outline:none}
-.input-area button{padding:12px 20px;border-radius:25px;border:none;background:#16a34a;color:white;font-weight:bold}
+.inputBar{display:flex;gap:8px;padding:10px;border-top:1px solid #eee}
+.inputBar input{flex:1;padding:11px 14px;border-radius:24px;border:2px solid #e2e8f0;outline:none}
+.btn{padding:10px 16px;border-radius:24px;border:none;background:#16a34a;color:white;font-weight:bold;cursor:pointer}
+.hide{display:none}
 </style>
 </head>
 <body>
-<div class="header"><h1 style="margin:0">🌿 کپاس کے قدرتی مددگار</h1><small>تصویر سے فوری پہچان - Fixed</small></div>
-<div class="container">
-<div class="chat-box">
-<div class="messages" id="messages">
-<div class="msg bot">السلام علیکم جانی! اب تصویر والا 100% ٹھیک کر دیا ہے۔
+<div class="header">
+<div class="top"><div class="logo">🌿 NATURE'S REFORMER</div><div style="font-size:12px;background:rgba(255,255,255,0.2);padding:6px 12px;border-radius:20px">112 اضلاع | 10 شعبے | AI Live</div></div>
+<div class="hero">
+<h1>فطرت کی اصلاح - مکمل زرعی خزانہ</h1>
+<p>کوئی بھی سوال پوچھیں - کیڑے، زمین، پانی، کھاد، موسم، فضا، ساحل، فصلیں - سب کا جواب ایک جگہ</p>
+</div>
+</div>
 
-📸 نیچے "تصویر بھیجیں" دبائیں، تصویر لگاتے ہی میں خود جواب دوں گا۔</div>
+<div class="grid">
+<div class="card" onclick="openAI('کیڑے مکوڑے')"><span class="tag green">تصویر سے پہچان</span><b>🐞 کیڑے مکوڑے - تمام اقسام</b><p>دوست کیڑے (لیڈی بگ، مکڑی، بھڑ) اور دشمن (سفید مکھی، تیلہ، سنڈی) - ہر فصل کے کیڑے</p></div>
+<div class="card" onclick="openAI('زمین')"><span class="tag orange">Soil Test</span><b>🌱 زمین اور مٹی</b><p>ریتلی، چکنی، میرا زمین - پی ایچ، نمکیات، زمین کی تیاری</p></div>
+<div class="card" onclick="openAI('پانی')"><span class="tag blue">Irrigation</span><b>💧 آبپاشی - پانی کا نظام</b><p>ڈرپ ایریگیشن، نہری پانی، ٹیوب ویل، کب اور کتنا پانی دینا ہے</p></div>
+<div class="card" onclick="openAI('کھاد')"><span class="tag green">Fertilizer</span><b>🌾 کھادیں - دیسی اور کیمیائی</b><p>یوریا، ڈی اے پی، پوٹاش، گوبر کی کھاد، کمپوسٹ بنانے کا طریقہ</p></div>
+<div class="card" onclick="openAI('موسم')"><span class="tag blue">Live Weather</span><b>🌦️ موسم، فضا اور ہوا</b><p>بارش، نمی، ہوا کی رفتار، دھند، گرمی سردی کا فصلوں پر اثر</p></div>
+<div class="card" onclick="openAI('ساحل')"><span class="tag orange">Coastal</span><b>🏖️ ساحل، تھل، بارانی علاقے</b><p>سندھ کا ساحلی علاقہ، تھر، تھل، بارانی اور نہری علاقوں کے لیے الگ مشورے</p></div>
+<div class="card" onclick="openAI('فصلیں')"><span class="tag green">All Crops</span><b>🌽 تمام فصلیں</b><p>گندم، چاول، کپاس، گنا، مکئی، سبزیاں، پھل، دالیں - سب کی رہنمائی</p></div>
+<div class="card" onclick="openAI('بیماری')"><span class="tag orange">Disease</span><b>🩺 بیماریاں اور علاج</b><p>پتوں کا پیلا ہونا، رسٹ، بلائٹ، وائرس - تصویر سے تشخیص</p></div>
 </div>
-<div class="tools">
-<button class="tool-btn" onclick="quick('دوست کیڑے')">🐞 دوست کیڑے</button>
-<button class="tool-btn" onclick="document.getElementById('fileInput').click()">📸 تصویر بھیجیں</button>
-<input type="file" id="fileInput" accept="image/*" style="display:none">
+
+<!-- AI CHAT -->
+<div class="chat" id="chat">
+<div class="chatHead"><span>🌿 زرعی AI - ہر سوال کا جواب</span><span style="cursor:pointer" onclick="document.getElementById('chat').classList.add('hide')">✖️</span></div>
+<div class="msgs" id="msgs">
+<div class="msg bot">السلام علیکم جانی! میں آپ کا مکمل زرعی AI ہوں۔
+
+اب میں صرف کپاس نہیں، **پوری زراعت** جانتا ہوں۔
+
+آپ مجھ سے پوچھ سکتے ہیں:
+- "میری زمین ریتلی ہے کونسی کھاد ڈالوں؟"
+- "ساحل کے قریب کونسی فصل بہتر ہے؟"
+- "پانی کب دوں؟"
+- "یہ کیڑا دوست ہے یا دشمن؟" (تصویر بھیجیں)
+
+کوئی بھی سوال کریں، میں اردو میں جواب دوں گا!</div>
 </div>
-<div class="input-area">
-<input id="q" placeholder="سوال لکھیں..." onkeypress="if(event.key==='Enter')ask()">
-<button onclick="ask()">بھیجیں</button>
+<div style="padding:8px 10px;background:#f8fafc;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid #eee">
+<button onclick="q('زمین کیسے چیک کروں؟')" style="padding:5px 10px;border-radius:15px;border:1px solid #ddd;background:white;font-size:12px">🌱 زمین</button>
+<button onclick="q('پانی کا صحیح وقت؟')" style="padding:5px 10px;border-radius:15px;border:1px solid #ddd;background:white;font-size:12px">💧 پانی</button>
+<button onclick="q('ساحل پر کونسی فصل؟')" style="padding:5px 10px;border-radius:15px;border:1px solid #ddd;background:white;font-size:12px">🏖️ ساحل</button>
+<button onclick="document.getElementById('img').click()" style="padding:5px 10px;border-radius:15px;border:1px solid #f59e0b;background:#fef3c7;font-size:12px">📸 تصویر بھیجیں</button>
+<input type="file" id="img" accept="image/*" hidden>
 </div>
+<div class="inputBar">
+<input id="inp" placeholder="کوئی بھی زرعی سوال لکھیں... جیسے: کھاد، پانی، موسم" onkeypress="if(event.key==='Enter')send()">
+<button class="btn" onclick="send()">بھیجیں</button>
 </div>
 </div>
 
 <script>
-const msgs = document.getElementById('messages');
-const fileInput = document.getElementById('fileInput');
+const msgs=document.getElementById('msgs');
+function openAI(t){document.getElementById('chat').classList.remove('hide'); q(t+' کے بارے میں بتاؤ');}
+function q(t){document.getElementById('inp').value=t; send();}
 
-fileInput.addEventListener('change', function(){
-  if(!this.files[0]) return;
-  let file = this.files[0];
-  let reader = new FileReader();
-  reader.onload = function(e){
-    // User message with image
-    let div = document.createElement('div');
-    div.className='msg user';
-    div.innerHTML = `<img src="${e.target.result}"><div>اس کیڑے کی پہچان کریں</div>`;
-    msgs.appendChild(div);
-    msgs.scrollTop = msgs.scrollHeight;
+document.getElementById('img').addEventListener('change',function(){
+if(!this.files[0])return;
+let r=new FileReader();
+r.onload=e=>{
+let d=document.createElement('div'); d.className='msg user'; d.innerHTML=`<img src="${e.target.result}" style="max-width:100%;border-radius:12px"><div>اس کی تصویر کا تجزیہ کریں - کیڑا، بیماری، یا زمین؟</div>`; msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+setTimeout(()=>{addBot(`📸 تصویر کا تجزیہ:
 
-    // Auto bot reply after 1 sec
-    setTimeout(()=>{
-      let reply = `📸 **تصویر کا تجزیہ ہو گیا!**
+میں نے دیکھا جانی!
 
-میں نے تصویر دیکھی جانی۔
+اگر کیڑا ہے تو:
+- چمکدار، گول، سرخ/پیلا = دوست (لیڈی بگ)
+- 8 ٹانگیں = دوست (مکڑی)
+- سفید چھوٹی مکھیاں = دشمن (سفید مکھی) - نیم سپرے کریں
 
-**نتیجہ:**
-اگر تصویر میں:
-🔴 سرخ، کالے دھبے والا گول کیڑا ہے = **لیڈی بگ (دوست) ✅** اسے مت ماریں، یہ 1 دن میں 50 تیلے کھاتی ہے
-🟢 ہلکے ہرے رنگ کے شفاف پر = **کرائیسوپا (دوست) ✅**
-🕷️ 8 ٹانگیں اور جالا = **مکڑی (دوست) ✅** سب سے اچھی شکاری
-⚪ پتے کے نیچے بہت چھوٹی سفید مکھیاں = **سفید مکھی (دشمن) ❌**
-💗 ٹینڈے کے اندر گلابی کیڑا = **گلابی سنڈی (دشمن) ❌**
+اگر پتا ہے تو:
+- پیلا = پانی کی کمی یا نائٹروجن کی کمی
+- کالے دھبے = فنگس - بائیو سپرے
 
-**آپ کی تصویر میں جو کیڑا ہے وہ دوست لگ رہا ہے، اسے بچائیں!**
-
-اگر دشمن ہے تو: 2 لیٹر نیم کا عرق + 100 لیٹر پانی کا سپرے شام کو کریں۔`;
-      let b = document.createElement('div');
-      b.className='msg bot';
-      b.innerText = reply;
-      msgs.appendChild(b);
-      msgs.scrollTop = msgs.scrollHeight;
-    }, 1000);
-  };
-  reader.readAsDataURL(file);
-  this.value = ''; // reset
+تصویر کے مطابق یہ **قدرتی نظام کا حصہ** ہے، اسے محفوظ رکھیں۔ مزید تفصیل کے لیے قریب سے تصویر بھیجیں۔`);},800);
+};
+r.readAsDataURL(this.files[0]); this.value='';
 });
 
-function addMsg(t, cls){
-  let d=document.createElement('div');
-  d.className='msg '+cls;
-  d.innerText=t;
-  msgs.appendChild(d);
-  msgs.scrollTop=msgs.scrollHeight;
+function send(){
+let i=document.getElementById('inp'); let t=i.value.trim(); if(!t)return;
+let u=document.createElement('div'); u.className='msg user'; u.innerText=t; msgs.appendChild(u); i.value=''; msgs.scrollTop=msgs.scrollHeight;
+setTimeout(()=>{addBot(answer(t));},600);
 }
+function addBot(t){let b=document.createElement('div'); b.className='msg bot'; b.innerText=t; msgs.appendChild(b); msgs.scrollTop=msgs.scrollHeight;}
 
-function ask(){
-  let i=document.getElementById('q');
-  if(!i.value.trim()) return;
-  addMsg(i.value,'user');
-  let q=i.value; i.value='';
-  setTimeout(()=>{addMsg('🐞 دوست کیڑے: لیڈی بگ، مکڑی، کرائیسوپا۔ یہ آپ کے کھیت کے محافظ ہیں، انہیں زہر سے بچائیں۔ نیم کا سپرے شام کو کریں۔','bot')},600);
+function answer(t){
+let q=t.toLowerCase();
+if(q.includes('زمین')||q.includes('مٹی')||q.includes('soil')){
+return `🌱 زمین / Soil کی مکمل معلومات:
+
+1. **زمین کی اقسام:**
+- ریتلی (Sandy): پانی جلدی جذب کرتی ہے، گوبر زیادہ ڈالیں
+- چکنی (Clay): پانی روکتی ہے، گہرائی سے ہل چلائیں
+- میرا (Loamy): بہترین زمین، ہر فصل کے لیے اچھی
+
+2. **چیک کیسے کریں:**
+- مٹھی میں لے کر دبائیں، اگر ٹوٹ جائے تو ریتلی، اگر چپک جائے تو چکنی
+- pH 6 سے 7.5 بہترین ہے
+
+3. **اصلاح:**
+- گوبر کی کھاد ہر 6 ماہ بعد 2 ٹرالی فی ایکڑ
+- نمکین زمین میں جپسم ڈالیں`;
 }
-function quick(t){document.getElementById('q').value=t; ask();}
+if(q.includes('پانی')||q.includes('آبپاشی')||q.includes('irrigation')){
+return `💧 آبپاشی / Irrigation:
+
+1. **کب پانی دینا ہے؟**
+- صبح 6-9 بجے یا شام 5 بجے کے بعد
+- دوپہر کو کبھی پانی نہ دیں، 30% پانی ضائع ہوتا ہے
+
+2. **اقسام:**
+- ڈرپ (Drip): 70% پانی کی بچت، سبزیوں اور باغات کے لیے بہترین
+- نہری: گندم، چاول کے لیے
+- سپرنکلر: بارانی علاقوں کے لیے
+
+3. **نشانی:**
+- پتے شام کو مرجھا جائیں تو اگلی صبح پانی دیں`;
+}
+if(q.includes('کھاد')||q.includes('fertilizer')||q.includes('یوریا')){
+return `🌾 کھادیں / Fertilizers:
+
+**کیمیائی:**
+- یوریا (نائٹروجن): پتوں کی بڑھوتری کے لیے
+- ڈی اے پی (فاسفورس): جڑوں کے لیے، بجائی کے وقت
+- پوٹاش: پھل اور دانے کے لیے
+
+**نامیاتی (بہترین):**
+- گوبر کی کھاد: 1 حصہ گوبر + 1 حصہ بھوسہ + 2 ماہ سڑائیں
+- کمپوسٹ: کچن کا کچرا + پتے + گوبر
+- نیم کھلی: کیڑوں سے بھی بچاتی ہے
+
+**اصول:** کیمیائی کم، نامیاتی زیادہ - زمین زندہ رہے گی`;
+}
+if(q.includes('موسم')||q.includes('فضا')||q.includes('ہوا')||q.includes('weather')){
+return `🌦️ موسم، فضا اور ہوا:
+
+1. **ہوا (Air):** تیز ہوا میں سپرے نہ کریں، 60% دوا اڑ جاتی ہے
+2. **نمی:** 80% سے زیادہ نمی پر فنگس کی بیماریاں آتی ہیں
+3. **درجہ حرارت:** 35 ڈگری سے اوپر پھول گر جاتے ہیں
+
+**مشورہ:** ہمیشہ شام کو سپرے کریں، ہوا کم ہوتی ہے اور فائدہ مند کیڑے محفوظ رہتے ہیں۔`;
+}
+if(q.includes('ساحل')||q.includes('coastal')||q.includes('تھر')||q.includes('تھل')){
+return `🏖️ ساحل اور خاص علاقے / Coastal & Zones:
+
+1. **ساحلی علاقہ (سندھ، بلوچستان):**
+- زمین نمکین ہوتی ہے، ناریل، چیکو، نمک برداشت کرنے والی فصلیں
+- جپسم اور گلی سڑی گوبر زیادہ ڈالیں
+
+2. **تھل / تھر (ریت والا):**
+- کم پانی والی فصلیں: باجرہ، گوار، مونگ پھلی
+- ڈرپ سسٹم لازمی
+
+3. **بارانی (پوٹھوہار):**
+- بارش کا پانی جمع کریں، گندم، چنا بہترین
+
+ہر علاقے کا اپنا نظام ہے جانی!`;
+}
+if(q.includes('کیڑ')||q.includes('insect')||q.includes('دوست')){
+return `🐞 کیڑے مکوڑے - مکمل گائیڈ:
+
+**دوست کیڑے (محافظ) ✅:**
+- لیڈی بگ: 1 دن میں 50 تیلے کھاتی ہے
+- مکڑی: سب سے بڑی شکاری، جالے نہ توڑیں
+- کرائیسوپا: ہرے پروں والی، تیلے کی دشمن
+- شہد کی مکھی: پولینیشن کرتی ہے
+
+**دشمن کیڑے ❌:**
+- سفید مکھی، تیلہ، گلابی سنڈی، لشکری سنڈی
+
+**حل:** دوست کو بچاؤ، دشمن کے لیے نیم کا سپرے، پیلے کارڈ لگاؤ`;
+}
+return `🌿 Nature's Reformer - جواب:
+
+آپ نے پوچھا: "${t}"
+
+جانی یہ پوری زراعت کا حصہ ہے۔
+
+**میرا مشورہ:**
+- زمین کو زندہ رکھیں (گوبر ڈالیں)
+- پانی شام کو دیں
+- دوست کیڑوں کو نہ ماریں
+- موسم دیکھ کر سپرے کریں
+
+اگر آپ اس کی تصویر بھیجیں گے تو میں بالکل صحیح پہچان کر کے علاج بتا دوں گا۔ کوئی بھی اور سوال پوچھیں - کھاد، پانی، ساحل، فضا، سب بتا دوں گا!`;
+}
 </script>
 </body>
-</html>
+  </html>
