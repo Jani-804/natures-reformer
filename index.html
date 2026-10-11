@@ -9,7 +9,7 @@
 body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f7f2}
 .header{background:linear-gradient(135deg,#0a2212,#1a7a3a 70%,#22c55e);color:white;padding:25px 15px}
 .top{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center}
-.logo{font-family:Inter;font-weight:800;font-size:22px;letter-spacing:0.5px}
+.logo{font-family:Inter;font-weight:800;font-size:22px}
 .hero{max-width:1200px;margin:0 auto;padding:20px 10px 10px;text-align:center}
 .hero h1{font-size:34px;margin:0;line-height:1.4}
 .hero p{opacity:0.95;font-size:15px;margin-top:8px}
@@ -53,20 +53,10 @@ body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f
 <div class="card" onclick="openAI('بیماریاں اور علاج')"><span class="tag orange">Disease</span><b>🩺 بیماریاں اور علاج</b><p>پتوں کا پیلا ہونا، رسٹ، بلائٹ، وائرس - تصویر سے تشخیص</p></div>
 </div>
 
-<!-- AI CHAT - اب ڈیمو نہیں، سیدھا چیٹ -->
 <div class="chat hide" id="chat">
 <div class="chatHead"><span>🌿 زرعی AI - ہر سوال کا جواب</span><span style="cursor:pointer" onclick="document.getElementById('chat').classList.add('hide')">✖️</span></div>
 <div class="msgs" id="msgs">
-<div class="msg bot">السلام علیکم جانی! میں آپ کا مکمل زرعی AI ہوں۔
-
-اب میں صرف کپاس نہیں، **پوری زراعت** جانتا ہوں۔
-
-- "میری زمین ریتلی ہے کونسی کھاد ڈالوں؟"
-- "ساحل کے قریب کونسی فصل بہتر ہے؟"
-- "پانی کب دوں؟"
-- "یہ کیڑا دوست ہے یا دشمن؟" (تصویر بھیجیں)
-
-کارڈ پر کلک کیا ہے، اب سوال پوچھیں، میں اردو میں جواب دوں گا!</div>
+<div class="msg bot">السلام علیکم جانی! میں آپ کا مکمل زرعی AI ہوں۔ کارڈ پر کلک کیا ہے، اب سوال پوچھیں، میں اردو میں جواب دوں گا!</div>
 </div>
 <div style="padding:8px 10px;background:#f8fafc;display:flex;gap:6px;flex-wrap:wrap;border-top:1px solid #eee">
 <button onclick="q('زمین کیسے چیک کروں؟')" style="padding:5px 10px;border-radius:15px;border:1px solid #ddd;background:white;font-size:12px">🌱 زمین</button>
@@ -84,14 +74,8 @@ body{font-family:'Noto Nastaliq Urdu','Inter',system-ui;margin:0;background:#f6f
 <script>
 const msgs=document.getElementById('msgs');
 const chatBox=document.getElementById('chat');
-
-function openAI(topic){
-  chatBox.classList.remove('hide');
-  document.getElementById('inp').value = topic + ' کے بارے میں تفصیل سے بتاؤ';
-  send();
-}
+function openAI(topic){ chatBox.classList.remove('hide'); document.getElementById('inp').value = topic + ' کے بارے میں تفصیل سے بتاؤ'; send(); }
 function q(t){document.getElementById('inp').value=t; send();}
-
 document.getElementById('img').addEventListener('change',function(){
 if(!this.files[0])return;
 let r=new FileReader();
@@ -100,76 +84,31 @@ let d=document.createElement('div'); d.className='msg user'; d.innerHTML=`<img s
 setTimeout(()=>{addBot(`📸 تصویر کا تجزیہ ہو گیا جانی!
 
 اگر کیڑا ہے:
-- چمکدار گول سرخ/پیلا = لیڈی بگ (دوست) ✅ 1 دن میں 50 تیلے کھاتی ہے
+- چمکدار گول سرخ/پیلا = لیڈی بگ (دوست) ✅
 - 8 ٹانگیں = مکڑی (دوست) ✅
-- سفید چھوٹی مکھیاں = سفید مکھی (دشمن) ❌ نیم سپرے 2 لیٹر + 100 لیٹر پانی
+- سفید چھوٹی مکھیاں = سفید مکھی (دشمن) ❌
 
 اگر پتا ہے:
-- پیلا = نائٹروجن کمی یا پانی کمی
-- کالے دھبے = فنگس
-
-یہ قدرتی نظام کا حصہ ہے، اسے محفوظ رکھیں۔`);},800);
+- پیلا = نائٹروجن کمی
+- کالے دھبے = فنگس`);},800);
 };
 r.readAsDataURL(this.files[0]); this.value='';
 });
-
 function send(){
 let i=document.getElementById('inp'); let t=i.value.trim(); if(!t)return;
 let u=document.createElement('div'); u.className='msg user'; u.innerText=t; msgs.appendChild(u); i.value=''; msgs.scrollTop=msgs.scrollHeight;
 setTimeout(()=>{addBot(answer(t));},600);
 }
 function addBot(t){let b=document.createElement('div'); b.className='msg bot'; b.innerText=t; msgs.appendChild(b); msgs.scrollTop=msgs.scrollHeight;}
-
 function answer(t){
 let q=t.toLowerCase();
-if(q.includes('زمین')||q.includes('مٹی')||q.includes('soil')){
-return `🌱 زمین / Soil:
-
-1. اقسام: ریتلی (پانی جلدی جذب)، چکنی (پانی روکتی ہے)، میرا (بہترین)
-2. چیک: مٹھی میں دبائیں، ٹوٹ جائے تو ریتلی، چپک جائے تو چکنی
-3. pH 6-7.5 بہترین
-4. اصلاح: ہر 6 ماہ بعد 2 ٹرالی گوبر فی ایکڑ، نمکین زمین میں جپسم`;
-}
-if(q.includes('پانی')||q.includes('آبپاشی')){
-return `💧 آبپاشی:
-
-- صبح 6-9 یا شام 5 کے بعد پانی دیں، دوپہر کو 30% ضائع
-- ڈرپ سے 70% بچت - سبزیوں/باغات کے لیے بہترین
-- نہری - گندم/چاول
-- نشانی: پتے شام کو مرجھا جائیں تو صبح پانی دیں`;
-}
-if(q.includes('کھاد')){
-return `🌾 کھادیں:
-
-کیمیائی: یوریا (پتے)، ڈی اے پی (جڑ)، پوٹاش (پھل)
-نامیاتی: گوبر + بھوسہ 2 ماہ سڑائیں، کمپوسٹ، نیم کھلی
-اصول: کیمیائی کم، نامیاتی زیادہ`;
-}
-if(q.includes('موسم')||q.includes('فضا')||q.includes('ہوا')){
-return `🌦️ موسم/فضا/ہوا:
-
-- تیز ہوا میں سپرے نہ کریں 60% دوا اڑ جاتی ہے
-- 80% نمی پر فنگس آتی ہے
-- 35 ڈگری سے اوپر پھول گرتے ہیں
-- ہمیشہ شام کو سپرے کریں`;
-}
-if(q.includes('ساحل')||q.includes('تھل')||q.includes('تھر')||q.includes('بارانی')){
-return `🏖️ ساحل/تھل/بارانی:
-
-ساحلی (سندھ): زمین نمکین، ناریل/چیکو، جپسم + گوبر
-تھل/تھر: باجرہ/گوار/مونگ پھلی، ڈرپ لازمی
-بارانی (پوٹھوہار): بارش کا پانی جمع کریں، گندم/چنا`;
-}
-if(q.includes('کیڑ')){
-return `🐞 کیڑے:
-
-دوست ✅: لیڈی بگ (50 تیلے/دن)، مکڑی، کرائیسوپا، شہد کی مکھی
-دشمن ❌: سفید مکھی، تیلہ، گلابی سنڈی
-حل: دوست بچاؤ، دشمن کے لیے نیم سپرے + پیلے کارڈ`;
-}
-return `🌿 آپ نے پوچھا: "${t}"
-
-جانی یہ مکمل زراعت کا حصہ ہے۔ زمین زندہ رکھیں (گوبر)، پانی شام کو، دوست کیڑے نہ ماریں، موسم دیکھ کر سپرے کریں۔ تصویر بھیجیں تو صحیح پہچان بتا دوں گا!`;
+if(q.includes('زمین')||q.includes('مٹی')){return `🌱 زمین: ریتلی میں گوبر زیادہ، چکنی میں گہرائی سے ہل، میرا بہترین۔ pH 6-7.5 رکھیں، ہر 6 ماہ 2 ٹرالی گوبر`; }
+if(q.includes('پانی')){return `💧 پانی: صبح 6-9 یا شام 5 کے بعد دیں۔ ڈرپ سے 70% بچت۔ پتے شام کو مرجھائیں تو صبح پانی دیں`; }
+if(q.includes('کھاد')){return `🌾 کھاد: یوریا پتے، ڈی اے پی جڑ، پوٹاش پھل کے لیے۔ دیسی: گوبر+بھوسہ 2 ماہ سڑائیں`; }
+if(q.includes('موسم')||q.includes('ہوا')){return `🌦️ موسم: تیز ہوا میں سپرے نہ کریں، 80% نمی پر فنگس، 35 ڈگری سے اوپر پھول گرتے ہیں`; }
+if(q.includes('ساحل')||q.includes('تھل')){return `🏖️ ساحل/تھل: ساحلی زمین نمکین - ناریل/چیکو، جپسم ڈالیں۔ تھل میں باجرہ/گوار، ڈرپ لازمی`; }
+if(q.includes('کیڑ')){return `🐞 کیڑے: دوست ✅ لیڈی بگ 50 تیلے/دن، مکڑی، کرائیسوپا۔ دشمن ❌ سفید مکھی/تیلہ۔ حل: نیم سپرے + پیلے کارڈ`; }
+return `🌿 آپ نے پوچھا: "${t}" - زمین زندہ رکھیں، پانی شام کو، دوست کیڑے بچائیں۔ تصویر بھیجیں تو پہچان بتا دوں گا!`;
 }
 </script>
 </body>
