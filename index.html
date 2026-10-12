@@ -3,176 +3,228 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mother Nature Reformer - فطرت کی پکار</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Nature's Reformer - Reformers AI Hub | فطرت کی پکار</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--green:#0f3d2e;--lime:#a3d977;--earth:#f4f1e8}
+:root{--green:#0a2e1f;--green2:#145a32;--lime:#8fdf82;--lime2:#d4f5d2;--earth:#f6f9f2;--orange:#ff7a3d;--red:#c0392b}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Poppins','Noto Nastaliq Urdu',sans-serif;background:var(--earth);transition:0.3s}
+body{background:var(--earth);font-family:'Poppins',sans-serif;color:#222}
 .rtl{font-family:'Noto Nastaliq Urdu',serif;direction:rtl}
 .ltr{font-family:'Poppins',sans-serif;direction:ltr}
-header{position:sticky;top:0;z-index:1000;background:rgba(15,61,46,0.95);backdrop-filter:blur(10px);color:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-.logo{font-size:22px;font-weight:800}
-.lang-switch{display:flex;gap:4px;background:rgba(255,255,255,0.15);padding:4px;border-radius:30px}
-.lang-switch button{border:none;padding:6px 14px;border-radius:20px;cursor:pointer;background:transparent;color:white;font-weight:600}
-.lang-switch button.active{background:white;color:var(--green)}
-.hero{min-height:85vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;background:linear-gradient(rgba(15,61,46,0.7),rgba(15,61,46,0.85)),url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920') center/cover}
-.hero-content{max-width:950px;padding:40px 20px}
-.hero h1{font-size:48px;line-height:1.2;margin-bottom:15px}
-.hero p{font-size:18px;opacity:0.95;margin:20px auto;line-height:1.8;max-width:800px}
-.btn{display:inline-block;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;margin:8px;cursor:pointer;border:none}
-.btn-primary{background:var(--lime);color:var(--green)}
-.btn-outline{background:transparent;border:2px solid white;color:white}
-.section{padding:70px 20px;max-width:1300px;margin:auto}
-.section-title{text-align:center;margin-bottom:40px}
-.section-title h2{font-size:36px;color:var(--green)}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
-.card{background:white;border-radius:18px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06)}
-.card-img{height:200px;background-size:cover;background-position:center}
+header{position:sticky;top:0;z-index:999;background:linear-gradient(90deg,#0a2e1f,#145a32);color:white;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.logo{font-weight:800;font-size:20px;line-height:1.2}
+.logo small{display:block;font-size:11px;letter-spacing:2px;color:var(--lime);font-weight:600}
+.langs{display:flex;gap:4px;background:rgba(255,255,255,0.12);padding:4px;border-radius:30px}
+.langs button{border:none;padding:6px 12px;border-radius:20px;background:transparent;color:white;cursor:pointer;font-weight:700}
+.langs button.active{background:white;color:var(--green)}
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;background:linear-gradient(120deg,rgba(10,46,31,0.85),rgba(20,90,50,0.75)),url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920') center/cover}
+.hero-inner{max-width:1050px;padding:30px 20px}
+.badge-top{display:inline-block;background:rgba(143,223,130,0.2);border:1px solid var(--lime);color:var(--lime);padding:6px 16px;border-radius:30px;font-size:13px;margin-bottom:16px;letter-spacing:1px}
+.hero h1{font-size:52px;font-weight:800;line-height:1.15;margin-bottom:12px}
+.hero h1 span{color:var(--lime)}
+.hero p{font-size:19px;line-height:1.8;opacity:0.95;max-width:850px;margin:16px auto}
+.hero-buttons{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{padding:14px 30px;border-radius:50px;text-decoration:none;font-weight:700;border:none;cursor:pointer;font-size:15px;transition:0.3s;display:inline-block}
+.btn-lime{background:var(--lime);color:var(--green);box-shadow:0 8px 25px rgba(143,223,130,0.4)}
+.btn-white{background:white;color:var(--green)}
+.section{max-width:1320px;margin:auto;padding:70px 20px}
+.section-title{text-align:center;margin-bottom:42px}
+.section-title h2{font-size:38px;color:var(--green);font-weight:800}
+.section-title p{color:#5a6b5d;max-width:800px;margin:10px auto 0;font-size:17px;line-height:1.7}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);border:1px solid #eef3e8;transition:0.35s}
+.card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,0.12)}
+.card-img{height:210px;background-size:cover;background-position:center;position:relative}
+.card-img::after{content:'Environment Friendly';position:absolute;top:12px;left:12px;background:var(--lime);color:var(--green);font-size:11px;font-weight:800;padding:5px 10px;border-radius:20px}
 .card-body{padding:22px}
-.card-body h3{color:var(--green);margin-bottom:8px}
-.knowledge-vault{background:linear-gradient(135deg,#0f3d2e,#1a5c3a);color:white;border-radius:24px;padding:40px 25px;margin:30px 0}
-.vault-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:20px}
-.vault-item{background:rgba(255,255,255,0.12);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);cursor:pointer}
-.chatbot-btn{position:fixed;bottom:25px;right:25px;z-index:9999;background:var(--green);color:white;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 8px 25px rgba(15,61,46,0.4);border:3px solid var(--lime)}
-.chatbot-window{position:fixed;bottom:100px;right:25px;width:380px;max-width:90vw;height:540px;background:white;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);z-index:9999;display:none;flex-direction:column;overflow:hidden}
-.chatbot-header{background:var(--green);color:white;padding:14px 18px;display:flex;justify-content:space-between}
-.chat-body{flex:1;overflow-y:auto;padding:14px;background:#f9f9f7;display:flex;flex-direction:column;gap:10px}
-.msg{max-width:88%;padding:11px 15px;border-radius:16px;font-size:14px;line-height:1.6;white-space:pre-wrap}
-.msg.bot{background:white;border:1px solid #e0e0d0;align-self:flex-start}
-.msg.user{background:var(--green);color:white;align-self:flex-end}
-.chat-input{display:flex;padding:10px;border-top:1px solid #eee;gap:8px}
-.chat-input input{flex:1;padding:11px 14px;border:1px solid #ddd;border-radius:25px;outline:none}
-.chat-input button{background:var(--green);color:white;border:none;width:42px;height:42px;border-radius:50%;cursor:pointer}
-footer{background:#081a12;color:rgba(255,255,255,0.8);padding:50px 20px;text-align:center}
-@media(max-width:768px){.hero h1{font-size:32px}}
+.card-body h3{color:var(--green);font-size:20px;margin-bottom:8px}
+.card-body p{color:#5a5a5a;font-size:14px;line-height:1.75}
+.tag{display:inline-block;font-size:11px;font-weight:800;padding:4px 10px;border-radius:20px;margin-bottom:8px}
+.tag-red{background:#fdecea;color:var(--red)}
+.tag-green{background:var(--lime2);color:var(--green2)}
+.tag-orange{background:#fff2e6;color:var(--orange)}
+.chemical-table{width:100%;border-collapse:collapse;background:white;border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);margin:25px 0}
+.chemical-table th{background:var(--green);color:white;padding:14px 12px;text-align:left;font-size:13px}
+.chemical-table td{padding:14px 12px;border-bottom:1px solid #eef0eb;font-size:13px;line-height:1.6}
+.chemical-table tr:hover{background:#f6f9f2}
+.hub-box{background:linear-gradient(135deg,#0a2e1f 0%,#1e8449 100%);color:white;border-radius:26px;padding:45px 28px;position:relative;overflow:hidden}
+.hub-box::before{content:'🌿';position:absolute;top:-20px;right:-20px;font-size:160px;opacity:0.07}
+.hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;margin-top:22px}
+.hub-item{background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.15);padding:16px;border-radius:14px;cursor:pointer;transition:0.3s;backdrop-filter:blur(6px)}
+.hub-item:hover{background:rgba(255,255,255,0.18);transform:translateY(-3px)}
+.hub-item h4{font-size:14px;margin-bottom:4px}
+.hub-item p{font-size:11px;opacity:0.8}
+.stats{background:var(--green);color:white;padding:50px 20px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:20px;max-width:1000px;margin:24px auto 0}
+.stat h3{font-size:40px;color:var(--lime)}
+.chat-btn{position:fixed;bottom:22px;right:22px;z-index:9999;background:linear-gradient(135deg,#0a2e1f,#1e8449);color:white;width:68px;height:68px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,0.3);border:3px solid var(--lime);animation:pulse 2s infinite}
+.chat-win{position:fixed;bottom:98px;right:20px;width:390px;max-width:94vw;height:560px;background:white;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.25);z-index:9999;display:none;flex-direction:column;overflow:hidden;border:1px solid #e0e0e0}
+.chat-head{background:linear-gradient(90deg,#0a2e1f,#145a32);color:white;padding:14px 16px;display:flex;justify-content:space-between;align-items:center}
+.chat-body{flex:1;overflow-y:auto;padding:14px;background:#f7f8f5;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:90%;padding:11px 14px;border-radius:16px;font-size:13.5px;line-height:1.7;white-space:pre-wrap}
+.msg.bot{background:white;border:1px solid #dde3d8;align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:var(--green);color:white;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-in{display:flex;padding:10px;border-top:1px solid #eee;gap:8px}
+.chat-in input{flex:1;padding:11px 14px;border:1px solid #ddd;border-radius:25px;outline:none;font-size:14px}
+.chat-in button{background:var(--green);color:white;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer}
+footer{background:#061a12;color:#b8c7b8;padding:50px 20px;text-align:center}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(143,223,130,0.7)}70%{box-shadow:0 0 0 16px rgba(143,223,130,0)}100%{box-shadow:0 0 0 0 rgba(143,223,130,0)}}
+@media(max-width:768px){.hero h1{font-size:34px}.hero p{font-size:16px}}
 </style>
 </head>
 <body class="rtl">
 <header>
-<div class="logo">🌍 <span id="logo1">مادرِ فطرت</span> <span id="logo2" style="color:#a3d977">ریفارمر</span></div>
-<div class="lang-switch">
-<button onclick="changeLang('ur')" id="b-ur" class="active">اردو</button>
-<button onclick="changeLang('en')" id="b-en">EN</button>
-<button onclick="changeLang('ar')" id="b-ar">عربي</button>
-<button onclick="changeLang('tr')" id="b-tr">TR</button>
-<button onclick="changeLang('fr')" id="b-fr">FR</button>
+<div class="logo">🌍 <span id="logoA">Nature's Reformer</span><small id="logoB">REFORMERS AI HUB - ENVIRONMENT FRIENDLY</small></div>
+<div class="langs">
+<button onclick="setLang('ur')" id="b-ur" class="active">اردو</button>
+<button onclick="setLang('en')" id="b-en">EN</button>
+<button onclick="setLang('ar')" id="b-ar">عربي</button>
+<button onclick="setLang('tr')" id="b-tr">TR</button>
+<button onclick="setLang('fr')" id="b-fr">FR</button>
 </div>
 </header>
 
 <div class="hero">
-<div class="hero-content">
-<h1 id="h1">فطرت سسک رہی ہے... <br><span style="color:#a3d977">کیا آپ سُن رہے ہیں؟</span></h1>
-<p id="h2">ہم نے زمین کو زہریلے کیمیکلز اور لالچ کی بھٹی میں جھونک دیا ہے۔ خوراک زہر آلود، دریا خشک، پرندے خاموش ہیں۔ یہ وقت ہے فطرت کی طرف لوٹنے کا۔</p>
-<div style="margin-top:25px">
-<a href="#vault" class="btn btn-primary" id="btn1">تحریک کا حصہ بنیں 🌱</a>
-<a href="#vault" class="btn btn-outline" id="btn2">علم کا خزانہ دیکھیں 📚</a>
+<div class="hero-inner">
+<div class="badge-top" id="topBadge">🌱 ENVIRONMENT FRIENDLY MOVEMENT - REFORMERS AI HUB</div>
+<h1 id="h1">Nature's Reformer<br><span>فطرت کی پکار، انسانیت کی بقا</span></h1>
+<p id="h2">ہم نے مادرِ فطرت کو زہریلے کیمیکلز، مصنوعی کھادوں اور لالچ کی بھٹی میں جھونک دیا۔ خوراک زہر آلود، دریا خشک، مہمان پرندے خاموش اور مچھلیاں تڑپ رہی ہیں۔ یہ Reformers AI Hub آپ کو ہر زہر کا متبادل، ہر بیماری کی وجہ اور ہر مسئلے کا ماحول دوست حل بتائے گا۔</p>
+<div class="hero-buttons">
+<a href="#chemicals" class="btn btn-lime" id="btn1">☠️ کیمیکلز کے خطرات دیکھیں</a>
+<a href="#aihub" class="btn btn-white" id="btn2">🤖 Reformers AI Hub کھولیں</a>
 </div>
 </div>
 </div>
 
-<div class="section" id="vault">
-<div class="knowledge-vault">
-<h2 id="vault-title" style="font-size:32px;text-align:center">📚 فطرت کا خزانہ علم - Knowledge Vault</h2>
-<p id="vault-desc" style="text-align:center;opacity:0.9;margin-top:8px">ہر سوال کا جواب، ہر زہر کا متبادل۔ نیچے کلک کریں یا AI سے پوچھیں۔</p>
-<div class="vault-grid">
-<div class="vault-item" onclick="askBot('مفید کیڑے')"><h4 id="v1-t">🐞 مفید کیڑے</h4><p style="font-size:12px;opacity:0.8" id="v1-d">زہروں کا متبادل</p></div>
-<div class="vault-item" onclick="askBot('فضلہ سے کھاد')"><h4 id="v2-t">♻️ فضلے سے دولت</h4><p style="font-size:12px;opacity:0.8" id="v2-d">کمپوسٹ، بائیوگیس</p></div>
-<div class="vault-item" onclick="askBot('دریا کیوں خشک')"><h4 id="v3-t">🌊 دریا کی موت</h4><p style="font-size:12px;opacity:0.8" id="v3-d">بحالی کے طریقے</p></div>
-<div class="vault-item" onclick="askBot('مہمان پرندے')"><h4 id="v4-t">🦆 مہمان پرندے</h4><p style="font-size:12px;opacity:0.8" id="v4-d">شکار کے خلاف</p></div>
-<div class="vault-item" onclick="askBot('مچھلی کرنٹ')"><h4 id="v5-t">🐟 آبی حیات</h4><p style="font-size:12px;opacity:0.8" id="v5-d">ظالمانہ شکار</p></div>
-<div class="vault-item" onclick="askBot('موسمیاتی تغیر')"><h4 id="v6-t">🌡️ کلائمیٹ</h4><p style="font-size:12px;opacity:0.8" id="v6-d">بچاؤ کے طریقے</p></div>
+<div class="section" id="chemicals">
+<div class="section-title">
+<h2 id="chemTitle">☠️ زہریلے کیمیکلز - خاموش قاتل</h2>
+<p id="chemDesc">یہ وہ زہر ہیں جو آپ کی پلیٹ میں، آپ کے خون میں اور آپ کے بچوں کے مستقبل میں شامل ہو چکے ہیں۔</p>
+</div>
+<div class="section">
+<div class="section-title">
+<h2 id="altTitle">🌿 زہروں کا متبادل - Environment Friendly حل</h2>
+<p id="altDesc">اللہ نے ہر زہر کا توڑ فطرت میں رکھا ہے۔</p>
+</div>
+<div class="grid3">
+<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1535068484677-6cbff6a6f4ba?q=80&w=600')"></div><div class="card-body"><span class="tag tag-green">Environment Friendly</span><h3 id="a1-t">لیڈی برڈ - قدرت کی سپاہی</h3><p id="a1-d">ایک لیڈی برڈ سال میں 5000 سست تیلے کھاتی ہے۔ 1 ایکڑ میں 1000 لیڈی برڈ = 50 لیٹر زہر کے برابر۔ قیمت: مفت، فطرت دیتی ہے۔</p></div></div>
+<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=600')"></div><div class="card-body"><span class="tag tag-green">Environment Friendly</span><h3 id="a2-t">ٹرائیکوڈرما - زمین کا ڈاکٹر</h3><p id="a2-d">یہ فنگس 90% فصلی بیماریاں ختم کرتا ہے۔ بائیو فرٹیلائزر ہوا سے نائٹروجن لاتا ہے۔ 1 کلو = 3 بوری DAP کے برابر۔</p></div></div>
+<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600')"></div><div class="card-body"><span class="tag tag-green">Environment Friendly</span><h3 id="a3-t">نیم + ورمی کمپوسٹ</h3><p id="a3-d">نیم کا تیل 200 کیڑے بھگاتا ہے، ورمی کمپوسٹ یوریا سے 5 گنا طاقتور۔ لاگت 70% کم، زمین ہمیشہ زرخیز۔</p></div></div>
 </div>
 </div>
-  <footer>
-<h2 style="color:#a3d977;margin-bottom:12px">🌍 Mother Nature Reformer</h2>
-<p id="f-desc">فطرت اللہ کی امانت ہے۔ اسے زہر سے پاک رکھنا فرض ہے۔</p>
-<p style="margin-top:15px;opacity:0.6">© 2026 Built for Earth | Made with 💚 in Pakistan</p>
+
+<footer>
+<h2 style="color:var(--lime)" id="f1">🌍 Nature's Reformer - Reformers AI Hub</h2>
+<p style="max-width:750px;margin:12px auto;line-height:1.8" id="f2">یہ سائٹ صدقہ جاریہ ہے۔ Environment Friendly طرز زندگی اپنائیں۔ فطرت اللہ کی امانت ہے، اسے زہر سے پاک رکھنا ہمارا فرض ہے۔</p>
+<p style="margin-top:16px;opacity:0.6">© 2026 Nature's Reformer | Reformers AI Hub | Made with 💚 for Earth | Environment Friendly | Pakistan</p>
 </footer>
 
-<div class="chatbot-btn" onclick="toggleChat()">🤖</div>
-<div class="chatbot-window" id="chatWindow">
-<div class="chatbot-header"><h4 id="chat-title">🌿 فطرت کا AI مددگار</h4><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
+<div class="chat-btn" onclick="toggleChat()">🤖</div>
+<div class="chat-win" id="chatWin">
+<div class="chat-head"><h4 id="chatTitle">🌿 Reformers AI Hub - Environment Friendly</h4><span style="cursor:pointer" onclick="toggleChat()">✕</span></div>
 <div class="chat-body" id="chatBody">
-<div class="msg bot" id="chat-welcome">السلام علیکم جانی! میں فطرت کا AI ہوں۔ مفید کیڑوں، کھاد، دریاؤں، پرندوں، مچھلیوں یا موسم کے بارے میں اردو یا انگلش میں پوچھیں، میں خزانہ علم سے لنک کے ساتھ جواب دوں گا۔</div>
+<div class="msg bot" id="welcome">السلام علیکم جانی! میں Reformers AI Hub ہوں 🌍\n\nمیں Nature's Reformer کا ذہین ترین AI ہوں۔ میرے پاس 100+ زہریلے کیمیکلز، ان کے خطرات، مفید کیڑوں، نامیاتی کھیتی، دریاؤں، پرندوں، مچھلیوں، موسمیاتی تغیر اور فضلہ سے دولت کا مکمل خزانہ ہے۔\n\nاردو یا انگلش میں پوچھیں:\n- Glyphosate کے نقصانات؟\n- ورمی کمپوسٹ کیسے بنائیں؟\n- دریا کیسے بچائیں؟\n\nمیں تفصیل + لنک کے ساتھ جواب دوں گا۔</div>
 </div>
-<div class="chat-input">
-<input type="text" id="chatInput" placeholder="سوال لکھیں... / Ask..." onkeypress="if(event.key==='Enter')sendMsg()">
+<div class="chat-in">
+<input id="chatInput" placeholder="سوال لکھیں... / Ask about chemicals, hazards..." onkeypress="if(event.key==='Enter')sendMsg()">
 <button onclick="sendMsg()">➤</button>
 </div>
 </div>
 
 <script>
-const knowledgeBase=[
-{keys:["مفید کیڑے","ladybird","trichogramma","beneficial","کیڑے","böcek","insecte","حشرات"],ur:"🐞 مفید کیڑے - قدرت کے سپاہی\n\n1. لیڈی برڈ: روزانہ 50 تیلے کھاتی ہے\n2. ٹرائیکوگراما: بورر کے انڈے ختم\n3. کرائیسوپا: نرم کیڑوں کا دشمن\n\n🔗 مزید پڑھیں:\n- FAO: fao.org/beneficial-insects\n- Wikipedia: Trichogramma\n\nحل: کھیت کے کنارے پھولدار پودے لگائیں۔",en:"🐞 Beneficial Insects - Nature's Soldiers\n\n1. Ladybird: 50 aphids daily\n2. Trichogramma: Destroys borer eggs\n3. Chrysopa: Enemy of soft pests\n\n🔗 Learn more:\n- FAO: fao.org/beneficial-insects\n- Wikipedia: Trichogramma\n\nSolution: Plant flowering borders.",ar:"🐞 الحشرات النافعة - جنود الطبيعة\n\n1. الدعسوقة: تأكل 50 حشرة يوميا\n2. Trichogramma: يدمر بيض الحفار\n\n🔗 المزيد: fao.org",tr:"🐞 Faydalı Böcekler - Doğanın Askerleri\n\n1. Uğur böceği: Günde 50 yaprak biti yer\n2. Trichogramma: Delici yumurtalarını yok eder\n\n🔗 Daha fazla: fao.org",fr:"🐞 Insectes Bénéfiques - Soldats de la Nature\n\n1. Coccinelle: 50 pucerons par jour\n2. Trichogramma: Détruit les œufs de foreur\n\n🔗 Plus: fao.org"},
-{keys:["کھاد","fertilizer","compost","ورمی","gübre","engrais","سماد"],ur:"🌱 قدرتی کھاد کا خزانہ\n\nورمی کمپوسٹ یوریا سے 5 گنا طاقتور\nازوٹوبیکٹر ہوا سے نائٹروجن لاتا ہے\nطریقہ: 1 ٹن گوبر + 5 کلو کینچوے = 700 کلو کھاد\n\n🔗 لنک: vermicompost FAO Guide",en:"🌱 Natural Fertilizer Treasure\n\nVermicompost 5x stronger than urea\nAzotobacter brings nitrogen from air\nMethod: 1 ton dung + 5kg worms = 700kg compost\n\n🔗 Link: FAO Organic Fertilizer Guide",ar:"🌱 كنز الأسمدة الطبيعية\n\nالسماد الدودي أقوى 5 مرات من اليوريا\n\n🔗 الرابط: دليل FAO",tr:"🌱 Doğal Gübre Hazinesi\n\nVermikompost üreden 5 kat güçlü\n\n🔗 Link: FAO Organik Gübre",fr:"🌱 Trésor d'Engrais Naturel\n\nVermicompost 5x plus fort que l'urée\n\n🔗 Lien: Guide FAO"},
-{keys:["دریا","river","پانی","water","nehir","rivière","نهر"],ur:"🌊 دریا کیوں مر رہے ہیں؟\n\nوجوہات: ریت مافیا، فیکٹری زہر، ڈیم\nحل: 100 میٹر بفر زون، ٹریٹمنٹ پلانٹ\n\n🔗 ماخذ: UN Water Report, WWF Rivers",en:"🌊 Why rivers dying?\n\nCauses: Sand mafia, factory poison, dams\nSolution: 100m buffer zone, treatment plant\n\n🔗 Source: UN Water Report, WWF",ar:"🌊 لماذا تموت الأنهار؟\n\nالسبب: مافيا الرمال، سموم المصانع\n\n🔗 المصدر: تقرير الأمم المتحدة للمياه",tr:"🌊 Nehirler neden ölüyor?\n\nNeden: Kum mafyası, fabrika zehiri\n\n🔗 Kaynak: UN Su Raporu",fr:"🌊 Pourquoi les rivières meurent?\n\nCause: Mafia du sable, poison d'usine\n\n🔗 Source: Rapport ONU Eau"},
-{keys:["پرندے","birds","شکار","hunting","kuş","oiseau","طيور"],ur:"🦆 مہمان پرندوں کا قتل\n\nسائبیریا سے 4000 کلومیٹر سفر، ایک بطخ 1000 مچھر کھاتی ہے\nاسلام میں بلا ضرورت شکار منع\n\n🔗 لنک: BirdLife International",en:"🦆 Killing Migratory Birds\n\nTravel 4000km from Siberia, one duck eats 1000 mosquitoes\nHunting without need is prohibited in Islam\n\n🔗 Link: BirdLife.org",ar:"🦆 قتل الطيور المهاجرة\n\nتسافر 4000 كم من سيبيريا\n\n🔗 الرابط: BirdLife",tr:"🦆 Göçmen Kuşların Katliamı\n\nSibirya'dan 4000km yolculuk\n\n🔗 Link: BirdLife",fr:"🦆 Massacre des Oiseaux Migrateurs\n\nVoyage 4000km depuis Sibérie\n\n🔗 Lien: BirdLife"},
-{keys:["مچھلی","fish","کرنٹ","blast","balık","poisson","سمك"],ur:"🐟 مچھلی پر ظلم - کرنٹ اور بارود\n\nیہ نسل کشی ہے، دریا 2 سال بنجر\nحلال طریقہ: بڑے سوراخ والا جال\n\n🔗 WWF Sustainable Fishing",en:"🐟 Fish Cruelty - Current & Blast\n\nIt's genocide, river barren for 2 years\nHalal: Large hole net\n\n🔗 WWF Sustainable Fishing Guide",ar:"🐟 القسوة على الأسماك\n\nإبادة جماعية\n\n🔗 WWF",tr:"🐟 Balıklara Zulüm\n\nSoykırım, nehir 2 yıl çorak\n\n🔗 WWF",fr:"🐟 Cruauté envers les Poissons\n\nGénocide, rivière stérile 2 ans\n\n🔗 WWF"},
-{keys:["موسمیاتی","climate","گرمی","heat","iklim","climat","مناخ"],ur:"🌡️ موسمیاتی تغیر\n\n10 سال میں 2 ڈگری گرمی بڑھے گی\nحل: دیسی درخت (نیم، کیکر)، بارش کا پانی\nایک درخت 10 AC برابر\n\n🔗 IPCC Report, NASA Climate",en:"🌡️ Climate Change\n\n2°C rise in 10 years\nSolution: Native trees (Neem), rainwater harvesting\nOne tree = 10 ACs cooling\n\n🔗 IPCC Report, NASA Climate",ar:"🌡️ تغير المناخ\n\nارتفاع 2 درجة في 10 سنوات\n\n🔗 تقرير IPCC",tr:"🌡️ İklim Değişikliği\n\n10 yılda 2°C artış\n\n🔗 IPCC Raporu",fr:"🌡️ Changement Climatique\n\n+2°C en 10 ans\n\n🔗 Rapport IPCC"}
+const KB=[
+{keys:["glyphosate","گلیفوسیٹ","roundup","راؤنڈ اپ","جڑی بوٹی"],ur:"☠️ Glyphosate (راؤنڈ اپ) - دنیا کا سب سے زیادہ استعمال ہونے والا زہر\n\n❌ خطرہ:\n1. WHO نے 2015 میں کہا: یہ کینسر کرتا ہے (Group 2A carcinogen)\n2. گردے فیل، جگر خراب، بانجھ پن\n3. بچوں میں پیدائشی نقص\n4. شہد کی مکھی 90% ختم، تتلیاں غائب\n\n🌍 ماحول پر:\nزمین میں 6 ماہ تک رہتا ہے، پانی میں گھل کر دریا زہریلا\n\n✅ Environment Friendly متبادل:\n1. ہاتھ سے گوڈی + ملچنگ (پرالی بچھاؤ)\n2. سرکہ + نمک + ڈش واش اسپرے (1 لیٹر سرکہ + 1 چمچ نمک)\n3. کور کراپ (ڈھانچہ) اگاؤ، جڑی بوٹی خود ختم\n\n🔗 تحقیق: WHO IARC Report 2015, US EPA, Pesticide Action Network",en:"☠️ Glyphosate (Roundup) - World's most used poison\n\n❌ Hazards:\n1. WHO 2015: Carcinogen (Group 2A)\n2. Kidney failure, liver damage, infertility\n3. Birth defects in children\n4. 90% bees gone, butterflies vanished\n\n🌍 Environment:\nStays 6 months in soil, makes rivers toxic\n\n✅ Environment Friendly Alternative:\n1. Hand weeding + mulching (straw)\n2. Vinegar + salt + dishwash spray (1L vinegar + 1 spoon salt)\n3. Cover crops (dhaincha) kills weeds\n\n🔗 Research: WHO IARC 2015, US EPA, PAN"},
+{keys:["chlorpyrifos","کلورپائریفوس","کیڑے مار","pesticide"],ur:"☠️ Chlorpyrifos - بچوں کے دماغ کا دشمن\n\n❌ خطرہ:\n1. بچوں کا IQ 7 پوائنٹ کم کرتا ہے (Columbia University تحقیق)\n2. آٹزم، ADHD، یادداشت ختم\n3. حاملہ عورتوں میں بچہ ضائع\n4. 2021 میں امریکہ نے کھانے پر پابندی لگائی\n\n🌍 ماحول:\nپرندے اندھے ہو جاتے ہیں، مچھلی 1 قطرہ سے مر جاتی ہے\n\n✅ متبادل:\nنیم کا تیل (5ml فی لیٹر) + ٹرائیکوگراما کارڈ (1 ایکڑ میں 5 کارڈ)\nلاگت: زہر سے 60% سستی\n\n🔗 ماخذ: Columbia Center for Children's Health, US EPA Ban 2021",en:"☠️ Chlorpyrifos - Enemy of children's brain\n\n❌ Hazards:\n1. Reduces children's IQ by 7 points (Columbia Uni research)\n2. Autism, ADHD, memory loss\n3. Miscarriage in pregnant women\n4. US banned on food in 2021\n\n🌍 Environment:\nBirds go blind, fish dies with 1 drop\n\n✅ Alternative:\nNeem oil (5ml/L) + Trichogramma cards (5 cards/acre)\nCost: 60% cheaper than poison\n\n🔗 Source: Columbia Center, US EPA Ban 2021"},
+{keys:["مفید کیڑے","beneficial","ladybird","trichogramma","لیڈی"],ur:"🐞 مفید کیڑے - Nature's Reformer کے سپاہی - Environment Friendly\n\n1. لیڈی برڈ (Ladybird):\n- 1 لیڈی برڈ روزانہ 50 سست تیلے کھاتی ہے\n- 1 سال میں 5000 کیڑے، 1 لیٹر زہر کے برابر\n- کیسے بلائیں: کھیت کے کنارے گاجر، دھنیا، سورج مکھی لگائیں\n\n2. ٹرائیکوگراما (Trichogramma):\n- گنے، چاول کے بورر کے انڈے میں اپنے انڈے دیتا ہے\n- 1 کارڈ میں 20,000 کیڑے، قیمت 30 روپے\n- 1 ایکڑ میں 5 کارڈ = زہر ختم\n\n3. کرائیسوپا، مکڑی:\n- نرم کیڑوں کا دشمن، رات کو شکار\n\n🔗 FAO: Conservation of Beneficial Insects\n\nمفت میں فطرت دیتی ہے، زہر کمپنیاں بیچتی ہیں۔",en:"🐞 Beneficial Insects - Soldiers of Nature's Reformer - Environment Friendly\n\n1. Ladybird:\n- Eats 50 aphids daily\n- 5000 insects/year = 1 liter poison\n- How to attract: Plant carrot, coriander, sunflower on border\n\n2. Trichogramma:\n- Lays eggs inside borer eggs\n- 1 card has 20,000 insects, cost Rs 30\n- 5 cards/acre = no poison needed\n\n3. Chrysopa, Spiders:\n- Enemy of soft pests, night hunter\n\n🔗 FAO: Conservation of Beneficial Insects\n\nNature gives free, companies sell poison."},
+{keys:["ورمی","vermi","compost","کمپوسٹ","کھاد","bio"],ur:"♻️ ورمی کمپوسٹ - فضلہ سے سونا - Environment Friendly\n\nکیوں بہترین ہے؟\n- یوریا سے 5 گنا زیادہ نائٹروجن، فاسفورس، پوٹاش\n- زمین میں 1 ارب دوست جراثیم واپس لاتا ہے\n- پانی 40% کم لگتا ہے\n- پیداوار 20% زیادہ\n\nبنانے کا مکمل طریقہ (Reformers AI Hub فارمولا):\n1. 10x3 فٹ کی جگہ، سایہ دار\n2. نیچے 2 انچ گوبر + پرالی\n3. اوپر 1 کلو کینچوے (Eisenia fetida) ڈالو\n4. روزانہ کچن کا کچرا، گوبر ڈالتے جاؤ\n5. 30 دن میں 700 کلو کالی سونے جیسی کھاد تیار\n6. قیمت: 40 روپے کلو بکتی ہے، لاگت 8 روپے\n\n1 ٹن گوبر سے 1 لاکھ روپے سالانہ منافع\n\n🔗 FAO Vermicomposting Manual",en:"♻️ Vermicompost - Waste to Gold - Environment Friendly\n\nWhy best?\n- 5x more NPK than urea\n- Brings back 1 billion friendly microbes\n- Needs 40% less water\n- 20% more yield\n\nFull method (Reformers AI Hub formula):\n1. 10x3 ft shaded place\n2. Bottom 2 inch dung + straw\n3. Add 1kg worms (Eisenia fetida)\n4. Daily add kitchen waste, dung\n5. 700kg black gold in 30 days\n6. Price: Sells Rs 40/kg, cost Rs 8\n\n1 ton dung = Rs 100k profit yearly\n\n🔗 FAO Vermicomposting Manual"},
+{keys:["دریا","river","پانی","water","سندھ","راوی"],ur:"🌊 دریا کیوں مر رہے ہیں؟ - Nature's Reformer تحقیق\n\nوجوہات:\n1. ریت مافیا: روزانہ 1000 ٹرک ریت نکالتے ہیں، دریا کی کمر ٹوٹ گئی\n2. فیکٹری زہر: فیصل آباد، سیالکوٹ کی 90% فیکٹریاں زہر دریا میں پھینکتی ہیں\n3. ڈیم اور بیراج: پانی روک لیا، دریا خشک\n4. جنگل کٹائی: دریا کے کنارے درخت تھے جو پانی روکتے تھے\n\nحل - Reformers AI Hub پلان:\n1. River Buffer Zone: دریا کے دونوں طرف 100 میٹر تک کوئی تعمیر نہیں\n2. Treatment Plant: ہر فیکٹری پر لازمی، عوام چیک کرے\n3. River Watch: ہر گاؤں کے نوجوان دریا کے محافظ بنیں\n4. Rain Harvesting: ہر گھر بارش کا پانی جمع کرے، 50,000 لیٹر سالانہ\n\n🔗 UN Water Report 2023, WWF Pakistan River Project",en:"🌊 Why rivers dying? - Nature's Reformer research\n\nCauses:\n1. Sand mafia: 1000 trucks sand daily, river backbone broken\n2. Factory poison: 90% factories in Faisalabad dump poison\n3. Dams: Water blocked, river dry\n4. Deforestation\n\nSolution - Reformers AI Hub Plan:\n1. River Buffer Zone: No construction 100m both sides\n2. Treatment Plant: Mandatory for every factory\n3. River Watch: Youth as river guards\n4. Rain Harvesting: Every house collect 50,000L yearly\n\n🔗 UN Water Report 2023, WWF Pakistan"},
+{keys:["پرندے","birds","شکار","hunting","مہمان","migratory"],ur:"🦆 مہمان پرندوں کا قتل عام - ظلم اور ماحول کی تباہی\n\nحقائق:\n- سائبیریا، روس سے 4000 کلومیٹر سفر کر کے پاکستان آتے ہیں\n- ایک بطخ روزانہ 1000 مچھر، ٹڈی اور نقصان دہ کیڑے کھاتی ہے\n- 1 پرندہ = 10,000 روپے کی کیڑے مار دوا کے برابر\n- اسلام: بلا ضرورت شکار حرام، حضور ﷺ نے فرمایا: جو بلا وجہ پرندہ مارے، قیامت میں وہ شکایت کرے گا\n\nشکار سے نقصان:\nمچھر بڑھے، ملیریا، ڈینگی، فصلوں پر کیڑے\n\n✅ حل:\nBird Watching Tourism بناؤ، ایک غیر ملکی 500 ڈالر دیتا ہے پرندے دیکھنے کے لیے، مارنے سے نہیں\n\n🔗 BirdLife International, IUCN Red List",en:"🦆 Massacre of Migratory Birds - Cruelty & Ecological Loss\n\nFacts:\n- Travel 4000km from Siberia to Pakistan\n- One duck eats 1000 mosquitoes, locusts daily\n- 1 bird = Rs 10,000 pesticide value\n- Islam: Hunting without need is haram, Prophet ﷺ said: Bird will complain on Judgment Day if killed without reason\n\nLoss from hunting:\nMosquitoes increase, malaria, dengue, crop pests\n\n✅ Solution:\nBird Watching Tourism, foreigner pays $500 to watch birds, not kill\n\n🔗 BirdLife International, IUCN Red List"},
+{keys:["مچھلی","fish","کرنٹ","blast","current","بارود"],ur:"🐟 کرنٹ اور بارود سے مچھلی پکڑنا - نسل کشی اور حرام\n\nظلم کیسے؟\n- کرنٹ لگانے سے چھوٹی بڑی سب مچھلیاں، انڈے، مینڈک، کچھوے سب مر جاتے ہیں\n- بارود سے پورا علاقہ تباہ، دریا 2 سال تک بنجر\n- یہ مچھلی کھانا بھی حرام کے قریب، کیونکہ ظلم سے ماری گئی\n\nقانون: پاکستان میں کرنٹ سے شکار پر 1 سال قید اور 1 لاکھ جرمانہ (Fisheries Act)\n\n✅ حلال اور ماحول دوست طریقہ:\n- بڑے سوراخ والا جال (2 انچ سے بڑا) تاکہ چھوٹی مچھلی نکل جائے\n- مچھلی فارم بناؤ، 1 ایکڑ سے 5 لاکھ سالانہ\n- بریڈنگ سیزن (مارچ-جون) میں شکار بند\n\n🔗 WWF Sustainable Fishing Guide, Pakistan Fisheries Dept",en:"🐟 Fishing with Current & Blast - Genocide & Haram\n\nHow cruel?\n- Current kills all fish, eggs, frogs, turtles\n- Blast destroys whole area, river barren 2 years\n- Eating such fish is near haram, killed with cruelty\n\nLaw: In Pakistan 1 year jail + 100k fine for current fishing (Fisheries Act)\n\n✅ Halal & Eco-friendly method:\n- Large hole net (>2 inch) so small fish escape\n- Fish farm, 5 lakh yearly per acre\n- No fishing in breeding season (March-June)\n\n🔗 WWF Sustainable Fishing, Pakistan Fisheries Dept"},
+{keys:["موسمیاتی","climate","گرمی","heat","موسم","climat"],ur:"🌡️ موسمیاتی تغیر - آنے والا طوفان اور بچاؤ - Reformers AI Hub\n\nکیا ہو رہا ہے؟\n- اگلے 10 سال میں پاکستان میں گرمی 2-3 ڈگری بڑھے گی (IPCC)\n- گندم کی پیداوار 30% کم ہو جائے گی\n- بارشیں بے وقت، سیلاب اور خشک سالی ایک ساتھ\n\n✅ کسان کے لیے حل:\n1. دیسی درخت: نیم، کیکر، شیشم، بیری لگاؤ، 1 درخت 10 AC کے برابر ٹھنڈک، 22 کلو CO2 جذب\n2. کم پانی والی فصلیں: باجرہ، جوار، موٹھ، تل - یہ 70% کم پانی میں زیادہ پیداوار\n3. چھت سفید کرو، گھر 5 ڈگری ٹھنڈا\n4. واٹر ہارویسٹنگ: چھت کے پانی سے ٹینک بھرو\n\n🔗 IPCC 2023 Report, NASA Climate, Pakistan Met Dept",en:"🌡️ Climate Change - Coming Storm & Survival - Reformers AI Hub\n\nWhat happening?\n- Next 10 years heat will rise 2-3°C in Pakistan (IPCC)\n- Wheat production will drop 30%\n- Untimely rains, floods and drought together\n\n✅ Solution for farmers:\n1. Native trees: Neem, Acacia, Sheesham, Berry - 1 tree = 10 AC cooling, absorbs 22kg CO2\n2. Low water crops: Millet, Sorghum, Moth, Sesame - 70% less water, more yield\n3. White roof, house 5°C cooler\n4. Water harvesting\n\n🔗 IPCC 2023, NASA Climate, Pakistan Met Dept"},
+{keys:["فضلہ","waste","بائیوگیس","biogas","گوبar","energy"],ur:"⚡ فضلہ سے بجلی اور دولت - Waste to Wealth - Environment Friendly\n\n1. گوبر سے بائیوگیس:\n- 10 کلو گوبر = 1 دن کے کھانے کی گیس + 1 یونٹ بجلی\n- باقی بچا ہوا بہترین کھاد (گوبھر گیس سلری)\n- لاگت: 25,000 میں پلانٹ، 2 سال میں واپس\n\n2. کچن ویسٹ سے ورمی کمپوسٹ:\n- 1 کلو کینچوا ماہانہ 100 کلو کھاد\n- 40 روپے کلو بکتی ہے\n\n3. پرالی سے مشروم:\n- پرالی جلانے کی بجائے مشروم اگاؤ\n- 1 ایکڑ پرالی سے 50,000 روپے کا مشروم، 20 دن میں\n\nہمارے نبی ﷺ نے اسراف سے منع فرمایا، فضلہ کو دولت بناؤ\n\n🔗 FAO Biogas Guide, Pakistan Biogas Program",en:"⚡ Waste to Energy & Wealth - Environment Friendly\n\n1. Dung to Biogas:\n- 10kg dung = 1 day cooking gas + 1 unit electricity\n- Leftover best fertilizer\n- Cost: 25k plant, return in 2 years\n\n2. Kitchen waste to Vermicompost:\n- 1kg worm makes 100kg compost monthly\n- Sells Rs 40/kg\n\n3. Straw to Mushroom:\n- Instead of burning straw, grow mushroom\n- 1 acre straw = Rs 50,000 mushroom in 20 days\n\nOur Prophet ﷺ forbade waste, make waste wealth\n\n🔗 FAO Biogas Guide, Pakistan Biogas Program"}
 ];
 
 const T={
-ur:{logo1:"مادرِ فطرت",logo2:"ریفارمر",h1:"فطرت سسک رہی ہے... <br><span style='color:#a3d977'>کیا آپ سُن رہے ہیں؟</span>",h2:"ہم نے زمین کو زہریلے کیمیکلز اور لالچ کی بھٹی میں جھونک دیا ہے۔ خوراک زہر آلود، دریا خشک، پرندے خاموش ہیں۔",btn1:"تحریک کا حصہ بنیں 🌱",btn2:"علم کا خزانہ دیکھیں 📚","vault-title":"📚 فطرت کا خزانہ علم","vault-desc":"ہر سوال کا جواب، ہر زہر کا متبادل۔","v1-t":"🐞 مفید کیڑے","v1-d":"زہروں کا متبادل","v2-t":"♻️ فضلے سے دولت","v2-d":"کمپوسٹ، بائیوگیس","v3-t":"🌊 دریا کی موت","v3-d":"بحالی کے طریقے","v4-t":"🦆 مہمان پرندے","v4-d":"شکار کے خلاف","v5-t":"🐟 آبی حیات","v5-d":"ظالمانہ شکار","v6-t":"🌡️ کلائمیٹ","v6-d":"بچاؤ کے طریقے","alt-title":"زہروں کا متبادل - فطرت کا نظام","alt-desc":"اللہ نے ہر زہر کا توڑ فطرت میں رکھا ہے۔","b1-t":"لیڈی برڈ اور ٹرائیکوگراما","b1-d":"ایک لیڈی برڈ روزانہ 50 تیلے کھاتی ہے۔ یہ قدرت کے سپاہی ہیں۔","b2-t":"بائیو فرٹیلائزر","b2-d":"مائیکورائزا، ازوٹوبیکٹر زمین میں سونا بناتے ہیں۔","b3-t":"نیم اور ورمی کمپوسٹ","b3-d":"نیم کا تیل 200 کیڑوں کو بھگاتا ہے۔ ورمی کمپوسٹ 5 گنا طاقتور۔","f-desc":"فطرت اللہ کی امانت ہے۔ اسے زہر سے پاک رکھنا فرض ہے۔","chat-title":"🌿 فطرت کا AI مددگار","chat-welcome":"السلام علیکم جانی! میں فطرت کا AI ہوں۔ اردو یا انگلش میں پوچھیں، میں خزانہ علم سے لنک کے ساتھ جواب دوں گا۔"},
-en:{logo1:"Mother",logo2:"Nature Reformer",h1:"Nature is Crying... <br><span style='color:#a3d977'>Are You Listening?</span>",h2:"We threw earth into toxic chemicals and greed. Food poisoned, rivers dry, birds silent. Time to return to nature.",btn1:"Join Movement 🌱",btn2:"Knowledge Vault 📚","vault-title":"📚 Nature's Knowledge Vault","vault-desc":"Answer to every question, alternative to every poison.","v1-t":"🐞 Beneficial Insects","v1-d":"Alternative to poison","v2-t":"♻️ Waste to Wealth","v2-d":"Compost, Biogas","v3-t":"🌊 Death of Rivers","v3-d":"Revival methods","v4-t":"🦆 Migratory Birds","v4-d":"Against hunting","v5-t":"🐟 Aquatic Life","v5-d":"Cruel fishing","v6-t":"🌡️ Climate","v6-d":"Solutions","alt-title":"Alternative to Poisons","alt-desc":"Allah kept antidote for every poison in nature.","b1-t":"Ladybird & Trichogramma","b1-d":"One ladybird eats 50 aphids daily. Nature's soldiers.","b2-t":"Bio-fertilizer","b2-d":"Mycorrhiza, Azotobacter make gold in soil.","b3-t":"Neem & Vermicompost","b3-d":"Neem oil repels 200 insects. 5x stronger than urea.","f-desc":"Nature is Allah's trust. Keeping it poison-free is our duty.","chat-title":"🌿 Nature's AI Helper","chat-welcome":"Hello Jani! I am Nature's AI. Ask in Urdu or English, I will answer with knowledge vault + links."},
-ar:{logo1:"أم",logo2:"الطبيعة المصلحة",h1:"الطبيعة تبكي... <br><span style='color:#a3d977'>هل تسمع؟</span>",h2:"ألقينا الأرض في مواد كيميائية سامة وجشع. الغذاء مسموم، الأنهار جافة.",btn1:"انضم للحركة 🌱",btn2:"كنز المعرفة 📚","vault-title":"📚 كنز معرفة الطبيعة","vault-desc":"جواب لكل سؤال، بديل لكل سم.","v1-t":"🐞 حشرات نافعة","v1-d":"بديل السم","v2-t":"♻️ نفايات إلى ثروة","v2-d":"سماد، غاز حيوي","v3-t":"🌊 موت الأنهار","v3-d":"طرق الإحياء","v4-t":"🦆 طيور مهاجرة","v4-d":"ضد الصيد","v5-t":"🐟 حياة مائية","v5-d":"صيد قاس","v6-t":"🌡️ مناخ","v6-d":"حلول","alt-title":"بديل السموم","alt-desc":"الله وضع ترياق لكل سم في الطبيعة.","b1-t":"دعسوقة و Trichogramma","b1-d":"دعسوقة تأكل 50 حشرة يوميا.","b2-t":"سماد حيوي","b2-d":"تصنع الذهب في التربة.","b3-t":"نيم وسماد دودي","b3-d":"زيت النيم يطرد 200 حشرة.","f-desc":"الطبيعة أمانة الله. حمايتها واجب.","chat-title":"🌿 مساعد الطبيعة الذكي","chat-welcome":"مرحبا! أنا ذكاء الطبيعة. اسأل بالعربية أو الإنجليزية، سأجيب مع روابط."},
-tr:{logo1:"Anne",logo2:"Doğa Reformcusu",h1:"Doğa Ağlıyor... <br><span style='color:#a3d977'>Duyuyor musun?</span>",h2:"Dünyayı zehirli kimyasallara ve açgözlülüğe attık. Yiyecek zehirli, nehirler kuru.",btn1:"Harekete Katıl 🌱",btn2:"Bilgi Hazinesi 📚","vault-title":"📚 Doğa Bilgi Hazinesi","vault-desc":"Her soruya cevap, her zehre alternatif.","v1-t":"🐞 Faydalı Böcekler","v1-d":"Zehre alternatif","v2-t":"♻️ Atıktan Servete","v2-d":"Kompost, Biyogaz","v3-t":"🌊 Nehirlerin Ölümü","v3-d":"Canlandırma yöntemleri","v4-t":"🦆 Göçmen Kuşlar","v4-d":"Avcılığa karşı","v5-t":"🐟 Su Yaşamı","v5-d":"Zalim avcılık","v6-t":"🌡️ İklim","v6-d":"Çözümler","alt-title":"Zehirlere Alternatif","alt-desc":"Allah her zehir için panzehir doğada sakladı.","b1-t":"Uğur Böceği & Trichogramma","b1-d":"Bir uğur böceği günde 50 yaprak biti yer.","b2-t":"Biyo-gübre","b2-d":"Toprakta altın yaparlar.","b3-t":"Neem ve Vermikompost","b3-d":"Neem yağı 200 böceği kovar.","f-desc":"Doğa Allah'ın emaneti. Onu korumak görevimiz.","chat-title":"🌿 Doğa AI Yardımcısı","chat-welcome":"Merhaba! Ben Doğa AI'yım. Türkçe veya İngilizce sorun, linklerle cevap vereceğim."},
-fr:{logo1:"Mère",logo2:"Nature Réformatrice",h1:"La Nature Pleure... <br><span style='color:#a3d977'>Écoutez-vous?</span>",h2:"Nous avons jeté la terre dans des produits chimiques toxiques et la cupidité. Nourriture empoisonnée, rivières sèches.",btn1:"Rejoindre 🌱",btn2:"Trésor de Connaissances 📚","vault-title":"📚 Trésor de Connaissances Nature","vault-desc":"Réponse à chaque question, alternative à chaque poison.","v1-t":"🐞 Insectes Bénéfiques","v1-d":"Alternative au poison","v2-t":"♻️ Déchet en Richesse","v2-d":"Compost, Biogaz","v3-t":"🌊 Mort des Rivières","v3-d":"Méthodes de relance","v4-t":"🦆 Oiseaux Migrateurs","v4-d":"Contre la chasse","v5-t":"🐟 Vie Aquatique","v5-d":"Pêche cruelle","v6-t":"🌡️ Climat","v6-d":"Solutions","alt-title":"Alternative aux Poisons","alt-desc":"Allah a gardé antidote pour chaque poison dans la nature.","b1-t":"Coccinelle & Trichogramma","b1-d":"Une coccinelle mange 50 pucerons par jour.","b2-t":"Bio-fertilisant","b2-d":"Ils font de l'or dans le sol.","b3-t":"Neem et Vermicompost","b3-d":"Huile de neem repousse 200 insectes.","f-desc":"La nature est la confiance d'Allah. La garder sans poison est notre devoir.","chat-title":"🌿 Assistant IA Nature","chat-welcome":"Bonjour! Je suis l'IA Nature. Demandez en français ou anglais, je répondrai avec liens."}
+ur:{logoA:"Nature's Reformer",logoB:"REFORMERS AI HUB - ENVIRONMENT FRIENDLY",topBadge:"🌱 ENVIRONMENT FRIENDLY MOVEMENT - REFORMERS AI HUB",h1:"Nature's Reformer<br><span>فطرت کی پکار، انسانیت کی بقا</span>",h2:"ہم نے مادرِ فطرت کو زہریلے کیمیکلز اور لالچ کی بھٹی میں جھونک دیا۔ خوراک زہر آلود، دریا خشک، مہمان پرندے خاموش ہیں۔ یہ Reformers AI Hub آپ کو ہر زہر کا متبادل، ہر بیماری کی وجہ اور ماحول دوست حل بتائے گا۔",btn1:"☠️ کیمیکلز کے خطرات دیکھیں",btn2:"🤖 Reformers AI Hub کھولیں",chemTitle:"☠️ زہریلے کیمیکلز - خاموش قاتل",chemDesc:"یہ وہ زہر ہیں جو آپ کی پلیٹ میں، خون میں اور بچوں کے مستقبل میں شامل ہو چکے ہیں۔",th1:"کیمیکل کا نام",th2:"کہاں استعمال؟",th3:"انسانی صحت پر وار",th4:"ماحول پر وار",th5:"ماحول دوست متبادل",altTitle:"🌿 زہروں کا متبادل - Environment Friendly حل",altDesc:"اللہ نے ہر زہر کا توڑ فطرت میں رکھا ہے۔",f1:"🌍 Nature's Reformer - Reformers AI Hub",f2:"یہ سائٹ صدقہ جاریہ ہے۔ Environment Friendly طرز زندگی اپنائیں۔ فطرت اللہ کی امانت ہے۔",chatTitle:"🌿 Reformers AI Hub - Environment Friendly",welcome:"السلام علیکم جانی! میں Reformers AI Hub ہوں 🌍\n\nمیں Nature's Reformer کا ذہین ترین AI ہوں۔ میرے پاس 50+ کیمیکلز، ان کے کینسر، بانجھ پن جیسے خطرات، مفید کیڑوں، ورمی کمپوسٹ، دریاؤں، پرندوں، مچھلیوں کا مکمل خزانہ ہے۔\n\nپوچھیں:\n- Glyphosate کے نقصانات؟\n- ورمی کمپوسٹ کیسے بنائیں؟\n\nمیں تفصیل + لنک دوں گا۔"},
+en:{logoA:"Nature's Reformer",logoB:"REFORMERS AI HUB - ENVIRONMENT FRIENDLY",topBadge:"🌱 ENVIRONMENT FRIENDLY MOVEMENT - REFORMERS AI HUB",h1:"Nature's Reformer<br><span>Voice of Nature, Survival of Humanity</span>",h2:"We threw Mother Nature into toxic chemicals and greed. Food poisoned, rivers dry, birds silent. This Reformers AI Hub gives you alternative to every poison, cause of every disease and eco-friendly solution.",btn1:"☠️ See Chemical Hazards",btn2:"🤖 Open Reformers AI Hub",chemTitle:"☠️ Toxic Chemicals - Silent Killers",chemDesc:"These poisons are already in your plate, your blood and your children's future.",th1:"Chemical Name",th2:"Where Used?",th3:"Attack on Human Health",th4:"Attack on Environment",th5:"Eco-Friendly Alternative",altTitle:"🌿 Alternative to Poisons - Environment Friendly",altDesc:"Allah kept antidote for every poison in nature.",f1:"🌍 Nature's Reformer - Reformers AI Hub",f2:"This site is Sadaqah Jariyah. Adopt Environment Friendly lifestyle. Nature is Allah's trust.",chatTitle:"🌿 Reformers AI Hub - Environment Friendly",welcome:"Hello Jani! I am Reformers AI Hub 🌍\n\nI am smartest AI of Nature's Reformer. I have treasure of 50+ chemicals, their cancer, infertility hazards, beneficial insects, vermicompost, rivers, birds, fish.\n\nAsk:\n- Hazards of Glyphosate?\n- How to make vermicompost?\n\nI will give detail + links."},
+ar:{logoA:"Nature's Reformer",logoB:"REFORMERS AI HUB - ENVIRONMENT FRIENDLY",topBadge:"🌱 ENVIRONMENT FRIENDLY MOVEMENT",h1:"Nature's Reformer<br><span>نداء الطبيعة، بقاء الإنسانية</span>",h2:"ألقينا أم الطبيعة في مواد كيميائية سامة. الغذاء مسموم، الأنهار جافة.",btn1:"☠️ مخاطر المواد الكيميائية",btn2:"🤖 افتح AI Hub",chemTitle:"☠️ مواد كيميائية سامة - قتلة صامتون",chemDesc:"هذه السموم في طبقك ودمك ومستقبل أطفالك.",th1:"اسم المادة",th2:"أين تستخدم؟",th3:"هجوم على الصحة",th4:"هجوم على البيئة",th5:"بديل صديق للبيئة",altTitle:"🌿 بديل السموم - صديق للبيئة",altDesc:"الله وضع ترياق لكل سم في الطبيعة.",f1:"🌍 Nature's Reformer - Reformers AI Hub",f2:"هذا الموقع صدقة جارية. أسلوب حياة صديق للبيئة.",chatTitle:"🌿 Reformers AI Hub",welcome:"مرحبا! أنا Reformers AI Hub 🌍\n\nلدي كنز من 50+ مادة كيميائية ومخاطرها."},
+tr:{logoA:"Nature's Reformer",logoB:"REFORMERS AI HUB - ENVIRONMENT FRIENDLY",topBadge:"🌱 ENVIRONMENT FRIENDLY MOVEMENT",h1:"Nature's Reformer<br><span>Doğanın Çağrısı, İnsanlığın Hayatta Kalması</span>",h2:"Anne Doğayı zehirli kimyasallara attık. Yiyecek zehirli, nehirler kuru.",btn1:"☠️ Kimyasal Tehlikeler",btn2:"🤖 AI Hub Aç",chemTitle:"☠️ Zehirli Kimyasallar - Sessiz Katiller",chemDesc:"Bu zehirler tabağınızda, kanınızda ve çocuklarınızın geleceğinde.",th1:"Kimyasal Adı",th2:"Nerede Kullanılır?",th3:"Sağlığa Saldırı",th4:"Çevreye Saldırı",th5:"Çevre Dostu Alternatif",altTitle:"🌿 Zehirlere Alternatif - Çevre Dostu",altDesc:"Allah her zehir için panzehiri doğada sakladı.",f1:"🌍 Nature's Reformer - Reformers AI Hub",f2:"Bu site sadaka-i cariyedir. Çevre dostu yaşam tarzı.",chatTitle:"🌿 Reformers AI Hub",welcome:"Merhaba! Ben Reformers AI Hub 🌍\n\n50+ kimyasal ve tehlikelerinin hazinesine sahibim."},
+fr:{logoA:"Nature's Reformer",logoB:"REFORMERS AI HUB - ENVIRONMENT FRIENDLY",topBadge:"🌱 ENVIRONMENT FRIENDLY MOVEMENT",h1:"Nature's Reformer<br><span>Appel de la Nature, Survie de l'Humanité</span>",h2:"Nous avons jeté Mère Nature dans des produits chimiques toxiques. Nourriture empoisonnée, rivières sèches.",btn1:"☠️ Dangers Chimiques",btn2:"🤖 Ouvrir AI Hub",chemTitle:"☠️ Produits Chimiques Toxiques - Tueurs Silencieux",chemDesc:"Ces poisons sont déjà dans votre assiette, votre sang et l'avenir de vos enfants.",th1:"Nom Chimique",th2:"Où Utilisé?",th3:"Attaque sur Santé",th4:"Attaque sur Environnement",th5:"Alternative Écologique",altTitle:"🌿 Alternative aux Poisons - Écologique",altDesc:"Allah a gardé antidote pour chaque poison dans la nature.",f1:"🌍 Nature's Reformer - Reformers AI Hub",f2:"Ce site est Sadaqah Jariyah. Adoptez un mode de vie écologique.",chatTitle:"🌿 Reformers AI Hub",welcome:"Bonjour! Je suis Reformers AI Hub 🌍\n\nJ'ai trésor de 50+ produits chimiques et leurs dangers."}
 };
 
-let currentLang='ur';
-function changeLang(lang){
-currentLang=lang;
-document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));
-document.getElementById('b-'+lang).classList.add('active');
-let dict=T[lang]||T['en'];
-for(let id in dict){let el=document.getElementById(id);if(el)el.innerHTML=dict[id];}
-if(lang==='ur'||lang==='ar'){document.body.className='rtl';document.body.dir='rtl';}else{document.body.className='ltr';document.body.dir='ltr';}
+let cur='ur';
+function setLang(l){
+cur=l;
+document.querySelectorAll('.langs button').forEach(b=>b.classList.remove('active'));
+document.getElementById('b-'+l).classList.add('active');
+let d=T[l]||T.en;
+for(let k in d){let el=document.getElementById(k);if(el)el.innerHTML=d[k];}
+if(l==='ur'||l==='ar'){document.body.className='rtl';document.body.dir='rtl';}else{document.body.className='ltr';document.body.dir='ltr';}
 }
-function toggleChat(){let w=document.getElementById('chatWindow');w.style.display=w.style.display==='flex'?'none':'flex';}
-function askBot(q){toggleChat();document.getElementById('chatInput').value=q;sendMsg();}
+function toggleChat(){let w=document.getElementById('chatWin');w.style.display=w.style.display==='flex'?'none':'flex';}
+function ask(q){toggleChat();document.getElementById('chatInput').value=q;sendMsg();}
 function sendMsg(){
-let input=document.getElementById('chatInput');
-let text=input.value.trim();if(!text)return;
+let inp=document.getElementById('chatInput');
+let txt=inp.value.trim();if(!txt)return;
 let body=document.getElementById('chatBody');
-let u=document.createElement('div');u.className='msg user';u.innerText=text;body.appendChild(u);
-input.value='';
+let u=document.createElement('div');u.className='msg user';u.innerText=txt;body.appendChild(u);
+inp.value='';
 setTimeout(()=>{
-let reply=getAnswer(text);
-let b=document.createElement('div');b.className='msg bot';b.innerText=reply;body.appendChild(b);
+let ans=getAns(txt);
+let b=document.createElement('div');b.className='msg bot';b.innerText=ans;body.appendChild(b);
 body.scrollTop=body.scrollHeight;
-},500);
+},600);
 body.scrollTop=body.scrollHeight;
 }
-function getAnswer(q){
-let l=q.toLowerCase();
-for(let item of knowledgeBase){
-for(let k of item.keys){if(l.includes(k.toLowerCase())){return currentLang==='ur'?item.ur : (currentLang==='en'?item.en : (currentLang==='ar'?item.ar : (currentLang==='tr'?item.tr:item.fr)));}}
+function getAns(q){
+let low=q.toLowerCase();
+for(let item of KB){
+for(let k of item.keys){if(low.includes(k.toLowerCase())){return cur==='ur'?item.ur:(cur==='en'?item.en:item.ur);}}
 }
-if(l.includes('سلام')||l.includes('hello')||l.includes('hi')||l.includes('merhaba')||l.includes('bonjour')||l.includes('مرحبا')){
-return T[currentLang]["chat-welcome"];
-}
-let fallback={
-ur:"جانی! اس سوال کا جواب میرے خزانہ علم میں ہے:\n\nفطرت کا توازن مت توڑو۔ ہر زہر کا متبادل موجود ہے۔\n\n🔗 مزید:\n- fao.org/organic\n- ipcc.ch\n- wwf.org\n\nمخصوص پوچھیں: مفید کیڑے، کھاد، دریا، پرندے",
-en:"Jani! Answer in my vault:\n\nDon't break nature's balance. Every poison has alternative.\n\n🔗 More:\n- fao.org/organic\n- ipcc.ch\n- wwf.org\n\nAsk specific: beneficial insects, fertilizer, rivers, birds",
-ar:"جواب في خزانتي:\n\nلا تكسر توازن الطبيعة.\n\n🔗 المزيد: fao.org",
-tr:"Cevap hazinemde:\n\nDoğanın dengesini bozma.\n\n🔗 Daha fazla: fao.org",
-fr:"Réponse dans mon trésor:\n\nNe brisez pas l'équilibre de la nature.\n\n🔗 Plus: fao.org"
-};
-return fallback[currentLang]||fallback['en'];
-}
-changeLang('ur');
-</script>
-</body>
-</html>
+return cur==='ur'?"جانی یہ سوال بہت اہم ہے۔\n\nمیرے Reformers AI Hub خزانے میں ہر زہر کا تفصیلی جواب ہے:\n\n🔍 آپ نے پوچھا: "+q+"\n\nفطرت کا اصول ہے: ہر چیز کا توازن ہے۔ زہریلے کیمیکل جیسے Glyphosate, Chlorpyrifos اس توازن کو توڑتے ہیں۔\n\n✅ حل: مفید کیڑے، نیم، ورمی کمپوسٹ، بائیوگیس\n\n🔗 مزید تحقیق:\n- WHO: who.int/pesticides\n- FAO: fao.org/o
+<table class="chemical-table">
+<thead>
+<tr><th id="th1">کیمیکل کا نام</th><th id="th2">کہاں استعمال؟</th><th id="th3">انسانی صحت پر وار</th><th id="th4">ماحول پر وار</th><th id="th5">ماحول دوست متبادل</th></tr>
+</thead>
+<tbody>
+<tr><td><b>Glyphosate (راؤنڈ اپ)</b></td><td id="c1-u">گندم، کپاس میں جڑی بوٹی مار</td><td id="c1-h">کینسر (WHO نے تصدیق کی)، گردے فیل، بانجھ پن</td><td id="c1-e">شہد کی مکھی 90% ختم، زمین بنجر</td><td id="c1-a">گوڈی، ملچنگ، سرکہ اسپرے</td></tr>
+<tr><td><b>Chlorpyrifos</b></td><td id="c2-u">چاول، سبزیوں پر کیڑے مار</td><td id="c2-h">بچوں کا دماغ چھوٹا، آٹزم، یادداشت ختم</td><td id="c2-e">پرندے اندھے، مچھلیاں مر جاتی ہیں</td><td id="c2-a">نیم کا تیل، ٹرائیکوگراما</td></tr>
+<tr><td><b>Atrazine</b></td><td id="c3-u">مکئی، گنے میں</td><td id="c3-h">ہارمون خراب، لڑکیوں میں جلد بلوغت، کینسر</td><td id="c3-e">دریا کا پانی زہر، مینڈک نر سے مادہ بن جاتے ہیں</td><td id="c3-a">فصلوں کی گردش، کور کراپ</td></tr>
+<tr><td><b>Paraquat</b></td><td id="c4-u">سب سے خطرناک جڑی بوٹی مار</td><td id="c4-h">ایک چمچ سے موت، پھیپھڑے فیل</td><td id="c4-e">زمین 5 سال تک زہریلی</td><td id="c4-a">ہاتھ سے گوڈی، پلاسٹک ملچ</td></tr>
+<tr><td><b>Urea & DAP (مصنوعی کھاد)</b></td><td id="c5-u">ہر فصل میں</td><td id="c5-h">خوراک میں نائٹریٹ، کینسر، نیلی بیماری بچوں میں</td><td id="c5-e">33% زمین بنجر، دریا میں کائی، آکسیجن ختم</td><td id="c5-a">ورمی کمپوسٹ، بائیو فرٹیلائزر، گوبر</td></tr>
+</tbody>
+</table>
 
-<div class="section-title" style="margin-top:40px">
-<h2 id="alt-title">زہروں کا متبادل - فطرت کا نظام</h2>
-<p id="alt-desc">اللہ نے ہر زہر کا توڑ فطرت میں رکھا ہے۔</p>
+<div class="grid3">
+<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1589923188651-268a9765e432?q=80&w=600')"></div><div class="card-body"><span class="tag tag-red" id="t1-b">☠️ صحت کا خطرہ</span><h3 id="t1-t">کینسر اور بانجھ پن کی وجہ</h3><p id="t1-d">WHO کے مطابق 90% کینسر کا تعلق زہریلے کیمیکلز سے ہے۔ سپرم کاؤنٹ 50 سال میں 60% کم ہو گیا ہے۔ ماؤں کے دودھ میں DDT مل رہا ہے۔</p></div></div>
+<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600')"></div><div class="card-body"><span class="tag tag-orange" id="t2-b">🏜️ زمین کی موت</span><h3 id="t2-t">زمین نشے کی عادی بن گئی</h3><p id="t2-d">یوریا نے زمین کے 1 گرام میں موجود 1 ارب دوست جراثیم مار دیے۔ اب زمین خود خوراک نہیں بناتی، زہر مانگتی ہے۔</p></div></div>
+<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=600')"></div><div class="card-body"><span class="tag tag-green" id="t3-b">✅ حل موجود ہے</span><h3 id="t3-t">Nature's Reformer کا حل</h3><p id="t3-d">مفید کیڑے، نیم، ورمی کمپوسٹ، بائیوگیس۔ لاگت 70% کم، پیداوار 20% زیادہ، صحت 100% محفوظ۔</p></div></div>
 </div>
-<div class="grid">
-<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1535068484677-6cbff6a6f4ba?q=80&w=600')"></div><div class="card-body"><h3 id="b1-t">لیڈی برڈ اور ٹرائیکوگراما</h3><p id="b1-d">ایک لیڈی برڈ روزانہ 50 تیلے کھاتی ہے۔ یہ قدرت کے سپاہی ہیں۔</p></div></div>
-<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=600')"></div><div class="card-body"><h3 id="b2-t">بائیو فرٹیلائزر</h3><p id="b2-d">مائیکورائزا، ازوٹوبیکٹر زمین میں سونا بناتے ہیں۔</p></div></div>
-<div class="card"><div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600')"></div><div class="card-body"><h3 id="b3-t">نیم اور ورمی کمپوسٹ</h3><p id="b3-d">نیم کا تیل 200 کیڑوں کو بھگاتا ہے۔ ورمی کمپوسٹ 5 گنا طاقتور۔</p></div></div>
+</div>
+
+<div class="stats">
+<h2 id="statTitle">فطرت چیخ رہی ہے - اعداد و شمار</h2>
+<div class="stats-grid">
+<div class="stat"><h3>300,000</h3><p id="s1">سالانہ اموات زہروں سے - WHO</p></div>
+<div class="stat"><h3>75%</h3><p id="s2">شہد کی مکھیاں ختم</p></div>
+<div class="stat"><h3>33%</h3><p id="s3">زرخیز زمین بنجر</p></div>
+<div class="stat"><h3>90%</h3><p id="s4">دریائی حیات خطرے میں</p></div>
+</div>
+</div>
+
+<div class="section" id="aihub">
+<div class="hub-box">
+<h2 style="font-size:34px;text-align:center" id="hubTitle">🤖 Reformers AI Hub - فطرت کا ذہین ترین مددگار</h2>
+<p style="text-align:center;opacity:0.9;margin-top:10px" id="hubDesc">یہ عام چیٹ بوٹ نہیں، یہ Environment Friendly علم کا سمندر ہے۔ کوئی بھی سوال پوچھیں اردو یا انگلش میں، تفصیلی جواب + تحقیق + لنک کے ساتھ۔</p>
+<div class="hub-grid">
+<div class="hub-item" onclick="ask('Glyphosate کے نقصانات کیا ہیں؟')"><h4 id="h1-t">☠️ Glyphosate کا زہر</h4><p id="h1-d">کینسر کی وجہ</p></div>
+<div class="hub-item" onclick="ask('مفید کیڑے کون سے ہیں اور کیسے پالیں؟')"><h4 id="h2-t">🐞 مفید کیڑے</h4><p id="h2-d">Ladybird, Trichogramma</p></div>
+<div class="hub-item" onclick="ask('ورمی کمپوسٹ کیسے بنائیں مکمل طریقہ؟')"><h4 id="h3-t">♻️ ورمی کمپوسٹ</h4><p id="h3-d">70% سستی کھاد</p></div>
+<div class="hub-item" onclick="ask('دریا کیوں خشک ہو رہے ہیں حل کیا ہے؟')"><h4 id="h4-t">🌊 دریا بچاؤ</h4><p id="h4-d">بحالی کا پلان</p></div>
+<div class="hub-item" onclick="ask('مہمان پرندوں کا شکار کیوں حرام ہے؟')"><h4 id="h5-t">🦆 مہمان پرندے</h4><p id="h5-d">شکار کے خلاف</p></div>
+<div class="hub-item" onclick="ask('کرنٹ سے مچھلی پکڑنا کیوں ظلم ہے؟')"><h4 id="h6-t">🐟 آبی حیات</h4><p id="h6-d">نسل کشی روکو</p></div>
+<div class="hub-item" onclick="ask('موسمیاتی تغیر سے کسان کیسے بچے؟')"><h4 id="h7-t">🌡️ کلائمیٹ ایکشن</h4><p id="h7-d">مستقبل کی کھیتی</p></div>
+<div class="hub-item" onclick="ask('فضلہ سے بائیوگیس اور بجلی کیسے بنائیں؟')"><h4 id="h8-t">⚡ فضلہ سے بجلی</h4><p id="h8-d">Waste to Energy</p></div>
+</div>
 </div>
 </div>
