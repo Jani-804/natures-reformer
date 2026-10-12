@@ -65,4 +65,184 @@
     document.querySelectorAll('.suggestion').forEach(b=>b.addEventListener('click',()=>{const q=b.dataset.q;addBubble(q,'user');addBubble(answer(q),'bot');}));
     document.getElementById('year').textContent=new Date().getFullYear();
   </script>
-</body></html>
+<!-- Reformers AI Hub - Direct Answers Only -->
+<style>
+#rf-chat-btn{position:fixed;bottom:22px;right:22px;z-index:99999;background:linear-gradient(135deg,#0a2e1f,#1e8449);color:#fff;width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 10px 30px rgba(0,0,0,.3);border:3px solid #8fdf82;animation:rfpulse 2s infinite}
+@keyframes rfpulse{0%{box-shadow:0 0 0 0 rgba(143,223,130,.7)}70%{box-shadow:0 0 0 18px rgba(143,223,130,0)}100%{box-shadow:0 0 0 0 rgba(143,223,130,0)}}
+#rf-chat-win{position:fixed;bottom:92px;right:14px;width:400px;max-width:95vw;height:580px;background:#fff;border-radius:18px;box-shadow:0 20px 60px rgba(0,0,0,.3);z-index:99999;display:none;flex-direction:column;overflow:hidden;border:1px solid #ddd;font-family:'Noto Nastaliq Urdu',serif}
+#rf-chat-head{background:linear-gradient(90deg,#0a2e1f,#145a32);color:#fff;padding:13px 15px;display:flex;justify-content:space-between;align-items:center;font-weight:700}
+#rf-chat-body{flex:1;overflow-y:auto;padding:12px;background:#f6f9f2;display:flex;flex-direction:column;gap:10px}
+.rf-msg{max-width:92%;padding:11px 14px;border-radius:14px;font-size:14px;line-height:1.8;white-space:pre-wrap}
+.rf-msg.bot{background:#fff;border:1px solid #dde3d8;align-self:flex-start}
+.rf-msg.user{background:#0a2e1f;color:#fff;align-self:flex-end}
+#rf-chat-in{display:flex;padding:10px;border-top:1px solid #eee;gap:7px}
+#rf-chat-in input{flex:1;padding:11px 14px;border:1px solid #ddd;border-radius:25px;outline:none;font-size:14px;font-family:'Noto Nastaliq Urdu',serif}
+#rf-chat-in button{background:#0a2e1f;color:#fff;border:none;width:44px;height:44px;border-radius:50%;cursor:pointer}
+</style>
+
+<div id="rf-chat-btn" onclick="rfToggle()">🤖</div>
+<div id="rf-chat-win">
+<div id="rf-chat-head"><span>🌿 Reformers AI Hub</span><span style="cursor:pointer;font-size:20px" onclick="rfToggle()">✕</span></div>
+<div id="rf-chat-body">
+<div class="rf-msg bot">السلام علیکم جانی! 🌍
+
+میں اب لنک نہیں دوں گا، سیدھا جواب دوں گا۔ پوچھیں:
+☠️ Glyphosate کیا ہے؟
+🐞 مفید کیڑے کون سے؟
+♻️ ورمی کمپوسٹ کیسے بنتی؟
+🌊 دریا کیسے بچائیں؟
+🦆 مہمان پرندے کیوں مارتے ہیں؟
+🐟 کرنٹ سے مچھلی کا نقصان؟</div>
+</div>
+<div id="rf-chat-in">
+<input id="rf-chat-input" placeholder="سوال لکھیں..." onkeypress="if(event.key==='Enter')rfSend()">
+<button onclick="rfSend()">➤</button>
+</div>
+</div>
+
+<script>
+function rfToggle(){let w=document.getElementById('rf-chat-win');w.style.display=w.style.display==='flex'?'none':'flex';}
+function rfSend(){
+let inp=document.getElementById('rf-chat-input');
+let txt=inp.value.trim();if(!txt)return;
+let body=document.getElementById('rf-chat-body');
+let u=document.createElement('div');u.className='rf-msg user';u.innerText=txt;body.appendChild(u);
+let q=txt.toLowerCase();
+let ans="";
+
+if(q.includes("glyphosate") || q.includes("گلیفوسیٹ") || q.includes("راونڈ")){
+ans=`☠️ Glyphosate دنیا کا سب سے زیادہ استعمال ہونے والا زہر ہے
+
+نقصانات:
+• WHO نے 2015 میں اسے کینسر کی وجہ قرار دیا (Group 2A)
+• گردے فیل، جگر خراب، بانجھ پن پیدا کرتا ہے
+• ماں کے دودھ اور خون میں شامل ہو جاتا ہے
+• شہد کی مکھی 90 فیصد ختم، تتلیاں مر جاتی ہیں
+• زمین میں 6 مہینے تک رہتا ہے
+
+حل:
+ہاتھ سے گوڈی کریں، ملچنگ کریں، سرکہ اور نمک کا اسپرے کریں، فصل بدل کر لگائیں۔`;
+}
+else if(q.includes("کیڑے") || q.includes("lady") || q.includes("ٹرائیکو") || q.includes("tricho")){
+ans=`🐞 مفید کیڑے - فطرت کے سپاہی
+
+1. لیڈی برڈ:
+روزانہ 50 تیلے کھاتی ہے، سال میں 5000
+ایک ایکڑ میں 2000 لیڈی برڈ ہوں تو اسپرے کی ضرورت نہیں
+
+2. ٹرائیکوگراما:
+بہت چھوٹا بھڑ ہے، نقصان دہ کیڑوں کے انڈوں میں اپنا انڈا دیتا ہے
+1 کارڈ میں 20,000 کیڑے ہوتے ہیں، قیمت صرف 30 روپے
+1 ایکڑ میں 5 کارڈ کافی ہیں
+
+3. لیس ونگ، مکڑی، بھڑیں بھی دوست ہیں
+
+ان کو کیسے بلائیں؟
+کھیت کے کنارے گاجر، دھنیا، سونف، سورج مکھی لگائیں، زہریلی دوا بند کر دیں۔`;
+}
+else if(q.includes("ورمی") || q.includes("کمپوسٹ") || q.includes("کھاد") || q.includes("vermi")){
+ans=`♻️ ورمی کمپوسٹ بنانے کا مکمل طریقہ
+
+فائدے:
+یوریا سے 5 گنا زیادہ طاقتور، پانی 40 فیصد کم لگتا ہے، پیداوار 20 فیصد زیادہ
+
+طریقہ:
+1. 10 فٹ لمبی، 3 فٹ چوڑی، سایہ دار جگہ بنائیں
+2. نیچے 2 انچ پرالی، اوپر 2 انچ گوبر
+3. 1 کلو کینچوے (ایزینیا فیٹیڈا) ڈالیں
+4. روز کا کچن ویسٹ، گوبر، پرالی ڈالتے جائیں، پانی چھڑکتے رہیں
+5. 30 دن میں 700 کلو بہترین کھاد تیار
+6. قیمت 40 روپے کلو بکتی ہے
+
+1 کلو کینچوا مہینے میں 100 کلو کھاد بناتا ہے۔`;
+}
+else if(q.includes("دریا") || q.includes("پانی") || q.includes("river")){
+ans=`🌊 دریا کیوں مر رہے ہیں اور حل کیا ہے؟
+
+مرنے کی وجوہات:
+• ریت مافیا روزانہ 1000 ٹرک ریت نکال رہا ہے
+• فیکٹریاں زہریلا پانی سیدھا دریا میں پھینک رہی ہیں
+• ڈیموں کی بھرمار سے پانی رک گیا ہے
+• کنارے پر آبادی، کچرا دریا میں
+
+حل:
+1. دریا کے دونوں طرف 100 میٹر تک کوئی تعمیرات نہ ہو، درخت لگائیں
+2. ہر فیکٹری پر ٹریٹمنٹ پلانٹ لازمی
+3. نوجوانوں کی River Watch ٹیم بنائیں
+4. بارش کا پانی جمع کریں، ایک چھت سے سال میں 50,000 لیٹر جمع ہوتا ہے
+5. چیک ڈیم بنائیں`;
+}
+else if(q.includes("پرندے") || q.includes("شکار") || q.includes("بطخ") || q.includes("مہمان")){
+ans=`🦆 مہمان پرندوں کا قتل کیوں ظلم ہے؟
+
+• یہ پرندے سائبیریا سے 4000 کلومیٹر سفر کر کے پاکستان آتے ہیں
+• ایک بطخ روزانہ 1000 مچھر، ٹڈی دل کے بچے کھاتی ہے
+• یہ قدرت کا مفت کیڑے مار نظام ہے
+• اسلام میں بلا ضرورت شکار حرام ہے
+
+نقصان:
+ایک شکاری ایک دن میں 100 پرندے مارتا ہے، نسل ختم ہو رہی ہے
+
+حل:
+شکار کی بجائے Bird Watching Tourism شروع کریں، ایک غیر ملکی سیاح پرندے دیکھنے کے 500 ڈالر دیتا ہے، گاؤں والوں کو روزگار ملے گا۔`;
+}
+else if(q.includes("مچھلی") || q.includes("کرنٹ") || q.includes("بارود") || q.includes("fish")){
+ans=`🐟 کرنٹ اور بارود سے مچھلی پکڑنا نسل کشی ہے
+
+نقصان:
+• کرنٹ سے چھوٹی بڑی سب مچھلیاں، انڈے، مینڈک، کچھوے، کیکڑے سب مر جاتے ہیں
+• دریا 2 سال تک بنجر ہو جاتا ہے
+• بارود سے پانی زہریلا، 1 کلومیٹر تک سب جاندار مر جاتے ہیں
+• قانون: 1 سال قید اور 1 لاکھ جرمانہ
+
+حلال طریقہ:
+• بڑے سوراخ والا جال استعمال کریں تاکہ چھوٹی مچھلی نکل جائے
+• افزائش کے موسم (مارچ سے جون) میں شکار بند
+• مچھلی فارم بنائیں، ایک ایکڑ سے سال میں 3 لاکھ آمدن`;
+}
+else if(q.includes("موسم") || q.includes("گرمی") || q.includes("climate") || q.includes("کلائمیٹ")){
+ans=`🌡️ موسمیاتی تغیر سے کیسے بچیں؟
+
+آنے والے 10 سال میں گرمی 2 سے 3 ڈگری بڑھے گی، گندم کی پیداوار 30 فیصد کم ہو جائے گی
+
+بچاؤ:
+1. درخت لگائیں: نیم، کیکر، شیشم، ٹاہلی۔ ایک درخت 10 اے سی کے برابر ٹھنڈک دیتا ہے، سال میں 22 کلو CO2 جذب کرتا ہے
+2. فصلیں بدلیں: باجرہ، جوار، موٹھ، چنا کم پانی میں زیادہ پیداوار
+3. چھت سفید کریں، دیواروں پر بیل لگائیں
+4. بارش کا پانی جمع کریں، ڈرپ ایریگیشن استعمال کریں`;
+}
+else if(q.includes("فضلہ") || q.includes("گوبر") || q.includes("بائیوگیس") || q.includes("waste")){
+ans=`⚡ فضلہ سے دولت کیسے بنائیں؟
+
+1. بائیوگیس:
+10 کلو گوبر سے 1 دن کے کھانا پکانے کی گیس + 1 یونٹ بجلی + 8 کلو بہترین کھاد
+
+2. ورمی کمپوسٹ:
+1 کلو کینچوا مہینے میں 100 کلو کھاد بناتا ہے، 40 روپے کلو بکتی ہے، مہینے کا 4000 روپے
+
+3. مشروم:
+پرالی جلانے کی بجائے مشروم اگائیں، 1 ایکڑ پرالی سے 20 دن میں 50,000 روپے کا مشروم
+
+4. کمپوسٹ:
+کچن ویسٹ سے 30 دن میں کھاد`;
+}
+else{
+ans=`جانی آپ نے پوچھا: "${txt}"
+
+فطرت کا اصول ہے توازن۔ جب ہم زہریلی دوا، یوریا، کرنٹ، ریت مافیا سے توازن توڑتے ہیں تو فطرت بدلہ لیتی ہے۔
+
+حل سیدھا ہے:
+• زہر بند، مفید کیڑے دوست
+• یوریا بند، ورمی کمپوسٹ اور بائیو کھاد
+• کرنٹ بند، بڑے جال والا شکار
+• درخت زیادہ، پانی جمع
+
+آپ مخصوص لفظ لکھیں جیسے:
+Glyphosate, مفید کیڑے, ورمی کمپوسٹ, دریا, پرندے, مچھلی, موسم, فضلہ`;
+}
+
+let b=document.createElement('div');b.className='rf-msg bot';b.innerText=ans;body.appendChild(b);
+inp.value='';
+body.scrollTop=body.scrollHeight;
+}
+</script></body></html>
