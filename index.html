@@ -1,67 +1,200 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nature's Reformer - نatures ریفارمر</title>
-<script src="https://cdn.tailwindcss.com"></script>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@600&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
+<title>Nature's Reformer - Natural Herbal Detox</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <style>
-body{font-family:'Inter',sans-serif;background:#0a1410;color:#e8f5e9}
-.urdu{font-family:'Noto Nastaliq Urdu',serif}
-.glass{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12)}
-.active-lang{background:#22c55e!important;color:#000!important;font-weight:800!important}
-.card{transition:all.3s}
-.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(34,197,94,.2)}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
+body{background:#f8f9f5;color:#222}
+header{background:#1a4d2e;color:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+header h1{font-size:20px}
+.lang-btns button{margin:2px;padding:6px 14px;border:2px solid white;border-radius:20px;cursor:pointer;background:transparent;color:white;font-weight:600;transition:0.3s}
+.lang-btns button.active, .lang-btns button:hover{background:white;color:#1a4d2e}
+.hero{background:linear-gradient(135deg,#1a4d2e,#2e7d32);color:white;padding:70px 20px;text-align:center}
+.hero h2{font-size:38px;margin-bottom:15px;line-height:1.3}
+.hero p{font-size:18px;max-width:700px;margin:0 auto 20px;opacity:0.9}
+.btn{display:inline-block;background:#ffcc00;color:#1a4d2e;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:700;font-size:18px;box-shadow:0 5px 15px rgba(0,0,0,0.2)}
+.section{padding:50px 20px;max-width:1100px;margin:auto}
+.section h2{text-align:center;color:#1a4d2e;font-size:28px;margin-bottom:30px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{background:white;padding:25px;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,0.08);text-align:center}
+.card h3{color:#1a4d2e;margin-bottom:10px}
+.price{font-size:24px;color:#2e7d32;font-weight:700;margin:15px 0}
+.features{text-align:left;margin:15px 0}
+.features li{margin:8px 0;list-style:none}
+.features li:before{content:"✅ "; }
+.testimonial{background:#e8f5e9;border-left:4px solid #2e7d32}
+.contact-box{background:#1a4d2e;color:white;text-align:center;padding:40px;border-radius:16px}
+footer{background:#112e1c;color:white;text-align:center;padding:20px;margin-top:30px}
 </style>
 </head>
 <body>
-<header class="sticky top-0 z-50 bg-[#0a1410]/90 backdrop-blur-xl border-b border-white/10 p-4">
-<div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-3 items-center">
-<div class="flex items-center gap-3"><div class="w-11 h-11 bg-green-500/20 rounded-xl flex items-center justify-center text-2xl">🌿</div><h1 class="text-xl font-extrabold text-green-300">Nature's Reformer</h1></div>
-<div class="flex flex-wrap gap-2">
-<button onclick="setLang('en')" id="btn-en" class="active-lang px-4 py-2 rounded-full glass text-sm">English</button>
-<button onclick="setLang('ur')" id="btn-ur" class="px-4 py-2 rounded-full glass text-sm urdu">اردو</button>
-<button onclick="setLang('ar')" id="btn-ar" class="px-4 py-2 rounded-full glass text-sm">العربية</button>
-<button onclick="setLang('tr')" id="btn-tr" class="px-4 py-2 rounded-full glass text-sm">Türkçe</button>
-<button onclick="setLang('fr')" id="btn-fr" class="px-4 py-2 rounded-full glass text-sm">Français</button>
-</div></div></header>
+<header>
+<h1>🌿 Nature's Reformer</h1>
+<div class="lang-btns">
+<button onclick="setLang('en')" id="btn-en" class="active">English</button>
+<button onclick="setLang('ur')" id="btn-ur">اردو</button>
+<button onclick="setLang('ar')" id="btn-ar">العربية</button>
+<button onclick="setLang('tr')" id="btn-tr">Türkçe</button>
+<button onclick="setLang('fr')" id="btn-fr">Français</button>
+</div>
+</header>
 
-<main class="max-w-6xl mx-auto p-4 md:p-6 space-y-6">
-<div class="glass rounded-[24px] p-6 md:p-8 text-center">
-<h2 id="hero-title" class="text-3xl md:text-4xl font-extrabold"></h2>
-<p id="hero-sub" class="mt-3 text-white/70 text-[15px] md:text-lg"></p>
-<div class="mt-4 inline-block px-4 py-2 rounded-full bg-green-500/15 text-green-300 text-xs md:text-sm border border-green-500/30">وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُمْ - Quran 6:38</div>
+<div class="hero">
+<h2 id="t-hero-title">Natural Detox for a Healthy & Energetic Life</h2>
+<p id="t-hero-desc">100% Natural Herbal Formula Trusted by Thousands Worldwide. Cleanses Toxins, Boosts Metabolism & Restores Natural Balance.</p>
+<a href="#order" class="btn" id="t-hero-btn">Order Now - 50% Off</a>
 </div>
 
-<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="grid"></div>
-
-<div class="glass rounded-[24px] p-6 bg-gradient-to-br from-green-900/30 to-emerald-900/20 border-green-500/30">
-<h3 id="ai-title" class="text-2xl font-bold"></h3>
-<div id="chat" class="mt-4 space-y-3 max-h-[380px] overflow-y-auto p-1">
-<div class="glass rounded-2xl p-4 bg-green-500/10 border-green-500/20"><p id="ai-wel" class="text-green-100 text-sm"></p></div>
+<div class="section">
+<h2 id="t-benefit-head">Why Choose Nature's Reformer?</h2>
+<div class="grid">
+<div class="card"><h3 id="t-b1-title">🌱 100% Natural</h3><p id="t-b1-desc">Made with pure herbs, no chemicals, no side effects. Safe for long term use.</p></div>
+<div class="card"><h3 id="t-b2-title">💪 Powerful Detox</h3><p id="t-b2-desc">Removes toxins from liver, colon and blood. Feel light and energetic in 7 days.</p></div>
+<div class="card"><h3 id="t-b3-title">⚡ Boosts Energy</h3><p id="t-b3-desc">Improves digestion, metabolism and immunity naturally.</p></div>
 </div>
-<div class="mt-4 flex gap-2"><input id="inp" class="flex-1 px-5 py-3 rounded-full bg-black/40 border border-white/15 outline-none text-white" placeholder="Ask..."><button onclick="ask()" class="px-7 py-3 rounded-full bg-green-500 text-black font-bold hover:bg-green-400">Ask</button></div>
-<div id="quick" class="mt-3 flex flex-wrap gap-2"></div>
 </div>
 
-<div class="text-center text-white/30 text-xs py-6">
-<p id="footer"></p>
-<p class="mt-2">https://jani-804.github.io/natures-reformer/ | Sadaqah Jariyah ❤️</p>
+<div class="section">
+<h2 id="t-ing-head">Natural Ingredients</h2>
+<div class="grid">
+<div class="card"><h3>🍃 Senna Leaves</h3><p id="t-ing1">Natural colon cleanser</p></div>
+<div class="card"><h3>🌿 Black Seed</h3><p id="t-ing2">Boosts immunity & metabolism</p></div>
+<div class="card"><h3>🍯 Honey & Herbs Mix</h3><p id="t-ing3">Ancient herbal formula for detox</p></div>
 </div>
-</main>
+</div>
+<div class="section" id="order">
+<h2 id="t-order-head">Special Offer Today</h2>
+<div class="grid">
+<div class="card" style="border:2px solid #2e7d32">
+<h3 id="t-pack1-title">1 Month Pack</h3>
+<div class="price">$39</div>
+<ul class="features">
+<li id="t-p1-f1">30 Days Supply</li>
+<li id="t-p1-f2">Free Diet Plan</li>
+<li id="t-p1-f3">Cash on Delivery</li>
+</ul>
+<a href="#" class="btn" id="t-p1-btn">Order Now</a>
+</div>
+<div class="card" style="border:2px solid #ffcc00; transform:scale(1.05)">
+<h3 id="t-pack2-title">🔥 2 Months Pack - Best Seller</h3>
+<div class="price">$69 <small style="text-decoration:line-through;color:gray">$98</small></div>
+<ul class="features">
+<li id="t-p2-f1">60 Days Supply</li>
+<li id="t-p2-f2">Free Diet Plan + Detox Guide</li>
+<li id="t-p2-f3">Free Delivery Worldwide</li>
+</ul>
+<a href="#" class="btn" id="t-p2-btn">Order Now</a>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h2 id="t-review-head">Customer Reviews</h2>
+<div class="grid">
+<div class="card testimonial"><p id="t-r1">"I lost 4kg in 20 days and feel so energetic. Best natural product!"</p><b>- Ahmed, Dubai</b></div>
+<div class="card testimonial"><p id="t-r2">"My digestion is perfect now. No bloating. Thank you!"</p><b>- Fatima, UK</b></div>
+<div class="card testimonial"><p id="t-r3">"100% natural and effective. Highly recommended."</p><b>- Yusuf, Turkey</b></div>
+</div>
+</div>
+
+<div class="section">
+<div class="contact-box">
+<h2 id="t-contact-title">Contact Us 24/7</h2>
+<p id="t-contact-desc" style="margin:15px 0">WhatsApp: +92-XXX-XXXXXXX | Email: info@naturesreformer.com</p>
+<p id="t-contact-del">Worldwide Delivery Available - Cash on Delivery in Pakistan, UAE, Saudi Arabia, Turkey</p>
+<br>
+<a href="https://wa.me/92XXXXXXXXXX" class="btn" id="t-contact-btn">Chat on WhatsApp</a>
+</div>
+</div>
+
+<footer>© 2026 Nature's Reformer - All Rights Reserved | 100% Natural & Safe</footer>
 
 <script>
-const T={
+const translations={
 en:{
-heroTitle:"Save Nature, Save Future - For All Creatures",
-heroSub:"Islam teaches: There is not an animal on earth nor a bird that flies with its wings but they are communities like you. Quran 6:38",
-aiTitle:"AI Treasury - All 5 Languages Live ✅",
-aiWelcome:"Hello Jani! All languages fixed now. Click any button above - whole site changes to that language. Ask about chemical, river, birds, fish, weather, waste - I reply in same language you asked!",
-quick:["Chemical free farming?","Save river Ravi?","Save sparrows?","Zero waste at home?"],
-items:[
-{ic:"☠️",t:"Chemical Alternative",d:"Neem, ash, bio-pesticides - 100% halal & safe",f:"Neem oil spray: 20ml neem oil + 1L water + few drops soap. Kills 200+ pests. Wood ash for aphids. Garlic+chili spray. Saves soil, bees, increases rizq. Cost 90% less."},
-{ic:"🌊",t:"River Revival - Ravi",d:"How to clean our dying rivers",f:"Ravi dying from chemicals & sewage. Fix: Plant 10m buffer of Sarkanda & vetiver grass on banks, stop direct sewage, build small check dams. Community clean-up every Jummah. Quran says water is life."},
-{ic:"🐦",t:"Save Birds - Sparrows",d:"Sparrows disappeared 80% - bring back",f:"Reason: Mobile towers, no nesting, chemicals. Fix: Clay pot nests on trees, water bowls on roof, grow bajra & sunflower. Hadith: If anyone kills a sparrow unjustly, Allah will question him on Judgment Day."},
-{ic:"🐟",t:"Save Fish & Waters",d:"Pesticides kill fish - alternative way",f:"Chemical runoff goes to water & kills fish. Fish are ummah like us (Quran 6:38). Solution: Organic farming, make small wetlands to filter water before river, stop plastic."},
-{ic:"🌦️",t:"Weather & Climate",d:"Why weather angry? Islamic solution",f:"Deforestation = less rain, more heat. Solution: Plant Moringa, Neem, Kikar - fast growing, need less water, give shade & food. One tree = Sadaqah Jariyah till Qiyamah. Prophet
+"t-hero-title":"Natural Detox for a Healthy & Energetic Life",
+"t-hero-desc":"100% Natural Herbal Formula Trusted by Thousands Worldwide. Cleanses Toxins, Boosts Metabolism & Restores Natural Balance.",
+"t-hero-btn":"Order Now - 50% Off",
+"t-benefit-head":"Why Choose Nature's Reformer?",
+"t-b1-title":"🌱 100% Natural","t-b1-desc":"Made with pure herbs, no chemicals, no side effects. Safe for long term use.",
+"t-b2-title":"💪 Powerful Detox","t-b2-desc":"Removes toxins from liver, colon and blood. Feel light and energetic in 7 days.",
+"t-b3-title":"⚡ Boosts Energy","t-b3-desc":"Improves digestion, metabolism and immunity naturally.",
+"t-ing-head":"Natural Ingredients","t-ing1":"Natural colon cleanser","t-ing2":"Boosts immunity & metabolism","t-ing3":"Ancient herbal formula for detox",
+"t-order-head":"Special Offer Today","t-pack1-title":"1 Month Pack","t-p1-f1":"30 Days Supply","t-p1-f2":"Free Diet Plan","t-p1-f3":"Cash on Delivery","t-p1-btn":"Order Now",
+"t-pack2-title":"🔥 2 Months Pack - Best Seller","t-p2-f1":"60 Days Supply","t-p2-f2":"Free Diet Plan + Detox Guide","t-p2-f3":"Free Delivery Worldwide","t-p2-btn":"Order Now",
+"t-review-head":"Customer Reviews","t-r1":'"I lost 4kg in 20 days and feel so energetic. Best natural product!"',"t-r2":'"My digestion is perfect now. No bloating. Thank you!"',"t-r3":'"100% natural and effective. Highly recommended."',
+"t-contact-title":"Contact Us 24/7","t-contact-desc":"WhatsApp: +92-XXX-XXXXXXX | Email: info@naturesreformer.com","t-contact-del":"Worldwide Delivery Available - Cash on Delivery in Pakistan, UAE, Saudi Arabia, Turkey","t-contact-btn":"Chat on WhatsApp"
+},
+ur:{
+"t-hero-title":"صحت مند اور توانا زندگی کے لیے قدرتی ڈیٹاکس",
+"t-hero-desc":"100% قدرتی جڑی بوٹیوں سے بنا، ہزاروں لوگوں کا آزمودہ۔ جسم سے زہریلے مادے نکالے، میٹابولزم تیز کرے اور قدرتی توازن بحال کرے۔",
+"t-hero-btn":"ابھی آرڈر کریں - 50% رعایت",
+"t-benefit-head":"نیچرز ریفارمر کیوں منتخب کریں؟",
+"t-b1-title":"🌱 100% قدرتی","t-b1-desc":"خالص جڑی بوٹیوں سے بنا، کوئی کیمیکل نہیں، کوئی سائیڈ ایفیکٹ نہیں۔",
+"t-b2-title":"💪 طاقتور ڈیٹاکس","t-b2-desc":"جگر، آنتوں اور خون سے زہر نکالے، 7 دن میں ہلکا اور چست محسوس کریں۔",
+"t-b3-title":"⚡ توانائی میں اضافہ","t-b3-desc":"ہاضمہ، میٹابولزم اور قوت مدافعت قدرتی طور پر بہتر بنائے۔",
+"t-ing-head":"قدرتی اجزاء","t-ing1":"قدرتی آنتوں کی صفائی","t-ing2":"قوت مدافعت اور میٹابولزم بڑھائے","t-ing3":"قدیم جڑی بوٹیوں کا ڈیٹاکس فارمولا",
+"t-order-head":"آج کی خصوصی آفر","t-pack1-title":"1 ماہ کا پیک","t-p1-f1":"30 دن کی سپلائی","t-p1-f2":"مفت ڈائٹ پلان","t-p1-f3":"کیس آن ڈیلیوری","t-p1-btn":"ابھی آرڈر کریں",
+"t-pack2-title":"🔥 2 ماہ کا پیک - سب سے زیادہ بکنے والا","t-p2-f1":"60 دن کی سپلائی","t-p2-f2":"مفت ڈائٹ پلان + ڈیٹاکس گائیڈ","t-p2-f3":"دنیا بھر میں مفت ڈیلیوری","t-p2-btn":"ابھی آرڈر کریں",
+"t-review-head":"کسٹمر کے تاثرات","t-r1":'"میں نے 20 دن میں 4 کلو وزن کم کیا اور بہت توانا محسوس کر رہا ہوں۔"',"t-r2":'"اب میرا ہاضمہ بالکل ٹھیک ہے، کوئی گیس نہیں۔ شکریہ!"',"t-r3":'"100% قدرتی اور مؤثر۔ بہت زبردست پروڈکٹ ہے۔"',
+"t-contact-title":"24/7 ہم سے رابطہ کریں","t-contact-desc":"واٹس ایپ: +92-XXX-XXXXXXX | ای میل: info@naturesreformer.com","t-contact-del":"دنیا بھر میں ڈیلیوری - پاکستان، یو اے ای، سعودی عرب، ترکی میں کیس آن ڈیلیوری","t-contact-btn":"واٹس ایپ پر بات کریں"
+},
+ar:{
+"t-hero-title":"ديتوكس طبيعي لحياة صحية ونشطة",
+"t-hero-desc":"تركيبة عشبية طبيعية 100% موثوقة من الآلاف حول العالم. تنظف السموم وتعزز التمثيل الغذائي.",
+"t-hero-btn":"اطلب الآن - خصم 50%",
+"t-benefit-head":"لماذا تختار Nature's Reformer؟",
+"t-b1-title":"🌱 100% طبيعي","t-b1-desc":"مصنوع من أعشاب نقية، بدون مواد كيميائية، بدون آثار جانبية.",
+"t-b2-title":"💪 ديتوكس قوي","t-b2-desc":"يزيل السموم من الكبد والقولون والدم. تشعر بالخفة والنشاط في 7 أيام.",
+"t-b3-title":"⚡ يعزز الطاقة","t-b3-desc":"يحسن الهضم والتمثيل الغذائي والمناعة بشكل طبيعي.",
+"t-ing-head":"المكونات الطبيعية","t-ing1":"منظف طبيعي للقولون","t-ing2":"يعزز المناعة والتمثيل الغذائي","t-ing3":"تركيبة عشبية قديمة لإزالة السموم",
+"t-order-head":"عرض خاص اليوم","t-pack1-title":"باقة شهر واحد","t-p1-f1":"إمداد 30 يومًا","t-p1-f2":"خطة غذائية مجانية","t-p1-f3":"الدفع عند الاستلام","t-p1-btn":"اطلب الآن",
+"t-pack2-title":"🔥 باقة شهرين - الأكثر مبيعًا","t-p2-f1":"إمداد 60 يومًا","t-p2-f2":"خطة غذائية مجانية + دليل الديتوكس","t-p2-f3":"توصيل مجاني حول العالم","t-p2-btn":"اطلب الآن",
+"t-review-head":"آراء العملاء","t-r1":'"فقدت 4 كجم في 20 يومًا وأشعر بالنشاط. أفضل منتج طبيعي!"',"t-r2":'"الهضم ممتاز الآن. لا انتفاخ. شكرا لك!"',"t-r3":'"100% طبيعي وفعال. موصى به للغاية."',
+"t-contact-title":"اتصل بنا 24/7","t-contact-desc":"واتساب: +92-XXX-XXXXXXX | البريد: info@naturesreformer.com","t-contact-del":"التوصيل متاح عالمياً - الدفع عند الاستلام","t-contact-btn":"تحدث على واتساب"
+},
+tr:{
+"t-hero-title":"Sağlıklı ve Enerjik Bir Yaşam İçin Doğal Detoks",
+"t-hero-desc":"Dünya çapında binlerce kişinin güvendiği %100 doğal bitkisel formül. Toksinleri temizler, metabolizmayı hızlandırır.",
+"t-hero-btn":"Şimdi Sipariş Ver - %50 İndirim",
+"t-benefit-head":"Neden Nature's Reformer?",
+"t-b1-title":"🌱 %100 Doğal","t-b1-desc":"Saf bitkilerden yapılmış, kimyasal yok, yan etki yok.",
+"t-b2-title":"💪 Güçlü Detoks","t-b2-desc":"Karaciğer, kolon ve kandaki toksinleri atar. 7 günde hafif ve enerjik hissedin.",
+"t-b3-title":"⚡ Enerjiyi Artırır","t-b3-desc":"Sindirimi, metabolizmayı ve bağışıklığı doğal olarak iyileştirir.",
+"t-ing-head":"Doğal İçerikler","t-ing1":"Doğal kolon temizleyici","t-ing2":"Bağışıklığı ve metabolizmayı güçlendirir","t-ing3":"Detoks için antik bitkisel formül",
+"t-order-head":"Bugüne Özel Teklif","t-pack1-title":"1 Aylık Paket","t-p1-f1":"30 Günlük Tedarik","t-p1-f2":"Ücretsiz Diyet Planı","t-p1-f3":"Kapıda Ödeme","t-p1-btn":"Şimdi Sipariş Ver",
+"t-pack2-title":"🔥 2 Aylık Paket - En Çok Satan","t-p2-f1":"60 Günlük Tedarik","t-p2-f2":"Ücretsiz Diyet Planı + Detoks Rehberi","t-p2-f3":"Dünya Çapında Ücretsiz Kargo","t-p2-btn":"Şimdi Sipariş Ver",
+"t-review-head":"Müşteri Yorumları","t-r1":'"20 günde 4kg verdim ve çok enerjik hissediyorum. En iyi doğal ürün!"',"t-r2":'"Sindirimim artık mükemmel. Şişkinlik yok. Teşekkürler!"',"t-r3":'"%100 doğal ve etkili. Şiddetle tavsiye edilir."',
+"t-contact-title":"7/24 Bize Ulaşın","t-contact-desc":"WhatsApp: +92-XXX-XXXXXXX | E-posta: info@naturesreformer.com","t-contact-del":"Dünya Çapında Teslimat - Kapıda Ödeme Mevcut","t-contact-btn":"WhatsApp'ta Sohbet Et"
+},
+fr:{
+"t-hero-title":"Détox Naturelle pour une Vie Saine et Énergique",
+"t-hero-desc":"Formule 100% naturelle à base de plantes, approuvée par des milliers de personnes dans le monde. Élimine les toxines.",
+"t-hero-btn":"Commander - 50% de Réduction",
+"t-benefit-head":"Pourquoi Choisir Nature's Reformer?",
+"t-b1-title":"🌱 100% Naturel","t-b1-desc":"Fabriqué à partir d'herbes pures, sans produits chimiques, sans effets secondaires.",
+"t-b2-title":"💪 Détox Puissante","t-b2-desc":"Élimine les toxines du foie, du côlon et du sang. Sentez-vous léger en 7 jours.",
+"t-b3-title":"⚡ Boost d'Énergie","t-b3-desc":"Améliore naturellement la digestion, le métabolisme et l'immunité.",
+"t-ing-head":"Ingrédients Naturels","t-ing1":"Nettoyant naturel du côlon","t-ing2":"Booste l'immunité et le métabolisme","t-ing3":"Ancienne formule à base de plantes pour la détox",
+"t-order-head":"Offre Spéciale Aujourd'hui","t-pack1-title":"Pack 1 Mois","t-p1-f1":"Approvisionnement 30 jours","t-p1-f2":"Plan alimentaire gratuit","t-p1-f3":"Paiement à la livraison","t-p1-btn":"Commander",
+"t-pack2-title":"🔥 Pack 2 Mois - Best Seller","t-p2-f1":"Approvisionnement 60 jours","t-p2-f2":"Plan alimentaire gratuit + Guide Détox","t-p2-f3":"Livraison gratuite dans le monde","t-p2-btn":"Commander",
+"t-review-head":"Avis Clients","t-r1":'"J\'ai perdu 4kg en 20 jours et je me sens si énergique. Meilleur produit naturel!"',"t-r2":'"Ma digestion est parfaite maintenant. Plus de ballonnements. Merci!"',"t-r3":'"100% naturel et efficace. Hautement recommandé."',
+"t-contact-title":"Contactez-nous 24/7","t-contact-desc":"WhatsApp: +92-XXX-XXXXXXX | Email: info@naturesreformer.com","t-contact-del":"Livraison mondiale - Paiement à la livraison disponible","t-contact-btn":"Discuter sur WhatsApp"
+}
+};
+function setLang(l){
+for(let k in translations[l]){let e=document.getElementById(k);if(e)e.innerText=translations[l][k];}
+document.querySelectorAll('.lang-btns button').forEach(b=>b.classList.remove('active'));
+document.getElementById('btn-'+l).classList.add('active');
+document.body.dir=(l=='ur'||l=='ar')?'rtl':'ltr';
+if(l=='ur'||l=='ar'){document.body.style.textAlign='right'}else{document.body.style.textAlign='left'}
+document.querySelector('.hero').style.textAlign='center';
+document.querySelector('.contact-box').style.textAlign='center';
+}
+setLang('en');
+</script>
+</body>
+</html>
