@@ -1,126 +1,67 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nature's Reformer - All Languages Fixed</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Noto+Nastaliq+Urdu:wght@400;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature's Reformer - نatures ریفارمر</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@600&family=Inter:wght@400;700;800&display=swap" rel="stylesheet">
 <style>
-:root{--forest:#173d2b;--line:#dce6d9;--mint:#eaf4e8}
-body{margin:0;background:#fdfcf7;font-family:'DM Sans',sans-serif}
-.wrap{width:92%;max-width:1160px;margin:auto}
-.nav{display:flex;justify-content:space-between;align-items:center;padding:14px 0;gap:10px;flex-wrap:wrap}
-.brand{font-weight:800;color:var(--forest);display:flex;gap:10px;align-items:center}
-.brandmark{width:42px;height:42px;background:var(--forest);color:#fff;display:grid;place-items:center;border-radius:12px}
-.lang-select{display:flex;gap:6px;flex-wrap:wrap}
-.lang-btn{border:1px solid var(--line);background:#fff;border-radius:99px;padding:7px 12px;font-size:.82rem;font-weight:700;cursor:pointer}
-.lang-btn.active{background:var(--forest);color:#fff;border-color:var(--forest)}
-.card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;margin:8px 0}
-.chatbox{background:#fff;border:1px solid var(--line);border-radius:20px;padding:16px;max-width:650px;margin:25px auto}
-.chat-messages{height:400px;overflow:auto;display:flex;flex-direction:column;gap:10px;padding:10px 0}
-.bubble{max-width:90%;padding:11px 14px;border-radius:15px;white-space:pre-line;line-height:1.7;font-size:.93rem}
-.bot{background:var(--mint);align-self:flex-start}
-.user{background:var(--forest);color:#fff;align-self:flex-end}
-.chat-form{display:flex;gap:8px;margin-top:10px}
-.chat-form input{flex:1;padding:12px 14px;border-radius:99px;border:1px solid #cfdccf;outline:none}
-.chat-form button{width:46px;height:46px;border-radius:50%;border:0;background:var(--forest);color:#fff;cursor:pointer;font-size:18px}
-.t{display:none}.t.active{display:block}
-body.ur{font-family:'Noto Nastaliq Urdu',serif}
-body.ur.bubble{font-family:'Noto Nastaliq Urdu',serif;line-height:2.1;direction:rtl;text-align:right}
+body{font-family:'Inter',sans-serif;background:#0a1410;color:#e8f5e9}
+.urdu{font-family:'Noto Nastaliq Urdu',serif}
+.glass{background:rgba(255,255,255,0.07);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,0.12)}
+.active-lang{background:#22c55e!important;color:#000!important;font-weight:800!important}
+.card{transition:all.3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 20px 40px rgba(34,197,94,.2)}
 </style>
 </head>
 <body>
-<div class="wrap nav">
-<div class="brand"><span class="brandmark">🌿</span> Nature's Reformer</div>
-<div class="lang-select">
-<button class="lang-btn active" data-lang="en" onclick="setLang('en')">English</button>
-<button class="lang-btn" data-lang="ur" onclick="setLang('ur')">اردو</button>
-<button class="lang-btn" data-lang="ar" onclick="setLang('ar')">العربية</button>
-<button class="lang-btn" data-lang="tr" onclick="setLang('tr')">Türkçe</button>
-<button class="lang-btn" data-lang="fr" onclick="setLang('fr')">Français</button>
-</div>
+<header class="sticky top-0 z-50 bg-[#0a1410]/90 backdrop-blur-xl border-b border-white/10 p-4">
+<div class="max-w-6xl mx-auto flex flex-wrap justify-between gap-3 items-center">
+<div class="flex items-center gap-3"><div class="w-11 h-11 bg-green-500/20 rounded-xl flex items-center justify-center text-2xl">🌿</div><h1 class="text-xl font-extrabold text-green-300">Nature's Reformer</h1></div>
+<div class="flex flex-wrap gap-2">
+<button onclick="setLang('en')" id="btn-en" class="active-lang px-4 py-2 rounded-full glass text-sm">English</button>
+<button onclick="setLang('ur')" id="btn-ur" class="px-4 py-2 rounded-full glass text-sm urdu">اردو</button>
+<button onclick="setLang('ar')" id="btn-ar" class="px-4 py-2 rounded-full glass text-sm">العربية</button>
+<button onclick="setLang('tr')" id="btn-tr" class="px-4 py-2 rounded-full glass text-sm">Türkçe</button>
+<button onclick="setLang('fr')" id="btn-fr" class="px-4 py-2 rounded-full glass text-sm">Français</button>
+</div></div></header>
+
+<main class="max-w-6xl mx-auto p-4 md:p-6 space-y-6">
+<div class="glass rounded-[24px] p-6 md:p-8 text-center">
+<h2 id="hero-title" class="text-3xl md:text-4xl font-extrabold"></h2>
+<p id="hero-sub" class="mt-3 text-white/70 text-[15px] md:text-lg"></p>
+<div class="mt-4 inline-block px-4 py-2 rounded-full bg-green-500/15 text-green-300 text-xs md:text-sm border border-green-500/30">وَمَا مِن دَابَّةٍ فِي الْأَرْضِ وَلَا طَائِرٍ يَطِيرُ بِجَنَاحَيْهِ إِلَّا أُمَمٌ أَمْثَالُكُمْ - Quran 6:38</div>
 </div>
 
-<div class="wrap">
-<div class="card" onclick="openAI()">
-<span class="t active" data-l="en">☠️ Chemical Alternative - Click to see treasury</span>
-<span class="t" data-l="ur">☠️ زہریلے کیمیکل کا متبادل - خزانہ دیکھنے کے لیے کلک کریں</span>
-<span class="t" data-l="ar">☠️ بديل المواد الكيميائية السامة - انقر</span>
-<span class="t" data-l="tr">☠️ Zehirli kimyasal alternatifi - Tıkla</span>
-<span class="t" data-l="fr">☠️ Alternative chimique toxique - Cliquez</span>
+<div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5" id="grid"></div>
+
+<div class="glass rounded-[24px] p-6 bg-gradient-to-br from-green-900/30 to-emerald-900/20 border-green-500/30">
+<h3 id="ai-title" class="text-2xl font-bold"></h3>
+<div id="chat" class="mt-4 space-y-3 max-h-[380px] overflow-y-auto p-1">
+<div class="glass rounded-2xl p-4 bg-green-500/10 border-green-500/20"><p id="ai-wel" class="text-green-100 text-sm"></p></div>
+</div>
+<div class="mt-4 flex gap-2"><input id="inp" class="flex-1 px-5 py-3 rounded-full bg-black/40 border border-white/15 outline-none text-white" placeholder="Ask..."><button onclick="ask()" class="px-7 py-3 rounded-full bg-green-500 text-black font-bold hover:bg-green-400">Ask</button></div>
+<div id="quick" class="mt-3 flex flex-wrap gap-2"></div>
 </div>
 
-<div class="chatbox">
-<div style="font-weight:700;margin-bottom:8px">
-<span class="t active" data-l="en">AI Treasury - All Languages Live</span>
-<span class="t" data-l="ur">AI خزانہ - تمام زبانیں لائیو</span>
-<span class="t" data-l="ar">كنز الذكاء الاصطناعي - جميع اللغات مباشرة</span>
-<span class="t" data-l="tr">AI Hazinesi - Tüm diller canlı</span>
-<span class="t" data-l="fr">Trésor IA - Toutes langues en direct</span>
+<div class="text-center text-white/30 text-xs py-6">
+<p id="footer"></p>
+<p class="mt-2">https://jani-804.github.io/natures-reformer/ | Sadaqah Jariyah ❤️</p>
 </div>
-<div class="chat-messages" id="chatMessages"></div>
-<form class="chat-form" id="chatForm">
-<input id="chatInput" placeholder="Ask in any language..." required>
-<button type="submit">➤</button>
-</form>
-</div>
-</div>
+</main>
 
 <script>
-let currentLang='en';
-const msgs=document.getElementById('chatMessages');
-const inp=document.getElementById('chatInput');
-
-function setLang(lang){
- currentLang=lang;
- document.querySelectorAll('.lang-btn').forEach(b=>b.classList.toggle('active', b.dataset.lang===lang));
- document.querySelectorAll('.t').forEach(t=>t.classList.toggle('active', t.dataset.l===lang));
- document.documentElement.lang=lang;
- document.body.className= lang==='ur'? 'ur' : '';
- inp.placeholder = lang==='ur'? 'اردو میں لکھیں - زہر کا متبادل، دریا، پرندے...' : lang==='ar'? 'اسأل بالعربية...' : lang==='tr'? 'Türkçe sor...' : lang==='fr'? 'Demandez en français...' : 'Ask in English - chemical alternative, rivers, birds...';
- addBot(getWelcome(lang));
-}
-
-function addUser(t){let d=document.createElement('div');d.className='bubble user';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
-function addBot(t){let d=document.createElement('div');d.className='bubble bot';d.textContent=t;msgs.appendChild(d);msgs.scrollTop=msgs.scrollHeight;}
-function openAI(){addUser(currentLang==='ur'?'زہریلے کیمیکل کا متبادل؟':'Chemical alternative?'); addBot(treasury('chemical '+currentLang));}
-
-document.getElementById('chatForm').addEventListener('submit',e=>{
- e.preventDefault();let q=inp.value.trim();if(!q)return;inp.value='';addUser(q);setTimeout(()=>addBot(treasury(q)),400);
-});
-
-function getWelcome(lang){
- const w={
-  en:'Hello Jani! All languages fixed now ✅\nEnglish, Urdu, Arabic, Turkish, French - all live.\nClick any button above - whole site changes.\nAsk anything - I reply in same language.',
-  ur:'السلام علیکم جانی! تمام زبانیں اب ٹھیک ہو گئیں ✅\nاردو، انگلش، عربی، ترکی، فرانسیسی - سب لائیو۔\nاوپر کسی بھی بٹن پر کلک کریں - ساری سائٹ اسی زبان میں۔\nکوئی بھی سوال پوچھیں - میں اسی زبان میں جواب دوں گا۔',
-  ar:'مرحبا جاني! تم إصلاح جميع اللغات الآن ✅\nالإنجليزية، الأردية، العربية، التركية، الفرنسية - كلها مباشرة.',
-  tr:'Merhaba Jani! Tüm diller şimdi düzeltildi ✅\nİngilizce, Urduca, Arapça, Türkçe, Fransızca - hepsi canlı.',
-  fr:'Bonjour Jani! Toutes les langues sont réparées ✅\nAnglais, Ourdou, Arabe, Turc, Français - tout en direct.'
- };return w[lang]||w.en;
-}
-
-function treasury(q){
- let l=currentLang;
- if(/[ا-ی]/.test(q)) l='ur';
- if(/[ء-ي]/.test(q)) l='ar';
-
- if(q.toLowerCase().includes('chemical') || q.includes('کیمیکل') || q.includes('زہر') || q.includes('كيميائية')){
-   const ans={
-     en:'☠️ Chemical -> Alternative Treasury:\n1. Ladybug eats 50 aphids/day\n2. Spider friend\n3. Neem 2L/100L water + soap\n4. Compost from waste = no chemical needed',
-     ur:'☠️ زہریلے کیمیکل -> متبادل خزانہ:\n1. لیڈی بگ 50 تیلے/دن\n2. مکڑی دوست\n3. نیم 2 لیٹر/100 لیٹر پانی + صابن\n4. فضلے سے کمپوسٹ = کیمیکل کی ضرورت نہیں',
-     ar:'☠️ المواد السامة -> البديل:\n1. الدعسوقة تأكل 50 حشرة/يوم\n2. العنكبوت صديق\n3. النيم 2 لتر/100 لتر ماء',
-     tr:'☠️ Zehirli kimyasal -> Alternatif:\n1. Uğur böceği günde 50 yaprak biti yer\n2. Örümcek dost\n3. Neem 2L/100L su',
-     fr:'☠️ Chimique toxique -> Alternative:\n1. Coccinelle mange 50 pucerons/jour\n2. Araignée amie\n3. Neem 2L/100L eau'
-   };return ans[l]||ans.en;
- }
- const def={
-   en:`🌿 You asked: "${q}"\nFull treasury ready in ${l} - ask more!`,
-   ur:`🌿 آپ نے پوچھا: "${q}"\nمکمل خزانہ ${l} میں حاضر ہے - مزید پوچھیں!`,
-   ar:`🌿 سألت: "${q}"\nالكنز الكامل جاهز!`,
-   tr:`🌿 Sordun: "${q}"\nTam hazine hazır!`,
-   fr:`🌿 Vous avez demandé: "${q}"\nTrésor complet prêt!`
- };return def[l]||def.en;
-}
-setLang('en');
-</script>
-</body>
-</html>
+const T={
+en:{
+heroTitle:"Save Nature, Save Future - For All Creatures",
+heroSub:"Islam teaches: There is not an animal on earth nor a bird that flies with its wings but they are communities like you. Quran 6:38",
+aiTitle:"AI Treasury - All 5 Languages Live ✅",
+aiWelcome:"Hello Jani! All languages fixed now. Click any button above - whole site changes to that language. Ask about chemical, river, birds, fish, weather, waste - I reply in same language you asked!",
+quick:["Chemical free farming?","Save river Ravi?","Save sparrows?","Zero waste at home?"],
+items:[
+{ic:"☠️",t:"Chemical Alternative",d:"Neem, ash, bio-pesticides - 100% halal & safe",f:"Neem oil spray: 20ml neem oil + 1L water + few drops soap. Kills 200+ pests. Wood ash for aphids. Garlic+chili spray. Saves soil, bees, increases rizq. Cost 90% less."},
+{ic:"🌊",t:"River Revival - Ravi",d:"How to clean our dying rivers",f:"Ravi dying from chemicals & sewage. Fix: Plant 10m buffer of Sarkanda & vetiver grass on banks, stop direct sewage, build small check dams. Community clean-up every Jummah. Quran says water is life."},
+{ic:"🐦",t:"Save Birds - Sparrows",d:"Sparrows disappeared 80% - bring back",f:"Reason: Mobile towers, no nesting, chemicals. Fix: Clay pot nests on trees, water bowls on roof, grow bajra & sunflower. Hadith: If anyone kills a sparrow unjustly, Allah will question him on Judgment Day."},
+{ic:"🐟",t:"Save Fish & Waters",d:"Pesticides kill fish - alternative way",f:"Chemical runoff goes to water & kills fish. Fish are ummah like us (Quran 6:38). Solution: Organic farming, make small wetlands to filter water before river, stop plastic."},
+{ic:"🌦️",t:"Weather & Climate",d:"Why weather angry? Islamic solution",f:"Deforestation = less rain, more heat. Solution: Plant Moringa, Neem, Kikar - fast growing, need less water, give shade & food. One tree = Sadaqah Jariyah till Qiyamah. Prophet
