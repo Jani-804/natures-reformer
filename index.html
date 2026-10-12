@@ -1,106 +1,101 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#173d2b">
-  <title>Nature Reformer AI Hub | Rebuilding Nature</title>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{--forest:#173d2b;--forest2:#23563c;--leaf:#8bc36a;--mint:#eaf4e8;--cream:#fbfaf4;--ink:#1d2a22;--muted:#5d6d61;--line:#dce6d9;--white:#fff}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6}body.ur{font-family:'Noto Nastaliq Urdu',serif;line-height:2.05}a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}.topbar{background:var(--forest);color:#eaf4e8;font-size:.86rem;padding:8px 0}.topbar.wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 0}.brand{display:flex;align-items:center;gap:11px;font-weight:700;color:var(--forest)}.brandmark{width:43px;height:43px;border-radius:14px;background:var(--forest);display:grid;place-items:center;color:#fff;font-size:23px}.brand small{display:block;color:var(--muted);font-weight:500;font-size:.72rem;margin-top:5px}.navlinks{display:flex;gap:20px;align-items:center;font-size:.93rem}.btn{border:0;border-radius:999px;padding:12px 19px;font:inherit;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px}.btn-primary{background:var(--forest);color:white}.lang{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:700;color:var(--forest)}.hero{background:linear-gradient(115deg,#edf5e9 0%,#f9f7ed 56%,#e3efdb 100%);padding:65px 0 58px}.hero-grid{display:grid;grid-template-columns:1.05fr.95fr;gap:40px;align-items:center}.eyebrow{display:inline-flex;gap:8px;align-items:center;background:#dcebd6;color:var(--forest);border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700}.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.04;color:var(--forest);margin:19px 0}.hero p{font-size:1.08rem;color:#4e6253;max-width:590px}.hero-art{min-height:370px;border-radius:28px;background:linear-gradient(155deg,rgba(20,60,40,.10),rgba(20,60,40,.02)),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85') center/cover;position:relative;overflow:hidden}.art-card{position:absolute;bottom:22px;left:22px;right:22px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:18px;padding:17px 20px;display:flex;gap:13px}.art-icon{font-size:27px;background:var(--mint);border-radius:12px;padding:8px}section{padding:70px 0}.section-head{max-width:700px;margin-bottom:30px}.section-head h2{font-size:clamp(1.8rem,3vw,2.7rem);color:var(--forest);margin:10px 0}.pill-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:#63825e}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px}.card-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:var(--mint);font-size:26px;margin-bottom:18px}.assistant-section{background:var(--forest);color:#fff}.assistant-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}.assistant-section.section-head h2{color:#fff}.chatbox{background:#fff;color:var(--ink);border-radius:22px;padding:20px}.chat-top{display:flex;align-items:center;gap:11px;padding-bottom:14px;border-bottom:1px solid var(--line)}.bot-avatar{width:42px;height:42px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:22px}.demo-tag{margin-left:auto;font-size:.7rem;font-weight:700;background:#c8f5b4;color:#1b4d0f;padding:5px 10px;border-radius:99px}.chat-messages{min-height:190px;max-height:320px;overflow:auto;padding:15px 0;display:flex;flex-direction:column;gap:12px}.bubble{max-width:92%;padding:11px 13px;border-radius:15px;font-size:.91rem;white-space:pre-wrap;line-height:1.8}.bubble.bot{background:#f0f5ed;align-self:flex-start}.bubble.user{background:var(--forest);color:white;align-self:flex-end}
-   .bubble.bot a{display:inline-block;background:#e8f5e9;color:#145a32;border:1px solid #a5d6a7;padding:5px 11px;border-radius:99px;font-size:.82rem;font-weight:700;text-decoration:none;margin:4px 2px}
-   .bubble.bot a:hover{background:var(--forest);color:#fff}
-   .chat-suggestions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.suggestion{font-size:.79rem;border:1px solid var(--line);border-radius:99px;background:#fff;padding:7px 10px;cursor:pointer;color:var(--forest)}.chat-form{display:flex;gap:8px}.chat-form input{flex:1;border:1px solid #cfdccf;border-radius:99px;padding:12px 15px;font:inherit}.chat-form button{width:46px;height:46px;border-radius:50%;border:0;background:var(--forest);color:#fff;font-size:20px;cursor:pointer}.ur-text{display:none}.ur.english-text{display:none}.ur.ur-text{display:inline}.ur.hero-grid,.ur.assistant-grid{direction:rtl}
-    @media(max-width:900px){.hero-grid,.assistant-grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:580px){.cards{grid-template-columns:1fr}}
-  </style>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nature Reformer AI Hub | Clickable Topics</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Noto+Nastaliq+Urdu:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--forest:#173d2b;--leaf:#8bc36a;--mint:#eaf4e8;--cream:#fbfaf4;--ink:#1d2a22;--muted:#5d6d61;--line:#dce6d9;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;line-height:1.6}
+a{color:inherit;text-decoration:none}.wrap{width:min(1160px,92%);margin:auto}
+.topbar{background:var(--forest);color:#eaf4e8;font-size:.86rem;padding:8px 0}.topbar.wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:17px 0}.brand{display:flex;align-items:center;gap:11px;font-weight:700;color:var(--forest)}.brandmark{width:43px;height:43px;border-radius:14px;background:var(--forest);display:grid;place-items:center;color:#fff;font-size:23px}.brand small{display:block;color:var(--muted);font-weight:500;font-size:.72rem;margin-top:5px}
+.navlinks{display:flex;gap:20px;align-items:center;font-size:.93rem}.btn{border:0;border-radius:999px;padding:12px 19px;font-weight:700;cursor:pointer;display:inline-flex;align-items:center;gap:8px}.btn-primary{background:var(--forest);color:white}.lang{border:1px solid var(--line);background:white;border-radius:999px;padding:9px 13px;cursor:pointer;font-weight:700;color:var(--forest)}
+.hero{background:linear-gradient(115deg,#edf5e9 0%,#f9f7ed 56%,#e3efdb 100%);padding:65px 0 58px}.hero-grid{display:grid;grid-template-columns:1.05fr.95fr;gap:40px;align-items:center}.eyebrow{display:inline-flex;gap:8px;background:#dcebd6;color:var(--forest);border-radius:999px;padding:7px 12px;font-size:.82rem;font-weight:700}.hero h1{font-size:clamp(2.5rem,5vw,4.5rem);line-height:1.04;color:var(--forest);margin:19px 0}.hero p{font-size:1.08rem;color:#4e6253;max-width:590px}
+.hero-art{min-height:370px;border-radius:28px;background:linear-gradient(155deg,rgba(20,60,40,.10),rgba(20,60,40,.02)),url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=85') center/cover;position:relative;overflow:hidden}.art-card{position:absolute;bottom:22px;left:22px;right:22px;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);border-radius:18px;padding:17px 20px;display:flex;gap:13px}.art-icon{font-size:27px;background:var(--mint);border-radius:12px;padding:8px}
+section{padding:70px 0}.section-head{max-width:700px;margin-bottom:30px}.section-head h2{font-size:clamp(1.8rem,3vw,2.7rem);color:var(--forest);margin:10px 0}.pill-label{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;font-weight:700;color:#63825e}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}.card{background:#fff;border:1px solid var(--line);border-radius:20px;padding:23px;display:block;transition:.2s;cursor:pointer}.card:hover{transform:translateY(-4px);box-shadow:0 12px 30px rgba(23,61,43,.12);border-color:var(--forest)}.card-icon{width:52px;height:52px;display:grid;place-items:center;border-radius:16px;background:var(--mint);font-size:26px;margin-bottom:18px}.card small{color:var(--forest);font-weight:700;display:inline-block;margin-top:10px;background:var(--mint);padding:4px 10px;border-radius:99px;font-size:.75rem}
+.assistant-section{background:var(--forest);color:#fff}.assistant-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:45px;align-items:center}
+.chatbox{background:#fff;color:var(--ink);border-radius:22px;padding:20px}.chat-top{display:flex;align-items:center;gap:11px;padding-bottom:14px;border-bottom:1px solid var(--line)}.bot-avatar{width:42px;height:42px;border-radius:14px;background:var(--mint);display:grid;place-items:center;font-size:22px}.demo-tag{margin-left:auto;font-size:.7rem;font-weight:700;background:#c8f5b4;color:#1b4d0f;padding:5px 10px;border-radius:99px}.chat-messages{min-height:190px;max-height:340px;overflow:auto;padding:15px 0;display:flex;flex-direction:column;gap:12px}.bubble{max-width:92%;padding:11px 13px;border-radius:15px;font-size:.91rem;white-space:pre-wrap;line-height:1.8}.bubble.bot{background:#f0f5ed;align-self:flex-start}.bubble.user{background:var(--forest);color:white;align-self:flex-end}
+.bubble.bot a{display:inline-block;background:#e8f5e9;color:#145a32;border:1px solid #a5d6a7;padding:6px 12px;border-radius:99px;font-size:.82rem;font-weight:700;text-decoration:none;margin:5px 3px}.bubble.bot a:hover{background:var(--forest);color:#fff}
+.chat-suggestions{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:12px}.suggestion{font-size:.79rem;border:1px solid var(--line);border-radius:99px;background:#fff;padding:7px 10px;cursor:pointer;color:var(--forest)}.chat-form{display:flex;gap:8px}.chat-form input{flex:1;border:1px solid #cfdccf;border-radius:99px;padding:12px 15px;font:inherit}.chat-form button{width:46px;height:46px;border-radius:50%;border:0;background:var(--forest);color:#fff;font-size:20px;cursor:pointer}
+@media(max-width:900px){.hero-grid,.assistant-grid{grid-template-columns:1fr}.cards{grid-template-columns:repeat(2,1fr)}}@media(max-width:580px){.cards{grid-template-columns:1fr}}
+</style>
 </head>
 <body>
-  <div class="topbar"><div class="wrap"><span>🌱 Science-led ideas for a healthier planet</span><span>Global vision · Local action</span></div></div>
-  <header class="wrap nav">
-    <a class="brand" href="#"><span class="brandmark">🌿</span><span>Nature Reformer<small>AI HUB · REBUILDING NATURE</small></span></a>
-    <nav class="navlinks"><a href="#focus">Our Focus</a><a href="#assistant">AI Assistant</a><a href="#library">Knowledge Library</a></nav>
-    <button class="lang" id="langToggle">اردو</button>
-  </header>
-  <main>
-    <section class="hero"><div class="wrap hero-grid"><div>
-      <span class="eyebrow">✦ A knowledge hub for a living planet</span>
-      <h1>Rebuild Nature.<br>Rethink Agriculture.</h1>
-      <p>An AI-powered knowledge hub for climate action, environment-friendly agriculture, biodiversity and nature restoration.</p>
-    </div><div class="hero-art"><div class="art-card"><span class="art-icon">🌍</span><div><strong>Environment Friendly Agriculture</strong><span>Rebuilding Nature, one informed action at a time.</span></div></div></div></div></section>
+<div class="topbar"><div class="wrap"><span>🌱 Science-led ideas for a healthier planet</span><span>Global vision · Local action</span></div></div>
+<header class="wrap nav">
+<a class="brand" href="#"><span class="brandmark">🌿</span><span>Nature Reformer<small>AI HUB · CLICKABLE LINKS</small></span></a>
+<nav class="navlinks"><a href="#focus">Our Focus</a><a href="#assistant">AI Assistant</a></nav>
+<button class="lang" id="langToggle">اردو</button>
+</header>
+<main>
+<section class="hero"><div class="wrap hero-grid"><div>
+<span class="eyebrow">✦ A knowledge hub for a living planet</span>
+<h1>Rebuild Nature.<br>Rethink Agriculture.</h1>
+<p>اب ہر ٹاپک کلک ایبل ہے۔ کلک کریں تو سیدھا FAO, WHO, IPCC, WWF کی اصل ویب سائٹ کھلے گی۔</p>
+</div><div class="hero-art"><div class="art-card"><span class="art-icon">🌍</span><div><strong>Clickable Knowledge Hub</strong><span>ہر کارڈ پر کلک کریں - متعلقہ سائٹ کھلے گی</span></div></div></div></div></section>
 
-    <section id="focus"><div class="wrap"><div class="section-head"><span class="pill-label">What we work on</span><h2>Practical knowledge. Lasting impact.</h2></div>
-      <div class="cards">
-        <article class="card"><div class="card-icon">🌦️</div><h3>Climate Action</h3><p>Understand climate risks and adaptation.</p></article>
-        <article class="card"><div class="card-icon">🌾</div><h3>Eco Agriculture & IPM</h3><p>Reduce pesticide use through IPM.</p></article>
-        <article class="card"><div class="card-icon">🐝</div><h3>Biodiversity</h3><p>Protect pollinators and habitats.</p></article>
-        <article class="card"><div class="card-icon">🌱</div><h3>Soil & Water</h3><p>Composting and water conservation.</p></article>
-      </div></div></section>
+<section id="focus"><div class="wrap"><div class="section-head"><span class="pill-label">What we work on - Click to explore</span><h2>ہر ٹاپک پر کلک کریں، متعلقہ ویب سائٹ کھلے گی۔</h2></div>
+<div class="cards">
+<a class="card" href="https://www.ipcc.ch/report/ar6/syr/" target="_blank"><div class="card-icon">🌦️</div><h3>Climate Action</h3><p>موسمیاتی تبدیلی کی سائنس اور حل۔</p><small>🔗 IPCC Report ↗</small></a>
+<a class="card" href="https://www.fao.org/agroecology/overview/en/" target="_blank"><div class="card-icon">🌾</div><h3>Eco Agriculture & IPM</h3><p>زہر سے پاک کھیتی، IPM اور آرگینک۔</p><small>🔗 FAO Agroecology ↗</small></a>
+<a class="card" href="https://www.fao.org/biodiversity/en/" target="_blank"><div class="card-icon">🐝</div><h3>Biodiversity</h3><p>مفید کیڑے، پرندے، پولینیٹر بچاؤ۔</p><small>🔗 FAO Biodiversity ↗</small></a>
+<a class="card" href="https://www.fao.org/soils-portal/en/" target="_blank"><div class="card-icon">🌱</div><h3>Soil & Water</h3><p>ورمی کمپوسٹ، پانی اور مٹی کی صحت۔</p><small>🔗 FAO Soils ↗</small></a>
+</div>
+</div></section>
 
-    <section class="assistant-section" id="assistant"><div class="wrap assistant-grid"><div><div class="section-head"><span class="pill-label" style="color:#b5d89c">Meet your knowledge companion</span><h2 style="color:#fff">Ask a question.<br>Start with evidence.</h2><p style="color:#d2e1d2">Nature Reformer AI now gives direct answers with clickable source links.</p></div></div>
-      <div class="chatbox"><div class="chat-top"><div class="bot-avatar">🌿</div><div><strong>Nature Reformer AI</strong><small>Linked Knowledge Hub</small></div><span class="demo-tag">LIVE ✓</span></div>
-      <div class="chat-messages" id="chatMessages">
-        <div class="bubble bot">السلام علیکم جانی! 🌍 اب میں LIVE ہوں - DEMO ختم!
+<section class="assistant-section" id="assistant"><div class="wrap assistant-grid"><div><div class="section-head"><span class="pill-label" style="color:#b5d89c">Meet your knowledge companion</span><h2 style="color:#fff">Ask a question.<br>Start with evidence.</h2><p style="color:#d2e1d2">اب AI ہر جواب میں 2-3 کلک ایبل لنک دے گا جو سیدھا اصل سورس پر لے جائیں گے۔</p></div></div>
+<div class="chatbox"><div class="chat-top"><div class="bot-avatar">🌿</div><div><strong>Nature Reformer AI</strong><small>Clickable Sources</small></div><span class="demo-tag">LIVE ✓</span></div>
+<div class="chat-messages" id="chatMessages">
+<div class="bubble bot">السلام علیکم جانی! 🌍 اب میں LIVE اور CLICKABLE ہوں!
 
-مجھ سے ٹھک پک پوچھیں:
-☠️ Glyphosate کیا ہے؟
-🐞 مفید کیڑے کون سے؟
-♻️ ورمی کمپوسٹ کیسے؟
-🌊 دریا کیسے بچائیں؟
-🦆 پرندے / مچھلی
-🌡️ موسم
+اوپر والے کارڈز پر کلک کریں تو سیدھا FAO/IPCC کھلے گا۔
+مجھ سے پوچھیں، میں لنک دوں گا:
 
-میں جواب کے ساتھ کلک والا لنک دوں گا۔
-<a href="https://www.fao.org/organic-ag/" target="_blank">🔗 FAO</a> <a href="https://www.who.int/health-topics/pesticides" target="_blank">🔗 WHO</a> <a href="https://www.worldwildlife.org/" target="_blank">🔗 WWF</a></div>
-      </div>
-      <div class="chat-suggestions">
-        <button class="suggestion" data-q="Glyphosate کیا ہے؟">☠️ Glyphosate</button>
-        <button class="suggestion" data-q="مفید کیڑے">🐝 مفید کیڑے</button>
-        <button class="suggestion" data-q="ورمی کمپوسٹ کیسے بنائیں؟">♻️ ورمی کمپوسٹ</button>
-        <button class="suggestion" data-q="دریا کیسے بچائیں؟">🌊 دریا</button>
-      </div>
-      <form class="chat-form" id="chatForm"><input id="chatInput" placeholder="سوال لکھیں: Glyphosate, ورمی, کیڑے..." required><button type="submit">➤</button></form>
-      </div>
-    </div></section>
-  </main>
-
+<a href="https://www.iarc.who.int/featured-news/media-centre-iarc-news-glyphosate/" target="_blank">🔗 WHO - Glyphosate</a> <a href="https://www.fao.org/organicag/oa-faq/en/" target="_blank">🔗 FAO - Organic FAQ</a> <a href="https://www.fao.org/soils-portal/en/" target="_blank">🔗 FAO - Soils</a> <a href="https://www.worldwildlife.org/" target="_blank">🔗 WWF Official</a></div>
+</div>
+<div class="chat-suggestions">
+<button class="suggestion" data-q="Glyphosate کیا ہے؟">☠️ Glyphosate</button>
+<button class="suggestion" data-q="مفید کیڑے">🐝 مفید کیڑے</button>
+<button class="suggestion" data-q="ورمی کمپوسٹ کیسے بنائیں؟">♻️ ورمی کمپوسٹ</button>
+<button class="suggestion" data-q="دریا کیسے بچائیں؟">🌊 دریا</button>
+</div>
+<form class="chat-form" id="chatForm"><input id="chatInput" placeholder="سوال لکھیں: Glyphosate, ورمی, کیڑے..." required><button type="submit">➤</button></form>
+</div></div></section>
+</main>
 <script>
-// Language
 document.getElementById('langToggle').addEventListener('click',()=>{
-  document.body.classList.toggle('ur');
-  document.getElementById('langToggle').textContent = document.body.classList.contains('ur')? 'English' : 'اردو';
+document.body.classList.toggle('ur');
+document.getElementById('langToggle').textContent = document.body.classList.contains('ur')? 'English' : 'اردو';
 });
-
-// *** ACTIVE KNOWLEDGE BASE - NO MORE DEMO ***
 const KB=[
-{k:["glyphosate","گلیفوسیٹ","roundup","راونڈ"], t:"☠️ <b>Glyphosate - Group 2A کینسر (WHO)</b><br>گردے فیل، بانجھ پن، ماں کے دودھ میں، شہد کی مکھی 90% ختم۔ حل: ہاتھ سے گوڈی، ملچنگ، سرکہ اسپرے", links:[["🔗 WHO IARC - Glyphosate Report","https://www.iarc.who.int/featured-news/media-centre-iarc-news-glyphosate/"],["🔗 WHO - Pesticide Fact Sheet","https://www.who.int/news-room/fact-sheets/detail/pesticide-residues-in-food"],["🔗 US EPA - Glyphosate","https://www.epa.gov/ingredients-used-pesticide-products/glyphosate"]]},
-{k:["کیڑے","insect","lady","ٹرائیکو","tricho","beneficial"], t:"🐞 <b>مفید کیڑے</b><br>لیڈی برڈ روز 50 تیلے، سال میں 5000۔ ٹرائیکو 1 کارڈ 20,000 کیڑے 30 روپے۔ بلانے کیلئے گاجر دھنیا سورج مکھی لگائیں", links:[["🔗 FAO - Biodiversity & Pollinators","https://www.fao.org/biodiversity/en/"],["🔗 CABI - Biocontrol","https://www.cabi.org/what-we-do/cabi-centres/biocontrol/"]]},
-{k:["ورمی","vermi","کمپوسٹ","کھاد"], t:"♻️ <b>ورمی کمپوسٹ</b><br>یوریا سے 5 گنا طاقتور، 40% کم پانی۔ طریقہ: 10x3 فٹ، 2 انچ گوبر پرالی، 1 کلو کینچوا، 30 دن میں 700 کلو، 40 روپے کلو", links:[["🔗 FAO - Organic Agriculture FAQ","https://www.fao.org/organicag/oa-faq/en/"],["🔗 FAO - Soils Portal","https://www.fao.org/soils-portal/en/"]]},
-{k:["دریا","river","پانی"], t:"🌊 <b>دریا</b><br>وجہ: ریت مافیا 1000 ٹرک روز، فیکٹری زہر۔ حل: 100 میٹر بفر زون، درخت، ٹریٹمنٹ پلانٹ، بارش کا پانی جمع", links:[["🔗 UN Water - Quality","https://www.unwater.org/water-facts/water-quality-and-wastewater"],["🔗 WWF - Rivers","https://www.worldwildlife.org/threats/water-scarcity"]]},
-{k:["پرندے","bird","بطخ","شکار"], t:"🦆 <b>مہمان پرندے</b><br>4000 کلومیٹر سفر، 1 بطخ 1000 مچھر روز کھاتی ہے۔ حل: Bird Watching Tourism 500 ڈالر/سیاح", links:[["🔗 BirdLife International","https://www.birdlife.org/birds/"],["🔗 CMS - Migratory Birds","https://www.cms.int/en/species/birds"]]},
-{k:["مچھلی","fish","کرنٹ","بارود"], t:"🐟 <b>کرنٹ نسل کشی</b><br>کرنٹ سے سب مر جاتا ہے، دریا 2 سال بنجر، قانون 1 سال قید 1 لاکھ جرمانہ۔ حل: بڑے سوراخ والا جال", links:[["🔗 WWF - Sustainable Fishing","https://www.worldwildlife.org/industries/sustainable-fishing"],["🔗 FAO - Fisheries","https://www.fao.org/fishery/en"]]},
-{k:["موسم","climate","گرمی","heat"], t:"🌡️ <b>موسمیاتی تغیر</b><br>10 سال میں 2-3 ڈگری اضافہ، گندم 30% کم۔ حل: نیم شیشم 1 درخت 10 AC برابر، باجرہ جوار", links:[["🔗 IPCC - Latest Report","https://www.ipcc.ch/report/ar6/syr/"],["🔗 NASA Climate","https://climate.nasa.gov/"],["🔗 UN Climate Action","https://www.un.org/en/climatechange"]]},
-{k:["فضلہ","waste","بائیوگیس","biogas","گوبر","ایکٹیو"], t:"⚡ <b>میں ایکٹیو ہوں جانی! LIVE ✓</b><br>10 کلو گوبر=1 دن گیس+1 یونٹ بجلی۔ 1 کلو کینچوا=4000 روپے مہینہ۔ فضلہ سے دولت", links:[["🔗 FAO - Agroecology","https://www.fao.org/agroecology/overview/en/"],["🔗 World Bank - Waste to Wealth","https://www.worldbank.org/en/topic/urbandevelopment/brief/solid-waste-management"]]}
+{k:["glyphosate","گلیفوسیٹ","roundup","راونڈ"], t:"☠️ <b>Glyphosate - Group 2A کینسر (WHO)</b><br>گردے فیل، بانجھ پن، شہد کی مکھی 90% ختم۔ حل: ہاتھ سے گوڈی، ملچنگ، سرکہ اسپرے", links:[["🔗 WHO IARC - Glyphosate","https://www.iarc.who.int/featured-news/media-centre-iarc-news-glyphosate/"],["🔗 WHO - Pesticide Facts","https://www.who.int/news-room/fact-sheets/detail/pesticide-residues-in-food"],["🔗 US EPA - Glyphosate","https://www.epa.gov/ingredients-used-pesticide-products/glyphosate"]]},
+{k:["کیڑے","insect","lady","ٹرائیکو","tricho","beneficial","pollinator"], t:"🐞 <b>مفید کیڑے</b><br>لیڈی برڈ روز 50 تیلے، سال میں 5000۔ ٹرائیکو 1 کارڈ 20,000 کیڑے 30 روپے۔", links:[["🔗 FAO - Biodiversity & Pollinators","https://www.fao.org/biodiversity/en/"],["🔗 FAO - Pollination","https://www.fao.org/pollination/en/"],["🔗 CABI - Biocontrol","https://www.cabi.org/what-we-do/cabi-centres/biocontrol/"]]},
+{k:["ورمی","vermi","کمپوسٹ","کھاد","soil"], t:"♻️ <b>ورمی کمپوسٹ</b><br>یوریا سے 5 گنا طاقتور، 40% کم پانی۔ 10x3 فٹ، 2 انچ گوبر پرالی، 1 کلو کینچوا، 30 دن میں 700 کلو", links:[["🔗 FAO - Organic Ag FAQ","https://www.fao.org/organicag/oa-faq/en/"],["🔗 FAO - Soils Portal","https://www.fao.org/soils-portal/en/"],["🔗 FAO - Agroecology","https://www.fao.org/agroecology/overview/en/"]]},
+{k:["دریا","river","پانی","water"], t:"🌊 <b>دریا بچاؤ</b><br>ریت مافیا، فیکٹری زہر۔ حل: 100 میٹر بفر زون، درخت، ٹریٹمنٹ پلانٹ", links:[["🔗 UN Water","https://www.unwater.org/water-facts/water-quality-and-wastewater"],["🔗 WWF - Rivers","https://www.worldwildlife.org/threats/water-scarcity"],["🔗 UNEP - Water Quality","https://www.unep.org/topics/freshwater"]]},
+{k:["پرندے","bird","بطخ","شکار"], t:"🦆 <b>مہمان پرندے</b><br>4000 کلومیٹر سفر، 1 بطخ 1000 مچھر روز۔ Bird Watching Tourism", links:[["🔗 BirdLife International","https://www.birdlife.org/birds/"],["🔗 CMS - Migratory Birds","https://www.cms.int/en/species/birds"]]},
+{k:["مچھلی","fish","کرنٹ","بارود"], t:"🐟 <b>کرنٹ سے نسل کشی</b><br>کرنٹ سے سب مر جاتا ہے، دریا 2 سال بنجر، قانون: 1 سال قید 1 لاکھ جرمانہ", links:[["🔗 WWF - Sustainable Fishing","https://www.worldwildlife.org/industries/sustainable-fishing"],["🔗 FAO - Fisheries & Aquaculture","https://www.fao.org/fishery/en"]]},
+{k:["موسم","climate","گرمی","heat"], t:"🌡️ <b>موسمیاتی تغیر</b><br>10 سال میں 2-3 ڈگری اضافہ، گندم 30% کم۔ حل: نیم شیشم 1 درخت 10 AC برابر", links:[["🔗 IPCC Report 2023","https://www.ipcc.ch/report/ar6/syr/"],["🔗 NASA Climate Change","https://climate.nasa.gov/"],["🔗 UN Climate Action","https://www.un.org/en/climatechange"]]},
+{k:["فضلہ","waste","بائیوگیس","biogas","گوبر","ایکٹیو"], t:"⚡ <b>میں ایکٹیو ہوں جانی! LIVE ✓</b><br>10 کلو گوبر=1 دن گیس+1 یونٹ بجلی۔ 1 کلو کینچوا=4000 روپے مہینہ", links:[["🔗 FAO - Agroecology","https://www.fao.org/agroecology/overview/en/"],["🔗 World Bank - Waste","https://www.worldbank.org/en/topic/urbandevelopment/brief/solid-waste-management"],["🔗 FAO - Home","https://www.fao.org/home/en/"]]}
 ];
-
 const msgs=document.getElementById('chatMessages');
 const form=document.getElementById('chatForm');
 const input=document.getElementById('chatInput');
-
 function addMsg(html,isUser){
-  let d=document.createElement('div');d.className='bubble '+(isUser?'user':'bot');
-  if(isUser) d.textContent=html; else d.innerHTML=html;
-  msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
+let d=document.createElement('div');d.className='bubble '+(isUser?'user':'bot');
+if(isUser) d.textContent=html; else d.innerHTML=html;
+msgs.appendChild(d); msgs.scrollTop=msgs.scrollHeight;
 }
 function answer(q){
-  let low=q.toLowerCase();
-  for(let it of KB){ for(let k of it.k){ if(low.includes(k)){ let h=it.t+"<br><br>"; it.links.forEach(l=>h+=`<a href="${l[1]}" target="_blank">${l[0]}</a>`); return h; } } }
-  // special case for "تم ایکٹیو ہو"
-  if(low.includes("ایکٹیو") || low.includes("active")){ return KB[7].t+"<br><br>"+KB[7].links.map(l=>`<a href="${l[1]}" target="_blank">${l[0]}</a>`).join(''); }
-  return `آپ نے کہا: <b>${q}</b><br>میں LIVE ہوں جانی! ان میں سے پوچھیں: Glyphosate, مفید کیڑے, ورمی, دریا, پرندے, مچھلی, موسم<br><br><a href="https://www.fao.org/organic-ag/" target="_blank">🔗 FAO</a> <a href="https://www.who.int/" target="_blank">🔗 WHO</a>`;
+let low=q.toLowerCase();
+for(let it of KB){ for(let k of it.k){ if(low.includes(k)){ let h=it.t+"<br><br>"; it.links.forEach(l=>h+=`<a href="${l[1]}" target="_blank">${l[0]}</a>`); return h; } } }
+if(low.includes("ایکٹیو") || low.includes("active")){ return KB[7].t+"<br><br>"+KB[7].links.map(l=>`<a href="${l[1]}" target="_blank">${l[0]}</a>`).join(''); }
+return `آپ نے کہا: <b>${q}</b><br>میں LIVE ہوں جانی! ان میں سے پوچھیں: Glyphosate, مفید کیڑے, ورمی, دریا, پرندے, مچھلی, موسم<br><br><a href="https://www.fao.org/agroecology/overview/en/" target="_blank">🔗 FAO Agroecology</a> <a href="https://www.ipcc.ch/" target="_blank">🔗 IPCC</a> <a href="https://www.worldwildlife.org/" target="_blank">🔗 WWF</a>`;
 }
 form.addEventListener('submit',e=>{
-  e.preventDefault(); let t=input.value.trim(); if(!t) return;
-  addMsg(t,true); setTimeout(()=>addMsg(answer(t),false),350); input.value='';
+e.preventDefault(); let t=input.value.trim(); if(!t) return;
+addMsg(t,true); setTimeout(()=>addMsg(answer(t),false),350); input.value='';
 });
 document.querySelectorAll('.suggestion').forEach(b=>{ b.addEventListener('click',()=>{ input.value=b.dataset.q; form.dispatchEvent(new Event('submit')); }); });
 </script>
