@@ -1,200 +1,318 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ur" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nature's Reformer - Natural Herbal Detox</title>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<title>Mother Nature Reformer - فطرت کی پکار | Voice of Nature</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif}
-body{background:#f8f9f5;color:#222}
-header{background:#1a4d2e;color:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:100}
-header h1{font-size:20px}
-.lang-btns button{margin:2px;padding:6px 14px;border:2px solid white;border-radius:20px;cursor:pointer;background:transparent;color:white;font-weight:600;transition:0.3s}
-.lang-btns button.active, .lang-btns button:hover{background:white;color:#1a4d2e}
-.hero{background:linear-gradient(135deg,#1a4d2e,#2e7d32);color:white;padding:70px 20px;text-align:center}
-.hero h2{font-size:38px;margin-bottom:15px;line-height:1.3}
-.hero p{font-size:18px;max-width:700px;margin:0 auto 20px;opacity:0.9}
-.btn{display:inline-block;background:#ffcc00;color:#1a4d2e;padding:14px 32px;border-radius:30px;text-decoration:none;font-weight:700;font-size:18px;box-shadow:0 5px 15px rgba(0,0,0,0.2)}
-.section{padding:50px 20px;max-width:1100px;margin:auto}
-.section h2{text-align:center;color:#1a4d2e;font-size:28px;margin-bottom:30px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
-.card{background:white;padding:25px;border-radius:16px;box-shadow:0 8px 25px rgba(0,0,0,0.08);text-align:center}
-.card h3{color:#1a4d2e;margin-bottom:10px}
-.price{font-size:24px;color:#2e7d32;font-weight:700;margin:15px 0}
-.features{text-align:left;margin:15px 0}
-.features li{margin:8px 0;list-style:none}
-.features li:before{content:"✅ "; }
-.testimonial{background:#e8f5e9;border-left:4px solid #2e7d32}
-.contact-box{background:#1a4d2e;color:white;text-align:center;padding:40px;border-radius:16px}
-footer{background:#112e1c;color:white;text-align:center;padding:20px;margin-top:30px}
+:root{--green:#0f3d2e;--light-green:#1a5c3a;--lime:#a3d977;--earth:#f4f1e8;--accent:#ff8c42}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Poppins','Noto Nastaliq Urdu',sans-serif;background:var(--earth);color:#1a1a1a;overflow-x:hidden;transition:0.3s}
+.rtl{font-family:'Noto Nastaliq Urdu',serif;direction:rtl}
+.ltr{font-family:'Poppins',sans-serif;direction:ltr}
+header{position:sticky;top:0;z-index:1000;background:rgba(15,61,46,0.95);backdrop-filter:blur(10px);color:white;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;box-shadow:0 4px 20px rgba(0,0,0,0.2)}
+.logo{font-size:22px;font-weight:800;display:flex;align-items:center;gap:10px}
+.logo span{color:var(--lime)}
+.nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.lang-switch{display:flex;gap:4px;background:rgba(255,255,255,0.15);padding:4px;border-radius:30px}
+.lang-switch button{border:none;padding:6px 14px;border-radius:20px;cursor:pointer;background:transparent;color:white;font-weight:600;transition:0.3s}
+.lang-switch button.active{background:white;color:var(--green)}
+.hero{position:relative;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;color:white;background:linear-gradient(rgba(15,61,46,0.7),rgba(15,61,46,0.85)),url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=1920') center/cover;overflow:hidden}
+.hero-content{max-width:950px;padding:40px 20px;animation:fadeUp 1s ease}
+.hero h1{font-size:52px;line-height:1.2;margin-bottom:15px;font-weight:800}
+.hero h1 span{color:var(--lime)}
+.hero p{font-size:20px;opacity:0.95;margin:20px auto;line-height:1.8;max-width:800px}
+.btn{display:inline-block;padding:14px 32px;border-radius:50px;text-decoration:none;font-weight:700;margin:8px;transition:0.3s;cursor:pointer;border:none;font-size:16px}
+.btn-primary{background:var(--lime);color:var(--green);box-shadow:0 6px 20px rgba(163,217,119,0.4)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(163,217,119,0.5)}
+.btn-outline{background:transparent;border:2px solid white;color:white}
+.btn-outline:hover{background:white;color:var(--green)}
+.section{padding:80px 20px;max-width:1300px;margin:auto}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:38px;color:var(--green);margin-bottom:10px}
+.section-title p{color:#666;max-width:700px;margin:auto;font-size:18px;line-height:1.6}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:25px}
+.card{background:white;border-radius:20px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.06);transition:0.4s;border:1px solid rgba(0,0,0,0.05)}
+.card:hover{transform:translateY(-8px);box-shadow:0 20px 40px rgba(0,0,0,0.12)}
+.card-img{height:220px;background-size:cover;background-position:center;position:relative}
+.card-img::after{content:'';position:absolute;inset:0;background:linear-gradient(transparent,rgba(0,0,0,0.4))}
+.card-body{padding:25px}
+.card-body h3{color:var(--green);font-size:22px;margin-bottom:10px}
+.card-body p{color:#555;line-height:1.7;font-size:15px}
+.badge{display:inline-block;background:var(--lime);color:var(--green);padding:4px 12px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px}
+.alert-box{background:linear-gradient(135deg,#fff3cd,#ffe69c);border-left:6px solid #ff8c42;padding:25px;border-radius:12px;margin:20px 0}
+.threat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+.threat-card{background:white;padding:25px;border-radius:16px;border-top:5px solid #e74c3c;text-align:center}
+.threat-card.green{border-color:var(--light-green)}
+.stats{background:var(--green);color:white;padding:60px 20px;text-align:center}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:30px;max-width:1000px;margin:30px auto 0}
+.stat h3{font-size:42px;color:var(--lime)}
+.chatbot-btn{position:fixed;bottom:25px;right:25px;z-index:9999;background:var(--green);color:white;width:65px;height:65px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;cursor:pointer;box-shadow:0 8px 25px rgba(15,61,46,0.4);animation:pulse 2s infinite;border:3px solid var(--lime)}
+.chatbot-window{position:fixed;bottom:100px;right:25px;width:380px;max-width:90vw;height:520px;background:white;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);z-index:9999;display:none;flex-direction:column;overflow:hidden;border:1px solid #eee}
+.chatbot-header{background:var(--green);color:white;padding:15px 20px;display:flex;justify-content:space-between;align-items:center}
+.chatbot-header h4{font-size:16px}
+.chat-body{flex:1;overflow-y:auto;padding:15px;background:#f9f9f7;display:flex;flex-direction:column;gap:12px}
+.msg{max-width:85%;padding:12px 16px;border-radius:18px;font-size:14px;line-height:1.6}
+.msg.bot{background:white;border:1px solid #e0e0d0;align-self:flex-start;border-bottom-left-radius:4px}
+.msg.user{background:var(--green);color:white;align-self:flex-end;border-bottom-right-radius:4px}
+.chat-input{display:flex;padding:12px;border-top:1px solid #eee;gap:8px}
+.chat-input input{flex:1;padding:12px 16px;border:1px solid #ddd;border-radius:25px;outline:none}
+.chat-input button{background:var(--green);color:white;border:none;width:42px;height:42px;border-radius:50%;cursor:pointer}
+.knowledge-vault{background:linear-gradient(135deg,#0f3d2e,#1a5c3a);color:white;border-radius:24px;padding:50px 30px;margin:40px 0}
+.vault-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:25px}
+.vault-item{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.15);cursor:pointer;transition:0.3s}
+.vault-item:hover{background:rgba(255,255,255,0.2);transform:translateY(-3px)}
+footer{background:#081a12;color:rgba(255,255,255,0.8);padding:60px 20px 30px;text-align:center}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(163,217,119,0.7)}70%{box-shadow:0 0 0 15px rgba(163,217,119,0)}100%{box-shadow:0 0 0 0 rgba(163,217,119,0)}}
+@media(max-width:768px){.hero h1{font-size:34px}.hero p{font-size:16px}.section{padding:50px 15px}.chatbot-window{width:92vw;right:4vw;bottom:90px;height:65vh}}
 </style>
 </head>
-<body>
+<body class="rtl">
+
 <header>
-<h1>🌿 Nature's Reformer</h1>
-<div class="lang-btns">
-<button onclick="setLang('en')" id="btn-en" class="active">English</button>
-<button onclick="setLang('ur')" id="btn-ur">اردو</button>
-<button onclick="setLang('ar')" id="btn-ar">العربية</button>
-<button onclick="setLang('tr')" id="btn-tr">Türkçe</button>
-<button onclick="setLang('fr')" id="btn-fr">Français</button>
+<div class="logo">🌍 <span id="logo1">مادرِ فطرت</span> <span id="logo2" style="color:#a3d977">ریفارمر</span></div>
+<div class="nav">
+<div class="lang-switch">
+<button onclick="changeLang('ur')" id="b-ur" class="active">اردو</button>
+<button onclick="changeLang('en')" id="b-en">EN</button>
+<button onclick="changeLang('ar')" id="b-ar">عربي</button>
+<button onclick="changeLang('tr')" id="b-tr">TR</button>
+<button onclick="changeLang('fr')" id="b-fr">FR</button>
+</div>
 </div>
 </header>
 
 <div class="hero">
-<h2 id="t-hero-title">Natural Detox for a Healthy & Energetic Life</h2>
-<p id="t-hero-desc">100% Natural Herbal Formula Trusted by Thousands Worldwide. Cleanses Toxins, Boosts Metabolism & Restores Natural Balance.</p>
-<a href="#order" class="btn" id="t-hero-btn">Order Now - 50% Off</a>
-</div>
-
-<div class="section">
-<h2 id="t-benefit-head">Why Choose Nature's Reformer?</h2>
-<div class="grid">
-<div class="card"><h3 id="t-b1-title">🌱 100% Natural</h3><p id="t-b1-desc">Made with pure herbs, no chemicals, no side effects. Safe for long term use.</p></div>
-<div class="card"><h3 id="t-b2-title">💪 Powerful Detox</h3><p id="t-b2-desc">Removes toxins from liver, colon and blood. Feel light and energetic in 7 days.</p></div>
-<div class="card"><h3 id="t-b3-title">⚡ Boosts Energy</h3><p id="t-b3-desc">Improves digestion, metabolism and immunity naturally.</p></div>
-</div>
-</div>
-
-<div class="section">
-<h2 id="t-ing-head">Natural Ingredients</h2>
-<div class="grid">
-<div class="card"><h3>🍃 Senna Leaves</h3><p id="t-ing1">Natural colon cleanser</p></div>
-<div class="card"><h3>🌿 Black Seed</h3><p id="t-ing2">Boosts immunity & metabolism</p></div>
-<div class="card"><h3>🍯 Honey & Herbs Mix</h3><p id="t-ing3">Ancient herbal formula for detox</p></div>
-</div>
-</div>
-<div class="section" id="order">
-<h2 id="t-order-head">Special Offer Today</h2>
-<div class="grid">
-<div class="card" style="border:2px solid #2e7d32">
-<h3 id="t-pack1-title">1 Month Pack</h3>
-<div class="price">$39</div>
-<ul class="features">
-<li id="t-p1-f1">30 Days Supply</li>
-<li id="t-p1-f2">Free Diet Plan</li>
-<li id="t-p1-f3">Cash on Delivery</li>
-</ul>
-<a href="#" class="btn" id="t-p1-btn">Order Now</a>
-</div>
-<div class="card" style="border:2px solid #ffcc00; transform:scale(1.05)">
-<h3 id="t-pack2-title">🔥 2 Months Pack - Best Seller</h3>
-<div class="price">$69 <small style="text-decoration:line-through;color:gray">$98</small></div>
-<ul class="features">
-<li id="t-p2-f1">60 Days Supply</li>
-<li id="t-p2-f2">Free Diet Plan + Detox Guide</li>
-<li id="t-p2-f3">Free Delivery Worldwide</li>
-</ul>
-<a href="#" class="btn" id="t-p2-btn">Order Now</a>
+<div class="hero-content">
+<h1 id="h1">فطرت سسک رہی ہے... <br><span>کیا آپ سُن رہے ہیں؟</span></h1>
+<p id="h2">ہم نے زمین کو زہریلے کیمیکلز، مصنوعی کھادوں اور لالچ کی بھٹی میں جھونک دیا ہے۔ انسان کی خوراک زہر آلود، دریا خشک، پرندے خاموش اور مچھلیاں تڑپ رہی ہیں۔ یہ وقت ہے فطرت کی طرف لوٹنے کا۔</p>
+<div style="margin-top:30px">
+<a href="#mission" class="btn btn-primary" id="btn1">تحریک کا حصہ بنیں 🌱</a>
+<a href="#vault" class="btn btn-outline" id="btn2">علم کا خزانہ دیکھیں 📚</a>
 </div>
 </div>
 </div>
 
-<div class="section">
-<h2 id="t-review-head">Customer Reviews</h2>
-<div class="grid">
-<div class="card testimonial"><p id="t-r1">"I lost 4kg in 20 days and feel so energetic. Best natural product!"</p><b>- Ahmed, Dubai</b></div>
-<div class="card testimonial"><p id="t-r2">"My digestion is perfect now. No bloating. Thank you!"</p><b>- Fatima, UK</b></div>
-<div class="card testimonial"><p id="t-r3">"100% natural and effective. Highly recommended."</p><b>- Yusuf, Turkey</b></div>
+<div class="section" id="mission">
+<div class="section-title">
+<h2 id="m-title">ہمارا مشن - کیوں یہ تحریک ضروری ہے؟</h2>
+<p id="m-desc">یہ صرف ایک ویب سائٹ نہیں، یہ آنے والی نسلوں کے لیے بقا کی جنگ ہے۔</p>
+</div>
+
+<div class="alert-box">
+<h3 id="alert-t" style="color:#b45309;margin-bottom:10px">⚠️ خطرے کی گھنٹی: انسان خود اپنی قبر کھود رہا ہے</h3>
+<p id="alert-d" style="line-height:1.8">عالمی ادارہ صحت کے مطابق ہر سال 3 لاکھ افراد زرعی زہروں سے مرتے ہیں۔ مصنوعی کھادوں نے ہماری 33% زرخیز زمین کو بنجر بنا دیا ہے۔ زرخیز زمینوں پر کالونیاں بن رہی ہیں، خوراک کا بحران سر پر ہے۔</p>
+</div>
+
+<div class="threat-grid">
+<div class="threat-card">
+<h3 id="th1-t">☠️ زرعی زہر</h3>
+<p id="th1-d">کیڑے مار ادویات انسانی خون، ماں کے دودھ اور بچوں کے دماغ تک پہنچ چکی ہیں۔ کینسر، بانجھ پن اور اعصابی بیماریوں کی بڑی وجہ۔</p>
+</div>
+<div class="threat-card">
+<h3 id="th2-t">🏜️ بنجر زمین</h3>
+<p id="th2-d">یوریا اور DAP نے زمین کے دوست جراثیم مار دیے۔ اب زمین نشے کی عادی ہو چکی ہے، بغیر زہر کے فصل نہیں دیتی۔</p>
+</div>
+<div class="threat-card">
+<h3 id="th3-t">🏗️ لالچ کی بھینٹ</h3>
+<p id="th3-d">روزانہ ہزاروں ایکڑ زرخیز زمین کنکریٹ میں بدل رہی ہے۔ ہم اپنے ہی پاؤں پر کلہاڑی مار رہے ہیں۔</p>
+</div>
+<div class="threat-card green">
+<h3 id="th4-t">💧 خشک دریا</h3>
+<p id="th4-d">سندھ، راوی، ستلج... ہمارے دریا مر رہے ہیں۔ مافیا ریت نکال رہا ہے، فیکٹریاں زہر انڈیل رہی ہیں۔</p>
+</div>
+</div>
+</div>
+
+<div class="stats">
+<h2 id="stat-title" style="font-size:32px">فطرت کے اعداد و شمار جو رُلا دیں</h2>
+<div class="stats-grid">
+<div class="stat"><h3>75%</h3><p id="s1">اڑنے والے کیڑے ختم</p></div>
+<div class="stat"><h3>40%</h3><p id="s2">مہمان پرندے کم</p></div>
+<div class="stat"><h3>33%</h3><p id="s3">زمین بنجر ہو چکی</p></div>
+<div class="stat"><h3>90%</h3><p id="s4">دریائی حیات خطرے میں</p></div>
 </div>
 </div>
 
 <div class="section">
-<div class="contact-box">
-<h2 id="t-contact-title">Contact Us 24/7</h2>
-<p id="t-contact-desc" style="margin:15px 0">WhatsApp: +92-XXX-XXXXXXX | Email: info@naturesreformer.com</p>
-<p id="t-contact-del">Worldwide Delivery Available - Cash on Delivery in Pakistan, UAE, Saudi Arabia, Turkey</p>
-<br>
-<a href="https://wa.me/92XXXXXXXXXX" class="btn" id="t-contact-btn">Chat on WhatsApp</a>
+<div class="section-title">
+<h2 id="alt-title">زہروں کا متبادل - فطرت کا اپنا نظام</h2>
+<p id="alt-desc">اللہ نے ہر زہر کا توڑ فطرت میں رکھا ہے۔ ہمیں صرف اسے سمجھنا ہے۔</p>
+</div>
+
+<div class="grid">
+<div class="card">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1535068484677-6cbff6a6f4ba?q=80&w=600')"></div>
+<div class="card-body">
+<span class="badge" id="b1-b">مفید کیڑے</span>
+<h3 id="b1-t">لیڈی برڈ اور ٹرائیکوگراما</h3>
+<p id="b1-d">ایک لیڈی برڈ روزانہ 50 سست تیلے کھاتی ہے۔ ٹرائیکوگراما بورر کے انڈے ختم کرتا ہے۔ یہ قدرت کے سپاہی ہیں، زہر نہیں۔</p>
 </div>
 </div>
 
-<footer>© 2026 Nature's Reformer - All Rights Reserved | 100% Natural & Safe</footer>
+<div class="card">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1464226184884-fa280b87c399?q=80&w=600')"></div>
+<div class="card-body">
+<span class="badge" id="b2-b">مفید جراثیم</span>
+<h3 id="b2-t">بائیو فرٹیلائزر - زمین کے ڈاکٹر</h3>
+<p id="b2-d">مائیکورائزا، ازوٹوبیکٹر، ٹرائیکوڈرما۔ یہ زمین میں سونا بناتے ہیں، نائٹروجن ہوا سے لاتے ہیں، بیماریوں کو مارتے ہیں۔</p>
+</div>
+</div>
+
+<div class="card">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?q=80&w=600')"></div>
+<div class="card-body">
+<span class="badge" id="b3-b">قدرتی کھاد</span>
+<h3 id="b3-t">نیم، گوبر اور ورمی کمپوسٹ</h3>
+<p id="b3-d">نیم کا تیل 200 کیڑوں کو بھگاتا ہے۔ ورمی کمپوسٹ یوریا سے 5 گنا زیادہ طاقتور اور زمین کو زندہ کرتا ہے۔</p>
+</div>
+</div>
+</div>
+</div>
+
+<div class="section" style="background:white">
+<div class="section-title">
+<h2 id="climate-title">موسمیاتی تغیر - ہم کیسے بچیں؟</h2>
+<p id="climate-desc">گرمی بڑھ رہی ہے، بارشیں بے وقت ہو رہی ہیں، فصلیں جل رہی ہیں۔</p>
+</div>
+<div class="grid">
+<div class="card"><div class="card-body"><h3 id="cl1-t">🌳 جنگل لگاؤ، زندگی بچاؤ</h3><p id="cl1-d">ایک درخت سالانہ 22 کلو CO2 جذب کرتا ہے۔ دیسی درخت جیسے نیم، کیکر، شیشم لگائیں۔ یہ AC سے سستے ہیں۔</p></div></div>
+<div class="card"><div class="card-body"><h3 id="cl2-t">🌾 خشک سالی والی فصلیں</h3><p id="cl2-d">باجرہ، جوار، موٹھ جیسی فصلیں کم پانی میں زیادہ پیداوار دیتی ہیں۔ یہ مستقبل کی خوراک ہیں۔</p></div></div>
+<div class="card"><div class="card-body"><h3 id="cl3-t">💧 واٹر ہارویسٹنگ</h3><p id="cl3-d">بارش کے پانی کو جمع کریں۔ ایک چھت سے سالانہ 50,000 لیٹر پانی جمع ہو سکتا ہے۔</p></div></div>
+</div>
+</div>
+
+<div class="section">
+<div class="knowledge-vault" id="vault">
+<h2 id="vault-title" style="font-size:34px;text-align:center">📚 فطرت کا خزانہ علم - Knowledge Vault</h2>
+<p id="vault-desc" style="text-align:center;opacity:0.9;margin-top:10px">ہر سوال کا جواب، ہر زہر کا متبادل، ہر مسئلے کا حل۔ نیچے کسی بھی موضوع پر کلک کریں یا AI سے پوچھیں۔</p>
+
+<div class="vault-grid">
+<div class="vault-item" onclick="askBot('مفید کیڑوں کے بارے میں بتاؤ')"><h4 id="v1-t">🐞 مفید کیڑے</h4><p id="v1-d" style="font-size:12px;opacity:0.8">قدرتی دشمن جو زہروں کی جگہ لیتے ہیں</p></div>
+<div class="vault-item" onclick="askBot('فضلہ سے کھاد کیسے بنائیں')"><h4 id="v2-t">♻️ فضلے سے دولت</h4><p id="v2-d" style="font-size:12px;opacity:0.8">کمپوسٹ، بائیوگیس، ورمی کلچر</p></div>
+<div class="vault-item" onclick="askBot('دریا کیوں خشک ہو رہے ہیں')"><h4 id="v3-t">🌊 دریا کی موت</h4><p id="v3-d" style="font-size:12px;opacity:0.8">وجوہات اور بحالی کے طریقے</p></div>
+<div class="vault-item" onclick="askBot('مہمان پرندوں کا قتل کیوں غلط ہے')"><h4 id="v4-t">🦆 مہمان پرندے</h4><p id="v4-d" style="font-size:12px;opacity:0.8">شکار کی حوصلہ شکنی مہم</p></div>
+<div class="vault-item" onclick="askBot('مچھلیوں کو کرنٹ سے پکڑنا کیوں ظلم ہے')"><h4 id="v5-t">🐟 آبی حیات کا تحفظ</h4><p id="v5-d" style="font-size:12px;opacity:0.8">ظالمانہ شکار کے خلاف آواز</p></div>
+<div class="vault-item" onclick="askBot('موسمیاتی تغیر سے کیسے بچیں')"><h4 id="v6-t">🌡️ کلائمیٹ ایکشن</h4><p id="v6-d" style="font-size:12px;opacity:0.8">مستقبل کے لیے تیاری</p></div>
+</div>
+</div>
+
+<div class="section-title" style="margin-top:60px">
+<h2 id="river-title">دریا، پرندے اور مچھلیاں - خاموش چیخیں</h2>
+</div>
+<div class="grid">
+<div class="card">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1505142468610-359e7bcbe29c?q=80&w=600')"></div>
+<div class="card-body">
+<h3 id="r1-t">دریا مر رہے ہیں</h3>
+<p id="r1-d">ریت مافیا، فیکٹریوں کا زہر، ڈیموں کی بھرمار۔ اگر ہم نے دریاؤں کو نہ بچایا تو اگلی جنگ پانی پر ہوگی۔ حل: ریور بفر زون، ٹریٹمنٹ پلانٹ، عوامی نگرانی۔</p>
+</div>
+</div>
+<div class="card">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1452570053594-1b985d6ea890?q=80&w=600')"></div>
+<div class="card-body">
+<h3 id="r2-t">مہمان پرندوں کا قتل عام</h3>
+<p id="r2-d">سائبیریا سے آنے والے پرندے ہزاروں میل سفر کر کے آتے ہیں، اور ہم انہیں شوق کے لیے مار دیتے ہیں۔ یہ ماحول کی بدصورتی ہے۔ ایک پرندہ ہزاروں کیڑے کھاتا ہے۔</p>
+</div>
+</div>
+<div class="card">
+<div class="card-img" style="background-image:url('https://images.unsplash.com/photo-1544551763-46a013bb70d5?q=80&w=600')"></div>
+<div class="card-body">
+<h3 id="r3-t">مچھلیوں پر ظلم بند کرو</h3>
+<p id="r3-d">کرنٹ لگانا، بارود سے اڑانا، زہر ڈالنا۔ یہ صرف مچھلی نہیں مارتا، پورا آبی نظام تباہ کرتا ہے۔ کانٹے اور جال سے پکڑو، نسل کشی نہ کرو۔</p>
+</div>
+</div>
+</div>
+  </div><div class="section" style="background:#f0f7f0">
+<div class="section-title">
+<h2 id="waste-title">فضلہ نہیں، یہ تو خزانہ ہے</h2>
+<p id="waste-desc">ہم جسے کوڑا سمجھتے ہیں، وہی ہماری دولت ہے۔</p>
+</div>
+<div class="grid">
+<div class="card"><div class="card-body"><span class="badge">گوبر سے</span><h3 id="w1-t">بائیوگیس اور بجلی</h3><p id="w1-d">10 کلو گوبر سے ایک دن کا کھانا پک سکتا ہے۔ باقی بچا ہوا بہترین کھاد۔</p></div></div>
+<div class="card"><div class="card-body"><span class="badge">کچن ویسٹ سے</span><h3 id="w2-t">ورمی کمپوسٹ</h3><p id="w2-d">کینچوے کچرے کو سونا بناتے ہیں۔ 1 کلو کینچوا ماہانہ 100 کلو کھاد بناتا ہے۔</p></div></div>
+<div class="card"><div class="card-body"><span class="badge">فصلوں کی باقیات سے</span><h3 id="w3-t">مشروم اور چارہ</h3><p id="w3-d">پرالی جلانے کی بجائے مشروم اگاؤ۔ ایک ایکڑ پرالی سے 10,000 روپے کا مشروم۔</p></div></div>
+</div>
+</div>
+
+<footer>
+<h2 id="f-title" style="color:var(--lime);margin-bottom:15px">🌍 Mother Nature Reformer</h2>
+<p id="f-desc" style="max-width:700px;margin:0 auto 20px;line-height:1.8">یہ سائٹ ایک صدقہ جاریہ ہے۔ فطرت اللہ کی امانت ہے۔ اسے زہر سے پاک رکھنا ہم سب کا فرض ہے۔ آئیں، اس تحریک کو دنیا تک پہنچائیں۔</p>
+<p style="margin-top:20px;opacity:0.6">© 2026 Nature's Reformer - Built for Earth, Built for Future | Made with 💚 in Pakistan</p>
+<p style="margin-top:10px"><span id="f-contact">رابطہ: info@naturesreformer.com | واٹس ایپ پر تحریک کا حصہ بنیں</span></p>
+</footer>
+
+<!-- AI CHATBOT -->
+<div class="chatbot-btn" onclick="toggleChat()">🤖</div>
+<div class="chatbot-window" id="chatWindow">
+<div class="chatbot-header">
+<h4 id="chat-title">🌿 فطرت کا AI مددگار</h4>
+<span style="cursor:pointer;font-size:20px" onclick="toggleChat()">✕</span>
+</div>
+<div class="chat-body" id="chatBody">
+<div class="msg bot" id="chat-welcome">السلام علیکم جانی! میں فطرت کا AI ہوں۔ مفید کیڑوں، نامیاتی کھیتی، دریاؤں، پرندوں، مچھلیوں یا موسمیاتی تغیر کے بارے میں کچھ بھی پوچھیں، اردو یا انگلش میں۔</div>
+</div>
+<div class="chat-input">
+<input type="text" id="chatInput" placeholder="سوال لکھیں... / Ask anything..." onkeypress="if(event.key==='Enter')sendMsg()">
+<button onclick="sendMsg()">➤</button>
+</div>
+</div>
 
 <script>
+// ========== KNOWLEDGE BASE - AI KA KHAZANA ==========
+const knowledgeBase=[
+{keys:["مفید کیڑے","ladybird","trichogramma","beneficial insects","کیڑے"],ur:"🐞 مفید کیڑے فطرت کے سپاہی ہیں:\n\n1. لیڈی برڈ: روزانہ 50 سست تیلے کھاتی ہے، 1 سال میں 5000 کیڑے۔\n2. ٹرائیکوگراما: گنے کے بورر کے انڈوں میں اپنے انڈے دیتا ہے، زہر کی ضرورت ختم۔\n3. کرائیسوپا: نرم جسم والے کیڑوں کا دشمن۔\n\nاستعمال: نیم کے کھیت کے کنارے پھولدار پودے لگائیں تاکہ یہ کیڑے آئیں۔",en:"🐞 Beneficial insects are nature's soldiers:\n\n1. Ladybird: Eats 50 aphids daily, 5000 per year.\n2. Trichogramma: Lays eggs inside borer eggs, eliminates need for poison.\n3. Chrysopa: Enemy of soft-bodied pests.\n\nUse: Plant flowering borders with neem to attract them."},
+{keys:["کھاد","fertilizer","bio fertilizer","compost","ورمی"],ur:"🌱 قدرتی کھادوں کا خزانہ:\n\n1. ورمی کمپوسٹ: یوریا سے 5 گنا طاقتور، زمین زندہ کرتی ہے۔\n2. بائیو فرٹیلائزر: ازوٹوبیکٹر ہوا سے نائٹروجن لاتا ہے۔\n3. نیم کی کھلی: کیڑے بھگاتی ہے + نائٹروجن دیتی ہے۔\n\nطریقہ: 1 ٹن گوبر + 5 کلو کینچوے = 30 دن میں 700 کلو کھاد۔",en:"🌱 Natural fertilizers treasure:\n\n1. Vermicompost: 5x more powerful than urea, revives soil.\n2. Bio-fertilizer: Azotobacter brings nitrogen from air.\n3. Neem cake: Repels pests + provides nitrogen.\n\nMethod: 1 ton dung + 5kg worms = 700kg compost in 30 days."},
+{keys:["دریا","river","پانی","water crisis","خشک"],ur:"🌊 دریا کیوں مر رہے ہیں؟\n\nوجوہات: 1. ریت مافیا 2. فیکٹریوں کا زہریلا پانی 3. بے تحاشا ڈیم 4. جنگلات کی کٹائی\n\nحل: 1. دریا کے کنارے 100 میٹر بفر زون 2. ہر فیکٹری پر ٹریٹمنٹ پلانٹ لازمی 3. عوام دریا کی نگرانی کریں (River Watch) 4. بارش کا پانی جمع کریں۔",en:"🌊 Why rivers are dying?\n\nCauses: 1. Sand mafia 2. Factory toxic waste 3. Too many dams 4. Deforestation\n\nSolution: 1. 100m buffer zone 2. Mandatory treatment plants 3. River Watch by community 4. Rainwater harvesting."},
+{keys:["پرندے","birds","شکار","hunting","مہمان"],ur:"🦆 مہمان پرندوں کا قتل کیوں ظلم ہے؟\n\nیہ پرندے سائبیریا سے 4000 کلومیٹر سفر کر کے آتے ہیں۔ ایک بطخ روزانہ 1000 مچھر اور کیڑے کھاتی ہے۔ ان کو مارنے سے مچھروں کی بیماریاں بڑھتی ہیں۔\n\nاسلام میں بھی بلا ضرورت شکار منع ہے۔ ان کو دیکھو، تصویر لو، مارو مت۔",en:"🦆 Why killing migratory birds is a crime?\n\nThey travel 4000km from Siberia. One duck eats 1000 mosquitoes daily. Killing them increases diseases.\n\nIn Islam, hunting without need is prohibited. Watch them, photograph them, don't kill."},
+{keys:["مچھلی","fish","کرنٹ","blast","current"],ur:"🐟 مچھلیوں پر ظلم:\n\nکرنٹ اور بارود سے مچھلی پکڑنا نسل کشی ہے۔ کرنٹ سے چھوٹی مچھلیاں، انڈے، مینڈک سب مر جاتے ہیں۔ دریا 2 سال تک بنجر ہو جاتا ہے۔\n\nحلال طریقہ: جال جس کا سوراخ بڑا ہو تاکہ چھوٹی مچھلی نکل جائے۔ پابندی لگاؤ اور لوگوں کو سمجھاؤ۔",en:"🐟 Cruelty to fish:\n\nFishing with current and blast is genocide. Current kills baby fish, eggs, frogs. River becomes barren for 2 years.\n\nHalal method: Net with large holes so small fish escape. Ban it and educate people."},
+{keys:["موسمیاتی","climate","گرمی","heat","موسم"],ur:"🌡️ موسمیاتی تغیر سے بچاؤ:\n\nآنے والے 10 سال میں گرمی 2 ڈگری بڑھے گی۔ حل:\n1. دیسی درخت لگاؤ (نیم، کیکر، بیری)\n2. کم پانی والی فصلیں (باجرہ، جوار)\n3. چھت سفید کرو، AC کم چلے گا\n4. بارش کا پانی بچاؤ\n\nایک درخت 10 AC کے برابر ٹھنڈک دیتا ہے۔",en:"🌡️ Climate change survival:\n\nIn next 10 years heat will rise 2°C. Solution:\n1. Plant native trees (Neem, Acacia)\n2. Low-water crops (Millet)\n3. White roof, less AC\n4. Save rainwater\n\nOne tree cools like 10 ACs."},
+{keys:["فضلہ","waste","کوڑا","compost","بائیوگیس"],ur:"♻️ فضلہ = دولت:\n\n1. کچن کا کچرا -> ورمی کمپوسٹ -> 40 روپے کلو بکتی ہے\n2. گوبر -> بائیوگیس -> مفت گیس + بجلی\n3. پرالی -> مشروم -> 1 ایکڑ سے 50,000 منافع\n4. گندے پانی سے -> مچھلی فارم\n\nہمارا نبی ﷺ نے بھی اسراف سے منع فرمایا۔",en:"♻️ Waste = Wealth:\n\n1. Kitchen waste -> Vermicompost -> sells at Rs 40/kg\n2. Dung -> Biogas -> free gas + electricity\n3. Straw -> Mushroom -> Rs 50k profit per acre\n4. Wastewater -> Fish farm\n\nOur Prophet ﷺ forbade waste."}
+];
+
 const translations={
-en:{
-"t-hero-title":"Natural Detox for a Healthy & Energetic Life",
-"t-hero-desc":"100% Natural Herbal Formula Trusted by Thousands Worldwide. Cleanses Toxins, Boosts Metabolism & Restores Natural Balance.",
-"t-hero-btn":"Order Now - 50% Off",
-"t-benefit-head":"Why Choose Nature's Reformer?",
-"t-b1-title":"🌱 100% Natural","t-b1-desc":"Made with pure herbs, no chemicals, no side effects. Safe for long term use.",
-"t-b2-title":"💪 Powerful Detox","t-b2-desc":"Removes toxins from liver, colon and blood. Feel light and energetic in 7 days.",
-"t-b3-title":"⚡ Boosts Energy","t-b3-desc":"Improves digestion, metabolism and immunity naturally.",
-"t-ing-head":"Natural Ingredients","t-ing1":"Natural colon cleanser","t-ing2":"Boosts immunity & metabolism","t-ing3":"Ancient herbal formula for detox",
-"t-order-head":"Special Offer Today","t-pack1-title":"1 Month Pack","t-p1-f1":"30 Days Supply","t-p1-f2":"Free Diet Plan","t-p1-f3":"Cash on Delivery","t-p1-btn":"Order Now",
-"t-pack2-title":"🔥 2 Months Pack - Best Seller","t-p2-f1":"60 Days Supply","t-p2-f2":"Free Diet Plan + Detox Guide","t-p2-f3":"Free Delivery Worldwide","t-p2-btn":"Order Now",
-"t-review-head":"Customer Reviews","t-r1":'"I lost 4kg in 20 days and feel so energetic. Best natural product!"',"t-r2":'"My digestion is perfect now. No bloating. Thank you!"',"t-r3":'"100% natural and effective. Highly recommended."',
-"t-contact-title":"Contact Us 24/7","t-contact-desc":"WhatsApp: +92-XXX-XXXXXXX | Email: info@naturesreformer.com","t-contact-del":"Worldwide Delivery Available - Cash on Delivery in Pakistan, UAE, Saudi Arabia, Turkey","t-contact-btn":"Chat on WhatsApp"
-},
 ur:{
-"t-hero-title":"صحت مند اور توانا زندگی کے لیے قدرتی ڈیٹاکس",
-"t-hero-desc":"100% قدرتی جڑی بوٹیوں سے بنا، ہزاروں لوگوں کا آزمودہ۔ جسم سے زہریلے مادے نکالے، میٹابولزم تیز کرے اور قدرتی توازن بحال کرے۔",
-"t-hero-btn":"ابھی آرڈر کریں - 50% رعایت",
-"t-benefit-head":"نیچرز ریفارمر کیوں منتخب کریں؟",
-"t-b1-title":"🌱 100% قدرتی","t-b1-desc":"خالص جڑی بوٹیوں سے بنا، کوئی کیمیکل نہیں، کوئی سائیڈ ایفیکٹ نہیں۔",
-"t-b2-title":"💪 طاقتور ڈیٹاکس","t-b2-desc":"جگر، آنتوں اور خون سے زہر نکالے، 7 دن میں ہلکا اور چست محسوس کریں۔",
-"t-b3-title":"⚡ توانائی میں اضافہ","t-b3-desc":"ہاضمہ، میٹابولزم اور قوت مدافعت قدرتی طور پر بہتر بنائے۔",
-"t-ing-head":"قدرتی اجزاء","t-ing1":"قدرتی آنتوں کی صفائی","t-ing2":"قوت مدافعت اور میٹابولزم بڑھائے","t-ing3":"قدیم جڑی بوٹیوں کا ڈیٹاکس فارمولا",
-"t-order-head":"آج کی خصوصی آفر","t-pack1-title":"1 ماہ کا پیک","t-p1-f1":"30 دن کی سپلائی","t-p1-f2":"مفت ڈائٹ پلان","t-p1-f3":"کیس آن ڈیلیوری","t-p1-btn":"ابھی آرڈر کریں",
-"t-pack2-title":"🔥 2 ماہ کا پیک - سب سے زیادہ بکنے والا","t-p2-f1":"60 دن کی سپلائی","t-p2-f2":"مفت ڈائٹ پلان + ڈیٹاکس گائیڈ","t-p2-f3":"دنیا بھر میں مفت ڈیلیوری","t-p2-btn":"ابھی آرڈر کریں",
-"t-review-head":"کسٹمر کے تاثرات","t-r1":'"میں نے 20 دن میں 4 کلو وزن کم کیا اور بہت توانا محسوس کر رہا ہوں۔"',"t-r2":'"اب میرا ہاضمہ بالکل ٹھیک ہے، کوئی گیس نہیں۔ شکریہ!"',"t-r3":'"100% قدرتی اور مؤثر۔ بہت زبردست پروڈکٹ ہے۔"',
-"t-contact-title":"24/7 ہم سے رابطہ کریں","t-contact-desc":"واٹس ایپ: +92-XXX-XXXXXXX | ای میل: info@naturesreformer.com","t-contact-del":"دنیا بھر میں ڈیلیوری - پاکستان، یو اے ای، سعودی عرب، ترکی میں کیس آن ڈیلیوری","t-contact-btn":"واٹس ایپ پر بات کریں"
+"logo1":"مادرِ فطرت","logo2":"ریفارمر","h1":"فطرت سسک رہی ہے... <br><span>کیا آپ سُن رہے ہیں؟</span>","h2":"ہم نے زمین کو زہریلے کیمیکلز، مصنوعی کھادوں اور لالچ کی بھٹی میں جھونک دیا ہے۔ انسان کی خوراک زہر آلود، دریا خشک، پرندے خاموش اور مچھلیاں تڑپ رہی ہیں۔ یہ وقت ہے فطرت کی طرف لوٹنے کا۔","btn1":"تحریک کا حصہ بنیں 🌱","btn2":"علم کا خزانہ دیکھیں 📚","m-title":"ہمارا مشن - کیوں یہ تحریک ضروری ہے؟","m-desc":"یہ صرف ایک ویب سائٹ نہیں، یہ آنے والی نسلوں کے لیے بقا کی جنگ ہے۔","alert-t":"⚠️ خطرے کی گھنٹی: انسان خود اپنی قبر کھود رہا ہے","alert-d":"عالمی ادارہ صحت کے مطابق ہر سال 3 لاکھ افراد زرعی زہروں سے مرتے ہیں۔ مصنوعی کھادوں نے ہماری 33% زرخیز زمین کو بنجر بنا دیا ہے۔ زرخیز زمینوں پر کالونیاں بن رہی ہیں، خوراک کا بحران سر پر ہے۔","th1-t":"☠️ زرعی زہر","th1-d":"کیڑے مار ادویات انسانی خون، ماں کے دودھ اور بچوں کے دماغ تک پہنچ چکی ہیں۔ کینسر، بانجھ پن اور اعصابی بیماریوں کی بڑی وجہ۔","th2-t":"🏜️ بنجر زمین","th2-d":"یوریا اور DAP نے زمین کے دوست جراثیم مار دیے۔ اب زمین نشے کی عادی ہو چکی ہے، بغیر زہر کے فصل نہیں دیتی۔","th3-t":"🏗️ لالچ کی بھینٹ","th3-d":"روزانہ ہزاروں ایکڑ زرخیز زمین کنکریٹ میں بدل رہی ہے۔ ہم اپنے ہی پاؤں پر کلہاڑی مار رہے ہیں۔","th4-t":"💧 خشک دریا","th4-d":"سندھ، راوی، ستلج... ہمارے دریا مر رہے ہیں۔ مافیا ریت نکال رہا ہے، فیکٹریاں زہر انڈیل رہی ہیں۔","stat-title":"فطرت کے اعداد و شمار جو رُلا دیں","s1":"اڑنے والے کیڑے ختم","s2":"مہمان پرندے کم","s3":"زمین بنجر ہو چکی","s4":"دریائی حیات خطرے میں","alt-title":"زہروں کا متبادل - فطرت کا اپنا نظام","alt-desc":"اللہ نے ہر زہر کا توڑ فطرت میں رکھا ہے۔ ہمیں صرف اسے سمجھنا ہے۔","b1-b":"مفید کیڑے","b1-t":"لیڈی برڈ اور ٹرائیکوگراما","b1-d":"ایک لیڈی برڈ روزانہ 50 سست تیلے کھاتی ہے۔ ٹرائیکوگراما بورر کے انڈے ختم کرتا ہے۔ یہ قدرت کے سپاہی ہیں، زہر نہیں۔","b2-b":"مفید جراثیم","b2-t":"بائیو فرٹیلائزر - زمین کے ڈاکٹر","b2-d":"مائیکورائزا، ازوٹوبیکٹر، ٹرائیکوڈرما۔ یہ زمین میں سونا بناتے ہیں، نائٹروجن ہوا سے لاتے ہیں، بیماریوں کو مارتے ہیں۔","b3-b":"قدرتی کھاد","b3-t":"نیم، گوبر اور ورمی کمپوسٹ","b3-d":"نیم کا تیل 200 کیڑوں کو بھگاتا ہے۔ ورمی کمپوسٹ یوریا سے 5 گنا زیادہ طاقتور اور زمین کو زندہ کرتا ہے۔","climate-title":"موسمیاتی تغیر - ہم کیسے بچیں؟","climate-desc":"گرمی بڑھ رہی ہے، بارشیں بے وقت ہو رہی ہیں، فصلیں جل رہی ہیں۔","cl1-t":"🌳 جنگل لگاؤ، زندگی بچاؤ","cl1-d":"ایک درخت سالانہ 22 کلو CO2 جذب کرتا ہے۔ دیسی درخت جیسے نیم، کیکر، شیشم لگائیں۔ یہ AC سے سستے ہیں۔","cl2-t":"🌾 خشک سالی والی فصلیں","cl2-d":"باجرہ، جوار، موٹھ جیسی فصلیں کم پانی میں زیادہ پیداوار دیتی ہیں۔ یہ مستقبل کی خوراک ہیں۔","cl3-t":"💧 واٹر ہارویسٹنگ","cl3-d":"بارش کے پانی کو جمع کریں۔ ایک چھت سے سالانہ 50,000 لیٹر پانی جمع ہو سکتا ہے۔","vault-title":"📚 فطرت کا خزانہ علم - Knowledge Vault","vault-desc":"ہر سوال کا جواب، ہر زہر کا متبادل، ہر مسئلے کا حل۔ نیچے کسی بھی موضوع پر کلک کریں یا AI سے پوچھیں۔","v1-t":"🐞 مفید کیڑے","v1-d":"قدرتی دشمن جو زہروں کی جگہ لیتے ہیں","v2-t":"♻️ فضلے سے دولت","v2-d":"کمپوسٹ، بائیوگیس، ورمی کلچر","v3-t":"🌊 دریا کی موت","v3-d":"وجوہات اور بحالی کے طریقے","v4-t":"🦆 مہمان پرندے","v4-d":"شکار کی حوصلہ شکنی مہم","v5-t":"🐟 آبی حیات کا تحفظ","v5-d":"ظالمانہ شکار کے خلاف آواز","v6-t":"🌡️ کلائمیٹ ایکشن","v6-d":"مستقبل کے لیے تیاری","river-title":"دریا، پرندے اور مچھلیاں - خاموش چیخیں","r1-t":"دریا مر رہے ہیں","r1-d":"ریت مافیا، فیکٹریوں کا زہر، ڈیموں کی بھرمار۔ اگر ہم نے دریاؤں کو نہ بچایا تو اگلی جنگ پانی پر ہوگی۔ حل: ریور بفر زون، ٹریٹمنٹ پلانٹ، عوامی نگرانی۔","r2-t":"مہمان پرندوں کا قتل عام","r2-d":"سائبیریا سے آنے والے پرندے ہزاروں میل سفر کر کے آتے ہیں، اور ہم انہیں شوق کے لیے مار دیتے ہیں۔ یہ ماحول کی بدصورتی ہے۔ ایک پرندہ ہزاروں کیڑے کھاتا ہے۔","r3-t":"مچھلیوں پر ظلم بند کرو","r3-d":"کرنٹ لگانا، بارود سے اڑانا، زہر ڈالنا۔ یہ صرف مچھلی نہیں مارتا، پورا آبی نظام تباہ کرتا ہے۔ کانٹے اور جال سے پکڑو، نسل کشی نہ کرو۔","waste-title":"فضلہ نہیں، یہ تو خزانہ ہے","waste-desc":"ہم جسے کوڑا سمجھتے ہیں، وہی ہماری دولت ہے۔","w1-t":"بائیوگیس اور بجلی","w1-d":"10 کلو گوبر سے ایک دن کا کھانا پک سکتا ہے۔ باقی بچا ہوا بہترین کھاد۔","w2-t":"ورمی کمپوسٹ","w2-d":"کینچوے کچرے کو سونا بناتے ہیں۔ 1 کلو کینچوا ماہانہ 100 کلو کھاد بناتا ہے۔","w3-t":"مشروم اور چارہ","w3-d":"پرالی جلانے کی بجائے مشروم اگاؤ۔ ایک ایکڑ پرالی سے 10,000 روپے کا مشروم۔","f-title":"🌍 Mother Nature Reformer","f-desc":"یہ سائٹ ایک صدقہ جاریہ ہے۔ فطرت اللہ کی امانت ہے۔ اسے زہر سے پاک رکھنا ہم سب کا فرض ہے۔ آئیں، اس تحریک کو دنیا تک پہنچائیں۔","f-contact":"رابطہ: info@naturesreformer.com | واٹس ایپ پر تحریک کا حصہ بنیں","chat-title":"🌿 فطرت کا AI مددگار","chat-welcome":"السلام علیکم جانی! میں فطرت کا AI ہوں۔ مفید کیڑوں، نامیاتی کھیتی، دریاؤں، پرندوں، مچھلیوں یا موسمیاتی تغیر کے بارے میں کچھ بھی پوچھیں، اردو یا انگلش میں۔"
 },
-ar:{
-"t-hero-title":"ديتوكس طبيعي لحياة صحية ونشطة",
-"t-hero-desc":"تركيبة عشبية طبيعية 100% موثوقة من الآلاف حول العالم. تنظف السموم وتعزز التمثيل الغذائي.",
-"t-hero-btn":"اطلب الآن - خصم 50%",
-"t-benefit-head":"لماذا تختار Nature's Reformer؟",
-"t-b1-title":"🌱 100% طبيعي","t-b1-desc":"مصنوع من أعشاب نقية، بدون مواد كيميائية، بدون آثار جانبية.",
-"t-b2-title":"💪 ديتوكس قوي","t-b2-desc":"يزيل السموم من الكبد والقولون والدم. تشعر بالخفة والنشاط في 7 أيام.",
-"t-b3-title":"⚡ يعزز الطاقة","t-b3-desc":"يحسن الهضم والتمثيل الغذائي والمناعة بشكل طبيعي.",
-"t-ing-head":"المكونات الطبيعية","t-ing1":"منظف طبيعي للقولون","t-ing2":"يعزز المناعة والتمثيل الغذائي","t-ing3":"تركيبة عشبية قديمة لإزالة السموم",
-"t-order-head":"عرض خاص اليوم","t-pack1-title":"باقة شهر واحد","t-p1-f1":"إمداد 30 يومًا","t-p1-f2":"خطة غذائية مجانية","t-p1-f3":"الدفع عند الاستلام","t-p1-btn":"اطلب الآن",
-"t-pack2-title":"🔥 باقة شهرين - الأكثر مبيعًا","t-p2-f1":"إمداد 60 يومًا","t-p2-f2":"خطة غذائية مجانية + دليل الديتوكس","t-p2-f3":"توصيل مجاني حول العالم","t-p2-btn":"اطلب الآن",
-"t-review-head":"آراء العملاء","t-r1":'"فقدت 4 كجم في 20 يومًا وأشعر بالنشاط. أفضل منتج طبيعي!"',"t-r2":'"الهضم ممتاز الآن. لا انتفاخ. شكرا لك!"',"t-r3":'"100% طبيعي وفعال. موصى به للغاية."',
-"t-contact-title":"اتصل بنا 24/7","t-contact-desc":"واتساب: +92-XXX-XXXXXXX | البريد: info@naturesreformer.com","t-contact-del":"التوصيل متاح عالمياً - الدفع عند الاستلام","t-contact-btn":"تحدث على واتساب"
-},
-tr:{
-"t-hero-title":"Sağlıklı ve Enerjik Bir Yaşam İçin Doğal Detoks",
-"t-hero-desc":"Dünya çapında binlerce kişinin güvendiği %100 doğal bitkisel formül. Toksinleri temizler, metabolizmayı hızlandırır.",
-"t-hero-btn":"Şimdi Sipariş Ver - %50 İndirim",
-"t-benefit-head":"Neden Nature's Reformer?",
-"t-b1-title":"🌱 %100 Doğal","t-b1-desc":"Saf bitkilerden yapılmış, kimyasal yok, yan etki yok.",
-"t-b2-title":"💪 Güçlü Detoks","t-b2-desc":"Karaciğer, kolon ve kandaki toksinleri atar. 7 günde hafif ve enerjik hissedin.",
-"t-b3-title":"⚡ Enerjiyi Artırır","t-b3-desc":"Sindirimi, metabolizmayı ve bağışıklığı doğal olarak iyileştirir.",
-"t-ing-head":"Doğal İçerikler","t-ing1":"Doğal kolon temizleyici","t-ing2":"Bağışıklığı ve metabolizmayı güçlendirir","t-ing3":"Detoks için antik bitkisel formül",
-"t-order-head":"Bugüne Özel Teklif","t-pack1-title":"1 Aylık Paket","t-p1-f1":"30 Günlük Tedarik","t-p1-f2":"Ücretsiz Diyet Planı","t-p1-f3":"Kapıda Ödeme","t-p1-btn":"Şimdi Sipariş Ver",
-"t-pack2-title":"🔥 2 Aylık Paket - En Çok Satan","t-p2-f1":"60 Günlük Tedarik","t-p2-f2":"Ücretsiz Diyet Planı + Detoks Rehberi","t-p2-f3":"Dünya Çapında Ücretsiz Kargo","t-p2-btn":"Şimdi Sipariş Ver",
-"t-review-head":"Müşteri Yorumları","t-r1":'"20 günde 4kg verdim ve çok enerjik hissediyorum. En iyi doğal ürün!"',"t-r2":'"Sindirimim artık mükemmel. Şişkinlik yok. Teşekkürler!"',"t-r3":'"%100 doğal ve etkili. Şiddetle tavsiye edilir."',
-"t-contact-title":"7/24 Bize Ulaşın","t-contact-desc":"WhatsApp: +92-XXX-XXXXXXX | E-posta: info@naturesreformer.com","t-contact-del":"Dünya Çapında Teslimat - Kapıda Ödeme Mevcut","t-contact-btn":"WhatsApp'ta Sohbet Et"
-},
-fr:{
-"t-hero-title":"Détox Naturelle pour une Vie Saine et Énergique",
-"t-hero-desc":"Formule 100% naturelle à base de plantes, approuvée par des milliers de personnes dans le monde. Élimine les toxines.",
-"t-hero-btn":"Commander - 50% de Réduction",
-"t-benefit-head":"Pourquoi Choisir Nature's Reformer?",
-"t-b1-title":"🌱 100% Naturel","t-b1-desc":"Fabriqué à partir d'herbes pures, sans produits chimiques, sans effets secondaires.",
-"t-b2-title":"💪 Détox Puissante","t-b2-desc":"Élimine les toxines du foie, du côlon et du sang. Sentez-vous léger en 7 jours.",
-"t-b3-title":"⚡ Boost d'Énergie","t-b3-desc":"Améliore naturellement la digestion, le métabolisme et l'immunité.",
-"t-ing-head":"Ingrédients Naturels","t-ing1":"Nettoyant naturel du côlon","t-ing2":"Booste l'immunité et le métabolisme","t-ing3":"Ancienne formule à base de plantes pour la détox",
-"t-order-head":"Offre Spéciale Aujourd'hui","t-pack1-title":"Pack 1 Mois","t-p1-f1":"Approvisionnement 30 jours","t-p1-f2":"Plan alimentaire gratuit","t-p1-f3":"Paiement à la livraison","t-p1-btn":"Commander",
-"t-pack2-title":"🔥 Pack 2 Mois - Best Seller","t-p2-f1":"Approvisionnement 60 jours","t-p2-f2":"Plan alimentaire gratuit + Guide Détox","t-p2-f3":"Livraison gratuite dans le monde","t-p2-btn":"Commander",
-"t-review-head":"Avis Clients","t-r1":'"J\'ai perdu 4kg en 20 jours et je me sens si énergique. Meilleur produit naturel!"',"t-r2":'"Ma digestion est parfaite maintenant. Plus de ballonnements. Merci!"',"t-r3":'"100% naturel et efficace. Hautement recommandé."',
-"t-contact-title":"Contactez-nous 24/7","t-contact-desc":"WhatsApp: +92-XXX-XXXXXXX | Email: info@naturesreformer.com","t-contact-del":"Livraison mondiale - Paiement à la livraison disponible","t-contact-btn":"Discuter sur WhatsApp"
+en:{
+"logo1":"Mother","logo2":"Nature Reformer","h1":"Nature is Crying... <br><span>Are You Listening?</span>","h2":"We have thrown earth into furnace of toxic chemicals, synthetic fertilizers and greed. Our food is poisoned, rivers dry, birds silent and fish gasping. It's time to return to nature.","btn1":"Join the Movement 🌱","btn2":"Explore Knowledge Vault 📚","m-title":"Our Mission - Why This Movement is Vital","m-desc":"This is not just a website, it's a battle for survival of future generations.","alert-t":"⚠️ Alarm Bell: Humans are digging their own graves","alert-d":"WHO says 300,000 die yearly from pesticide poisoning. Synthetic fertilizers made 33% fertile land barren. Fertile lands turned into colonies, food crisis ahead.","th1-t":"☠️ Agricultural Poison","th1-d":"Pesticides reached human blood, mother's milk and children's brains. Major cause of cancer, infertility and neurological diseases.","th2-t":"🏜️ Barren Land","th2-d":"Urea and DAP killed soil-friendly microbes. Now soil is addicted, won't yield without poison.","th3-t":"🏗️ Victim of Greed","th3-d":"Thousands of acres fertile land turns into concrete daily. We are cutting our own feet.","th4-t":"💧 Drying Rivers","th4-d":"Indus, Ravi, Sutlej... our rivers are dying. Mafia extracts sand, factories dump poison.","stat-title":"Nature's Stats That Will Make You Cry","s1":"Flying insects gone","s2":"Migratory birds declined","s3":"Land turned barren","s4":"Aquatic life in danger","alt-title":"Alternative to Poisons - Nature's Own System","alt-desc":"Allah has kept antidote for every poison in nature. We just need to understand.","b1-b":"Beneficial Insects","b1-t":"Ladybird & Trichogramma","b1-d":"One ladybird eats 50 aphids daily. Trichogramma destroys borer eggs. They are nature's soldiers, not poison.","b2-b":"Beneficial Microbes","b2-t":"Bio-fertilizer - Doctors of Soil","b2-d":"Mycorrhiza, Azotobacter, Trichoderma. They make gold in soil, bring nitrogen from air, kill diseases.","b3-b":"Natural Fertilizer","b3-t":"Neem, Dung & Vermicompost","b3-d":"Neem oil repels 200 insects. Vermicompost is 5x more powerful than urea and revives soil.","climate-title":"Climate Change - How to Survive?","climate-desc":"Heat rising, rains untimely, crops burning.","cl1-t":"🌳 Plant Forest, Save Life","cl1-d":"One tree absorbs 22kg CO2 yearly. Plant native trees like Neem, Acacia. Cheaper than AC.","cl2-t":"🌾 Drought Crops","cl2-d":"Millet, sorghum give more yield in less water. They are future foods.","cl3-t":"💧 Water Harvesting","cl3-d":"Collect rainwater. One roof can collect 50,000 liters yearly.","vault-title":"📚 Nature's Knowledge Vault","vault-desc":"Answer to every question, alternative to every poison, solution to every problem. Click any topic or ask AI.","v1-t":"🐞 Beneficial Insects","v1-d":"Natural enemies replacing poisons","v2-t":"♻️ Waste to Wealth","v2-d":"Compost, Biogas, Vermiculture","v3-t":"🌊 Death of Rivers","v3-d":"Causes and revival methods","v4-t":"🦆 Migratory Birds","v4-d":"Anti-hunting campaign","v5-t":"🐟 Aquatic Protection","v5-d":"Voice against cruel fishing","v6-t":"🌡️ Climate Action","v6-d":"Preparing for future","river-title":"Rivers, Birds & Fish - Silent Screams","r1-t":"Rivers Are Dying","r1-d":"Sand mafia, factory poison, too many dams. If we don't save rivers, next war will be for water. Solution: buffer zone, treatment plants, public monitoring.","r2-t":"Massacre of Migratory Birds","r2-d":"Birds travel thousands miles from Siberia and we kill for fun. It's environmental ugliness. One bird eats thousands insects.","r3-t":"Stop Cruelty to Fish","r3-d":"Current, blast, poison. It doesn't just kill fish, destroys whole aquatic system. Use hooks and nets, not genocide.","waste-title":"Not Waste, It's Treasure","waste-desc":"What we call garbage is our wealth.","w1-t":"Biogas & Electricity","w1-d":"10kg dung can cook one day's food. Leftover is best fertilizer.","w2-t":"Vermicompost","w2-d":"Worms turn waste into gold. 1kg worm makes 100kg compost monthly.","w3-t":"Mushroom & Fodder","w3-d":"Instead of burning straw, grow mushroom. 10,000 Rs mushroom from one acre straw.","f-title":"🌍 Mother Nature Reformer","f-desc":"This site is Sadaqah Jariyah. Nature is Allah's trust. Keeping it poison-free is our duty. Let's spread this movement worldwide.","f-contact":"Contact: info@naturesreformer.com | Join movement on WhatsApp","chat-title":"🌿 Nature's AI Helper","chat-welcome":"Hello Jani! I am Nature's AI. Ask anything about beneficial insects, organic farming, rivers, birds, fish or climate change in Urdu or English."
 }
 };
-function setLang(l){
-for(let k in translations[l]){let e=document.getElementById(k);if(e)e.innerText=translations[l][k];}
-document.querySelectorAll('.lang-btns button').forEach(b=>b.classList.remove('active'));
-document.getElementById('btn-'+l).classList.add('active');
-document.body.dir=(l=='ur'||l=='ar')?'rtl':'ltr';
-if(l=='ur'||l=='ar'){document.body.style.textAlign='right'}else{document.body.style.textAlign='left'}
-document.querySelector('.hero').style.textAlign='center';
-document.querySelector('.contact-box').style.textAlign='center';
+
+let currentLang='ur';
+function changeLang(lang){
+currentLang=lang;
+document.querySelectorAll('.lang-switch button').forEach(b=>b.classList.remove('active'));
+document.getElementById('b-'+lang).classList.add('active');
+let dict=translations[lang]||translations['en'];
+for(let id in dict){let el=document.getElementById(id);if(el)el.innerHTML=dict[id];}
+if(lang==='ur'||lang==='ar'){document.body.className='rtl';document.body.dir='rtl';}else{document.body.className='ltr';document.body.dir='ltr';}
+document.getElementById('chatInput').placeholder = (lang==='ur'?'سوال لکھیں...':'Ask anything...')+' / '+ (lang==='ur'?'Ask...':'سوال');
 }
-setLang('en');
-</script>
-</body>
-</html>
+
+function toggleChat(){let w=document.getElementById('chatWindow');w.style.display=w.style.display==='flex'?'none':'flex';}
+function askBot(q){toggleChat();document.getElementById('chatInput').value=q;sendMsg();}
+
+function sendMsg(){
+let input=document.getElementById('chatInput');
+let text=input.value.trim();if(!text)return;
+let body=document.getElementById('chatBody');
+let u=document.createElement('div');u.className='msg user';u.innerText=text;body.appendChild(u);
+input.value='';
+setTimeout(()=>{
+let reply=getAnswer(text);
+let b=document.createElement('div');b.className='msg bot';b.innerText=reply;body.appendChild(b);
+body.scrollTop=body.scrollHeight;
+},600);
+body.scrollTop=body.scrollHeight;
+}
+
+function getAnswer(q){
+let l=q.toLowerCase();
+for(let item of knowledgeBase){
+for(let k of item.keys){if(l.includes(k.toLowerCase())){return currentLang==='ur'?item.ur:item.en;}}
+}
+if(l.includes('سلام')||l.includes('hello')||l.includes('hi')){return currentLang==='ur'?'وعلیکم السلام جانی! فطرت کے بارے میں کیا جاننا چاہتے ہیں؟ مفید کیڑے، کھاد، دریا، پرندے؟':'Hello Jani! What do you want to know about nature? Beneficial insects, fertilizers, rivers, birds?';}
+return currentLang
