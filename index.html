@@ -60,21 +60,30 @@
     langToggle.addEventListener('click',()=>setLang(body.classList.contains('ur')?'en':'ur'));
     const messages=document.getElementById('chatMessages'),input=document.getElementById('chatInput');
     function addBubble(text,who){const el=document.createElement('div');el.className='bubble '+who;el.textContent=text;messages.appendChild(el);messages.scrollTop=messages.scrollHeight;}
-   function answer(q){const s=q.toLowerCase();if(/beneficial|pollinator|bee|مفید|شہد/.test(s))return "🦋 Beneficial Insects: Ladybugs, Lacewings فصل کے دشمن کیڑوں کو کھاتے ہیں۔ ان کو بچانے کے لیے پھولدار پودے لگائیں اور کم زہر استعمال کریں۔ Source: FAO IPM Guidelines";if(/soil|مٹی|health|زمین/.test(s))return "🌱 Soil Health: مٹی میں گوبر کی کھاد اور نامیاتی مادہ بڑھائیں، صحت مند مٹی 25% زیادہ پانی رکھتی ہے۔ Source: USDA NRCS";if(/pesticide|زہر|دوا|کم/.test(s))return "🌿 Pesticide کم کریں: IPM طریقہ - پہلے جائزہ، پھر قدرتی حل۔ خرچ 30-40% کم ہوتا ہے۔ Source: PARC";return "میں Nature Reformer AI ہوں LIVE 🌿 - آپ Soil health, Beneficial insects یا Pesticide کے بارے میں پوچھیں۔";}
-    document.getElementById('chatForm').addEventListener('submit',e=>{e.preventDefault();const q=input.value.trim();if(!q)return;addBubble(q,'user');addBubble(answer(q),'bot');input.value='';});
-    document.querySelectorAll('.suggestion').forEach(b=>b.addEventListener('click',()=>{const q=b.dataset.q;addBubble(q,'user');addBubble(answer(q),'bot');}));
-    document.getElementById('year').textContent=new Date().getFullYear();
-  </script>
+   <script>
+const body=document.body; const langToggle=document.getElementById('langToggle');
+function setLang(lang){ const ur=lang==='ur'; body.classList.toggle('ur',ur); if(langToggle) langToggle.textContent=ur?'EN':'اردو'; }
+if(langToggle) langToggle.addEventListener('click',()=>setLang(body.classList.contains('ur')?'en':'ur'));
+document.getElementById('year').textContent=new Date().getFullYear();
+</script>
+
 <script>
 function askAI(t){
- const m={
- "soil health":"🌱 مٹی کی صحت: گوبر کی کھاد سے مٹی 25% زیادہ پانی رکھتی ہے۔ Source: USDA",
- "beneficial insects":"🦋 مفید کیڑے: Ladybug نقصان دہ کیڑوں کو کھاتے ہیں۔ کم زہر استعمال کریں۔ Source: FAO",
- "reduce pesticide":"🌿 زہر کم کریں: IPM طریقہ سے خرچ 30-40% کم۔ Source: PARC"
- };
- document.getElementById('ai-chat').innerHTML=m[t];
+  let q = t.toLowerCase();
+  let ans = "🌿 Nature Reformer AI LIVE: آپ مٹی، مفید کیڑے یا زہر کم کرنے کے بارے میں پوچھیں۔";
+  if(q.includes("soil") || q.includes("مٹی")) ans = "🌱 مٹی کی صحت: گوبر کی کھاد سے مٹی 25 فیصد زیادہ پانی رکھتی ہے۔ Source: USDA";
+  if(q.includes("beneficial") || q.includes("insect") || q.includes("کیڑے")) ans = "🦋 مفید کیڑے: Ladybug نقصان دہ کیڑوں کو کھاتی ہے۔ کم زہر استعمال کریں۔ Source: FAO";
+  if(q.includes("pesticide") || q.includes("زہر") || q.includes("reduce")) ans = "🌿 زہر کم کریں: IPM طریقہ سے خرچ 30-40 فیصد کم ہوتا ہے۔ Source: PARC";
+  document.getElementById('ai-chat').innerHTML = ans;
 }
-</script><script>
+function askFromInput(){
+  let v = document.getElementById('ai-input').value;
+  if(v) askAI(v);
+}
+function answer(q){ askAI(q); }
+</script>
+</body>
+</html>
 function askAI(t){const m={"soil health":"🌱 مٹی کی صحت: گوبر کی کھاد سے مٹی 25% زیادہ پانی رکھتی ہے۔ Source: USDA","beneficial insects":"🦋 مفید کیڑے: Ladybug نقصان دہ کیڑوں کو کھاتے ہیں۔ کم زہر استعمال کریں۔ Source: FAO","reduce pesticide":"🌿 زہر کم کریں: IPM طریقہ سے خرچ 30-40% کم۔ Source: PARC"};document.getElementById('ai-chat').innerHTML=m[t]||m["soil health"];}
 function askFromInput(){let q=document.getElementById('ai-input').value.toLowerCase();if(q.includes("soil")||q.includes("مٹی"))askAI('soil health');else if(q.includes("insect")||q.includes("کیڑ"))askAI('beneficial insects');else if(q.includes("pesticide")||q.includes("زہر"))askAI('reduce pesticide');else askAI('soil health');}
 </script></body> </html>
