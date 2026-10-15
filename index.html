@@ -1,137 +1,105 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html>
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nature Reformer AI Hub V7 - International</title>
+<title>Nature Reformer AI Hub V8 Premium - Live</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#020617;color:#e2e8f0}
-.header{height:92px;background:linear-gradient(90deg,#020617,#064e3b 50%,#16a34a);display:flex;justify-content:space-between;align-items:center;padding:0 18px;border-bottom:4px solid #22c55e;position:sticky;top:0;z-index:30;box-shadow:0 4px 20px #0008}
-.logo{display:flex;gap:16px;align-items:center;font-weight:900;font-size:26px;color:#fff}
-.logo img{height:78px;width:78px;border-radius:50%;background:#fff;padding:6px;border:4px solid #fff;box-shadow:0 0 25px #22c55eaa}
-.main{display:flex;min-height:calc(100vh - 92px)}
-.side{width:300px;background:#0f172a;padding:12px;border-right:2px solid #1e293b;overflow-y:auto}
-.item{padding:12px;border-radius:12px;margin-bottom:6px;cursor:pointer;display:flex;gap:10px;align-items:center;font-size:14px;border:1px solid #1e293b}
-.item.active{background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;box-shadow:0 0 15px #16a34a77;font-weight:700}
-.content{flex:1;padding:16px;overflow-y:auto;background:radial-gradient(1200px 600px at 10% -10%,#16a34a22,transparent),#020617}
-.top4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.card{border-radius:16px;padding:16px;border:1px solid #1e293b;background:linear-gradient(135deg,#0f172a,#1e293b);position:relative;overflow:hidden}
-.panel{background:#0f172a;border:1px solid #1e293b;border-radius:18px;padding:16px;margin-top:14px;box-shadow:0 8px 30px #0005}
-.selectPak{padding:12px 16px;border-radius:30px;border:2px solid #22c55e;background:#052e16;color:#fff;font-weight:700;width:100%;font-size:14px}
-.badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800;display:inline-block}
-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:10px}th,td{border:1px solid #1e293b;padding:10px}th{background:#020617;color:#22c55e}
-@media(max-width:1150px){.top4{grid-template-columns:repeat(2,1fr)}.main{flex-direction:column}.side{width:100%;display:flex;overflow-x:auto}}
+.header{height:100px;margin:10px;border-radius:20px;background:linear-gradient(90deg,#020617,#064e3b 60%,#16a34a);border:2px solid #22c55e;display:flex;justify-content:space-between;align-items:center;padding:0 16px;box-shadow:0 0 30px #16a34a44}
+.logo{display:flex;align-items:center;gap:14px;font-weight:900;font-size:24px;color:#fff}
+.logo img{height:82px;width:82px;border-radius:50%;background:#fff;padding:5px;border:4px solid #fff;box-shadow:0 0 20px #22c55e}
+.main{display:flex;min-height:calc(100vh - 110px)}
+.side{width:295px;background:#0f172a;padding:10px;border-right:1px solid #1e293b}
+.item{padding:11px;border-radius:10px;margin-bottom:6px;cursor:pointer;font-size:13px;border:1px solid #1e293b}
+.item.active{background:#16a34a;color:#fff}
+.content{flex:1;padding:12px;overflow-y:auto;background:radial-gradient(800px 400px at 0% 0%, #16a34a18, transparent),#020617}
+.top3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
+.card{border-radius:18px;background:linear-gradient(180deg,#0f172a,#020617);border:1px solid #1e293b;padding:14px;box-shadow:0 8px 20px #0006}
+.badge{padding:4px 10px;border-radius:20px;font-size:11px;font-weight:800}
+.grid2{display:grid;grid-template-columns:1.2fr.8fr;gap:12px;margin-top:12px}
+select{width:100%;padding:10px;border-radius:10px;background:#020617;color:#fff;border:2px solid #22c55e;font-weight:700}
+@media(max-width:1000px){.top3,.grid2{grid-template-columns:1fr}.main{flex-direction:column}.side{width:100%;display:flex;overflow-x:auto;gap:8px}}
 </style>
 </head>
 <body>
 <div class="header">
-<div class="logo"><img src="logo.png"><span>NATURE REFORMER <span style="color:#22c55e">AI HUB</span> <small style="font-size:12px;background:#22c55e;color:#fff;padding:4px 10px;border-radius:20px;margin-left:8px">V7 INTERNATIONAL • LIVE</small></span></div>
-<div style="text-align:right"><div style="font-size:13px">🌍 Pakistan Live System</div><div style="font-size:11px;background:#22c55e22;padding:4px 8px;border-radius:10px;border:1px solid #22c55e;margin-top:4px" id="liveClock">Loading...</div></div>
+<div class="logo"><img src="logo.png"><span>NATURE REFORMER <span style="color:#86efac">AI HUB</span> <small style="font-size:12px;background:#22c55e;padding:4px 10px;border-radius:20px">V8 PREMIUM • LIVE</small> <small style="font-size:11px;background:#0008;padding:4px 10px;border-radius:20px">• LIVE</small></span></div>
+<div style="text-align:right;font-size:12px"><div>Pakistan Live System</div><div id="clock" style="background:#052e16;border:1px solid #22c55e;padding:4px 8px;border-radius:10px;margin-top:4px">15/10/2026 • Dera Ghazi Khan • LIVE</div></div>
 </div>
 
 <div class="main">
 <div class="side">
-<select id="districtSelect" class="selectPak" onchange="changeDistrict()">
-<option value="30.05,70.64,Dera Ghazi Khan">▼ اپنا علاقہ منتخب کریں - Select District</option>
-<option value="31.5204,74.3587,Lahore">Lahore</option>
-<option value="30.1798,66.9750,Quetta">Quetta</option>
-<option value="33.6844,73.0479,Islamabad">Islamabad</option>
-<option value="24.8607,67.0011,Karachi">Karachi</option>
-<option value="34.0151,71.5249,Peshawar">Peshawar</option>
-<option value="31.4504,73.1350,Faisalabad">Faisalabad</option>
-<option value="30.1575,71.5249,Multan">Multan</option>
-<option value="32.4945,74.5229,Sialkot">Sialkot</option>
-<option value="32.0836,72.6711,Sargodha">Sargodha</option>
-<option value="30.3753,69.3451,Barkhan">Barkhan</option>
-<option value="29.3909,71.6336,Bahawalpur">Bahawalpur</option>
-<option value="33.6007,73.0679,Rawalpindi">Rawalpindi</option>
+<select id="citySel" onchange="updateWeather()">
+<option value="30.05,70.64,Dera Ghazi Khan">▼ اپنا علاقہ منتخب کریں</option>
 <option value="30.05,70.64,Dera Ghazi Khan" selected>Dera Ghazi Khan</option>
-<option value="31.5204,70.4515,Dera Ismail Khan">Dera Ismail Khan</option>
-<option value="26.8500,67.0500,Dadu">Dadu - Sindh</option>
-<option value="27.5570,68.2028,Sukkur">Sukkur</option>
+<option value="31.5204,74.3587,Lahore">Lahore</option>
+<option value="30.1575,71.5249,Multan">Multan</option>
+<option value="31.4504,73.1350,Faisalabad">Faisalabad</option>
+<option value="24.8607,67.0011,Karachi">Karachi</option>
+<option value="33.6844,73.0479,Islamabad">Islamabad</option>
+<option value="30.1798,66.9750,Quetta">Quetta</option>
+<option value="34.0151,71.5249,Peshawar">Peshawar</option>
+<option value="32.4945,74.5229,Sialkot">Sialkot</option>
+<option value="29.3909,71.6336,Bahawalpur">Bahawalpur</option>
 <option value="25.3960,68.3578,Hyderabad">Hyderabad</option>
 </select>
-
-<div style="margin-top:12px">
-<div class="item active" onclick="showPage('dashboard',this)">🏠 Dashboard - ڈیش بورڈ</div>
-<div class="item" onclick="showPage('allcrops',this)">🌾 All Crops Prediction - تمام فصلیں</div>
-<div class="item" onclick="showPage('wheat',this)">🌾 Wheat Diseases - گندم بیماریاں</div>
-<div class="item" onclick="showPage('cotton',this)">🧵 Cotton Insects - کپاس کیڑے</div>
-<div class="item" onclick="showPage('maize',this)">🌽 Maize & Sugarcane - مکئی گنا</div>
-<div class="item" onclick="showPage('weather',this)">⛅ Pakistan Live Weather - پورا پاکستان</div>
-<div class="item" onclick="showPage('contact',this)">📞 Contact Us - رابطہ</div>
+<div style="margin-top:10px">
+<div class="item active" onclick="loadP('dash',this)">🏠 Dashboard - ڈیش بورڈ</div>
+<div class="item" onclick="loadP('all',this)">🌾 All Crops Prediction - تمام فصلیں</div>
+<div class="item" onclick="loadP('wheat',this)">🌾 Wheat Diseases - گندم بیماریاں</div>
+<div class="item" onclick="loadP('cotton',this)">🧵 Cotton Insects - کپاس کیڑے</div>
+<div class="item" onclick="loadP('weather',this)">⛅ Pakistan Live Weather</div>
 </div>
-
-<div style="margin-top:14px;background:linear-gradient(135deg,#052e16,#16a34a);border-radius:14px;padding:14px;border:1px solid #22c55e">
-<h4 style="margin:0">📞 Contact</h4><p style="font-size:13px">DG Khan - 0300-6823639</p><a href="https://wa.me/923006823639" target="_blank" style="background:#25D366;color:#fff;padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block">WhatsApp 💬</a>
+<div style="margin-top:12px;background:linear-gradient(135deg,#052e16,#16a34a);border-radius:14px;padding:14px;border:1px solid #22c55e">
+<h4 style="margin:0">📞 Contact</h4><p style="font-size:13px">DG Khan - 0300-6823639</p><a href="https://wa.me/923006823639?text=Salam%20Jani%20AI%20Hub%20V8%20dekha" target="_blank" style="background:#25D366;color:#fff;padding:10px 18px;border-radius:30px;text-decoration:none;font-weight:800;display:inline-block">WhatsApp 💬</a>
 </div>
 </div>
 
 <div class="content">
-<div class="top4">
-<div class="card"><div>Wheat Disease</div><h2 style="margin:8px 0;color:#22c55e">LOW 12% <span class="badge" style="background:#22c55e22;color:#22c55e">AI 92%</span></h2><small>Stripe Rust - Safe in DG Khan</small><canvas id="chartWheat" height="50"></canvas></div>
-<div class="card"><div>Cotton Insects</div><h2 style="margin:8px 0;color:#a78bfa">HIGH 78%</h2><small>Whitefly Hotspot - Faisalabad</small><canvas id="chartCotton" height="50"></canvas></div>
-<div class="card"><div id="liveCityName">Live Weather - DG Khan</div><h2 id="liveTemp" style="margin:8px 0;color:#38bdf8">--°C LIVE</h2><small id="liveDet">Fetching...</small></div>
-<div class="card"><div>All Crops Yield 2026</div><h2 style="margin:8px 0;color:#fbbf24">+8.4% YoY</h2><small>6 Crops Analyzed - PARC Model</small><canvas id="chartYield" height="50"></canvas></div>
+<div class="top3">
+<div class="card"><div style="display:flex;justify-content:space-between"><b>🌾 Wheat Disease</b><span class="badge" style="background:#22c55e22;color:#4ade80;border:1px solid #22c55e">LOW 12%</span></div><canvas id="ch1" height="120"></canvas><small style="color:#86efac">Risk Low • No spray needed • ↓4.2% last week</small></div>
+<div class="card"><div style="display:flex;justify-content:space-between"><b>🐛 Cotton Whitefly</b><span class="badge" style="background:#f9731622;color:#fb923c;border:1px solid #f97316">HIGH 78%</span></div><canvas id="ch2" height="120"></canvas><small style="color:#fb923c">High Risk • Yellow Traps Needed • ↑18.5%</small></div>
+<div class="card"><b>📍 <span id="cityName">Dera Ghazi Khan Live</span></b><h1 id="temp" style="font-size:38px;margin:8px 0">28°C LIVE ☀️</h1><small id="wDet">Loading live API...</small><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:10px;font-size:11px"><div style="background:#1e293b;padding:8px;border-radius:8px">💧 Hum<br><b id="hum">45%</b></div><div style="background:#1e293b;padding:8px;border-radius:8px">💨 Wind<br><b id="wind">12 km/h</b></div><div style="background:#1e293b;padding:8px;border-radius:8px">🌧️ Rain<br><b id="rain">0%</b></div></div></div>
 </div>
-
-<div id="dynamic"></div>
+<div id="dyn"></div>
 </div>
 </div>
 
 <script>
-let currentLat=30.05,currentLon=70.64,currentName="Dera Ghazi Khan";
-function changeDistrict(){
-let v=document.getElementById('districtSelect').value.split(',');
-currentLat=parseFloat(v[0]); currentLon=parseFloat(v[1]); currentName=v[2];
-fetchWeather(); showPage('weather');
-}
-async function fetchWeather(){
+let lat=30.05,lon=70.64,name="Dera Ghazi Khan";
+async function updateWeather(){
+let v=document.getElementById('citySel').value.split(','); lat=parseFloat(v[0]); lon=parseFloat(v[1]); name=v[2];
 try{
-let url=`https://api.open-meteo.com/v1/forecast?latitude=${currentLat}&longitude=${currentLon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`;
-let r=await fetch(url); let j=await r.json();
-document.getElementById('liveCityName').innerText=`Live - ${currentName}`;
-document.getElementById('liveTemp').innerText=j.current.temperature_2m+"°C LIVE";
-document.getElementById('liveDet').innerText=`Humidity ${j.current.relative_humidity_2m}% • Wind ${j.current.wind_speed_10m} km/h • ${currentName} • Updated ${new Date().toLocaleTimeString()}`;
-let rows=j.daily.time.map((d,i)=>`<tr><td>${d}</td><td>${j.daily.temperature_2m_max[i]}°C</td><td>${j.daily.temperature_2m_min[i]}°C</td><td>${j.daily.precipitation_probability_max[i]}%</td><td>${currentName}</td></tr>`).join('');
-document.getElementById('weatherTable').innerHTML=rows;
-}catch(e){document.getElementById('liveDet').innerText='Offline - Cached';}
+let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation_probability&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`);
+let j=await r.json();
+document.getElementById('cityName').innerText=name+" Live";
+document.getElementById('temp').innerText=j.current.temperature_2m+"°C LIVE ☀️";
+document.getElementById('hum').innerText=j.current.relative_humidity_2m+"%";
+document.getElementById('wind').innerText=j.current.wind_speed_10m+" km/h";
+document.getElementById('rain').innerText=(j.current.precipitation_probability||0)+"%";
+document.getElementById('wDet').innerText=`Humidity ${j.current.relative_humidity_2m}% • Wind ${j.current.wind_speed_10m} km/h • Updated ${new Date().toLocaleTimeString()} • 7 Day Forecast Below`;
+let table=j.daily.time.map((d,i)=>`<tr><td>${d}</td><td>${j.daily.temperature_2m_max[i]}°C</td><td>${j.daily.temperature_2m_min[i]}°C</td><td>${j.daily.precipitation_probability_max[i]}%</td><td>${name}</td></tr>`).join('');
+document.getElementById('wTable').innerHTML=table;
+}catch(e){document.getElementById('wDet').innerText='Offline - Cached data';}
 }
-const PAGES={
-dashboard:`<div class="panel"><h3>🌍 Nature Reformer AI Hub - All Crops Comprehensive Prediction 2026</h3>
-<table><tr><th>فصل / Crop</th><th>Yield Prediction</th><th>Wheat Disease Risk</th><th>Cotton Insect Risk</th><th>7 Day Climate Impact</th></tr>
-<tr><td>گندم Wheat</td><td>3.2 t/ha +8.4%</td><td>Stripe Rust 12% LOW, Leaf Rust 18% LOW</td><td>Aphid 35% MOD</td><td>Dry - Best Sowing</td></tr>
-<tr><td>کپاس Cotton</td><td>1.9 t/ha</td><td>CLCuV 38% MOD</td><td>Whitefly 78% HIGH, Jassid 52% MOD</td><td>34°C - Whitefly Peak</td></tr>
-<tr><td>چاول Rice</td><td>2.8 t/ha +5%</td><td>Blast 25% LOW</td><td>Stem Borer 40% MOD</td><td>Humidity High</td></tr>
-<tr><td>مکئی Maize</td><td>5.5 t/ha +6%</td><td>Leaf Blight 22%</td><td>Fall Armyworm 55% HIGH</td><td>Monitor Night</td></tr>
-<tr><td>گنا Sugarcane</td><td>75 t/ha</td><td>Red Rot 20% LOW</td><td>Top Borer 30% MOD</td><td>Stable</td></tr>
-<tr><td>سرسوں Mustard</td><td>1.4 t/ha</td><td>White Rust 15%</td><td>Aphid 45% MOD</td><td>Cold Favours</td></tr>
-</table>
-<div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px"><canvas id="mainChart"></canvas><canvas id="pestChart"></canvas></div>
-</div>`,
-allcrops:`<div class="panel"><h2>🌾 All Crops Forecast - تمام فصلوں کی مکمل پیشن گوئی</h2><p>گندم کی بیماریاں: کنگی 12% کم، کپاس کے کیڑے: سفید مکھی 78% زیادہ، مکئی میں فال آرمی ورم 55% HIGH - یہ سب درجہ حرارت 34°C اور نمی 42% کی وجہ سے ہے۔ علاج: نیم آئل + پیلے ٹریپ + ریفارمر 10kg/acre + ملچ</p></div>`,
-wheat:`<div class="panel"><h2>🌾 Wheat Diseases - گندم کی تمام بیماریوں کی پیشن گوئی</h2><table><tr><th>Disease</th><th>Risk</th><th>Reason</th><th>Treatment</th></tr><tr><td>Stripe Rust پیلی کنگی</td><td>12% LOW</td><td>Low Humidity 42%</td><td>Resistant Var: Akbar-19</td></tr><tr><td>Leaf Rust بھوری</td><td>18% LOW</td><td>Temp 20-28°C</td><td>Early Sowing 18-25 Oct</td></tr><tr><td>Aphid تیلا</td><td>35% MOD - 10 Nov</td><td>Temp 18-22°C</td><td>Neem Oil 20ml/L</td></tr></table></div>`,
-cotton:`<div class="panel"><h2>🧵 Cotton Insects - کپاس کے تمام کیڑوں کی پیشن گوئی</h2><table><tr><th>Insect</th><th>Risk</th><th>Peak</th><th>Hotspot</th><th>Life Cycle</th></tr><tr><td>Whitefly سفید مکھی</td><td>78% HIGH</td><td>22 Oct</td><td>Faisalabad, Okara, DG Khan</td><td>5+10+15 days @34°C</td></tr><tr><td>Jassid جسیڈ</td><td>52% MOD</td><td>28 Oct</td><td>Vehari</td><td>7+20 days</td></tr><tr><td>Pink Bollworm</td><td>43% MOD</td><td>30 Oct</td><td>Multan</td><td>Pheromone Trap</td></tr></table></div>`,
-maize:`<div class="panel"><h2>🌽 Maize & Sugarcane - مکئی اور گنے کی پیشن گوئی</h2><p>Maize Fall Armyworm 55% HIGH - رات کو حملہ، دن کو چھپتا ہے۔ علاج: Bt Maize + Neem + رات کو لائٹ ٹریپ<br>Sugarcane Red Rot 20% LOW - Top Borer 30% MOD</p></div>`,
-weather:`<div class="panel"><h2>⛅ Pakistan Live Weather - پورے پاکستان کا موسم - اپنا علاقہ Arrow سے منتخب کریں</h2><p>اوپر DropDown سے اپنا شہر منتخب کریں، Live Weather API خود اس شہر کا موسم دکھائے گی۔ یہ API ہر 10 منٹ بعد اپڈیٹ ہوتی ہے۔</p><table><tr><th>Date</th><th>Max</th><th>Min</th><th>Rain %</th><th>City</th></tr><tbody id="weatherTable"><tr><td colspan=5>Loading...</td></tr></tbody></table><p style="font-size:11px">Source: Open-Meteo.com Live • Pakistan Standard Time • All 25 Cities Available</p></div>`,
-contact:`<div class="panel"><h2>📞 Contact - Dera Ghazi Khan</h2><div style="background:linear-gradient(135deg,#052e16,#16a34a);padding:20px;border-radius:14px;color:#fff"><h3>Nature Reformer AI Hub</h3><p>DG Khan - 0300-6823639<br>International High Profile System - Daily Live Update</p><a href="https://wa.me/923006823639" style="background:#25D366;color:#fff;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:800">WhatsApp پر رابطہ کریں</a></div></div>`
+const P={
+dash:`<div class="grid2"><div class="card"><h3>🌿 All Crops Prediction 2026 - DG Khan Live</h3><table style="width:100%;font-size:13px;border-collapse:collapse"><tr><th>Crop</th><th>Yield</th><th>Disease</th><th>Insect</th></tr><tr><td>Wheat</td><td>3.2 t/ha +8.4%</td><td>Rust 12% LOW</td><td>Aphid 35% MOD</td></tr><tr><td>Cotton</td><td>1.9 t/ha</td><td>CLCuV 38% MOD</td><td>Whitefly 78% HIGH</td></tr><tr><td>Rice</td><td>2.8 t/ha +5%</td><td>Blast 25% LOW</td><td>Stem Borer 40%</td></tr><tr><td>Maize</td><td>5.5 t/ha</td><td>Blight 22%</td><td>Armyworm 55% HIGH</td></tr><tr><td>Sugarcane</td><td>75 t/ha</td><td>Red Rot 20%</td><td>Top Borer 30%</td></tr></table><canvas id="mainYield" height="120" style="margin-top:12px"></canvas></div><div class="card"><h3>🛰️ Field Health - DG Khan</h3><div style="width:140px;height:140px;margin:auto;border-radius:50%;background:conic-gradient(#4ade80 0 87%, #facc15 87% 96%, #f87171 96% 100%);display:grid;place-items:center"><div style="width:90px;height:90px;background:#020617;border-radius:50%;display:grid;place-items:center"><b style="font-size:24px;color:#4ade80">87%</b></div></div><p style="font-size:13px;margin-top:12px">🟢 Healthy 87%<br>🟡 Stressed 9%<br>🔴 Critical 4%<br><br>AI: B-12 Field me pani kam hai, Soil Moisture 32%</p></div></div>`,
+all:`<div class="card"><h2>🌾 All Crops Forecast</h2><p>Wheat Rust 12% LOW, Cotton Whitefly 78% HIGH (Peak 22 Oct DG Khan), Maize Fall Armyworm 55% HIGH, Rice Blast 25% LOW. All predictions based on Temp 28-34°C + Humidity 42-45%. Treatment: Neem Oil + Yellow Traps + Reformer 10kg + Mulch</p></div>`,
+wheat:`<div class="card"><h2>🌾 Wheat Disease AI - Complete</h2><p>Stripe Rust 12% LOW (Low Humidity), Leaf Rust 18% LOW, Loose Smut 8% Very Low, Aphid 35% MOD - 10 Nov peak. Sowing Best: 18-25 Oct DG Khan. Ref: PARC, CABI</p></div>`,
+cotton:`<div class="card"><h2>🧵 Cotton Insects AI - DG Khan</h2><p>Whitefly 78% HIGH @34°C, Jassid 52% MOD @32°C, Pink Bollworm 43% MOD. Life Cycle: Whitefly 5+10+15 days. Use Yellow sticky traps 8/acre + Neem 20ml/L evening.</p></div>`,
+weather:`<div class="card"><h2>⛅ Pakistan Live Weather - 7 Days - <span id="wCity2">Dera Ghazi Khan</span></h2><p>Select district from dropdown arrow, live API will show that city's weather. Auto updates every 10 min.</p><table style="width:100%;font-size:13px;border-collapse:collapse"><tr><th>Date</th><th>Max</th><th>Min</th><th>Rain%</th><th>City</th></tr><tbody id="wTable"><tr><td colspan=5>Loading...</td></tr></tbody></table></div>`
 };
-function showPage(k,el){
+function loadP(k,el){
 document.querySelectorAll('.item').forEach(i=>i.classList.remove('active')); if(el) el.classList.add('active');
-document.getElementById('dynamic').innerHTML=PAGES[k]||PAGES.dashboard;
-if(k=='dashboard'){ setTimeout(drawCharts,200); } if(k=='weather'){ fetchWeather(); }
+document.getElementById('dyn').innerHTML=P[k]||P.dash;
+if(k=='dash'){ setTimeout(()=>{ new Chart(document.getElementById('mainYield'),{type:'line',data:{labels:['Wheat','Cotton','Rice','Maize','Sugarcane','Mustard'],datasets:[{label:'Yield t/ha',data:[3.2,1.9,2.8,5.5,75,1.4],borderColor:'#22c55e',backgroundColor:'#22c55e33',fill:true}]},options:{plugins:{legend:{display:false}}}}); },200); }
+if(k=='weather'){ document.getElementById('wCity2').innerText=name; }
 }
-function drawCharts(){
-new Chart(document.getElementById('chartWheat'),{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri','Sat'],datasets:[{label:'Wheat Rust %',data:[18,15,12,14,12,10],borderColor:'#22c55e',tension:0.4}]},options:{plugins:{legend:{display:false}}}});
-new Chart(document.getElementById('chartCotton'),{type:'bar',data:{labels:['Whitefly','Jassid','Bollworm'],datasets:[{data:[78,52,43],backgroundColor:['#f43f5e','#f59e0b','#a78bfa']}]},options:{plugins:{legend:{display:false}}}});
-new Chart(document.getElementById('chartYield'),{type:'doughnut',data:{labels:['Wheat','Cotton','Rice','Maize'],datasets:[{data:[32,19,28,55],backgroundColor:['#22c55e','#a78bfa','#38bdf8','#fbbf24']}]},options:{plugins:{legend:{display:false}}}});
-try{
-new Chart(document.getElementById('mainChart'),{type:'line',data:{labels:['Wheat','Cotton','Rice','Maize','Sugarcane','Mustard'],datasets:[{label:'Yield t/ha',data:[3.2,1.9,2.8,5.5,75,1.4],borderColor:'#22c55e',backgroundColor:'#22c55e22',fill:true,tension:0.4}]}});
-new Chart(document.getElementById('pestChart'),{type:'bar',data:{labels:['Whitefly','Armyworm','Aphid','Jassid'],datasets:[{label:'Risk %',data:[78,55,35,52],backgroundColor:'#f59e0b'}]}});
-}catch(e){}
-}
-setInterval(()=>{document.getElementById('liveClock').innerText=new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'})+" PKT • "+currentName+" • LIVE";},1000);
-fetchWeather(); showPage('dashboard'); setTimeout(drawCharts,500);
+setInterval(()=>{document.getElementById('clock').innerText=new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'})+" • "+name+" • LIVE • V8 PREMIUM";},1000);
+new Chart(document.getElementById('ch1'),{type:'line',data:{labels:['09','10','11','12','13','14','15'],datasets:[{data:[45,38,32,24,18,14,12],borderColor:'#22c55e',backgroundColor:'#22c55e22',fill:true,tension:0.4}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
+new Chart(document.getElementById('ch2'),{type:'bar',data:{labels:['09','10','11','12','13','14','15'],datasets:[{data:[32,45,52,61,68,72,78],backgroundColor:'#f97316'}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
+loadP('dash'); updateWeather(); setInterval(updateWeather,600000);
 </script>
 </body>
 </html>
