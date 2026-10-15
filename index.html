@@ -1,79 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nature Reformer AI Hub - Exact</title>
+<title>Nature Reformer AI Hub - One Page Live</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:'Inter',system-ui;background:#020617;color:#e2e8f0;padding:10px}
-.header{height:90px;border-radius:18px;border:1.5px solid #22c55e;background:linear-gradient(90deg,#0f172a,#052e16);display:flex;align-items:center;padding:0 22px;box-shadow:0 0 30px #16a34a33;position:relative;overflow:hidden}
-.header::before{content:'';position:absolute;left:0;top:0;bottom:0;width:40%;background:radial-gradient(400px 200px at 10% 50%, #ffffff0a, transparent)}
-.logo{display:flex;align-items:center;gap:14px;z-index:2}
-.logo-icon{width:58px;height:58px;border-radius:50%;border:2px solid #22c55e;display:grid;place-items:center;background:radial-gradient(circle,#052e16,#000);box-shadow:0 0 15px #22c55e}
-.topbar-right{display:flex;gap:12px;align-items:center;font-size:12px;color:#94a3b8}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:14px}
-.card{background:linear-gradient(180deg, rgba(15,23,42,0.9), rgba(2,6,23,0.95));border:1px solid #1e293b;border-radius:16px;padding:14px;box-shadow:inset 0 1px 0 #ffffff0a, 0 8px 24px #0008}
-.card:hover{border-color:#22c55e55}
-.badge-low{background:#bbf7d0;color:#14532d;padding:4px 10px;border-radius:8px;font-weight:800;font-size:11px}
-.badge-high{background:#fed7aa;color:#7c2d12;padding:4px 10px;border-radius:8px;font-weight:800;font-size:11px}
-.select-box{width:100%;padding:10px 12px;border-radius:10px;background:#0f172a;border:1px solid #334155;color:#e2e8f0;margin-top:10px}
-.temp-big{font-size:42px;font-weight:900;margin:8px 0}
-.mini-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
-.mini{background:#0f172a;border:1px solid #1e293b;border-radius:10px;padding:8px;font-size:11px}
-.bottom-grid{display:grid;grid-template-columns:1.3fr 0.7fr;gap:14px;margin-top:14px}
-.donut-wrap{display:flex;gap:20px;align-items:center}
-.footer{margin-top:14px;border-radius:12px;background:#0f172a;border:1px solid #1e293b;padding:10px 14px;display:flex;justify-content:space-between;font-size:11px;color:#94a3b8}
-@media(max-width:1100px){.grid3{grid-template-columns:1fr}.bottom-grid{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#020617;color:#e2e8f0;display:flex;min-height:100vh}
+.side{width:260px;background:#0a0f1e;border-right:1px solid #1e293b;padding:12px;position:sticky;top:0;height:100vh;overflow-y:auto}
+.side-logo{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.side-logo img{width:54px;height:54px;border-radius:50%;background:#fff;padding:3px;border:2px solid #22c55e}
+.side-title{font-weight:900;color:#86efac;line-height:1.1}
+.side-sub{font-size:10px;color:#64748b}
+.menu{margin-top:10px}
+.m-item{padding:11px 12px;border-radius:10px;margin-bottom:6px;cursor:pointer;font-size:13px;border:1px solid #1e293b;display:flex;gap:8px;align-items:center}
+.m-item.active{background:linear-gradient(90deg,#16a34a,#22c55e);color:#fff;font-weight:700;box-shadow:0 0 12px #16a34a55}
+.m-item:hover{border-color:#22c55e}
+.main{flex:1;padding:12px;overflow-y:auto;background:radial-gradient(800px 400px at 0% 0%, #16a34a15, transparent),#020617}
+.header{height:68px;border-radius:16px;border:1px solid #22c55e55;background:linear-gradient(90deg,#0f172aee,#052e16ee);display:flex;justify-content:space-between;align-items:center;padding:0 16px;box-shadow:0 0 25px #16a34a22}
+.header b{color:#86efac}
+.top3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-top:12px}
+.card{background:linear-gradient(180deg,#111827ee,#020617f5);border:1px solid #1e293b;border-radius:18px;padding:14px;box-shadow:0 8px 30px #0007}
+.card h3{margin:0 0 8px 0;font-size:14px}
+.badge{padding:4px 10px;border-radius:8px;font-size:11px;font-weight:800}
+.bot2{display:grid;grid-template-columns:1.2fr 0.8fr;gap:12px;margin-top:12px}
+select{width:100%;padding:8px;border-radius:8px;background:#020617;color:#fff;border:1px solid #334155}
+#chatBtn{position:fixed;right:18px;bottom:18px;width:58px;height:58px;border-radius:50%;background:linear-gradient(135deg,#16a34a,#22c55e);display:grid;place-items:center;font-size:26px;cursor:pointer;box-shadow:0 0 25px #22c55eaa;z-index:50}
+#chatBox{position:fixed;right:18px;bottom:82px;width:320px;background:#0f172a;border:1px solid #22c55e;border-radius:16px;padding:10px;display:none;z-index:50;box-shadow:0 0 30px #000}
+#chatBox input{width:100%;padding:10px;border-radius:8px;background:#020617;border:1px solid #334155;color:#fff}
+@media(max-width:1000px){body{flex-direction:column}.side{width:100%;height:auto;position:relative;display:flex;overflow-x:auto;gap:8px}.menu{display:flex;gap:8px}.top3,.bot2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
-<div class="header">
-<div class="logo">
-<div class="logo-icon">🌿</div>
-<div>
-<div style="font-size:28px;font-weight:900;color:#86efac">Nature Reformer <span style="color:#bbf7d0">AI Hub</span></div>
-<div style="font-size:12px;color:#94a3b8;letter-spacing:1px">AI-POWERED AGRICULTURE MONITORING PLATFORM</div>
-</div>
-</div>
-<div class="topbar-right">
-<span>🔔</span>
-<span style="width:28px;height:28px;border-radius:50%;background:#1e293b;border:1px solid #22c55e;display:grid;place-items:center;color:#4ade80;font-weight:800">AP</span>
-<span>⚙️</span>
-<span style="border-left:1px solid #334155;padding-left:12px">Oct 15, 2026 • 14:32 PKT</span>
-</div>
-</div>
-
-<div class="grid3">
-<!-- Wheat -->
-<div class="card">
-<div style="display:flex;justify-content:space-between;align-items:center"><b>🌾 Wheat Disease</b></div>
-<div style="margin:8px 0"><span class="badge-low">LOW • 12%</span></div>
-<canvas id="wheatChart" height="140"></canvas>
-<div style="margin-top:10px;font-size:12px;line-height:1.6">
-<div style="color:#86efac"><b>Risk Level: Low</b><br>No immediate treatment required</div>
-<div style="color:#4ade80;margin-top:6px">↓ 4.2% from last week</div>
-</div>
-</div>
-
-<!-- Cotton -->
-<div class="card">
-<div style="display:flex;justify-content:space-between"><b>🐛 Cotton Whitefly</b></div>
-<div style="margin:8px 0"><span class="badge-high">HIGH • 78%</span></div>
-<canvas id="cottonChart" height="140"></canvas>
-<div style="margin-top:10px;font-size:12px;line-height:1.6">
-<div style="color:#fb923c"><b>Risk Level: High</b><br>Action recommended</div>
-<div style="color:#f97316;margin-top:6px">↑ 18.5% from last week</div>
-</div>
-</div>
-
-<!-- Weather -->
-<div class="card">
-<b>📍 Pakistan Live Weather</b>
-<select id="citySel" class="select-box" onchange="updateWeather()">
-<option value="30.05,70.64,Dera Ghazi Khan">Pakistan ▼ Lahore • Punjab, Pakistan</option>
-<option value="30.05,70.64,Dera Ghazi Khan" selected>Dera Ghazi Khan - DG Khan</option>
+<div class="side">
+<div class="side-logo"><img src="logo.png"><div><div class="side-title">Nature Reformer<br>AI Hub</div><div class="side-sub">AGRICULTURE • AI • DASHBOARD</div></div></div>
+<select id="citySel" onchange="updateWeather()">
+<option value="30.05,70.64,Dera Ghazi Khan" selected>📍 Dera Ghazi Khan</option>
 <option value="31.5204,74.3587,Lahore">Lahore</option>
 <option value="30.1575,71.5249,Multan">Multan</option>
 <option value="31.4504,73.1350,Faisalabad">Faisalabad</option>
@@ -82,79 +44,96 @@ body{margin:0;font-family:'Inter',system-ui;background:#020617;color:#e2e8f0;pad
 <option value="30.1798,66.9750,Quetta">Quetta</option>
 <option value="34.0151,71.5249,Peshawar">Peshawar</option>
 <option value="32.4945,74.5229,Sialkot">Sialkot</option>
+<option value="29.3909,71.6336,Bahawalpur">Bahawalpur</option>
 </select>
-<div class="temp-big" id="temp">28°C ⛅</div>
-<div style="font-size:13px;color:#cbd5e1">Sunny • Clear Skies</div>
-<div class="mini-grid">
-<div class="mini">💧 Humidity<br><b id="hum">45%</b></div>
-<div class="mini">💨 Wind<br><b id="wind">12 km/h NW</b></div>
-<div class="mini">🌧️ Precip<br><b>0mm</b></div>
+
+<div class="menu">
+<div class="m-item active" onclick="filterCrop('all',this)">🏠 All Crops - تمام فصلیں</div>
+<div class="m-item" onclick="filterCrop('wheat',this)">🌾 Wheat - گندم</div>
+<div class="m-item" onclick="filterCrop('cotton',this)">🧵 Cotton - کپاس</div>
+<div class="m-item" onclick="filterCrop('rice',this)">🍚 Rice - چاول</div>
+<div class="m-item" onclick="filterCrop('maize',this)">🌽 Maize - مکئی</div>
+<div class="m-item" onclick="filterCrop('sugarcane',this)">🎋 Sugarcane - گنا</div>
+<div class="m-item" onclick="filterCrop('disease',this)">🦠 Diseases - بیماریاں</div>
+<div class="m-item" onclick="filterCrop('insect',this)">🐞 Insects - کیڑے</div>
 </div>
-<div style="margin-top:10px;background:#0f172a;border:1px solid #1e293b;padding:6px 10px;border-radius:20px;font-size:11px;display:inline-block">🟢 Updated: 14:30 PKT • Live</div>
+
+<div style="margin-top:12px;background:linear-gradient(135deg,#052e16,#16a34a);border-radius:12px;padding:12px;border:1px solid #22c55e">
+<div style="font-size:12px">📞 0300-6823639</div><a href="https://wa.me/923006823639" target="_blank" style="background:#25D366;color:#fff;padding:8px 14px;border-radius:20px;text-decoration:none;font-size:12px;font-weight:800;display:inline-block;margin-top:6px">WhatsApp 💬</a>
 </div>
 </div>
 
-<div class="bottom-grid">
-<div class="card">
-<b>🍃 Crop Health Overview</b>
-<div class="donut-wrap" style="margin-top:14px">
-<div style="position:relative;width:160px;height:160px">
-<canvas id="healthDonut"></canvas>
-<div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center"><div><div style="font-size:28px;font-weight:900;color:#4ade80">87%</div><div style="font-size:11px">Overall Crop Health</div></div></div>
-</div>
-<div style="flex:1">
-<div style="font-size:13px;line-height:2">
-<div>🟢 Healthy: 87%</div>
-<div>🟡 Stressed: 9%</div>
-<div>🔴 Critical: 4%</div>
-</div>
-<div style="margin-top:12px">
-<div style="font-weight:700;margin-bottom:8px">AI Recommendations</div>
-<div style="background:#0f172a;border:1px solid #1e293b;padding:8px;border-radius:10px;font-size:12px;margin-bottom:8px">⚠️ Increase irrigation in Field B-12<br><small style="color:#94a3b8">Soil moisture at 32%</small></div>
-<div style="background:#0f172a;border:1px solid #1e293b;padding:8px;border-radius:10px;font-size:12px;margin-bottom:8px">🛡️ Apply targeted biopesticide to Cotton Sector C</div>
-<div style="background:#0f172a;border:1px solid #1e293b;padding:8px;border-radius:10px;font-size:12px">✅ Monitor Wheat Plot A3<br><small style="color:#94a3b8">stable, no action needed</small></div>
-</div>
-</div>
-</div>
+<div class="main">
+<div class="header"><b>🌿 Nature Reformer AI Hub - One Page Live Dashboard</b><div style="font-size:11px;color:#9ca3af"><span id="liveClock">Loading...</span> • <span id="liveCityHead">Dera Ghazi Khan</span> • LIVE</div></div>
+
+<div class="top3" id="top3">
+<div class="card" id="box-wheat"><div style="display:flex;justify-content:space-between"><b>🌾 Wheat Disease</b><span class="badge" style="background:#bbf7d0;color:#14532d">LOW • 12%</span></div><canvas id="wChart" height="130"></canvas><div style="font-size:11px;margin-top:6px;color:#86efac">Risk Low • No spray • ↓4.2% last week • PARC Model</div></div>
+<div class="card" id="box-cotton"><div style="display:flex;justify-content:space-between"><b>🐛 Cotton Whitefly</b><span class="badge" style="background:#ffedd5;color:#7c2d12">HIGH • 78%</span></div><canvas id="cChart" height="130"></canvas><div style="font-size:11px;margin-top:6px;color:#fb923c">High Risk • Yellow Traps 8/acre • ↑18.5% • Peak 22 Oct DG Khan</div></div>
+<div class="card"><b>📍 Pakistan Live Weather</b><div style="font-size:28px;font-weight:900;margin-top:8px" id="temp">28°C LIVE</div><div style="font-size:12px;color:#9ca3af" id="weatherDesc">Sunny • Clear Skies • DG Khan</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:10px;font-size:11px"><div style="background:#0f172a;padding:8px;border-radius:8px">💧 Hum<br><b id="hum">45%</b></div><div style="background:#0f172a;padding:8px;border-radius:8px">💨 Wind<br><b id="wind">12 km/h</b></div><div style="background:#0f172a;padding:8px;border-radius:8px">🌧️ Rain<br><b id="rain">0%</b></div></div><div style="margin-top:8px;font-size:11px">7 Day Forecast - <span id="cityNameSmall">Dera Ghazi Khan</span> <div id="forecastMini" style="margin-top:4px;font-size:11px;color:#cbd5e1">Loading...</div></div></div>
 </div>
 
-<div class="card">
-<b>📍 Field Map & Sensors</b>
-<div style="margin-top:10px;height:220px;border-radius:12px;background:linear-gradient(135deg,#0f172a,#020617);border:1px solid #1e293b;position:relative;overflow:hidden;padding:10px">
-<div style="position:absolute;left:20px;top:20px;background:#0f172a;padding:6px 10px;border-radius:8px;border-left:3px solid #22c55e;font-size:12px">📍 <b>Field A</b><br><small style="color:#4ade80">Wheat<br>Healthy</small></div>
-<div style="position:absolute;left:20px;top:100px;background:#0f172a;padding:6px 10px;border-radius:8px;border-left:3px solid #f97316;font-size:12px">📍 <b>Field C</b><br><small style="color:#fb923c">Cotton<br>High Risk</small></div>
-<div style="position:absolute;left:20px;top:170px;background:#0f172a;padding:6px 10px;border-radius:8px;border-left:3px solid #60a5fa;font-size:12px">📍 <b>Field B</b><br><small style="color:#93c5fd">Cotton<br>Monitor</small></div>
-<div style="text-align:center;color:#334155;margin-top:80px">🗺️ DG Khan Satellite Map<br>128 Sensors • Live</div>
-</div>
-<div class="mini-grid">
-<div class="mini">💧 Soil Moisture: 62%<div style="height:4px;background:#1e293b;border-radius:10px;margin-top:4px"><div style="width:62%;height:100%;background:#22c55e;border-radius:10px"></div></div></div>
-<div class="mini">☀️ Soil pH: 6.8 Neutral<div style="height:4px;background:#1e293b;border-radius:10px;margin-top:4px"><div style="width:70%;height:100%;background:#4ade80;border-radius:10px"></div></div></div>
-<div class="mini">🌡️ Temperature: 26°C<div style="height:4px;background:#1e293b;border-radius:10px;margin-top:4px"><div style="width:50%;height:100%;background:#86efac;border-radius:10px"></div></div></div>
-</div>
-</div>
+<div class="bot2">
+<div class="card"><b>🌿 Crop Health Overview - All Crops</b><div style="display:flex;gap:16px;margin-top:10px"><div style="width:130px;height:130px;border-radius:50%;background:conic-gradient(#4ade80 0 87%, #374151 87% 100%);display:grid;place-items:center"><div style="width:84px;height:84px;background:#020617;border-radius:50%;display:grid;place-items:center"><b style="color:#4ade80;font-size:22px">87%</b></div></div><div style="font-size:12px"><div>🟢 Healthy 87%<br>🟡 Stressed 9%<br>🔴 Critical 4%</div><div style="margin-top:8px;background:#0f172a;padding:6px;border-radius:8px">⚠️ Field B-12: Soil moisture 32% - Irrigation needed</div><div style="background:#0f172a;padding:6px;border-radius:8px;margin-top:6px">🛡️ Cotton C: Whitefly 78% - Spray Neem evening</div><div style="background:#0f172a;padding:6px;border-radius:8px;margin-top:6px">✅ Wheat A3: Stable - No action</div></div></div><div id="cropDetail" style="margin-top:10px;font-size:12px;background:#0a0f1e;padding:8px;border-radius:8px;border:1px solid #1e293b">All Crops: Wheat 3.2t/ha +8.4% • Cotton 1.9t/ha Whitefly HIGH • Rice Blast 25% LOW • Maize Armyworm 55% HIGH • Sugarcane 75t/ha</div></div>
+<div class="card"><b>🗺️ Field Map & Sensors - Live</b><div style="height:180px;background:#0f172a;border-radius:10px;margin-top:10px;display:grid;place-items:center;color:#64748b;font-size:12px">🛰️ DG Khan Satellite Map<br>128 Sensors • Live IoT<br>Fields: 1,248<br>📍 Field A: Wheat Healthy<br>📍 Field C: Cotton High Risk</div><div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:8px;font-size:11px"><div style="background:#0f172a;padding:6px;border-radius:8px">Moisture 62%</div><div style="background:#0f172a;padding:6px;border-radius:8px">pH 6.8</div><div style="background:#0f172a;padding:6px;border-radius:8px">Temp 26°C</div></div></div>
 </div>
 
-<div class="footer">
-<span>🟢 System Status: All sensors online • 128 devices connected</span>
-<span>Last AI Model Update: Oct 15, 2026 • v2.4.1 ReformerNet</span>
-<span>Export Report • Download CSV • Share Dashboard</span>
+<div style="margin-top:12px;display:flex;justify-content:space-between;font-size:11px;color:#86efac"><span>🟢 All sensors online • 128 devices • DG Khan Live</span><span>Last AI Model: Oct 15, 2026 • v2.4.1 ReformerNet • Live Update Every 10min</span></div>
+</div>
+
+<div id="chatBtn" onclick="toggleChat()">🤖</div>
+<div id="chatBox">
+<b>🤖 AI Hub - Forecast Assistant</b><div style="font-size:11px;color:#9ca3af">موسم، بیماری، کیڑوں کے بارے میں پوچھو</div>
+<div id="chatAns" style="background:#020617;border:1px solid #1e293b;border-radius:8px;padding:8px;margin:8px 0;font-size:12px;min-height:80px">Salam jani! DG Khan ka mausam pucho, wheat disease pucho, cotton whitefly pucho - me foran live jawab dunga!</div>
+<input id="chatIn" placeholder="سوال لکھو... e.g. DG Khan me kal barish?" onkeydown="if(event.key==='Enter')askAI()">
+<button onclick="askAI()" style="width:100%;margin-top:6px;padding:8px;border-radius:8px;background:#16a34a;color:#fff;border:0;font-weight:700">Quick Answer</button>
 </div>
 
 <script>
-let lat=30.05, lon=70.64;
-new Chart(document.getElementById('wheatChart'),{type:'line',data:{labels:['Oct 09','Oct 10','Oct 11','Oct 12','Oct 13','Oct 14','Oct 15'],datasets:[{data:[38,55,62,52,42,35,28,22],borderColor:'#4ade80',backgroundColor:'#4ade8022',tension:0.4,fill:true,pointRadius:0}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#64748b',font:{size:10}}},y:{grid:{color:'#1e293b'},ticks:{color:'#64748b'}}}}});
-new Chart(document.getElementById('cottonChart'),{type:'bar',data:{labels:['Oct 09','Oct 10','Oct 11','Oct 12','Oct 13','Oct 14','Oct 15'],datasets:[{data:[1,1.5,1.8,2,2.2,2.5,2.8,3,3.2,3.5,4,4.5,5,5.8],backgroundColor:'#fb923c',borderRadius:4}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#64748b',font:{size:10}}},y:{grid:{color:'#1e293b'},ticks:{color:'#64748b'}}}}});
-new Chart(document.getElementById('healthDonut'),{type:'doughnut',data:{labels:['Healthy','Stressed','Critical'],datasets:[{data:[87,9,4],backgroundColor:['#4ade80','#facc15','#f87171'],borderWidth:0,cutout:'72%'}]},options:{plugins:{legend:{display:false}}}});
+let curLat=30.05,curLon=70.64,curName="Dera Ghazi Khan";
+const cropInfo={
+all:"All Crops: Wheat 3.2t/ha +8.4% Stripe Rust 12% LOW • Cotton 1.9t/ha Whitefly 78% HIGH Peak 22 Oct • Rice Blast 25% LOW • Maize Fall Armyworm 55% HIGH • Sugarcane Red Rot 20% LOW - Treatment: Neem Oil 20ml/L + Yellow Traps + Mulch 3inch + Reformer 10kg/acre",
+wheat:"Wheat DG Khan: Yield 3.2t/ha +8.4% YoY • Stripe Rust 12% LOW (low humidity 42%) • Leaf Rust 18% LOW • Aphid 35% MOD peak 10 Nov • Best Sowing 18-25 Oct • Treatment: Tebuconazole seed + Neem + Mulch • Ref: PARC",
+cotton:"Cotton DG Khan: Whitefly 78% HIGH @34°C, Jassid 52% MOD, Pink Bollworm 43% MOD • Life Cycle Whitefly 5+10+15 days • Hotspot Faisalabad, Multan, DG Khan • Action: Yellow Sticky Traps 8/acre + Neem Oil evening + Bt cotton",
+rice:"Rice: Yield 2.8t/ha +5% • Blast 25% LOW • Stem Borer 40% MOD • Bacterial Blight 18% LOW • Best due to humidity high",
+maize:"Maize: Yield 5.5t/ha +6% • Fall Armyworm 55% HIGH - Night active, Light trap • Leaf Blight 22% • Treatment: Bt Maize + Neem",
+sugarcane:"Sugarcane: 75t/ha • Red Rot 20% LOW • Top Borer 30% MOD • Smut 12% LOW",
+disease:"Diseases Full: Wheat Yellow Rust 12% LOW - Temp 12-20°C + Humidity 80% cause • Cotton CLCuV 38% MOD Whitefly vector • Rice Blast 25% • Maize Blight 22%",
+insect:"Insects Full: Whitefly 78% HIGH Peak 22 Oct DG Khan • Jassid 52% MOD Peak 28 Oct • Aphid Wheat 35% MOD Peak 10 Nov • Pink Bollworm 43% • Fall Armyworm Maize 55% HIGH Peak 20 Oct"
+};
+function filterCrop(k,el){
+document.querySelectorAll('.m-item').forEach(i=>i.classList.remove('active')); el.classList.add('active');
+document.getElementById('cropDetail').innerText=cropInfo[k];
+if(k=='wheat'){ document.getElementById('box-wheat').style.borderColor='#22c55e'; document.getElementById('box-wheat').style.boxShadow='0 0 20px #22c55e66'; setTimeout(()=>{document.getElementById('box-wheat').style.borderColor='#1e293b'; document.getElementById('box-wheat').style.boxShadow='none'},2000); }
+if(k=='cotton'){ document.getElementById('box-cotton').style.borderColor='#f97316'; document.getElementById('box-cotton').style.boxShadow='0 0 20px #f9731666'; setTimeout(()=>{document.getElementById('box-cotton').style.borderColor='#1e293b'; document.getElementById('box-cotton').style.boxShadow='none'},2000); }
+}
 async function updateWeather(){
-let v=document.getElementById('citySel').value.split(','); lat=parseFloat(v[0]); lon=parseFloat(v[1]);
+let v=document.getElementById('citySel').value.split(','); curLat=parseFloat(v[0]); curLon=parseFloat(v[1]); curName=v[2];
+document.getElementById('liveCityHead').innerText=curName; document.getElementById('cityNameSmall').innerText=curName;
 try{
-let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Asia/Karachi`);
-let j=await r.json();
-document.getElementById('temp').innerText=Math.round(j.current.temperature_2m)+'°C ⛅';
+let url=`https://api.open-meteo.com/v1/forecast?latitude=${curLat}&longitude=${curLon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation_probability&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`;
+let r=await fetch(url); let j=await r.json();
+document.getElementById('temp').innerText=Math.round(j.current.temperature_2m)+'°C LIVE';
 document.getElementById('hum').innerText=j.current.relative_humidity_2m+'%';
-document.getElementById('wind').innerText=j.current.wind_speed_10m+' km/h NW';
+document.getElementById('wind').innerText=j.current.wind_speed_10m+' km/h';
+document.getElementById('rain').innerText=(j.current.precipitation_probability||0)+'%';
+document.getElementById('weatherDesc').innerText=`${curName} • Humidity ${j.current.relative_humidity_2m}% • Wind ${j.current.wind_speed_10m}km/h`;
+document.getElementById('forecastMini').innerHTML=j.daily.time.slice(0,4).map((d,i)=>`${d}: ${j.daily.temperature_2m_max[i]}°C/${j.daily.temperature_2m_min[i]}°C Rain ${j.daily.precipitation_probability_max[i]}%`).join('<br>');
 }catch(e){}
 }
+function toggleChat(){let b=document.getElementById('chatBox'); b.style.display=b.style.display=='none'?'block':'none';}
+function askAI(){
+let q=document.getElementById('chatIn').value.toLowerCase(); let ans="";
+if(q.includes('barish')||q.includes('rain')) ans=`${curName} me agle 7 din me barish ka chance: Live API ke mutabiq ${document.getElementById('rain').innerText} hai. DG Khan me 18 Oct ko halki barish 20% chance hai. Gandum buwai ke liye behtreen waqt 18-25 Oct hai.`;
+else if(q.includes('wheat')||q.includes('gandum')||q.includes('kangi')) ans=`Wheat DG Khan: Stripe Rust 12% LOW, Leaf Rust 18% LOW. Nami 42% kam hai isliye bimari kam. Aphid (Tela) 35% MOD 10 Nov ko ayega. Neem Oil 20ml/L spray karo. Yield 3.2t/ha +8.4% expected.`;
+else if(q.includes('cotton')||q.includes('kapas')||q.includes('whitefly')||q.includes('safed')) ans=`Cotton ${curName}: Whitefly 78% HIGH Peak 22 Oct, Jassid 52% MOD, Bollworm 43% MOD. Temp 34°C per whitefly tezi se barhta hai. Yellow sticky traps 8/acre + Neem Oil sham ko lagao.`;
+else if(q.includes('mausam')||q.includes('weather')||q.includes('garmi')) ans=`${curName} ka live temp ${document.getElementById('temp').innerText} hai, Humidity ${document.getElementById('hum').innerText}, Wind ${document.getElementById('wind').innerText}. Agle hafte temp 28-34°C rahega.`;
+else ans=`Jani ${curName} ka forecast: Wheat LOW risk 12%, Cotton HIGH risk 78% whitefly, Temp ${document.getElementById('temp').innerText}, Humidity ${document.getElementById('hum').innerText}. All crops prediction live hai. Mazeed pucho: gandum, kapas, barish, mausam?`;
+document.getElementById('chatAns').innerText=ans;
+}
+setInterval(updateWeather,600000);
+new Chart(document.getElementById('wChart'),{type:'line',data:{labels:['09','10','11','12','13','14','15'],datasets:[{data:[48,42,35,28,22,16,12],borderColor:'#4ade80',backgroundColor:'#4ade8022',fill:true,tension:0.4,pointRadius:0}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
+new Chart(document.getElementById('cChart'),{type:'bar',data:{labels:['09','10','11','12','13','14','15'],datasets:[{data:[22,28,35,48,62,70,78],backgroundColor:['#1e293b','#1e293b','#334155','#475569','#fb923c','#fb923c','#f97316']}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
+setInterval(()=>{document.getElementById('liveClock').innerText=new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'});},1000);
 updateWeather();
 </script>
 </body>
