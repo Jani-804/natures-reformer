@@ -1,139 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nature Reformer AI Hub - Premium</title>
+<title>Nature Reformer AI Hub - Premium Live</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:'Outfit',system-ui;background:#030712;color:#e5e7eb;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(900px 500px at 0% 0%, #16a34a18, transparent), radial-gradient(700px 400px at 100% 50%, #0ea5e918, transparent);z-index:-1}
-.wrap{max-width:1380px;margin:0 auto;padding:12px}
-.header{height:92px;border-radius:18px;background:linear-gradient(90deg, rgba(10,20,15,0.9), rgba(5,10,15,0.9));border:1.5px solid #22c55e;box-shadow:0 0 35px #22c55e33, inset 0 1px 0 #ffffff18;display:flex;align-items:center;padding:0 22px;position:relative}
-.header::after{content:'';position:absolute;top:0;left:20%;right:20%;height:1px;background:linear-gradient(90deg, transparent, #86efac, transparent)}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#030712;color:#e2e8f0;padding:12px}
+.header{height:96px;border-radius:18px;border:1.5px solid #22c55e;background:linear-gradient(90deg,#0f172aee,#052e16ee);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 20px;box-shadow:0 0 35px #16a34a33}
 .logo{display:flex;align-items:center;gap:14px}
-.logo-icon{width:68px;height:68px;border-radius:50%;background:#fff;display:grid;place-items:center;border:2px solid #22c55e;box-shadow:0 0 20px #22c55e}
-.logo-icon::before{content:'🌿';font-size:32px}
-.h-title{font-size:32px;font-weight:800;color:#86efac;line-height:1}
-.h-sub{font-size:12px;letter-spacing:2.5px;color:#9ca3af;margin-top:4px}
-.top-bar{display:flex;justify-content:flex-end;gap:14px;align-items:center;margin:10px 4px;font-size:12px;color:#9ca3af}
-.dot{width:8px;height:8px;background:#22c55e;border-radius:50%;box-shadow:0 0 8px #22c55e;display:inline-block}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:10px}
-.grid2{display:grid;grid-template-columns:1.1fr 0.9fr;gap:14px;margin-top:14px}
-.card{background:linear-gradient(180deg, rgba(16,24,32,0.9), rgba(8,14,20,0.95));border:1px solid #1f2937;border-radius:18px;padding:16px;backdrop-filter:blur(12px);box-shadow:0 8px 30px #0007, inset 0 1px 0 #ffffff0d;position:relative;overflow:hidden}
-.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg, transparent, #22c55e55, transparent)}
-.card:hover{border-color:#22c55e66}
-.card h3{margin:0;font-size:16px;font-weight:700;display:flex;align-items:center;gap:8px}
+.logo img{width:72px;height:72px;border-radius:50%;background:#fff;padding:4px;border:3px solid #22c55e;box-shadow:0 0 20px #22c55e}
+.title{font-size:30px;font-weight:900;color:#86efac}
+.sub{font-size:11px;letter-spacing:2px;color:#9ca3af}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:12px}
+.card{background:linear-gradient(180deg,#111827ee,#020617f5);border:1px solid #1f2937;border-radius:18px;padding:14px;box-shadow:0 8px 30px #0008}
 .badge{padding:4px 10px;border-radius:8px;font-size:11px;font-weight:800}
-.select{width:100%;margin-top:10px;padding:10px 12px;border-radius:12px;background:#0f172a;color:#fff;border:1px solid #334155}
-.bigTemp{font-size:42px;font-weight:800;margin:10px 0 2px 0;line-height:1}
-.mini{font-size:11px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:12px}
-.mini div{background:#111a24;border:1px solid #1f2937;border-radius:10px;padding:8px}
-.donut-wrap{display:flex;gap:18px;align-items:center;margin-top:12px}
-.circle{width:150px;height:150px;border-radius:50%;background:conic-gradient(#4ade80 0 87%, #374151 87% 100%);display:grid;place-items:center;position:relative;box-shadow:0 0 20px #22c55e33}
-.circle-inner{width:96px;height:96px;background:#080d14;border-radius:50%;display:grid;place-items:center;text-align:center}
-.rec{background:#111a24;border:1px solid #1f2937;border-radius:10px;padding:8px 10px;margin-top:8px;font-size:12px}
-.footer{margin-top:14px;border-top:1px solid #1f2937;border-bottom:1px solid #1f2937;background:#080d14;border-radius:0 0 18px 18px;padding:10px 14px;display:flex;justify-content:space-between;font-size:11px;color:#86efac}
-@media(max-width:1050px){.grid3,.grid2{grid-template-columns:1fr}.header{height:auto;padding:12px}.h-title{font-size:22px}}
+.grid2{display:grid;grid-template-columns:1.2fr 0.8fr;gap:14px;margin-top:14px}
+.mini{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.mini div{background:#0f172a;border:1px solid #1e293b;border-radius:10px;padding:8px;font-size:11px}
+select{width:100%;padding:10px;border-radius:10px;background:#0f172a;color:#fff;border:1px solid #334155;margin-top:8px}
+.footer{margin-top:14px;display:flex;justify-content:space-between;font-size:11px;color:#86efac;border:1px solid #1e293b;padding:10px;border-radius:12px;background:#0f172a}
+@media(max-width:1100px){.grid3,.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
-<div class="wrap">
 <div class="header">
-<div class="logo"><div class="logo-icon"></div><div><div class="h-title">Nature Reformer AI Hub</div><div class="h-sub">AI-POWERED AGRICULTURE MONITORING PLATFORM</div></div></div>
+<div class="logo"><img src="logo.png"><div><div class="title">Nature Reformer AI Hub</div><div class="sub">AI-POWERED AGRICULTURE MONITORING PLATFORM</div></div></div>
+<div style="font-size:12px;color:#9ca3af">🔔 <span style="background:#22c55e;color:#000;width:26px;height:26px;display:inline-grid;place-items:center;border-radius:50%;font-weight:900">AP</span> ⚙️ Oct 15, 2026 • 14:32 PKT</div>
 </div>
-<div class="top-bar"><span>🔔</span><span style="background:#22c55e;color:#000;width:26px;height:26px;display:grid;place-items:center;border-radius:50%;font-weight:800;font-size:11px">AP</span><span>⚙️</span><span>Oct 15, 2026 • 14:32 PKT</span></div>
 
 <div class="grid3">
-<div class="card">
-<h3>🌿 Wheat Disease <span class="badge" style="background:#22c55e;color:#000;margin-left:auto">LOW • 12%</span></h3>
-<canvas id="wheat" height="140"></canvas>
-<div style="font-size:12px;color:#86efac;margin-top:8px">Risk Level: Low<br><span style="color:#9ca3af">No immediate treatment required</span><br><span style="color:#4ade80">↓ 4.2% from last week</span></div>
-</div>
-
-<div class="card">
-<h3>🐛 Cotton Whitefly <span class="badge" style="background:#f97316;color:#fff;margin-left:auto">HIGH • 78%</span></h3>
-<canvas id="cotton" height="140"></canvas>
-<div style="font-size:12px;color:#fb923c;margin-top:8px">Risk Level: High<br><span style="color:#9ca3af">Action recommended</span><br><span style="color:#fb923c">↑ 18.5% from last week</span></div>
-</div>
-
-<div class="card">
-<h3>📍 Pakistan Live Weather</h3>
-<select id="citySel" class="select" onchange="updateWeather()">
-<option value="30.05,70.64,Dera Ghazi Khan">Pakistan ▼ Lahore • Punjab, Pakistan</option>
-<option value="31.5204,74.3587,Lahore" selected>Lahore • Punjab, Pakistan</option>
-<option value="24.8607,67.0011,Karachi">Karachi • Sindh</option>
-<option value="30.1575,71.5249,Multan">Multan • Punjab</option>
-<option value="31.4504,73.1350,Faisalabad">Faisalabad • Punjab</option>
-<option value="30.1798,66.9750,Quetta">Quetta • Balochistan</option>
-<option value="33.6844,73.0479,Islamabad">Islamabad</option>
-<option value="34.0151,71.5249,Peshawar">Peshawar • KPK</option>
-</select>
-<div class="bigTemp" id="temp">28°C ⛅</div>
-<div style="font-size:13px;margin-top:2px" id="sky">Sunny • Clear Skies</div>
-<div class="mini">
-<div>💧 Humidity<br><b id="hum">45%</b></div>
-<div>💨 Wind<br><b id="wind">12 km/h NW</b></div>
-<div>🌧️ Precip<br><b id="prec">0mm</b></div>
-</div>
-<div style="font-size:11px;margin-top:10px;background:#0f1a12;border-radius:20px;padding:6px 10px;display:inline-block;border:1px solid #22c55e33"><span class="dot"></span> Updated: <span id="upTime">14:30 PKT</span> • Live</div>
-</div>
+<div class="card"><div style="display:flex;justify-content:space-between"><b>🌿 Wheat Disease</b></div><div style="margin-top:6px"><span class="badge" style="background:#bbf7d0;color:#14532d">LOW • 12%</span></div><canvas id="w" height="140"></canvas><div style="font-size:12px;color:#86efac">Risk Level: Low<br>No immediate treatment required<br><span style="color:#4ade80">↓ 4.2% from last week</span></div></div>
+<div class="card"><div style="display:flex;justify-content:space-between"><b>🐛 Cotton Whitefly</b></div><div style="margin-top:6px"><span class="badge" style="background:#ffedd5;color:#7c2d12">HIGH • 78%</span></div><canvas id="c" height="140"></canvas><div style="font-size:12px;color:#fb923c">Risk Level: High<br>Action recommended<br><span style="color:#f97316">↑ 18.5% from last week</span></div></div>
+<div class="card"><b>📍 Pakistan Live Weather</b><select id="city" onchange="upd()"><option value="30.05,70.64,Dera Ghazi Khan" selected>Dera Ghazi Khan • Punjab</option><option value="31.5204,74.3587,Lahore">Lahore • Punjab</option><option value="24.8607,67.0011,Karachi">Karachi</option><option value="30.1575,71.5249,Multan">Multan</option><option value="31.4504,73.1350,Faisalabad">Faisalabad</option><option value="30.1798,66.9750,Quetta">Quetta</option><option value="34.0151,71.5249,Peshawar">Peshawar</option></select><div style="font-size:42px;font-weight:900;margin-top:10px" id="t">28°C ⛅</div><div style="font-size:13px">Sunny • Clear Skies</div><div class="mini"><div>💧 Humidity<br><b id="h">45%</b></div><div>💨 Wind<br><b id="wi">12 km/h NW</b></div><div>🌧️ Precip<br><b>0mm</b></div></div><div style="margin-top:10px;font-size:11px;background:#052e16;padding:6px 10px;border-radius:20px;border:1px solid #22c55e33;display:inline-block">🟢 Updated: <span id="up">14:30 PKT</span> • Live</div></div>
 </div>
 
 <div class="grid2">
-<div class="card">
-<h3>🌿 Crop Health Overview</h3>
-<div class="donut-wrap">
-<div class="circle"><div class="circle-inner"><div><div style="font-size:28px;font-weight:900;color:#4ade80">87%</div><div style="font-size:10px">Overall Crop Health</div></div></div><div style="position:absolute;right:-8px;top:45%;background:#1f2937;padding:2px 6px;border-radius:6px;font-size:10px">13%</div></div>
-<div style="flex:1">
-<div style="font-size:13px;line-height:2">🟢 Healthy: 87%<br>🟡 Stressed: 9%<br>🔴 Critical: 4%</div>
-<div style="margin-top:10px;font-weight:700;font-size:13px">AI Recommendations</div>
-<div class="rec">⚠️ Increase irrigation in Field B-12<br><small style="color:#9ca3af">Soil moisture at 32%</small></div>
-<div class="rec">🛡️ Apply targeted biopesticide to Cotton Sector C</div>
-<div class="rec">✅ Monitor Wheat Plot A3<br><small style="color:#9ca3af">stable, no action needed</small></div>
-</div>
-</div>
+<div class="card"><b>🌿 Crop Health Overview</b><div style="display:flex;gap:18px;margin-top:12px"><div style="width:160px;height:160px;border-radius:50%;background:conic-gradient(#4ade80 0 87%, #374151 87% 100%);display:grid;place-items:center"><div style="width:98px;height:98px;background:#020617;border-radius:50%;display:grid;place-items:center"><div style="text-align:center"><div style="font-size:28px;font-weight:900;color:#4ade80">87%</div><div style="font-size:10px">Overall Health</div></div></div></div><div style="flex:1"><div style="font-size:13px">🟢 Healthy: 87%<br>🟡 Stressed: 9%<br>🔴 Critical: 4%</div><div style="margin-top:10px;font-weight:700">AI Recommendations</div><div style="background:#0f172a;padding:8px;border-radius:8px;margin-top:6px;font-size:12px">⚠️ Increase irrigation in Field B-12<br><small>Soil moisture 32%</small></div><div style="background:#0f172a;padding:8px;border-radius:8px;margin-top:6px;font-size:12px">🛡️ Apply biopesticide to Cotton C</div><div style="background:#0f172a;padding:8px;border-radius:8px;margin-top:6px;font-size:12px">✅ Monitor Wheat Plot A3 stable</div></div></div></div>
+<div class="card"><b>📍 Field Map & Sensors</b><div style="height:210px;background:#0f172a;border-radius:12px;margin-top:10px;border:1px solid #1e293b;display:grid;place-items:center;color:#64748b">🗺️ DG Khan Map • 128 Sensors Online</div><div class="mini"><div>Soil Moisture: 62%</div><div>Soil pH: 6.8 Neutral</div><div>Temp: 26°C</div></div></div>
 </div>
 
-<div class="card">
-<h3>📍 Field Map & Sensors</h3>
-<div style="height:190px;background:#0a0f18;border-radius:12px;border:1px solid #1f2937;margin-top:10px;position:relative;overflow:hidden;background-image:radial-gradient(#1f2937 1px, transparent 1px);background-size:20px 20px">
-<div style="position:absolute;left:30%;top:20%;font-size:12px"><span style="color:#4ade80">📍 Field A</span><br><small>Wheat<br>Healthy</small></div>
-<div style="position:absolute;left:35%;top:50%;font-size:12px;color:#fb923c"><span>📍 Field C</span><br><small>Cotton<br>High Risk</small></div>
-<div style="position:absolute;left:45%;top:75%;font-size:12px;color:#60a5fa"><span>📍 Field B</span><br><small>Cotton<br>Monitor</small></div>
-</div>
-<div class="mini" style="margin-top:10px">
-<div>🌱 Soil Moisture: 62%<br><div style="height:4px;background:#1f2937;border-radius:10px;margin-top:4px"><div style="width:62%;height:100%;background:#4ade80;border-radius:10px"></div></div></div>
-<div>☀️ Soil pH: 6.8 Neutral<br><div style="height:4px;background:#1f2937;border-radius:10px;margin-top:4px"><div style="width:70%;height:100%;background:#4ade80"></div></div></div>
-<div>🌡️ Temperature: 26°C<br><div style="height:4px;background:#1f2937;border-radius:10px;margin-top:4px"><div style="width:40%;height:100%;background:#4ade80"></div></div></div>
-</div>
-</div>
-</div>
-
-<div class="footer">
-<div><span class="dot"></span> System Status: All sensors online • 128 devices connected</div>
-<div>Last AI Model Update: Oct 15, 2026 • v2.4.1 ReformerNet</div>
-<div>Export Report • Download CSV • Share Dashboard</div>
-</div>
-</div>
+<div class="footer"><span>🟢 System Status: All sensors online • 128 devices</span><span>Last AI Update: Oct 15, 2026 • v2.4.1 ReformerNet</span><span>Export Report • Download CSV • Share</span></div>
 
 <script>
-new Chart(document.getElementById('wheat'),{type:'line',data:{labels:['Oct 09','Oct 10','Oct 11','Oct 12','Oct 13','Oct 14','Oct 15'],datasets:[{data:[52,68,62,38,42,28,24,32,22],borderColor:'#4ade80',backgroundColor:'rgba(74,222,128,0.1)',tension:0.4,fill:true,pointRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#6b7280',font:{size:10}}},y:{min:20,max:70,grid:{color:'#1f2937'},ticks:{color:'#6b7280'}}}}});
-new Chart(document.getElementById('cotton'),{type:'bar',data:{labels:['Oct 09','Oct 10','Oct 11','Oct 12','Oct 13','Oct 14','Oct 15'],datasets:[{data:[1,2,2.5,2.8,3,3.2,3.5,3.8,4,4.2,4.5,4.8,5,5.5,6],backgroundColor:'#fb923c',borderRadius:3}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#6b7280',font:{size:10}}},y:{grid:{color:'#1f2937'},ticks:{color:'#6b7280',callback:v=>v+'%'}}}}});
-
-async function updateWeather(){
-let v=document.getElementById('citySel').value.split(','); let lat=v[0],lon=v[1];
-try{
-let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation&timezone=Asia/Karachi`);
-let j=await r.json();
-document.getElementById('temp').innerText=Math.round(j.current.temperature_2m)+'°C ⛅';
-document.getElementById('hum').innerText=j.current.relative_humidity_2m+'%';
-document.getElementById('wind').innerText=j.current.wind_speed_10m+' km/h NW';
-document.getElementById('prec').innerText=j.current.precipitation+'mm';
-document.getElementById('upTime').innerText=new Date().toLocaleTimeString('en-PK',{hour:'2-digit',minute:'2-digit'})+' PKT';
-}catch(e){}
-}
-updateWeather(); setInterval(updateWeather,600000);
+new Chart(document.getElementById('w'),{type:'line',data:{labels:['Oct 09','10','11','12','13','14','15'],datasets:[{data:[48,62,55,42,35,28,22],borderColor:'#4ade80',backgroundColor:'#4ade8022',fill:true,tension:0.4}]},options:{plugins:{legend:{display:false}},scales:{y:{display:false},x:{grid:{display:false}}}});
+new Chart(document.getElementById('c'),{type:'bar',data:{labels:['Oct 09','10','11','12','13','14','15'],datasets:[{data:[5,12,18,22,30,45,58],backgroundColor:'#fb923c'}]},options:{plugins:{legend:{display:false}},scales:{y:{display:false},x:{grid:{display:false}}}}});
+async function upd(){let v=document.getElementById('city').value.split(',');let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${v[0]}&longitude=${v[1]}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Asia/Karachi`);let j=await r.json();document.getElementById('t').innerText=Math.round(j.current.temperature_2m)+'°C ⛅';document.getElementById('h').innerText=j.current.relative_humidity_2m+'%';document.getElementById('wi').innerText=j.current.wind_speed_10m+' km/h NW';document.getElementById('up').innerText=new Date().toLocaleTimeString()+' PKT';}
+upd();
 </script>
 </body>
 </html>
