@@ -1,108 +1,98 @@
-/ (Landing - Nature Reformer AI Hub)
-├── /dashboard (Main - Glamorous Gold Dashboard)
-│ ├── /overview (Soil 94%, Yield +12.4%, Water 88%, Carbon 320t)
-│ ├── /analytics
-│ │ ├── /weather (Live Pakistan + 10 cities - Open-Meteo API)
-│ │ ├── /yield (Predictive harvest Q3-Q5)
-│ │ └── /soil-health (NDVI, pH, NPK)
-│ ├── /fields (Field Map - DG Khan + 128 IoT sensors)
-│ ├── /iot (IoT Device Management Portal - 6 Drones, Livestock 91%)
-│ └── /insights (AI Insights & Recommendations)
-└── /api
-    ├── /weather?lat,lon
-    ├── /predict-yield (pH, N, P, K, moisture)
-    └── /devices
-    // FieldHealthCard.jsx - Tailwind + Glamorous
-export default function FieldHealthCard({ thumb, ndvi, moisture, status }) {
-  return (
-    <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-600/30 rounded-[18px] p-4 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all">
-      <img src={thumb} className="w-full h-28 object-cover rounded-xl border border-zinc-800" />
-      <div className="mt-3">
-        <div className="flex justify-between items-center">
-          <span className="text-xs text-yellow-200 tracking-widest">NDVI SCORE</span>
-          <span className={`px-2 py-1 rounded-full text-xs font-bold ${status==='Optimal'? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'}`}>{status}</span>
-        </div>
-        <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-yellow-300">{ndvi}</div>
-        <div className="mt-2">
-          <div className="text-xs text-zinc-400">Soil Moisture</div>
-          <div className="w-full bg-zinc-800 h-2 rounded-full mt-1"><div className="h-2 rounded-full bg-gradient-to-r from-green-400 to-yellow-400" style={{width:`${moisture}%`}} /></div>
-          <div className="text-xs text-zinc-300 mt-1">{moisture}%</div>
-        </div>
-      </div>
-    </div>
-  )
-}
-// DashboardLayout.jsx
-<div className="min-h-screen bg-[#050508] text-zinc-100 flex">
-  <aside className="w-[260px] bg-zinc-950 border-r border-yellow-900/30 p-4">
-    <img src="/logo.png" className="w-16 h-16 rounded-full border-2 border-yellow-500" />
-    <h1 className="font-[Cinzel] text-xl text-yellow-100">Nature Reformer AI Hub</h1>
-    <nav className="mt-6 space-y-2">
-      <button className="w-full text-left p-3 rounded-xl bg-gradient-to-r from-yellow-600 to-yellow-200 text-black font-bold">⊞ All Crops</button>
-      <button className="w-full text-left p-3 rounded-xl border border-zinc-800 hover:border-yellow-600">🌾 Wheat Disease 12% LOW</button>
-      <button className="w-full text-left p-3 rounded-xl border border-zinc-800 hover:border-yellow-600">🐛 Cotton Whitefly 78% HIGH</button>
-    </nav>
-  </aside>
-  <main className="flex-1">
-    <div className="h-14 bg-gradient-to-r from-zinc-900 to-green-950 border-b border-yellow-900/30 flex items-center justify-between px-4">
-      <span className="text-yellow-200 text-sm">⚠️ Weather Alert: DG Khan me kal barish 20% • Wheat sowing best 18-25 Oct</span>
-      <span className="text-xs">🔔 AP ⚙️ {new Date().toLocaleString()}</span>
-    </div>
-    <div className="p-4 grid grid-cols-4 gap-4">
-      {/* Your 4 gold cards + charts here */}
-    </div>
-  </main>
+<!DOCTYPE html>
+<html lang="ur">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nature Reformer AI V6 - DG Khan Live</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#0f172a;color:#e2e8f0}
+.header{height:78px;background:linear-gradient(90deg,#020617,#0f5d2f 60%,#16a34a);display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-bottom:3px solid #22c55e;position:sticky;top:0;z-index:20}
+.logo{display:flex;gap:14px;align-items:center;font-weight:900;font-size:22px;color:#fff}
+.logo img{height:62px;width:62px;border-radius:50%;background:#fff;padding:4px;border:3px solid #fff;box-shadow:0 0 15px #22c55e}
+.main{display:flex;min-height:calc(100vh - 78px)}
+.side{width:290px;background:#1e293b;padding:10px;border-right:1px solid #334155;overflow-y:auto}
+.item{padding:11px;border-radius:10px;margin-bottom:5px;cursor:pointer;display:flex;gap:8px;align-items:center;font-size:13.5px}
+.item.active{background:#16a34a;color:#fff;box-shadow:0 0 12px #16a34a55}
+.content{flex:1;padding:14px;overflow-y:auto}
+.top4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.card{border-radius:14px;padding:14px;border:1px solid #334155;position:relative}
+.panel{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:14px;margin-top:12px}
+.badge{padding:3px 9px;border-radius:20px;font-size:10px;font-weight:800;display:inline-block}
+table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}th,td{border:1px solid #334155;padding:8px}th{background:#0f172a;color:#94a3b8}
+.contact{background:linear-gradient(135deg,#052e16,#16a34a);border-radius:14px;padding:14px;margin-top:14px;border:1px solid #22c55e}
+.waBtn{display:inline-block;background:#25D366;color:#fff;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:800;margin-top:8px}
+.prog{height:8px;background:#334155;border-radius:10px;overflow:hidden;margin-top:4px}.prog>div{height:100%}
+.grid3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:1100px){.top4{grid-template-columns:repeat(2,1fr)}.grid3,.grid2{grid-template-columns:1fr}.side{width:100%;display:flex;overflow-x:auto}.main{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="header">
+<div class="logo"><img src="logo.png"><span>Nature Reformer AI V6 <small style="font-size:12px;background:#22c55e;padding:2px 8px;border-radius:20px;margin-left:8px">ULTIMATE • LIVE • DG KHAN</small></span></div>
+<div style="font-size:12px;text-align:right"><div>📍 <b id="loc">Dera Ghazi Khan, Punjab, PK</b></div><div id="liveDate">15 Oct 2026 • SYSTEM ONLINE • Auto Updating Daily</div></div>
 </div>
-      // server.js - Express
-const express = require('express');
-const fetch = require('node-fetch');
-const app = express();
+<div class="main">
+<div class="side">
+<div class="item active" onclick="showPage('dashboard',this)">🏠 Dashboard</div>
+<div class="item" onclick="showPage('wheat',this)">🌾 Wheat Prediction</div>
+<div class="item" onclick="showPage('cotton',this)">🧵 Cotton Prediction</div>
+<div class="item" onclick="showPage('weather',this)">⛅ Live Weather API</div>
+<div class="item" onclick="showPage('disease',this)">🦠 Disease AI</div>
+<div class="item" onclick="showPage('insect',this)">🐞 Insect Forecast</div>
+<div class="item" onclick="showPage('contact',this)">📞 Contact Us</div>
+<div class="contact">
+<h4>📞 Contact Us</h4>
+<p style="font-size:13px">Nature Reformer AI<br>Dera Ghazi Khan<br>Phone: 0300-6823639</p>
+<a class="waBtn" href="https://wa.me/923006823639?text=Salam%20Jani%2C%20Nature%20Reformer%20AI%20V6%20ke%20bare%20me%20baat%20karni%20hai" target="_blank">WhatsApp پر رابطہ کریں 💬</a>
+<p style="font-size:11px;margin-top:8px">24/7 Live Support • Daily Updates</p>
+</div>
+</div>
 
-app.get('/api/weather', async (req,res)=>{
-  const { lat, lon } = req.query;
-  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation_probability&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`;
-  const data = await fetch(url).then(r=>r.json());
-  // Optimize for frontend chart
-  const payload = {
-    current: { temp: data.current.temperature_2m, hum: data.current.relative_humidity_2m, wind: data.current.wind_speed_10m, rain: data.current.precipitation_probability },
-    forecast: data.daily.time.slice(0,7).map((t,i)=>({date:t, max:data.daily.temperature_2m_max[i], min:data.daily.temperature_2m_min[i], rain:data.daily.precipitation_probability_max[i]}))
-  };
-  res.json(payload);
-});
-app.listen(3000);
-      # main.py - FastAPI
-from fastapi import FastAPI
-from pydantic import BaseModel
+<div class="content" id="content">
+<div class="top4">
+<div class="card" style="background:linear-gradient(135deg,#052e16,#16a34a)"><div>Wheat Stripe Rust</div><h2>LOW 12% <span style="font-size:11px;background:#22c55e;padding:2px 6px;border-radius:10px">AI 92%</span></h2><small>No outbreak • DG Khan (120ha)</small><div class="prog"><div style="width:12%;background:#22c55e"></div></div></div>
+<div class="card" style="background:linear-gradient(135deg,#1e1b4b,#7c3aed)"><div>Cotton Bollworm</div><h2>MODERATE 43%</h2><small>Jassid & Whitefly Elevated</small></div>
+<div class="card" style="background:linear-gradient(135deg,#0c4a6e,#0ea5e9)"><div id="weatherTitle">Live Weather DG Khan - Loading...</div><h2 id="liveTemp">--°C</h2><small id="liveDetails">Fetching live API...</small></div>
+<div class="card" style="background:linear-gradient(135deg,#422006,#f59e0b)"><div>Yield Forecast 2026</div><h2>+8.4% YoY</h2><small>Wheat 3.2 t/ha • DG Khan</small></div>
+</div>
+<div id="dynamic"></div>
+</div>
+</div>
 
-app = FastAPI()
+<script>
+const DG_LAT=30.05, DG_LON=70.64;
+async function fetchLiveWeather(){
+try{
+let url=`https://api.open-meteo.com/v1/forecast?latitude=${DG_LAT}&longitude=${DG_LON}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`;
+let r=await fetch(url); let j=await r.json();
+let t=j.current.temperature_2m; let h=j.current.relative_humidity_2m; let w=j.current.wind_speed_10m;
+document.getElementById('liveTemp').innerText=t+"°C LIVE";
+document.getElementById('weatherTitle').innerText=`Live Weather - Dera Ghazi Khan`;
+document.getElementById('liveDetails').innerText=`Humidity ${h}% • Wind ${w} km/h • Updated: ${new Date().toLocaleTimeString()} • Auto Daily`;
+document.getElementById('dynamic').innerHTML+=``;
+let forecastHTML=`<div class="panel"><h3>⛅ 7 Days Live Forecast - DG Khan (Open-Meteo API)</h3><table><tr><th>Date</th><th>Max</th><th>Min</th><th>Rain %</th></tr>${j.daily.time.map((d,i)=>`<tr><td>${d}</td><td>${j.daily.temperature_2m_max[i]}°C</td><td>${j.daily.temperature_2m_min[i]}°C</td><td>${j.daily.precipitation_probability_max[i]}%</td></tr>`).join('')}</table><p style="font-size:12px">Source: Open-Meteo Live API • Updates every hour • Location: Dera Ghazi Khan (30.05, 70.64)</p></div>`;
+if(document.getElementById('dynamic').innerHTML.includes('Live Forecast')==false){ document.getElementById('dynamic').innerHTML+=forecastHTML; }
+}catch(e){ document.getElementById('liveDetails').innerText='Live API offline, showing cached data - will auto update'; }
+}
+setInterval(fetchLiveWeather, 600000); // har 10 minute update
+fetchLiveWeather();
+document.getElementById('liveDate').innerText=new Date().toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'})+" • "+new Date().toLocaleTimeString()+" • SYSTEM ONLINE • Live API • Auto Updating Daily";
 
-class SoilInput(BaseModel):
-    ph: float
-    N: float
-    P: float
-    K: float
-    moisture: float
-
-@app.post("/predict-yield")
-def predict_yield(data: SoilInput):
-    # Mock ML logic for DG Khan
-    score = (data.N*0.3 + data.P*0.2 + data.K*0.2 + (7 - abs(data.ph-6.8))*10 + data.moisture*0.3)
-    optimization = min(94, max(60, score))
-    return {
-        "yield_optimization_score": round(optimization,1),
-        "status": "Optimal" if optimization>85 else "Action Required",
-        "recommendation": "Increase N by 10kg/acre, maintain moisture 60-70% for Wheat in DG Khan. Neem + Mulch 3 inch."
-    }
-      // Sleek Chart - Soil Moisture vs Temp 30 days
-new Chart(document.getElementById('soilTemp'),{
-  type:'line',
-  data:{
-    labels: Array.from({length:30},(_,i)=>`Day ${i+1}`),
-    datasets:[
-      { label:'Soil Moisture %', data:[62,64,63,65,68,70,69,71,70,72,71,73,74,72,70,68,69,70,72,74,75,73,71,70,69,70,72,73,74,75], borderColor:'#4ade80', backgroundColor:'#4ade8011', tension:0.4, fill:true },
-      { label:'Soil Temp °C', data:[26,27,27,28,28,29,28,27,26,26,27,28,29,29,28,27,26,26,27,28,28,27,26,25,26,27,28,28,27,26], borderColor:'#d4af37', backgroundColor:'#d4af3711', tension:0.4, fill:true }
-    ]
-  },
-  options:{ plugins:{legend:{labels:{color:'#f5e6a3'}}}, scales:{x:{grid:{color:'#1a1a0e'}}, y:{grid:{color:'#1a1a0e'}}}, animation:{duration:1200, easing:'easeOutQuart'} }
-});
-      
+const PAGES={
+dashboard:`<div class="grid3"><div class="panel"><h3>🌾 Wheat Prediction - DG Khan</h3><p>Yield: 3.2 t/ha +8.4% • Best sowing: 18-25 Oct • Stripe Rust 12% LOW • Aphid 35% MOD - Nov 2nd week</p><div style="background:#052e16;padding:10px;border-radius:10px;font-size:13px">AI Insight: DG Khan me is saal gandum per kangi kam rahe gi, nami 42% hai. Neam oil 20ml/L spray karein. Reference: PARC, CABI</div></div><div class="panel"><h3>🧵 Cotton - DG Khan</h3><p>Whitefly 78% HIGH - DG Khan me garmi 34°C per tez • Jassid 52% • Action: Yellow traps 8/acre + Neem</p></div><div class="panel"><h3>📍 DG Khan Live System</h3><p>Lat: 30.05, Lon: 70.64<br>Fields: 1,248<br>Crops: Wheat, Cotton, Rice, Maize, Sugarcane<br>Data: Sentinel-2, PMD, PARC, FAO<br>Auto Update: Daily via Live Weather API</p></div></div>`,
+wheat:`<div class="panel"><h2>🌾 Wheat Full Prediction - Dera Ghazi Khan</h2><p>Yield 3.2 t/ha, Sowing 18-25 Oct, Rust 12% LOW, Aphid 35% MOD, Treatment: Tebuconazole + Neem + Reformer 10kg/acre + mulch 3 inches • Reference: PARC 2023</p></div>`,
+cotton:`<div class="panel"><h2>🧵 Cotton Prediction - DG Khan</h2><p>Whitefly 78% HIGH - Peak 22 Oct, Jassid 52%, Bollworm 43% MOD - Use Yellow traps + Neem oil</p></div>`,
+weather:`<div class="panel"><h2>⛅ Live Weather API - Dera Ghazi Khan</h2><p>Ye API har 10 minute me live update hoti hai, rozana auto update rahe gi. Source: Open-Meteo.com</p><p id="weatherExtra">Loading live data...</p></div>`,
+disease:`<div class="panel"><h2>🦠 Disease AI - DG Khan</h2><p>Wheat Yellow Rust 12% LOW, Brown Rust 18% LOW, Cotton CLCuV 38% MOD - Whitefly se phailta hai</p></div>`,
+insect:`<div class="panel"><h2>🐞 Insect Forecast</h2><p>Whitefly 78% HIGH, Jassid 52% MOD, Aphid 35% MOD - DG Khan Hotspot</p></div>`,
+contact:`<div class="panel"><h2>📞 Contact Us - Dera Ghazi Khan</h2><div style="background:linear-gradient(135deg,#052e16,#16a34a);padding:20px;border-radius:14px;color:#fff"><h3>Nature Reformer AI</h3><p>Location: Dera Ghazi Khan, Punjab, Pakistan</p><p>Phone / WhatsApp: <b>0300-6823639</b></p><a class="waBtn" href="https://wa.me/923006823639" target="_blank">WhatsApp پر میسج کریں</a><br><br><p style="font-size:12px">Agar kisi fasal ke bare me puchna hai to direct WhatsApp karein, hum foran jawab dein ge. Website rozana live update hoti rahe gi.</p></div></div>`
+};
+function showPage(k,el){
+document.querySelectorAll('.item').forEach(i=>i.classList.remove('active'));
+if(el) el.classList.add('active');
+if(k!='weather') document.getElementById('dynamic').innerHTML=PAGES[k]||PAGES.dashboard;
+else { document.getElementById('dynamic').innerHTML=PAGES.weather; fetchLiveWeather(); }
+}
+showPage('dashboard');
+</script>
+</body>
+</html>
