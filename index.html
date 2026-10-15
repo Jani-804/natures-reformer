@@ -2,81 +2,147 @@
 <html>
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nature Reformer AI Hub - One Page</title>
+<title>Nature Reformer AI Hub - GLAMOROUS GOLD EDITION</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#020617;color:#e2e8f0}
-.top{margin:10px;border:1.5px solid #22c55e;border-radius:18px;background:linear-gradient(90deg,#0f172aee,#052e16ee);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;box-shadow:0 0 30px #16a34a33}
-.logo{display:flex;align-items:center;gap:12px}
-.logo img{width:62px;height:62px;border-radius:50%;background:#fff;padding:4px;border:2px solid #22c55e}
-.wrap{display:flex;gap:12px;padding:0 10px 10px 10px}
-.side{width:250px;background:linear-gradient(180deg,#0f172aee,#020617ee);border:1px solid #22c55e55;border-radius:18px;padding:12px;height:fit-content;position:sticky;top:10px}
-.side h4{margin:4px 0 10px 4px;color:#86efac;font-size:12px;letter-spacing:1px}
-.m{padding:12px;border-radius:12px;border:1px solid #1e293b;margin-bottom:8px;cursor:pointer;font-size:13px;display:flex;gap:10px;align-items:center;transition:.2s}
-.m.active{background:linear-gradient(90deg,#16a34a,#22c55e22);border-color:#22c55e;color:#fff;font-weight:800;box-shadow:0 0 15px #22c55e66}
-.m:hover{border-color:#22c55e}
-.main{flex:1}
-.title2{font-size:24px;font-weight:900;margin:6px 0 2px 0}
-.sub2{font-size:12px;color:#94a3b8;margin-bottom:12px}
-.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px}
-.card{background:linear-gradient(180deg,#111827ee,#020617f5);border:1px solid #22c55e33;border-radius:18px;padding:14px;box-shadow:0 8px 30px #0007}
-.big{font-size:46px;font-weight:900;line-height:1}
-.bot2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:12px}
-@media(max-width:1000px){.wrap{flex-direction:column}.side{width:100%;position:relative}.grid3,.bot2{grid-template-columns:1fr}}
+*{box-sizing:border-box}body{margin:0;font-family:'Outfit',sans-serif;background:#050508;color:#f5f3c8;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background:radial-gradient(900px 600px at 50% -20%, #d4af3722, transparent), radial-gradient(800px 500px at 0% 100%, #16a34a18, transparent), url('https://www.transparenttextures.com/patterns/black-marble.png');z-index:-1;opacity:0.6}
+.wrap{max-width:1440px;margin:0 auto;padding:14px}
+.header-gold{position:relative;text-align:center;padding:20px 0 10px 0}
+.logo-gold{width:112px;height:112px;margin:0 auto;background:radial-gradient(circle at 30% 30%, #fff8dc, #d4af37 20%, #8a6d1b 60%, #000);border-radius:50%;display:grid;place-items:center;border:3px solid #d4af37;box-shadow:0 0 40px #d4af3788, inset 0 2px 8px #fff, 0 0 80px #000;position:relative}
+.logo-gold::before{content:'🌿';font-size:48px;filter:drop-shadow(0 0 10px #d4af37)}
+.logo-gold::after{content:'✦';position:absolute;top:-8px;right:-8px;font-size:18px;color:#d4af37;animation:blink 1.5s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+.h1-gold{font-family:'Cinzel',serif;font-size:38px;font-weight:900;background:linear-gradient(90deg,#fff8dc,#d4af37,#f5e6a3,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 15px #d4af3788);margin-top:12px;letter-spacing:1px}
+.sub-gold{font-size:12px;letter-spacing:4px;color:#d4af37;margin-top:4px}
+.top-meta{display:flex;justify-content:space-between;align-items:center;margin:14px 0;font-size:11px;color:#a8a29e}
+.meta-card{background:linear-gradient(180deg, rgba(20,20,15,0.9), rgba(0,0,0,0.95));border:1px solid #d4af3744;border-radius:12px;padding:8px 12px;backdrop-filter:blur(10px);box-shadow:0 0 15px #d4af3722}
+.grid4{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:14px;margin-top:10px}
+.gold-card{background:linear-gradient(145deg, rgba(25,22,12,0.95), rgba(5,5,8,0.98));border:1.5px solid #d4af3766;border-radius:18px;padding:14px;position:relative;overflow:hidden;backdrop-filter:blur(15px);box-shadow:0 8px 32px #000, 0 0 20px #d4af3722, inset 0 1px 0 #ffffff18;transition:.4s}
+.gold-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:linear-gradient(90deg, transparent, #d4af37, transparent);animation:shine 3s infinite}
+.gold-card::after{content:'✦';position:absolute;top:8px;right:10px;color:#d4af3755;font-size:12px}
+@keyframes shine{0%{left:-100%}100%{left:100%}}
+.gold-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 12px 40px #000, 0 0 35px #d4af3766, 0 0 60px #16a34a22;border-color:#f5e6a3}
+.gold-num{font-size:42px;font-weight:900;background:linear-gradient(180deg,#a7f3d0,#4ade80,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px #4ade80aa);line-height:1}
+.bot2{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-top:14px}
+.side-gold{width:100%;background:linear-gradient(180deg, rgba(20,18,10,0.9), rgba(0,0,0,0.95));border:1px solid #d4af3744;border-radius:16px;padding:12px;display:flex;gap:8px;overflow-x:auto;margin-bottom:14px}
+.side-gold.m{padding:10px 16px;border-radius:20px;border:1px solid #d4af3733;white-space:nowrap;cursor:pointer;font-size:12px;font-weight:600;transition:.3s}
+.side-gold.m.active{background:linear-gradient(90deg,#d4af37,#f5e6a3);color:#000;font-weight:800;box-shadow:0 0 20px #d4af37aa}
+.m:hover{border-color:#d4af37;box-shadow:0 0 10px #d4af3722}
+select.gold-sel{background:#0a0a06;border:1px solid #d4af3766;color:#f5e6a3;padding:8px 12px;border-radius:10px}
+.footer-gold{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-top:14px}
+.footer-gold div{background:linear-gradient(180deg, rgba(15,12,5,0.9), rgba(0,0,0,0.95));border:1px solid #d4af3722;border-radius:12px;padding:10px;font-size:11px;text-align:center}
+@media(max-width:1100px){.grid4{grid-template-columns:1fr 1fr}.bot2{grid-template-columns:1fr}.footer-gold{grid-template-columns:1fr 1fr}.h1-gold{font-size:24px}}
 </style>
 </head>
 <body>
-
-<div class="top">
-<div class="logo"><img src="logo.png" onerror="this.style.display='none'"><div><div style="font-size:28px;font-weight:900;color:#86efac">Nature Reformer AI Hub</div><div style="font-size:11px;letter-spacing:1.5px;color:#9ca3af">AI-POWERED AGRICULTURE • LIVE MONITORING • v2.4.1</div></div></div>
-<div style="font-size:12px;color:#9ca3af;display:flex;gap:10px;align-items:center">🔔<span>⚙️</span><span style="border:1px solid #22c55e;padding:6px 10px;border-radius:20px;color:#86efac">NR Admin • Online •</span></div>
-</div>
-
 <div class="wrap">
-<div class="side">
-<h4>🍃 NAVIGATION</h4>
-<div class="m active" onclick="show('all',this)">⊞ All Crops</div>
-<div class="m" onclick="show('wheat',this)">🌾 Wheat Disease</div>
-<div class="m" onclick="show('cotton',this)">☁️ Cotton Insects</div>
-<div class="m" onclick="show('rice',this)">🌾 Rice</div>
-<div class="m" onclick="show('weather',this)">⛅ Weather</div>
-<div style="margin-top:14px;border-top:1px solid #1e293b;padding-top:10px">
-<div style="font-size:11px;color:#86efac;text-align:center">AI STATUS</div>
-<div style="background:#0f172a;border:1px solid #1e293b;border-radius:10px;padding:8px;margin-top:8px;font-size:12px">
-<div style="color:#86efac">Model: Active •</div>
-<div style="margin-top:4px">Data Updated: 2 min ago</div>
-<div style="margin-top:4px">Real-time Sync <span style="float:right;background:#22c55e;width:32px;height:18px;border-radius:20px;display:inline-block"></span></div>
+<div class="header-gold">
+<div class="logo-gold"></div>
+<div class="h1-gold">Nature Reformer AI Hub</div>
+<div class="sub-gold">AGRICULTURE AI • SUSTAINABILITY • PREDICTIVE ANALYTICS</div>
 </div>
-<div style="margin-top:10px;background:linear-gradient(135deg,#052e16,#16a34a);border-radius:10px;padding:10px;text-align:center">
-<div style="font-size:12px">📞 0300-6823639</div><a href="https://wa.me/923006823639" style="background:#25D366;color:#fff;padding:6px 12px;border-radius:20px;text-decoration:none;font-size:12px;font-weight:800;display:inline-block;margin-top:4px">WhatsApp 💬</a>
-</div>
+
+<div class="top-meta">
+<div class="side-gold" style="flex:1;margin:0">
+<div class="m active" onclick="filterMe('all',this)">⊞ All Crops</div>
+<div class="m" onclick="filterMe('wheat',this)">🌾 Wheat 12% LOW</div>
+<div class="m" onclick="filterMe('cotton',this)">🐛 Cotton 78% HIGH</div>
+<div class="m" onclick="filterMe('rice',this)">🍚 Rice</div>
+<div class="m" onclick="filterMe('weather',this)">⛅ Live Weather</div>
+<select id="citySel" class="gold-sel" onchange="updateWeather()" style="margin-left:auto"><option value="30.05,70.64,Dera Ghazi Khan" selected>📍 Dera Ghazi Khan</option><option value="31.5204,74.3587,Lahore">Lahore</option><option value="30.1575,71.5249,Multan">Multan</option><option value="24.8607,67.0011,Karachi">Karachi</option><option value="31.4504,73.1350,Faisalabad">Faisalabad</option><option value="30.1798,66.9750,Quetta">Quetta</option><option value="34.0151,71.5249,Peshawar">Peshawar</option></select>
 </div>
 </div>
 
-<div class="main">
-<div class="title2">Agriculture Intelligence Overview</div>
-<div class="sub2">Real-time crop monitoring and risk analysis across Pakistan fields • Last updated: <span id="clk"></span></div>
+<div style="display:flex;gap:10px;justify-content:flex-end;margin-bottom:10px">
+<div class="meta-card">🟢 AI ENGINE ACTIVE • ONLINE</div>
+<div class="meta-card">LAST UPDATED<br><b id="clock" style="color:#d4af37">02:14 AM • 15 OCT 2024</b> • <span id="cityHead">Dera Ghazi Khan</span></div>
+</div>
 
-<div class="grid3">
-<div class="card" id="b1"><div style="display:flex;justify-content:space-between"><b>🌿 Wheat Disease</b><span style="background:#14532d;color:#86efac;padding:3px 8px;border-radius:6px;font-size:11px">LOW</span></div><div class="big" style="color:#4ade80;margin-top:6px">12%</div><div style="font-size:11px;color:#86efac">Risk Level: Low — Stable</div><canvas id="ch1" height="100"></canvas><div style="font-size:10px;color:#9ca3af;margin-top:4px">Detected Cases: 12 of 100 fields • -5.2% vs last week ↓</div></div>
-<div class="card" id="b2"><div style="display:flex;justify-content:space-between"><b>🪲 Cotton Whitefly</b><span style="background:#7c2d12;color:#fb923c;padding:3px 8px;border-radius:6px;font-size:11px">HIGH</span></div><div class="big" style="color:#fb923c;margin-top:6px">78%</div><div style="font-size:11px;color:#fb923c">Risk Level: High — Action Needed</div><canvas id="ch2" height="100"></canvas><div style="font-size:10px;color:#9ca3af;margin-top:4px">Infested: 78 of 100 fields • +14% vs last week ↑</div></div>
-<div class="card"><div style="display:flex;justify-content:space-between"><b>⛅ Pakistan Live Weather</b><span style="background:#1e293b;padding:3px 8px;border-radius:6px;font-size:11px;color:#60a5fa">LIVE•</span></div><div class="big" style="color:#86efac;margin-top:6px" id="tmp">28°C</div><select id="city" onchange="upd()" style="width:100%;padding:8px;border-radius:8px;background:#020617;color:#fff;border:1px solid #334155;margin-top:6px"><option value="30.05,70.64,Dera Ghazi Khan" selected>Dera Ghazi Khan</option><option value="31.5204,74.3587,Lahore">Lahore, Punjab</option><option value="24.8607,67.0011,Karachi">Karachi</option><option value="30.1575,71.5249,Multan">Multan</option><option value="31.4504,73.1350,Faisalabad">Faisalabad</option><option value="30.1798,66.9750,Quetta">Quetta</option><option value="34.0151,71.5249,Peshawar">Peshawar</option></select><div style="font-size:11px;margin-top:8px" id="wdet">Partly Cloudy • Lahore, Punjab</div><div style="font-size:11px;margin-top:8px;background:#0f172a;padding:6px;border-radius:8px">💨 Wind: <span id="wind">12 km/h NE</span></div><div style="font-size:11px;margin-top:6px;background:#0f172a;padding:6px;border-radius:8px">💧 Humidity: <span id="hum">54%</span></div><div style="font-size:11px;margin-top:6px;background:#0f172a;padding:6px;border-radius:8px">🌧️ Rain: 0mm (24h)</div></div>
+<div class="grid4">
+<div class="gold-card">
+<div style="font-size:11px;letter-spacing:1px;color:#d4af37">✦ SOIL HEALTH INDEX ✦</div>
+<div class="gold-num" style="font-size:56px;margin:6px 0">94%</div>
+<div style="width:140px;height:140px;margin:auto;position:relative"><canvas id="soilDonut"></canvas><div style="position:absolute;inset:0;display:grid;place-items:center"><div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#a7f3d0">94%</div><div style="font-size:10px">Optimal</div></div></div></div>
+<div style="font-size:11px;margin-top:8px;color:#a7f3d0">Optimal • +3.2% vs last week</div>
+</div>
+
+<div class="gold-card">
+<div style="font-size:11px;letter-spacing:1px;color:#f5e6a3">CROP YIELD FORECAST</div>
+<div class="gold-num">+12.4%</div>
+<canvas id="yieldBars" height="110"></canvas>
+<div style="font-size:10px;color:#d4af37;margin-top:6px">Projected +1.2k tons • Wheat/Corn/Soy</div>
+</div>
+
+<div class="gold-card">
+<div style="font-size:11px;letter-spacing:1px;color:#d4af37">WATER EFFICIENCY</div>
+<div class="gold-num">88%</div>
+<div style="font-size:48px;text-align:center;margin:6px 0">💧</div>
+<canvas id="waterLine" height="70"></canvas>
+<div style="font-size:10px;color:#86efac">Saved 18.5k L • -12% usage</div>
+</div>
+
+<div class="gold-card">
+<div style="font-size:11px;letter-spacing:1px;color:#f5e6a3">CARBON CAPTURE</div>
+<div class="gold-num" style="font-size:38px">320t CO₂</div>
+<div style="font-size:52px;text-align:center;margin:6px 0">🍃</div>
+<div style="font-size:10px;color:#a7f3d0">This Quarter • +22t captured</div>
+</div>
 </div>
 
 <div class="bot2">
-<div class="card"><b>🟢 Crop Health Score</b><div style="display:flex;gap:14px;margin-top:10px"><div style="width:150px;height:150px;border-radius:50%;background:conic-gradient(#4ade80 0 87%, #1f2937 87% 100%);display:grid;place-items:center"><div style="width:100px;height:100px;background:#020617;border-radius:50%;display:grid;place-items:center"><div style="text-align:center"><div style="font-size:32px;font-weight:900;color:#4ade80">87%</div><div style="font-size:11px">Overall Health</div></div></div></div><div style="font-size:12px"><div>🟢 Healthy 72%<br>🟡 Moderate 18%<br>🔴 Critical 10%</div><div style="margin-top:10px;font-size:11px;color:#9ca3af">Target: 90% +3% to goal</div></div></div></div>
-<div class="card"><b>📍 Field Map — Punjab Region</b><div style="height:170px;background:#0a0f1e;border-radius:10px;margin-top:10px;display:grid;place-items:center;color:#64748b;border:1px dashed #1e293b">🗺️ DG Khan Live Map<br>Healthy (18 fields) • Moderate (5) • High Risk (3)<br>📍 Field A Wheat • Field C Cotton High Risk</div><div style="margin-top:8px;font-size:11px;display:flex;gap:10px"><span style="color:#4ade80">🟢 Healthy (18)</span><span style="color:#facc15">🟡 Moderate (5)</span><span style="color:#f87171">🔴 High Risk (3)</span></div></div>
+<div class="gold-card">
+<div style="display:flex;justify-content:space-between"><b style="color:#f5e6a3">✦ PREDICTIVE HARVEST ANALYTICS</b><span style="font-size:10px;color:#d4af37">DG Khan Live • Pakistan</span></div>
+<canvas id="harvestChart" height="180"></canvas>
+<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;font-size:11px">
+<div style="background:#0f0e06;padding:8px;border-radius:8px;border-left:2px solid #d4af37">🌾 Wheat: <b id="wheatLive">12% LOW</b><br><small>No spray needed</small></div>
+<div style="background:#1a0f06;padding:8px;border-radius:8px;border-left:2px solid #f97316">🐛 Cotton: <b style="color:#fb923c">78% HIGH</b><br><small>Yellow traps 8/acre</small></div>
+<div style="background:#0a0f06;padding:8px;border-radius:8px;border-left:2px solid #22c55e">📍 Weather: <b id="weatherLive">28°C LIVE</b><br><small id="humLive">Humidity 45%</small></div>
+</div>
 </div>
 
+<div class="gold-card" style="border-color:#f5e6a366;box-shadow:0 0 30px #d4af3744">
+<div style="text-align:center;font-family:'Cinzel';color:#f5e6a3;letter-spacing:2px">✦ AI INSIGHTS & RECOMMENDATIONS ✦</div>
+<div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px">
+<div style="background:linear-gradient(180deg, #1a1810, #0a0905);border:1px solid #d4af3722;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="font-size:28px">💎</div><div style="font-size:11px"><b>Optimize Irrigation:</b><br>Reduce watering by 10% in North Valley DG Khan to improve soil moisture.<br><small style="color:#86efac">Estimated savings: 2.1k L/week • Live: <span id="windLive">12 km/h</span></small></div></div>
+<div style="background:linear-gradient(180deg, #121a10, #050a05);border:1px solid #22c55e33;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="font-size:28px">🍃</div><div style="font-size:11px"><b>Pest Risk Detected:</b><br>Whitefly 78% HIGH in <span id="cityRisk">Dera Ghazi Khan</span>. AI recommends natural predatory release + Neem evening.<br><small style="color:#fb923c">Peak: 22 Oct • Action: Traps</small></div></div>
+<div style="background:linear-gradient(180deg, #1a1a0e, #0a0a05);border:1px solid #d4af3733;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="font-size:28px">📈</div><div style="font-size:11px"><b>Sustainability Score:</b><br>91/100 • Carbon credit eligible +45 credits<br><small style="color:#d4af37">Soil Health 94% • Water 88% • Yield +12.4%</small></div></div>
 </div>
+<div style="margin-top:12px;text-align:center"><a href="https://wa.me/923006823639" target="_blank" style="background:linear-gradient(90deg,#d4af37,#f5e6a3);color:#000;padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:900;box-shadow:0 0 20px #d4af37aa">💬 WhatsApp DG Khan 0300-6823639</a></div>
+</div>
+</div>
+
+<div class="footer-gold">
+<div>🛸 ACTIVE DRONES: <b style="color:#4ade80">6</b><br>DG Khan Fields • Live</div>
+<div>🐾 LIVESTOCK HEALTH: <b style="color:#4ade80">91%</b><br>Pakistan • Monitored</div>
+<div>⚡ ENERGY: <b style="color:#4ade80">1.2MW • -8%</b><br>Solar + Grid</div>
+<div>📜 COMPLIANCE: CERTIFIED • ESG A+ RATING<br>AI Model v2.4.1 • ReformerNet • <span id="footerCity">Dera Ghazi Khan</span></div>
+</div>
+
 </div>
 
 <script>
-new Chart(document.getElementById('ch1'),{type:'line',data:{labels:['Sep 30','Oct 05','Oct 10','Oct 15'],datasets:[{data:[42,28,18,12],borderColor:'#4ade80',backgroundColor:'#4ade8022',fill:true,tension:0.4}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
-new Chart(document.getElementById('ch2'),{type:'bar',data:{labels:['Zone A','Zone B','Zone C'],datasets:[{data:[12,18,45,78],backgroundColor:['#f9731688','#f97316bb','#f97316','#ef4444']}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false}},y:{display:false}}}});
-function show(type,el){document.querySelectorAll('.m').forEach(x=>x.classList.remove('active'));el.classList.add('active'); if(type=='wheat'){document.getElementById('b1').style.boxShadow='0 0 25px #22c55e88'; setTimeout(()=>document.getElementById('b1').style.boxShadow='none',1500)} if(type=='cotton'){document.getElementById('b2').style.boxShadow='0 0 25px #f9731688'; setTimeout(()=>document.getElementById('b2').style.boxShadow='none',1500)}}
-async function upd(){let v=document.getElementById('city').value.split(',');let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${v[0]}&longitude=${v[1]}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Asia/Karachi`);let j=await r.json();document.getElementById('tmp').innerText=Math.round(j.current.temperature_2m)+'°C';document.getElementById('hum').innerText=j.current.relative_humidity_2m+'%';document.getElementById('wind').innerText=j.current.wind_speed_10m+' km/h NE';document.getElementById('wdet').innerText=v[2]+' • Live • '+j.current.temperature_2m+'°C'}
-setInterval(()=>{document.getElementById('clk').innerText=new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'})+' • '+document.getElementById('city').value.split(',')[2]},1000); upd();
+let curName="Dera Ghazi Khan";
+new Chart(document.getElementById('soilDonut'),{type:'doughnut',data:{datasets:[{data:[94,6],backgroundColor:['#4ade80','#1a1a10'],borderWidth:0,cutout:'78%'}]},options:{plugins:{legend:{display:false}},animation:{animateRotate:true}}});
+new Chart(document.getElementById('yieldBars'),{type:'bar',data:{labels:['Q3','Q4','Q5','Q5'],datasets:[{data:[18,32,54,82],backgroundColor:['#3f3f1a','#a16207','#d4af37','#4ade80'],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#d4af37'}},y:{display:false}}}});
+new Chart(document.getElementById('waterLine'),{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri'],datasets:[{data:[60,62,58,75,88],borderColor:'#4ade80',backgroundColor:'#4ade8033',tension:0.4,fill:true,pointRadius:0}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
+new Chart(document.getElementById('harvestChart'),{type:'line',data:{labels:['J-A','J','S','O','-D','S','Q','D','D','S'],datasets:[{label:'Predicted Yield',data:[20,25,45,38,60,52,70,65,85,95],borderColor:'#d4af37',backgroundColor:'#d4af3722',tension:0.4,pointRadius:3,pointBackgroundColor:'#f5e6a3'},{label:'Actual Yield',data:[18,22,28,22,40,35,48,42,52,68],borderColor:'#4ade80',tension:0.4,pointRadius:3}]},options:{plugins:{legend:{labels:{color:'#d4af37',boxWidth:12}}},scales:{x:{grid:{color:'#ffffff11'},ticks:{color:'#a8a29e'}},y:{grid:{color:'#ffffff11'},ticks:{color:'#a8a29e'}}}}});
+async function updateWeather(){
+let v=document.getElementById('citySel').value.split(','); curName=v[2];
+document.getElementById('cityHead').innerText=curName; document.getElementById('cityRisk').innerText=curName; document.getElementById('footerCity').innerText=curName;
+try{
+let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${v[0]}&longitude=${v[1]}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Asia/Karachi`);
+let j=await r.json();
+document.getElementById('weatherLive').innerText=Math.round(j.current.temperature_2m)+'°C LIVE';
+document.getElementById('humLive').innerText='Humidity '+j.current.relative_humidity_2m+'%';
+document.getElementById('windLive').innerText=j.current.wind_speed_10m+' km/h';
+document.getElementById('wheatLive').innerText='12% LOW';
+}catch(e){}
+}
+function filterMe(k,el){document.querySelectorAll('.side-gold.m').forEach(i=>i.classList.remove('active'));el.classList.add('active');}
+setInterval(()=>{document.getElementById('clock').innerText=new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'})+' LIVE';},1000);
+updateWeather();
 </script>
 </body>
 </html>
