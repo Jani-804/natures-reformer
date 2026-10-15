@@ -1,148 +1,108 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nature Reformer AI Hub - GLAMOROUS GOLD EDITION</title>
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Outfit:wght@300;600;800&display=swap" rel="stylesheet">
-<style>
-*{box-sizing:border-box}body{margin:0;font-family:'Outfit',sans-serif;background:#050508;color:#f5f3c8;overflow-x:hidden}
-body::before{content:'';position:fixed;inset:0;background:radial-gradient(900px 600px at 50% -20%, #d4af3722, transparent), radial-gradient(800px 500px at 0% 100%, #16a34a18, transparent), url('https://www.transparenttextures.com/patterns/black-marble.png');z-index:-1;opacity:0.6}
-.wrap{max-width:1440px;margin:0 auto;padding:14px}
-.header-gold{position:relative;text-align:center;padding:20px 0 10px 0}
-.logo-gold{width:112px;height:112px;margin:0 auto;background:radial-gradient(circle at 30% 30%, #fff8dc, #d4af37 20%, #8a6d1b 60%, #000);border-radius:50%;display:grid;place-items:center;border:3px solid #d4af37;box-shadow:0 0 40px #d4af3788, inset 0 2px 8px #fff, 0 0 80px #000;position:relative}
-.logo-gold::before{content:'🌿';font-size:48px;filter:drop-shadow(0 0 10px #d4af37)}
-.logo-gold::after{content:'✦';position:absolute;top:-8px;right:-8px;font-size:18px;color:#d4af37;animation:blink 1.5s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
-.h1-gold{font-family:'Cinzel',serif;font-size:38px;font-weight:900;background:linear-gradient(90deg,#fff8dc,#d4af37,#f5e6a3,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 15px #d4af3788);margin-top:12px;letter-spacing:1px}
-.sub-gold{font-size:12px;letter-spacing:4px;color:#d4af37;margin-top:4px}
-.top-meta{display:flex;justify-content:space-between;align-items:center;margin:14px 0;font-size:11px;color:#a8a29e}
-.meta-card{background:linear-gradient(180deg, rgba(20,20,15,0.9), rgba(0,0,0,0.95));border:1px solid #d4af3744;border-radius:12px;padding:8px 12px;backdrop-filter:blur(10px);box-shadow:0 0 15px #d4af3722}
-.grid4{display:grid;grid-template-columns:1.1fr 1fr 1fr 1fr;gap:14px;margin-top:10px}
-.gold-card{background:linear-gradient(145deg, rgba(25,22,12,0.95), rgba(5,5,8,0.98));border:1.5px solid #d4af3766;border-radius:18px;padding:14px;position:relative;overflow:hidden;backdrop-filter:blur(15px);box-shadow:0 8px 32px #000, 0 0 20px #d4af3722, inset 0 1px 0 #ffffff18;transition:.4s}
-.gold-card::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:2px;background:linear-gradient(90deg, transparent, #d4af37, transparent);animation:shine 3s infinite}
-.gold-card::after{content:'✦';position:absolute;top:8px;right:10px;color:#d4af3755;font-size:12px}
-@keyframes shine{0%{left:-100%}100%{left:100%}}
-.gold-card:hover{transform:translateY(-4px) scale(1.01);box-shadow:0 12px 40px #000, 0 0 35px #d4af3766, 0 0 60px #16a34a22;border-color:#f5e6a3}
-.gold-num{font-size:42px;font-weight:900;background:linear-gradient(180deg,#a7f3d0,#4ade80,#d4af37);-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 10px #4ade80aa);line-height:1}
-.bot2{display:grid;grid-template-columns:1.5fr 1fr;gap:14px;margin-top:14px}
-.side-gold{width:100%;background:linear-gradient(180deg, rgba(20,18,10,0.9), rgba(0,0,0,0.95));border:1px solid #d4af3744;border-radius:16px;padding:12px;display:flex;gap:8px;overflow-x:auto;margin-bottom:14px}
-.side-gold.m{padding:10px 16px;border-radius:20px;border:1px solid #d4af3733;white-space:nowrap;cursor:pointer;font-size:12px;font-weight:600;transition:.3s}
-.side-gold.m.active{background:linear-gradient(90deg,#d4af37,#f5e6a3);color:#000;font-weight:800;box-shadow:0 0 20px #d4af37aa}
-.m:hover{border-color:#d4af37;box-shadow:0 0 10px #d4af3722}
-select.gold-sel{background:#0a0a06;border:1px solid #d4af3766;color:#f5e6a3;padding:8px 12px;border-radius:10px}
-.footer-gold{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-top:14px}
-.footer-gold div{background:linear-gradient(180deg, rgba(15,12,5,0.9), rgba(0,0,0,0.95));border:1px solid #d4af3722;border-radius:12px;padding:10px;font-size:11px;text-align:center}
-@media(max-width:1100px){.grid4{grid-template-columns:1fr 1fr}.bot2{grid-template-columns:1fr}.footer-gold{grid-template-columns:1fr 1fr}.h1-gold{font-size:24px}}
-</style>
-</head>
-<body>
-<div class="wrap">
-<div class="header-gold">
-<div class="logo-gold"></div>
-<div class="h1-gold">Nature Reformer AI Hub</div>
-<div class="sub-gold">AGRICULTURE AI • SUSTAINABILITY • PREDICTIVE ANALYTICS</div>
-</div>
-
-<div class="top-meta">
-<div class="side-gold" style="flex:1;margin:0">
-<div class="m active" onclick="filterMe('all',this)">⊞ All Crops</div>
-<div class="m" onclick="filterMe('wheat',this)">🌾 Wheat 12% LOW</div>
-<div class="m" onclick="filterMe('cotton',this)">🐛 Cotton 78% HIGH</div>
-<div class="m" onclick="filterMe('rice',this)">🍚 Rice</div>
-<div class="m" onclick="filterMe('weather',this)">⛅ Live Weather</div>
-<select id="citySel" class="gold-sel" onchange="updateWeather()" style="margin-left:auto"><option value="30.05,70.64,Dera Ghazi Khan" selected>📍 Dera Ghazi Khan</option><option value="31.5204,74.3587,Lahore">Lahore</option><option value="30.1575,71.5249,Multan">Multan</option><option value="24.8607,67.0011,Karachi">Karachi</option><option value="31.4504,73.1350,Faisalabad">Faisalabad</option><option value="30.1798,66.9750,Quetta">Quetta</option><option value="34.0151,71.5249,Peshawar">Peshawar</option></select>
-</div>
-</div>
-
-<div style="display:flex;gap:10px;justify-content:flex-end;margin-bottom:10px">
-<div class="meta-card">🟢 AI ENGINE ACTIVE • ONLINE</div>
-<div class="meta-card">LAST UPDATED<br><b id="clock" style="color:#d4af37">02:14 AM • 15 OCT 2024</b> • <span id="cityHead">Dera Ghazi Khan</span></div>
-</div>
-
-<div class="grid4">
-<div class="gold-card">
-<div style="font-size:11px;letter-spacing:1px;color:#d4af37">✦ SOIL HEALTH INDEX ✦</div>
-<div class="gold-num" style="font-size:56px;margin:6px 0">94%</div>
-<div style="width:140px;height:140px;margin:auto;position:relative"><canvas id="soilDonut"></canvas><div style="position:absolute;inset:0;display:grid;place-items:center"><div style="text-align:center"><div style="font-size:22px;font-weight:900;color:#a7f3d0">94%</div><div style="font-size:10px">Optimal</div></div></div></div>
-<div style="font-size:11px;margin-top:8px;color:#a7f3d0">Optimal • +3.2% vs last week</div>
-</div>
-
-<div class="gold-card">
-<div style="font-size:11px;letter-spacing:1px;color:#f5e6a3">CROP YIELD FORECAST</div>
-<div class="gold-num">+12.4%</div>
-<canvas id="yieldBars" height="110"></canvas>
-<div style="font-size:10px;color:#d4af37;margin-top:6px">Projected +1.2k tons • Wheat/Corn/Soy</div>
-</div>
-
-<div class="gold-card">
-<div style="font-size:11px;letter-spacing:1px;color:#d4af37">WATER EFFICIENCY</div>
-<div class="gold-num">88%</div>
-<div style="font-size:48px;text-align:center;margin:6px 0">💧</div>
-<canvas id="waterLine" height="70"></canvas>
-<div style="font-size:10px;color:#86efac">Saved 18.5k L • -12% usage</div>
-</div>
-
-<div class="gold-card">
-<div style="font-size:11px;letter-spacing:1px;color:#f5e6a3">CARBON CAPTURE</div>
-<div class="gold-num" style="font-size:38px">320t CO₂</div>
-<div style="font-size:52px;text-align:center;margin:6px 0">🍃</div>
-<div style="font-size:10px;color:#a7f3d0">This Quarter • +22t captured</div>
-</div>
-</div>
-
-<div class="bot2">
-<div class="gold-card">
-<div style="display:flex;justify-content:space-between"><b style="color:#f5e6a3">✦ PREDICTIVE HARVEST ANALYTICS</b><span style="font-size:10px;color:#d4af37">DG Khan Live • Pakistan</span></div>
-<canvas id="harvestChart" height="180"></canvas>
-<div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px;font-size:11px">
-<div style="background:#0f0e06;padding:8px;border-radius:8px;border-left:2px solid #d4af37">🌾 Wheat: <b id="wheatLive">12% LOW</b><br><small>No spray needed</small></div>
-<div style="background:#1a0f06;padding:8px;border-radius:8px;border-left:2px solid #f97316">🐛 Cotton: <b style="color:#fb923c">78% HIGH</b><br><small>Yellow traps 8/acre</small></div>
-<div style="background:#0a0f06;padding:8px;border-radius:8px;border-left:2px solid #22c55e">📍 Weather: <b id="weatherLive">28°C LIVE</b><br><small id="humLive">Humidity 45%</small></div>
-</div>
-</div>
-
-<div class="gold-card" style="border-color:#f5e6a366;box-shadow:0 0 30px #d4af3744">
-<div style="text-align:center;font-family:'Cinzel';color:#f5e6a3;letter-spacing:2px">✦ AI INSIGHTS & RECOMMENDATIONS ✦</div>
-<div style="display:grid;grid-template-columns:1fr;gap:10px;margin-top:12px">
-<div style="background:linear-gradient(180deg, #1a1810, #0a0905);border:1px solid #d4af3722;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="font-size:28px">💎</div><div style="font-size:11px"><b>Optimize Irrigation:</b><br>Reduce watering by 10% in North Valley DG Khan to improve soil moisture.<br><small style="color:#86efac">Estimated savings: 2.1k L/week • Live: <span id="windLive">12 km/h</span></small></div></div>
-<div style="background:linear-gradient(180deg, #121a10, #050a05);border:1px solid #22c55e33;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="font-size:28px">🍃</div><div style="font-size:11px"><b>Pest Risk Detected:</b><br>Whitefly 78% HIGH in <span id="cityRisk">Dera Ghazi Khan</span>. AI recommends natural predatory release + Neem evening.<br><small style="color:#fb923c">Peak: 22 Oct • Action: Traps</small></div></div>
-<div style="background:linear-gradient(180deg, #1a1a0e, #0a0a05);border:1px solid #d4af3733;border-radius:12px;padding:12px;display:flex;gap:10px"><div style="font-size:28px">📈</div><div style="font-size:11px"><b>Sustainability Score:</b><br>91/100 • Carbon credit eligible +45 credits<br><small style="color:#d4af37">Soil Health 94% • Water 88% • Yield +12.4%</small></div></div>
-</div>
-<div style="margin-top:12px;text-align:center"><a href="https://wa.me/923006823639" target="_blank" style="background:linear-gradient(90deg,#d4af37,#f5e6a3);color:#000;padding:10px 20px;border-radius:30px;text-decoration:none;font-weight:900;box-shadow:0 0 20px #d4af37aa">💬 WhatsApp DG Khan 0300-6823639</a></div>
-</div>
-</div>
-
-<div class="footer-gold">
-<div>🛸 ACTIVE DRONES: <b style="color:#4ade80">6</b><br>DG Khan Fields • Live</div>
-<div>🐾 LIVESTOCK HEALTH: <b style="color:#4ade80">91%</b><br>Pakistan • Monitored</div>
-<div>⚡ ENERGY: <b style="color:#4ade80">1.2MW • -8%</b><br>Solar + Grid</div>
-<div>📜 COMPLIANCE: CERTIFIED • ESG A+ RATING<br>AI Model v2.4.1 • ReformerNet • <span id="footerCity">Dera Ghazi Khan</span></div>
-</div>
-
-</div>
-
-<script>
-let curName="Dera Ghazi Khan";
-new Chart(document.getElementById('soilDonut'),{type:'doughnut',data:{datasets:[{data:[94,6],backgroundColor:['#4ade80','#1a1a10'],borderWidth:0,cutout:'78%'}]},options:{plugins:{legend:{display:false}},animation:{animateRotate:true}}});
-new Chart(document.getElementById('yieldBars'),{type:'bar',data:{labels:['Q3','Q4','Q5','Q5'],datasets:[{data:[18,32,54,82],backgroundColor:['#3f3f1a','#a16207','#d4af37','#4ade80'],borderRadius:6}]},options:{plugins:{legend:{display:false}},scales:{x:{grid:{display:false},ticks:{color:'#d4af37'}},y:{display:false}}}});
-new Chart(document.getElementById('waterLine'),{type:'line',data:{labels:['Mon','Tue','Wed','Thu','Fri'],datasets:[{data:[60,62,58,75,88],borderColor:'#4ade80',backgroundColor:'#4ade8033',tension:0.4,fill:true,pointRadius:0}]},options:{plugins:{legend:{display:false}},scales:{x:{display:false},y:{display:false}}}});
-new Chart(document.getElementById('harvestChart'),{type:'line',data:{labels:['J-A','J','S','O','-D','S','Q','D','D','S'],datasets:[{label:'Predicted Yield',data:[20,25,45,38,60,52,70,65,85,95],borderColor:'#d4af37',backgroundColor:'#d4af3722',tension:0.4,pointRadius:3,pointBackgroundColor:'#f5e6a3'},{label:'Actual Yield',data:[18,22,28,22,40,35,48,42,52,68],borderColor:'#4ade80',tension:0.4,pointRadius:3}]},options:{plugins:{legend:{labels:{color:'#d4af37',boxWidth:12}}},scales:{x:{grid:{color:'#ffffff11'},ticks:{color:'#a8a29e'}},y:{grid:{color:'#ffffff11'},ticks:{color:'#a8a29e'}}}}});
-async function updateWeather(){
-let v=document.getElementById('citySel').value.split(','); curName=v[2];
-document.getElementById('cityHead').innerText=curName; document.getElementById('cityRisk').innerText=curName; document.getElementById('footerCity').innerText=curName;
-try{
-let r=await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${v[0]}&longitude=${v[1]}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&timezone=Asia/Karachi`);
-let j=await r.json();
-document.getElementById('weatherLive').innerText=Math.round(j.current.temperature_2m)+'°C LIVE';
-document.getElementById('humLive').innerText='Humidity '+j.current.relative_humidity_2m+'%';
-document.getElementById('windLive').innerText=j.current.wind_speed_10m+' km/h';
-document.getElementById('wheatLive').innerText='12% LOW';
-}catch(e){}
+/ (Landing - Nature Reformer AI Hub)
+├── /dashboard (Main - Glamorous Gold Dashboard)
+│ ├── /overview (Soil 94%, Yield +12.4%, Water 88%, Carbon 320t)
+│ ├── /analytics
+│ │ ├── /weather (Live Pakistan + 10 cities - Open-Meteo API)
+│ │ ├── /yield (Predictive harvest Q3-Q5)
+│ │ └── /soil-health (NDVI, pH, NPK)
+│ ├── /fields (Field Map - DG Khan + 128 IoT sensors)
+│ ├── /iot (IoT Device Management Portal - 6 Drones, Livestock 91%)
+│ └── /insights (AI Insights & Recommendations)
+└── /api
+    ├── /weather?lat,lon
+    ├── /predict-yield (pH, N, P, K, moisture)
+    └── /devices
+    // FieldHealthCard.jsx - Tailwind + Glamorous
+export default function FieldHealthCard({ thumb, ndvi, moisture, status }) {
+  return (
+    <div className="bg-gradient-to-br from-zinc-900 to-black border border-yellow-600/30 rounded-[18px] p-4 shadow-[0_0_20px_rgba(212,175,55,0.2)] hover:shadow-[0_0_30px_rgba(212,175,55,0.4)] transition-all">
+      <img src={thumb} className="w-full h-28 object-cover rounded-xl border border-zinc-800" />
+      <div className="mt-3">
+        <div className="flex justify-between items-center">
+          <span className="text-xs text-yellow-200 tracking-widest">NDVI SCORE</span>
+          <span className={`px-2 py-1 rounded-full text-xs font-bold ${status==='Optimal'? 'bg-green-900 text-green-200' : 'bg-red-900 text-red-200'}`}>{status}</span>
+        </div>
+        <div className="text-3xl font-black text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-yellow-300">{ndvi}</div>
+        <div className="mt-2">
+          <div className="text-xs text-zinc-400">Soil Moisture</div>
+          <div className="w-full bg-zinc-800 h-2 rounded-full mt-1"><div className="h-2 rounded-full bg-gradient-to-r from-green-400 to-yellow-400" style={{width:`${moisture}%`}} /></div>
+          <div className="text-xs text-zinc-300 mt-1">{moisture}%</div>
+        </div>
+      </div>
+    </div>
+  )
 }
-function filterMe(k,el){document.querySelectorAll('.side-gold.m').forEach(i=>i.classList.remove('active'));el.classList.add('active');}
-setInterval(()=>{document.getElementById('clock').innerText=new Date().toLocaleString('en-PK',{timeZone:'Asia/Karachi'})+' LIVE';},1000);
-updateWeather();
-</script>
-</body>
-</html>
+// DashboardLayout.jsx
+<div className="min-h-screen bg-[#050508] text-zinc-100 flex">
+  <aside className="w-[260px] bg-zinc-950 border-r border-yellow-900/30 p-4">
+    <img src="/logo.png" className="w-16 h-16 rounded-full border-2 border-yellow-500" />
+    <h1 className="font-[Cinzel] text-xl text-yellow-100">Nature Reformer AI Hub</h1>
+    <nav className="mt-6 space-y-2">
+      <button className="w-full text-left p-3 rounded-xl bg-gradient-to-r from-yellow-600 to-yellow-200 text-black font-bold">⊞ All Crops</button>
+      <button className="w-full text-left p-3 rounded-xl border border-zinc-800 hover:border-yellow-600">🌾 Wheat Disease 12% LOW</button>
+      <button className="w-full text-left p-3 rounded-xl border border-zinc-800 hover:border-yellow-600">🐛 Cotton Whitefly 78% HIGH</button>
+    </nav>
+  </aside>
+  <main className="flex-1">
+    <div className="h-14 bg-gradient-to-r from-zinc-900 to-green-950 border-b border-yellow-900/30 flex items-center justify-between px-4">
+      <span className="text-yellow-200 text-sm">⚠️ Weather Alert: DG Khan me kal barish 20% • Wheat sowing best 18-25 Oct</span>
+      <span className="text-xs">🔔 AP ⚙️ {new Date().toLocaleString()}</span>
+    </div>
+    <div className="p-4 grid grid-cols-4 gap-4">
+      {/* Your 4 gold cards + charts here */}
+    </div>
+  </main>
+</div>
+      // server.js - Express
+const express = require('express');
+const fetch = require('node-fetch');
+const app = express();
+
+app.get('/api/weather', async (req,res)=>{
+  const { lat, lon } = req.query;
+  const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation_probability&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`;
+  const data = await fetch(url).then(r=>r.json());
+  // Optimize for frontend chart
+  const payload = {
+    current: { temp: data.current.temperature_2m, hum: data.current.relative_humidity_2m, wind: data.current.wind_speed_10m, rain: data.current.precipitation_probability },
+    forecast: data.daily.time.slice(0,7).map((t,i)=>({date:t, max:data.daily.temperature_2m_max[i], min:data.daily.temperature_2m_min[i], rain:data.daily.precipitation_probability_max[i]}))
+  };
+  res.json(payload);
+});
+app.listen(3000);
+      # main.py - FastAPI
+from fastapi import FastAPI
+from pydantic import BaseModel
+
+app = FastAPI()
+
+class SoilInput(BaseModel):
+    ph: float
+    N: float
+    P: float
+    K: float
+    moisture: float
+
+@app.post("/predict-yield")
+def predict_yield(data: SoilInput):
+    # Mock ML logic for DG Khan
+    score = (data.N*0.3 + data.P*0.2 + data.K*0.2 + (7 - abs(data.ph-6.8))*10 + data.moisture*0.3)
+    optimization = min(94, max(60, score))
+    return {
+        "yield_optimization_score": round(optimization,1),
+        "status": "Optimal" if optimization>85 else "Action Required",
+        "recommendation": "Increase N by 10kg/acre, maintain moisture 60-70% for Wheat in DG Khan. Neem + Mulch 3 inch."
+    }
+      // Sleek Chart - Soil Moisture vs Temp 30 days
+new Chart(document.getElementById('soilTemp'),{
+  type:'line',
+  data:{
+    labels: Array.from({length:30},(_,i)=>`Day ${i+1}`),
+    datasets:[
+      { label:'Soil Moisture %', data:[62,64,63,65,68,70,69,71,70,72,71,73,74,72,70,68,69,70,72,74,75,73,71,70,69,70,72,73,74,75], borderColor:'#4ade80', backgroundColor:'#4ade8011', tension:0.4, fill:true },
+      { label:'Soil Temp °C', data:[26,27,27,28,28,29,28,27,26,26,27,28,29,29,28,27,26,26,27,28,28,27,26,25,26,27,28,28,27,26], borderColor:'#d4af37', backgroundColor:'#d4af3711', tension:0.4, fill:true }
+    ]
+  },
+  options:{ plugins:{legend:{labels:{color:'#f5e6a3'}}}, scales:{x:{grid:{color:'#1a1a0e'}}, y:{grid:{color:'#1a1a0e'}}}, animation:{duration:1200, easing:'easeOutQuart'} }
+});
+      
