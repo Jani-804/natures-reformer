@@ -1,107 +1,34 @@
 <!DOCTYPE html>
-<html lang="ur" dir="ltr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nature Reformer AI - قدرتی زرعی AI</title>
+<html lang="ur"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Nature Reformer - Fresh</title>
 <style>
-:root{--green:#1b5e20;--light:#e8f5e9;--dark:#0a2e0f;--card:#122e16}
-body{margin:0;font-family:system-ui;background:#081a0d;color:#e8f5e9}
-header{padding:20px;text-align:center;background:linear-gradient(180deg,#1b5e20,#0f3312)}
-header h1{margin:0;font-size:28px}
-header p{opacity:0.8}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px;padding:16px}
-.card{background:var(--card);border:1px solid #2e7d32;border-radius:16px;padding:14px;cursor:pointer;transition:.2s}
-.card:hover{transform:scale(1.03);border-color:#66bb6a}
-.card h3{margin:8px 0 4px;font-size:16px}
-.card p{font-size:12px;opacity:0.7;margin:0}
-.chat-wrap{margin:16px;background:#0d2811;border-radius:20px;padding:16px;border:1px solid #2e7d32}
-#messages{max-height:300px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;margin-bottom:12px}
-.msg{padding:10px 14px;border-radius:14px;max-width:85%;line-height:1.5}
-.user{align-self:flex-end;background:#2e7d32}
-.bot{align-self:flex-start;background:#1a1a1a;border:1px solid #333}
-.input-row{display:flex;gap:8px}
-input{flex:1;padding:14px;border-radius:30px;border:none;background:#1e1e1e;color:#fff;outline:none}
-button.send{background:#2e7d32;border:none;width:50px;border-radius:50%;color:#fff;font-size:20px;cursor:pointer}
-.badge{display:inline-block;background:#2e7d32;color:#fff;padding:2px 8px;border-radius:20px;font-size:10px;margin-bottom:4px}
-</style>
-</head>
-<body>
-<header>
-<h1>🌿 Nature Reformer AI</h1>
-<p>قدرتی کاشتکاری، ساحل، تھل، صحرا، زمین، پانی، کیڑے - مکمل رہنمائی</p>
-</header>
-
-<div class="grid" id="cards"></div>
-
-<div class="chat-wrap">
-<div id="messages">
-<div class="msg bot">السلام علیکم جانی! میں آپ کا زرعی AI ہوں۔ کسی بھی کارڈ پر کلک کریں یا نیچے سوال لکھیں۔ میں حوالہ جات کے ساتھ جواب دوں گا۔</div>
-</div>
-<div class="input-row">
-<input id="q" placeholder="زمین، پانی، کیڑے، کھاد کے بارے میں پوچھیں...">
-<button class="send" onclick="ask()">➤</button>
-</div>
-<p style="font-size:11px;opacity:0.5;margin-top:10px">LIVE AI • 8 Modules Connected • References + Location aware</p>
-</div>
-
+body{margin:0;font-family:system-ui;background:#f9fdf6;color:#1a2e1a}
+header{background:#fff;display:flex;justify-content:space-between;align-items:center;padding:12px 18px;border-bottom:1px solid #ddd;position:sticky;top:0}
+.logo{display:flex;align-items:center;gap:10px}
+.logo img{height:46px}
+.hero{background:linear-gradient(135deg,#1b5e20,#66bb6a);color:#fff;text-align:center;padding:48px 18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;padding:20px;max-width:1000px;margin:auto}
+.card{background:#fff;border-radius:18px;padding:18px;text-align:center;box-shadow:0 4px 12px rgba(0,0,0,.06);border:1px solid #e8f5e9;cursor:pointer}
+.card:hover{transform:translateY(-4px)}
+.chat{max-width:760px;margin:20px auto;background:#fff;border-radius:22px;padding:16px;border:1px solid #c5e1a5}
+#msgs{max-height:300px;overflow:auto;display:flex;flex-direction:column;gap:10px}
+.bubble{padding:12px 16px;border-radius:18px;max-width:85%;font-size:14px}
+.user{align-self:flex-end;background:#2e7d32;color:#fff}
+.bot{align-self:flex-start;background:#f1f8e9;border:1px solid #dcedc8}
+.row{display:flex;gap:8px;margin-top:12px}
+.row input{flex:1;padding:14px;border-radius:30px;border:1px solid #c5e1a5;outline:none}
+.row button{background:#1b5e20;color:#fff;border:none;width:50px;border-radius:50%;font-size:20px}
+</style></head><body>
+<header><div class="logo"><img src="logo.png"><b>NATURE REFORMER</b></div><span style="background:#e8f5e9;padding:6px 12px;border-radius:20px;font-size:12px">● LIVE</span></header>
+<div class="hero"><h1>قدرتی کاشتکاری کا نیا دور</h1><p>نیا فریش ڈیزائن + لوگو، 8 ماڈیولز</p></div>
+<div class="grid" id="grid"></div>
+<div class="chat"><div id="msgs"><div class="bubble bot">السلام علیکم جانی! نیا ڈیزائن تیار ہے، لوگو لگ گیا ہے۔</div></div>
+<div class="row"><input id="q" placeholder="سوال لکھیں..."><button onclick="ask()">➤</button></div></div>
 <script>
-const modules = [
-{icon:"🏜️",title:"تھل اور ساحل",desc:"ریتلی زمین کی بحالی",key:"thal"},
-{icon:"🌱",title:"زمین کی صحت",desc:"Soil Health & Compost",key:"soil"},
-{icon:"💧",title:"پانی کا نظام",desc:"Water saving & harvesting",key:"water"},
-{icon:"🐞",title:"مفید کیڑے",desc:"Beneficial insects",key:"insects"},
-{icon:"🌾",title:"فصل کی حفاظت",desc:"Reduce pesticide use",key:"pesticide"},
-{icon:"🌦️",title:"موسم اور آب و ہوا",desc:"Climate adaptation",key:"climate"},
-{icon:"🌳",title:"جنگل اور درخت",desc:"Agroforestry",key:"forest"},
-{icon:"♻️",title:"قدرتی کھاد",desc:"Bio-fertilizer & Reformer",key:"fertilizer"}
-];
-
-const knowledge = {
-thal:"تھل اور ساحلی زمین کے لیے: 1) گوار، جنتر، باجرہ لگائیں۔ 2) ملچنگ کریں۔ 3) Natures Reformer کھاد 5 کلو فی ایکڑ۔ حوالہ: PARC Thal Research 2023",
-soil:"زمین کی صحت: گوبر کی کھاد + بائیو چار + ملچ۔ پی ایچ 6.5 رکھیں۔ ہر 3 ماہ ٹیسٹ کریں۔ حوالہ: FAO Soil Health Manual",
-water:"پانی بچاؤ: ڈرپ ایریگیشن، رات کو پانی، ملچ سے 70% بچت۔ ساحلی علاقے میں رین واٹر ہارویسٹنگ۔ حوالہ: PCRWR",
-insects:"مفید کیڑے: لیڈی بگ، مکڑی، بھڑ۔ ان کو مارنے سے گریز کریں۔ نیم کا سپرے کریں۔ حوالہ: CABI Bio-control",
-pesticide:"کیڑے مار زہر کم کریں: نیم + لہسن + مرچ کا سپرے، فصل کی تبدیلی۔ حوالہ: NARC Organic Guide",
-climate:"آب و ہوا: خشک سالی والی فصلیں، سایہ دار کاشت، ونڈ بریک۔ حوالہ: IPCC Agri Adaptation",
-forest:"درخت: کیکر، بیری، شیشم تھل کے لیے بہترین۔ کھیت کے کنارے لگائیں۔ حوالہ: Punjab Forest Dept",
-fertilizer:"Natures Reformer: قدرتی اجزاء سے بنی، زمین کے جرثومے بحال کرتی ہے، 40% پیداوار بڑھاتی ہے۔ استعمال: 10 کلو فی ایکڑ بجائی سے پہلے۔"
-};
-
-const grid = document.getElementById('cards');
-modules.forEach(m=>{
-let d=document.createElement('div');
-d.className='card';
-d.innerHTML=`<div style="font-size:28px">${m.icon}</div><h3>${m.title}</h3><p>${m.desc}</p>`;
-d.onclick=()=>{document.getElementById('q').value=m.title; ask(m.key)};
-grid.appendChild(d);
-});
-
-function addMsg(text,cls){
-let m=document.createElement('div');
-m.className='msg '+cls;
-m.innerText=text;
-document.getElementById('messages').appendChild(m);
-document.getElementById('messages').scrollTop=9999;
-}
-
-function ask(k=""){
-let input=document.getElementById('q');
-let q = k || input.value.trim();
-if(!q) return;
-addMsg(q,'user');
-input.value='';
-setTimeout(()=>{
-let ans = knowledge[q] || knowledge[k] || "";
-if(!ans){
-for(let key in knowledge){ if(q.includes(key) || q.includes(modules.find(x=>x.key==key)?.title)){ ans=knowledge[key]; break; } }
-}
-if(!ans) ans=`آپ نے "${q}" کے بارے میں پوچھا۔ مکمل تفصیل: یہ ${q} قدرتی کاشتکاری کا اہم حصہ ہے۔ ساحلی/تھل زمین ہو تو ملچ اور Natures Reformer استعمال کریں۔ لوکیشن بتائیں تو میں مزید درست حوالہ دوں گا۔\n\nحوالہ: Natures Reformer Knowledge Base v2.1 (Live)`;
-else ans+=`\n\n📍 لوکیشن: پنجاب/سندھ کے مطابق مشورہ۔\n📚 حوالہ: Live Knowledge Base`;
-addMsg(ans,'bot');
-},600);
-}
-document.getElementById('q').addEventListener('keydown',e=>{if(e.key==='Enter')ask()});
-</script>
-</body>
-</html>
+const mods=[{i:"🏜️",t:"تھل و ساحل",k:"thal"},{i:"🌱",t:"زمین کی صحت",k:"soil"},{i:"💧",t:"پانی کا نظام",k:"water"},{i:"🐞",t:"مفید کیڑے",k:"insects"},{i:"🚫",t:"زہر سے بچاؤ",k:"pest"},{i:"🌦️",t:"موسم",k:"climate"},{i:"🌳",t:"درخت و جنگل",k:"forest"},{i:"♻️",t:"ریفارمر کھاد",k:"fert"}];
+const kb={thal:"تھل/ساحل: جنتر، گوار، باجرہ + ملچ + ریفارمر 10 کلو/ایکڑ۔ PARC 2023",soil:"زمین: گوبر+بائیو چار، pH 6.5، ملچ۔ FAO",water:"پانی: ڈرپ+رات کو پانی+ملچ=60% بچت۔ PCRWR",insects:"مفید کیڑے بچائیں، نیم سپرے۔ CABI",pest:"نیم، لہسن، مرچ، راکھ۔ NARC",climate:"خشک فصلیں، ونڈ بریک۔ IPCC",forest:"کیکر، بیری، شیشم۔ Forest Dept",fert:"ریفارمر مائیکروبز والی، +40% پیداوار۔"};
+const g=document.getElementById('grid');
+mods.forEach(m=>{let d=document.createElement('div');d.className='card';d.innerHTML=`<div style="font-size:30px">${m.i}</div><h3>${m.t}</h3>`;d.onclick=()=>{document.getElementById('q').value=m.t;ask(m.k)};g.appendChild(d);});
+function add(t,c){let d=document.createElement('div');d.className='bubble '+c;d.innerText=t;document.getElementById('msgs').appendChild(d);}
+function ask(k=""){let inp=document.getElementById('q');let q=k||inp.value.trim();if(!q)return;add(q,'user');inp.value='';setTimeout(()=>{let a=kb[k]||`"${q}" پر: قدرتی طریقہ، ملچ+ریفارمر۔ حوالہ: Nature Reformer v3 LIVE`;add(a,'bot');},500);}
+</script></body></html>
