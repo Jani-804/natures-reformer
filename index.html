@@ -1,90 +1,93 @@
 <!DOCTYPE html>
-<html lang="ur">
+<html lang="ur" dir="ltr">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Nature Reformer AI - Comprehensive</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu&family=Inter:wght@400;700&display=swap" rel="stylesheet">
 <style>
-:root{--g1:#0f5d2f;--g2:#16a085;--dark:#0f172a}
-*{box-sizing:border-box}body{margin:0;font-family:'Inter',system-ui;background:#f1f5f9;color:#0f172a;display:flex;flex-direction:column;height:100vh}
-.header{height:70px;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 20px}
-.header.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:20px}
-.header.logo span{background:#fff;color:var(--g1);width:42px;height:42px;display:grid;place-items:center;border-radius:50%}
+:root{--g1:#0f5d2f;--g2:#16a34a}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#f1f5f9;color:#0f172a;display:flex;flex-direction:column;height:100vh}
+.header{height:72px;background:linear-gradient(90deg,var(--g1),var(--g2));color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 18px;position:sticky;top:0;z-index:10}
+.logo-area{display:flex;align-items:center;gap:12px;font-weight:800;font-size:19px}
+.logo-area img{height:48px;width:48px;border-radius:50%;background:#fff;padding:3px;border:2px solid #fff}
 .main{flex:1;display:flex;overflow:hidden}
-.side{width:260px;background:#1e293b;color:#cbd5e1;padding:14px;overflow-y:auto}
-.side h4{font-size:11px;letter-spacing:1px;color:#94a3b8;margin:10px 6px}
-.item{padding:12px 12px;border-radius:10px;margin-bottom:6px;cursor:pointer;display:flex;gap:10px;align-items:center;transition:.2s;border:1px solid transparent}
-.item:hover,.item.active{background:#16a34a;color:#fff;transform:translateX(4px)}
-.content{flex:1;overflow-y:auto;padding:18px;background:#f8fafc}
+.side{width:270px;background:#1e293b;color:#cbd5e1;padding:12px;overflow-y:auto}
+.item{padding:11px 12px;border-radius:10px;margin-bottom:6px;cursor:pointer;display:flex;gap:10px;align-items:center;border:1px solid transparent}
+.item.active,.item:hover{background:#16a34a;color:#fff}
+.content{flex:1;overflow-y:auto;padding:16px}
 .top-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
 .tcard{border-radius:14px;padding:14px;color:#fff}
-.tcard h3{margin:4px 0;font-size:22px}
 .panel{background:#fff;border-radius:16px;padding:16px;margin-top:14px;box-shadow:0 6px 20px rgba(0,0,0,.06);border:1px solid #e2e8f0}
 .grid2{display:grid;grid-template-columns:2fr 1fr;gap:14px}
 .badge{display:inline-block;padding:4px 10px;border-radius:20px;font-size:11px;font-weight:700}
-.chat-input{display:flex;gap:8px;margin-top:10px}
-.chat-input input{flex:1;padding:12px 16px;border-radius:30px;border:1px solid #cbd5e1}
-.chat-input button{background:var(--g1);color:#fff;border:none;padding:0 20px;border-radius:30px}
-@media(max-width:900px){.main{flex-direction:column}.side{width:100%;display:flex;overflow-x:auto}.top-cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
+.chat-input{display:flex;gap:8px;margin-top:12px}
+.chat-input input{flex:1;padding:13px 16px;border-radius:30px;border:1px solid #cbd5e1;outline:none}
+.chat-input button{background:var(--g1);color:#fff;border:none;padding:0 22px;border-radius:30px;font-size:18px}
+.botbox{background:#f0fdf4;border:1px solid #bbf7d0;padding:12px;border-radius:12px;margin-top:10px;font-size:14px;line-height:1.7}
+@media(max-width:900px){.main{flex-direction:column}.side{width:100%;display:flex;overflow-x:auto;gap:8px}.top-cards{grid-template-columns:repeat(2,1fr)}.grid2{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="header">
-<div class="logo"><span>AI</span> Nature Reformer AI</div>
-<div style="display:flex;gap:14px;align-items:center"><span style="background:rgba(255,255,255,.2);padding:6px 12px;border-radius:20px;font-size:12px">● Live • Updated 15 Oct 2026</span><span>Admin • Punjab</span></div>
+<div class="logo-area"><img src="logo.png" onerror="this.style.display='none'"><span>Nature Reformer AI</span></div>
+<div style="display:flex;gap:10px;align-items:center"><span style="background:rgba(255,255,255,.2);padding:6px 12px;border-radius:20px;font-size:12px">● Live • 15 Oct 2026</span><span style="font-size:13px">Admin • Punjab</span></div>
 </div>
 <div class="main">
 <div class="side">
-<h4>MODULES</h4>
-<div class="item active" onclick="loadMod('dashboard',this)">🏠 ڈیش بورڈ - Dashboard</div>
-<div class="item" onclick="loadMod('crops',this)">🌾 فصلیں - Crops AI</div>
-<div class="item" onclick="loadMod('soil',this)">🧪 مٹی کا تجزیہ - Soil AI</div>
-<div class="item" onclick="loadMod('water',this)">💧 آب پاشی - Irrigation AI</div>
-<div class="item" onclick="loadMod('pest',this)">🐞 آفات و کیڑے - Pest AI</div>
-<div class="item" onclick="loadMod('weather',this)">⛅ موسم - Weather AI</div>
-<div class="item" onclick="loadMod('market',this)">📊 مارکیٹ - Market AI</div>
-<div class="item" onclick="loadMod('chat',this)">💬 اے آئی چیٹ - AI Chat</div>
-<div style="margin-top:20px;background:#0f172a;border-radius:12px;padding:12px">
-<div class="badge" style="background:#16a34a;color:#fff">Punjab, Pakistan</div>
-<p style="font-size:12px;margin-top:8px">Active Farmland: 16.3M acres<br>AI Model: v3.2 Comprehensive</p>
-</div>
+<div class="item active" onclick="load('dashboard',this)">🏠 ڈیش بورڈ - Dashboard</div>
+<div class="item" onclick="load('crops',this)">🌾 فصلیں - Crops AI</div>
+<div class="item" onclick="load('soil',this)">🧪 مٹی - Soil AI</div>
+<div class="item" onclick="load('water',this)">💧 آب پاشی - Irrigation AI</div>
+<div class="item" onclick="load('pest',this)">🐞 آفات - Pest AI</div>
+<div class="item" onclick="load('weather',this)">⛅ موسم - Weather AI</div>
+<div class="item" onclick="load('market',this)">📊 مارکیٹ - Market AI</div>
+<div class="item" onclick="load('chat',this)">💬 AI چیٹ - AI Chat</div>
+<div style="margin-top:16px;background:#0f172a;border-radius:12px;padding:12px;font-size:12px"><span class="badge" style="background:#16a34a;color:#fff">Punjab Pakistan</span><p>36 اضلاع کا ڈیٹا<br>AI Model: v4.1 Comprehensive<br>Location: Lahore</p></div>
 </div>
 <div class="content" id="content">
 <div class="top-cards">
-<div class="tcard" style="background:linear-gradient(135deg,#16a34a,#22c55e)"><div>Crop Health</div><h3>87% <span style="font-size:12px">+3.2%</span></h3><small>AI Analyzed</small></div>
-<div class="tcard" style="background:linear-gradient(135deg,#2563eb,#60a5fa)"><div>Soil Moisture</div><h3>64%</h3><small>Optimal Range</small></div>
-<div class="tcard" style="background:linear-gradient(135deg,#f59e0b,#fb923c)"><div>Avg Temperature</div><h3>28.4°C</h3><small>Sunny, Clear</small></div>
-<div class="tcard" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><div>Market Price</div><h3>PKR 3,140/ton</h3><small>+1.8% Wheat</small></div>
+<div class="tcard" style="background:linear-gradient(135deg,#16a34a,#22c55e)"><div>Crop Health</div><h3 style="margin:5px 0">87% +3.2%</h3><small>AI Analyzed</small></div>
+<div class="tcard" style="background:linear-gradient(135deg,#2563eb,#60a5fa)"><div>Soil Moisture</div><h3 style="margin:5px 0">64%</h3><small>Optimal Range</small></div>
+<div class="tcard" style="background:linear-gradient(135deg,#f59e0b,#fb923c)"><div>Avg Temperature</div><h3 style="margin:5px 0">28.4°C</h3><small>Sunny, Clear - Lahore</small></div>
+<div class="tcard" style="background:linear-gradient(135deg,#7c3aed,#a78bfa)"><div>Market Price</div><h3 style="margin:5px 0">PKR 3,140/ton</h3><small>+1.8% Wheat</small></div>
 </div>
 <div id="dynamic"></div>
 </div>
 </div>
 <script>
-const data={
-dashboard:`<div class="grid2"><div class="panel"><h3>AI Yield Prediction — Wheat Season 2026</h3><p style="font-size:13px;color:#64748b">Predicted 2026 vs Actual 2025 — AI model trained on 10 years data</p><div style="height:120px;background:linear-gradient(90deg,#dcfce7 0%,#bbf7d0 100%);border-radius:10px;display:flex;align-items:end;gap:6px;padding:10px"><div style="height:40%;width:14%;background:#16a34a;border-radius:6px"></div><div style="height:55%;width:14%;background:#16a34a"></div><div style="height:50%;width:14%;background:#2563eb"></div><div style="height:70%;width:14%;background:#2563eb"></div><div style="height:85%;width:14%;background:#16a34a"></div><div style="height:95%;width:14%;background:#2563eb"></div></div><div style="margin-top:10px;background:#f0fdf4;padding:10px;border-radius:10px;font-size:13px">✨ <b>AI Insight:</b> پیداوار میں 12.5% اضافہ متوقع ہے، فیصل آباد، ساہیوال میں بارش + کھاد کا بہترین استعمال۔</div></div><div class="panel"><h3>Pest & Disease Detection - AI Risk</h3><div style="display:flex;gap:10px"><div style="width:100px;height:100px;border-radius:50%;background:conic-gradient(#22c55e 0 62%,#f59e0b 62% 87%,#ef4444 87% 100%);display:grid;place-items:center"><div style="width:60px;height:60px;background:#fff;border-radius:50%"></div></div><div style="font-size:13px"><p>🟢 Brown Rust: Low - Lodhran</p><p>🟡 Aphid: Moderate - Multan</p><p>🔴 Locust: Monitoring</p></div></div></div></div><div class="grid2" style="margin-top:14px"><div class="panel"><h3>Soil Health Analysis - AI</h3><p>N:42ppm P:28ppm K:55ppm pH:6.8</p><div style="display:flex;gap:6px"><div style="height:40px;width:18%;background:#16a34a;border-radius:4px"></div><div style="height:25px;width:18%;background:#16a34a"></div><div style="height:45px;width:18%;background:#16a34a"></div><div style="height:30px;width:18%;background:#16a34a"></div><div style="height:20px;width:18%;background:#f59e0b"></div></div><small>Healthy — Recommended: Apply phosphorus + Natures Reformer 10kg/acre</small></div><div class="panel"><h3>AI Chat Assistant - فوری جواب</h3><div style="background:#f1f5f9;padding:8px;border-radius:10px;font-size:13px">User: What is best fertilizer for wheat now?</div><div style="background:#dcfce7;padding:10px;border-radius:10px;margin-top:8px;font-size:13px;color:#14532d"><b>AI:</b> NPK 20-20-20 at 50kg/acre. Soil N is low in Sahiwal. Use Natures Reformer + avoid overuse. حوالہ: PARC + FAO</div><div class="chat-input"><input id="aiQ" placeholder="سوال لکھیں... AI فوری جواب دے گا"><button onclick="aiAns()">➤</button></div></div></div>`,
-crops:`<div class="panel"><h2>🌾 فصلیں - AI Crops Intelligence</h2><p>ہر فصل کے لیے AI تجزیہ، بیماری کی پیشن گوئی، پیداوار کا تخمینہ</p><ul><li><b>گندم:</b> AI کہتا ہے 18 Oct بوائی بہترین، NPK + Reformer</li><li><b>کپاس:</b> Pest Risk 13% - Multan میں نگرانی</li><li><b>گنا:</b> پانی کی ضرورت 64% - ڈرپ بہتر</li></ul><p style="background:#fef3c7;padding:10px;border-radius:8px">حوالہ: Punjab Agri Dept AI Model 2026 + NASA Crop Data</p></div>`,
-soil:`<div class="panel"><h2>🧪 مٹی کا تجزیہ - Soil AI</h2><p>AI آپ کی زمین کا مکمل تجزیہ کر کے بتاتا ہے NPK، pH، جرثومے</p><p>تھل کی ریتلی زمین: گوار + جنتر + ملچ + 10 کلو ریفارمر</p><p>ساحلی زمین: جپسم + بائیو چار</p></div>`,
-water:`<div class="panel"><h2>💧 آب پاشی - Irrigation AI</h2><p>AI اگلی آب پاشی کا وقت بتاتا ہے: Lahore 18 Oct 06:00 AM - Drip 45min</p><p>70% پانی کی بچت ملچ + ڈرپ سے</p></div>`,
-pest:`<div class="panel"><h2>🐞 آفات و کیڑے - Pest AI Detection</h2><p>تصویر سے کیڑے کی شناخت، فوری علاج</p><p>نیم + لہسن + مرچ سپرے، مفید کیڑے بچاؤ</p></div>`,
-weather:`<div class="panel"><h2>⛅ موسم - Weather AI</h2><p>7 دن کی AI پیشن گوئی، بارش، ہوا، درجہ حرارت</p></div>`,
-market:`<div class="panel"><h2>📊 مارکیٹ - Market AI</h2><p>گندم 3140 روپے/ٹن، AI کہتا ہے اگلے ہفتے +1.8% اضافہ</p></div>`,
-chat:`<div class="panel"><h2>💬 اے آئی چیٹ - Comprehensive AI</h2><p>کوئی بھی سوال پوچھیں، AI فوری حوالہ جات کے ساتھ جواب دے گا۔</p><div class="chat-input"><input id="aiQ2" placeholder="مثلاً: تھل میں کون سی فصل بہتر ہے؟"><button onclick="aiAns2()">➤</button></div><div id="ansBox" style="margin-top:12px"></div></div>`
+const PAGES={
+dashboard:`<div class="grid2"><div class="panel"><h3>AI Yield Prediction — Wheat 2026</h3><p style="font-size:13px;color:#64748b">Predicted vs Actual — 10 Years Data (PARC, NASA)</p><div style="height:110px;background:#f0fdf4;border-radius:10px;display:flex;align-items:end;gap:6px;padding:10px"><div style="height:40%;width:16%;background:#16a34a;border-radius:6px"></div><div style="height:60%;width:16%;background:#16a34a"></div><div style="height:50%;width:16%;background:#2563eb"></div><div style="height:75%;width:16%;background:#2563eb"></div><div style="height:88%;width:16%;background:#16a34a"></div><div style="height:95%;width:16%;background:#2563eb"></div></div><div class="botbox">✨ <b>AI Insight مکمل:</b> فیصل آباد، ساہیوال، اوکاڑہ میں گندم کی پیداوار میں 12.5% اضافہ متوقع ہے۔ وجہ: بروقت بوائی (18-25 اکتوبر) + NPK متوازن + ملچ + Natures Reformer 10kg/acre۔ پانی کی 60% بچت ڈرپ سے۔<br><span class="badge" style="background:#dcfce7;color:#166534">حوالہ: PARC 2023, FAO Soil Guide</span></div></div><div class="panel"><h3>Pest & Disease Detection - AI Risk</h3><div style="display:flex;gap:12px;align-items:center"><div style="width:90px;height:90px;border-radius:50%;background:conic-gradient(#22c55e 0 62%,#f59e0b 62% 87%,#ef4444 87% 100%);display:grid;place-items:center"><div style="width:56px;height:56px;background:#fff;border-radius:50%"></div></div><div style="font-size:13px;line-height:1.8"><p>🟢 Brown Rust: Low - Lodhran</p><p>🟡 Aphid: Moderate - Multan</p><p>🔴 Locust: Monitoring - Thar</p></div></div><div class="botbox"><b>AI علاج:</b> نیم کے پتے 2kg + لہسن 500g + سبز مرچ 250g کو 10 لیٹر پانی میں ابال کر چھان لیں، شام کو سپرے کریں۔ مفید کیڑے (لیڈی برڈ) کو نہ ماریں۔</div></div></div>`,
+crops:`<div class="panel"><h2>🌾 فصلیں - Crops AI Comprehensive</h2><div class="botbox"><b>گندم (Wheat):</b> بوائی 18-25 اکتوبر بہترین۔ بیج: Akbar-2019, Dilkash-2020۔ کھاد: DAP 1 بوری + Urea 1 بوری + Natures Reformer 10kg + ملچ 3 انچ۔ پیداوار: 45-50 من/ایکڑ۔<br><br><b>تھل کے لیے (Bhakkar, Layyah):</b> باجرہ + گوار + جنتر (گرین مینور)۔ ریت میں پانی روکنے کے لیے ملچ + بائیو چار۔<br><br><b>ساحل کے لیے (Thatta, Badin):</b> نمک برداشت کرنے والی: جنتر، گوار، برسیم۔ جپسم 2 ٹن/ایکڑ۔<br><span class="badge" style="background:#dcfce7;color:#166534">حوالہ: Punjab Agri Dept AI 2026, PARC, ICAR</span></div></div>`,
+soil:`<div class="panel"><h2>🧪 مٹی کا تجزیہ - Soil AI</h2><div class="botbox">موجودہ تجزیہ (Lahore Sample): N:42ppm (کم) P:28ppm (درمیانہ) K:55ppm (اچھا) pH:6.8 (بہترین) Organic Matter: 0.9%<br><br><b>AI سفارش مکمل:</b><br>1. گوبر کی گلی سڑی کھاد 2 ٹرالی + بائیو چار 200kg<br>2. ملچ: پرالی 3-4 انچ<br>3. Natures Reformer 10kg/acre (مائیکروبز بحال)<br>4. pH زیادہ ہو تو جپسم، کم ہو تو چونا<br><span class="badge" style="background:#dcfce7">حوالہ: FAO World Soil Map + Soil Health Card</span></div></div>`,
+water:`<div class="panel"><h2>💧 آب پاشی - Irrigation AI</h2><div class="botbox">Lahore اگلی آب پاشی: <b>18 Oct 06:00 AM - ڈرپ 45 منٹ</b>۔ موسم صاف، نمی 64%۔<br><br><b>پانی بچانے کا مکمل طریقہ:</b> ڈرپ اریگیشن + ملچ سے 60-70% بچت۔ PCRWR رپورٹ کے مطابق ملچ سے زمین کا درجہ حرارت 4°C کم رہتا ہے۔ رات کو پانی دیں۔<br><span class="badge">حوالہ: PCRWR 2024, FAO Water Guide</span></div></div>`,
+pest:`<div class="panel"><h2>🐞 آفات و کیڑے - Pest AI</h2><div class="botbox">تصویر سے شناخت: تیلا، سست تیلا، لشکری سنڈی۔<br><br><b>مکمل نامیاتی علاج:</b> نیم آئل 20ml/L + لہسن مرچ محلول + راکھ کا چھڑکاؤ۔ شام 5 بجے کے بعد سپرے۔ مفید کیڑے: لیڈی برڈ، مکڑی، بھڑ کو بچائیں۔<br><span class="badge">حوالہ: CABI BioProtection, NARC</span></div></div>`,
+weather:`<div class="panel"><h2>⛅ موسم - Weather AI (7 دن)</h2><div class="botbox">Lahore: 16 Oct Sunny 28°C, 17 Oct Cloudy 26°C, 18 Oct Rain 30% 24°C - بوائی کے لیے بہترین دن 18 Oct<br>Thal Area: خشک، ہوا 12km/h<br>Coastal: نمی 78%<br><span class="badge">حوالہ: PMD + NASA Power API</span></div></div>`,
+market:`<div class="panel"><h2>📊 مارکیٹ - Market AI</h2><div class="botbox">گندم: PKR 3,140/ٹن (+1.8%)، کپاس: PKR 8,200/من، گنا: PKR 400/من<br><b>AI پیشن گوئی:</b> گندم کی قیمت اگلے ہفتے 2% بڑھے گی، اسٹاک رکھیں۔ فیصل آباد منڈی بہترین ریٹ۔<br><span class="badge">حوالہ: Punjab Market Committee + AMIS</span></div></div>`,
+chat:`<div class="panel"><h2>💬 AI چیٹ - مکمل جواب دے گا</h2><p style="font-size:13px;color:#64748b">کوئی بھی سوال پوچھیں، AI تفصیلی، حوالہ جات کے ساتھ، لوکیشن کے ساتھ جواب دے گا۔</p><div class="chat-input"><input id="aiQ" placeholder="مثلاً: تھل میں کون سی فصل بہتر ہے اور طریقہ کیا ہے؟"><button onclick="doChat()">➤</button></div><div id="chatAns"></div></div>`
 };
-function loadMod(k,el){
+function load(k,el){
 document.querySelectorAll('.item').forEach(i=>i.classList.remove('active'));
 if(el) el.classList.add('active');
-document.getElementById('dynamic').innerHTML=data[k]||data.dashboard;
+document.getElementById('dynamic').innerHTML=PAGES[k]||PAGES.dashboard;
 }
-function aiAns(){
-let q=document.getElementById('aiQ')?.value||"";
+function doChat(){
+let q=document.getElementById('aiQ').value.trim();
 if(!q) return;
-document.getElementById('dynamic').innerHTML+=`<div class="panel"><b>آپ:</b> ${q}<br><br><b>AI Comprehensive:</b> ${q} کے لیے بہترین حل: Natures Reformer 10 کلو + ملچ + ڈرپ۔ یہ AI ماڈل 36 اضلاع کے ڈیٹا سے سیکھا ہے۔ حوالہ: FAO, PARC, PCRWR<br><span class="badge" style="background:#dcfce7;color:#166534">Location: Lahore Punjab • AI Verified</span></div>`;
+let ans=`<div class="botbox" style="margin-top:12px"><b>آپ:</b> ${q}<br><br><b>AI Comprehensive جواب:</b><br>
+<b>1. خلاصہ:</b> ${q} کے لیے قدرتی حل یہ ہے کہ ملچ + بائیو چار + Natures Reformer 10kg/acre استعمال کریں۔<br>
+<b>2. تفصیلی طریقہ:</b><br>
+- زمین تیاری: 2 بار ہل + روٹاویٹر<br>
+- بیج: پنجاب منظور شدہ ورائٹی<br>
+- کھاد: گوبر 2 ٹرالی + DAP آدھی + Reformer 10kg<br>
+- پانی: ڈرپ/کھیلیوں پر، رات کو، ملچ کے ساتھ 60% بچت<br>
+- کیڑے: نیم + لہسن سپرے، مفید کیڑے بچاؤ<br>
+<b>3. آپ کی لوکیشن کے لیے:</b> Lahore Punjab - نمی 64% - یہ طریقہ یہاں 87% کامیاب ہے۔<br>
+<b>4. پیداوار:</b> 40-50 من/ایکڑ، لاگت 30% کم۔<br>
+<span class="badge" style="background:#dcfce7;color:#166534;margin-top:8px">حوالہ جات: PARC 2023, FAO 2024, PCRWR Water Report, CABI BioProtection, Punjab Agri Dept AI Model v4.1 • Location: Lahore • Verified</span>
+</div>`;
+document.getElementById('chatAns').innerHTML+=ans;
+document.getElementById('aiQ').value='';
 }
-function aiAns2(){
-let q=document.getElementById('aiQ2').value;
-document.getElementById('ansBox').innerHTML=`<div style="background:#f0fdf4;padding:12px;border-radius:10px"><b>AI:</b> ${q} — مکمل جواب: AI تجزیہ کے مطابق یہ فصل/طریقہ بہترین ہے۔ فوری عمل کریں، حوالہ جات کے ساتھ تفصیل اوپر دی گئی ہے۔</div>`;
-}
-loadMod('dashboard');
+load('dashboard');
 </script>
 </body>
 </html>
