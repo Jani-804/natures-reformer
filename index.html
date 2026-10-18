@@ -1,126 +1,128 @@
 <!DOCTYPE html>
 <html lang="ur">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nature Reformer AI V6 - DG Khan - V7 Upgraded</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature Reformer AI V6 - DG Khan</title>
 <style>
-*{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#0f172a;color:#e2e8f0}
-.header{height:78px;background:linear-gradient(90deg,#14532d,#16a34a);display:flex;align-items:center;padding:0 16px;justify-content:space-between}
-.logo{display:flex;gap:14px;align-items:center;font-weight:bold}
-.logo img{height:62px;width:62px;border-radius:50%}
-.main{display:flex;min-height:calc(100vh - 78px)}
-.side{width:290px;background:#1e293b;padding:12px}
-.item{padding:11px;border-radius:10px;margin-bottom:8px;cursor:pointer;background:#0f172a}
-.item.active{background:#16a34a;color:#fff}
-.content{flex:1;padding:14px;display:flex;flex-direction:column}
-#chatBox{flex:1;overflow-y:auto}
-.msg{padding:10px 14px;border-radius:12px;margin:8px 0;max-width:85%}
-.user{background:#1e40af;align-self:flex-end}
-.ai{background:#1e293b}
-.inputArea{display:flex;gap:8px;margin-top:10px;background:#1e293b;padding:10px;border-radius:12px}
-.inputArea input{flex:1;background:transparent;border:none;color:white;outline:none;font-size:16px}
-.inputArea button{border:none;background:#16a34a;color:white;padding:10px 14px;border-radius:8px}
-.live{font-size:12px;background:#0f172a;padding:8px;border-radius:8px;margin-bottom:10px}
+*{box-sizing:border-box}
+body{margin:0;font-family:'Segoe UI',system-ui;background:#0b1220;color:#e2e8f0;overflow:hidden}
+.header{height:78px;background:linear-gradient(90deg,#0f4c2a,#16a34a,#22c55e);display:flex;align-items:center;justify-content:space-between;padding:0 18px;box-shadow:0 2px 12px rgba(0,0,0,0.4);position:relative;z-index:10}
+.logo{display:flex;align-items:center;gap:14px;font-weight:800;font-size:20px;letter-spacing:0.3px}
+.logo img{height:62px;width:62px;border-radius:50%;border:3px solid #fff;object-fit:cover;background:#fff}
+.live-top{background:rgba(0,0,0,0.25);padding:8px 14px;border-radius:20px;font-size:13px;font-weight:600}
+.main{display:flex;height:calc(100vh - 78px)}
+.side{width:290px;background:#111c2f;border-right:1px solid #1e293b;padding:14px;overflow-y:auto}
+.side .card{background:#0f172a;border:1px solid #1e293b;border-radius:12px;padding:12px;margin-bottom:12px}
+.side .card h4{margin:0 0 8px 0;font-size:13px;color:#94a3b8;text-transform:uppercase}
+.side .card div{font-size:13px;line-height:1.7}
+.item{padding:12px 14px;border-radius:10px;margin-bottom:8px;cursor:pointer;background:#0f172a;border:1px solid transparent;transition:0.2s;font-size:14px}
+.item:hover{border-color:#16a34a}
+.item.active{background:#16a34a;color:#fff;border-color:#16a34a}
+.content{flex:1;display:flex;flex-direction:column;background:#0f172a;position:relative}
+#chatBox{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:10px}
+.msg{padding:12px 16px;border-radius:16px;max-width:78%;line-height:1.6;font-size:14.5px;white-space:pre-wrap}
+.msg.user{background:#2563eb;color:white;align-self:flex-end;border-bottom-right-radius:4px}
+.msg.ai{background:#1e293b;border:1px solid #334155;align-self:flex-start;border-bottom-left-radius:4px}
+.inputArea{display:flex;gap:8px;padding:12px;background:#111c2f;border-top:1px solid #1e293b;align-items:center}
+.inputArea input{flex:1;background:#0f172a;border:1px solid #334155;color:white;padding:13px 16px;border-radius:24px;outline:none;font-size:15px}
+.inputArea input:focus{border-color:#16a34a}
+.inputArea button{border:none;background:#16a34a;color:white;width:42px;height:42px;border-radius:50%;cursor:pointer;font-size:18px;display:flex;align-items:center;justify-content:center}
+.inputArea button:hover{background:#15803d}
+@media(max-width:768px){.side{display:none}.header{height:64px}.logo img{height:48px;width:48px}.msg{max-width:90%}}
 </style>
 </head>
 <body>
 <div class="header">
-  <div class="logo"><img src="https://i.imgur.com/8Km9tLL.png"> Nature Reformer AI V6</div>
-  <div id="liveWeather">📍 DG Khan - Loading...</div>
+  <div class="logo"><img src="https://i.imgur.com/8Km9tLL.png" onerror="this.src='https://cdn-icons-png.flaticon.com/512/415/415682.png'"> Nature Reformer AI</div>
+  <div class="live-top" id="liveWeather">📍 Locating DG Khan...</div>
 </div>
 <div class="main">
   <div class="side">
-    <div class="live" id="weatherBox">Weather: --<br>Soil: --<br>Market: Cotton 8500 PKR</div>
-    <div class="item active" onclick="clearHistory()">🗑️ Clear History</div>
-    <div class="item">🌾 DG Khan Crops</div>
-    <div class="item">🌧️ Weather Update</div>
+    <div class="card"><h4>Live Data - DG Khan</h4><div id="weatherBox">🌡️ Weather: --<br>🌱 Soil Temp: --<br>💧 Moisture: --<br>📈 Market: Cotton 8500 PKR</div></div>
+    <div class="item active" onclick="clearHistory()">🗑️ Clear Chat History</div>
+    <div class="item">🌾 DG Khan Crops Guide</div>
+    <div class="item">🌧️ Weather Advisory</div>
+    <div class="item">💰 Market Rates</div>
+    <div class="card"><h4>About</h4><div style="color:#94a3b8">V6 - Local Keep AI<br>For DG Khan Farmers<br>Voice + Location + Real API</div></div>
   </div>
   <div class="content">
     <div id="chatBox"></div>
     <div class="inputArea">
-      <input id="userInput" placeholder="Sawal likhein... / Ask question">
-      <button id="micBtn">🎤</button>
-      <button id="sendBtn">↑</button>
+      <input id="userInput" placeholder="Apna sawal likhein... / Ask Local Keep AI">
+      <button id="micBtn" title="Voice">🎤</button>
+      <button id="sendBtn" title="Send">↑</button>
     </div>
   </div>
 </div>
 
 <script>
-// ===== 2. USER LOCATION DETECTION - FIXED =====
-let userLocation = { lat: 30.05, lon: 70.64 };
+// ===== CONFIG - ADD YOUR OPENROUTER KEY HERE =====
+const OPENROUTER_API_KEY = "sk-or-v1-PASTE_YOUR_KEY_HERE"; // <-- Yahan apni key paste karein
+const MODEL = "google/gemma-2-9b-it:free";
+
+let userLocation = { lat: 30.05, lon: 70.64, name: "DG Khan" };
+
 function getLocation(){
   if(navigator.geolocation){
-    navigator.geolocation.getCurrentPosition((pos)=>{
+    navigator.geolocation.getCurrentPosition(async (pos)=>{
       userLocation.lat = pos.coords.latitude;
       userLocation.lon = pos.coords.longitude;
       localStorage.setItem('dg_lat', userLocation.lat);
       localStorage.setItem('dg_lon', userLocation.lon);
       getRealTimeData(userLocation.lat, userLocation.lon);
+    }, ()=>{
+      getRealTimeData(userLocation.lat, userLocation.lon);
     });
+  } else {
+    getRealTimeData(userLocation.lat, userLocation.lon);
   }
 }
 
-// ===== 1. REAL-TIME API INTEGRATION =====
 async function getRealTimeData(lat, lon){
   try{
-    let res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m&hourly=soil_temperature_0_to_7cm,soil_moisture_0_to_7cm`);
+    let res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,wind_speed_10m&hourly=soil_temperature_0_to_7cm,soil_moisture_0_to_7cm&timezone=auto`);
     let data = await res.json();
     let temp = data.current.temperature_2m;
-    document.getElementById('liveWeather').innerText = `📍 ${temp}°C DG Khan`;
-    document.getElementById('weatherBox').innerHTML = `🌡️ ${temp}°C<br>🌱 Soil: ${data.hourly.soil_temperature_0_to_7cm[0]}°C<br>💧 Moisture: ${data.hourly.soil_moisture_0_to_7cm[0]}`;
-    localStorage.setItem('real_data', JSON.stringify(data));
+    let soilT = data.hourly.soil_temperature_0_to_7cm[0];
+    let soilM = data.hourly.soil_moisture_0_to_7cm[0];
+    document.getElementById('liveWeather').innerText = `📍 ${temp}°C - DG Khan`;
+    document.getElementById('weatherBox').innerHTML = `🌡️ Weather: ${temp}°C<br>💧 Humidity: ${data.current.relative_humidity_2m}%<br>🌱 Soil: ${soilT}°C<br>💧 Moisture: ${soilM}<br>📈 Market: Cotton 8500 PKR/40kg`;
+    localStorage.setItem('real_data', JSON.stringify({temp, humidity: data.current.relative_humidity_2m, soilT, soilM}));
   }catch(e){
-    console.log("API error", e);
+    document.getElementById('liveWeather').innerText = "📍 DG Khan - Offline";
   }
 }
 
-// ===== 4. SAVE CHAT HISTORY =====
-function saveChat(msg, who){
-  let chats = JSON.parse(localStorage.getItem('natures_chats')||'[]');
-  chats.push({msg, who});
-  localStorage.setItem('natures_chats', JSON.stringify(chats));
-}
-function loadChats(){
-  let chats = JSON.parse(localStorage.getItem('natures_chats')||'[]');
-  chats.forEach(c=> addMsg(c.msg, c.who, false));
-}
-function clearHistory(){
-  localStorage.removeItem('natures_chats');
-  document.getElementById('chatBox').innerHTML="";
-}
+// ===== CHAT HISTORY =====
+const chatBox = document.getElementById('chatBox');
 function addMsg(text, who, save=true){
   let div = document.createElement('div');
   div.className = `msg ${who}`;
   div.innerText = text;
-  document.getElementById('chatBox').appendChild(div);
-  if(save) saveChat(text, who);
+  chatBox.appendChild(div);
+  chatBox.scrollTop = chatBox.scrollHeight;
+  if(save){
+    let chats = JSON.parse(localStorage.getItem('natures_chats_v7')||'[]');
+    chats.push({msg:text, who});
+    if(chats.length>100) chats.shift();
+    localStorage.setItem('natures_chats_v7', JSON.stringify(chats));
+  }
+}
+function loadChats(){
+  let chats = JSON.parse(localStorage.getItem('natures_chats_v7')||'[]');
+  if(chats.length===0){
+    addMsg("Assalam-o-Alaikum! Main Local Keep AI hoon. DG Khan ke kisan ke liye bana hua. Mausam, zameen, aur fasal ke bare mein poochein.", 'ai', false);
+  } else {
+    chats.forEach(c=> addMsg(c.msg, c.who, false));
+  }
+}
+function clearHistory(){
+  localStorage.removeItem('natures_chats_v7');
+  chatBox.innerHTML="";
+  addMsg("Chat history cleared.", 'ai', false);
 }
 
-// ===== 3. VOICE INPUT =====
+// ===== VOICE INPUT =====
 const micBtn = document.getElementById('micBtn');
-const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-if(SpeechRecognition){
-  const rec = new SpeechRecognition();
-  rec.lang = 'ur-PK';
-  micBtn.onclick = ()=>{ rec.start(); micBtn.innerText="🔴"; };
-  rec.onresult = (e)=>{
-    document.getElementById('userInput').value = e.results[0][0].transcript;
-    micBtn.innerText="🎤";
-  };
-  rec.onerror = ()=> micBtn.innerText="🎤";
-}
-
-// Simple send function - you can connect OpenRouter here
-document.getElementById('sendBtn').onclick = ()=>{
-  let input = document.getElementById('userInput');
-  if(!input.value) return;
-  addMsg(input.value, 'user');
-  input.value="";
-  setTimeout(()=> addMsg("Ye feature ab connected hai. OpenRouter key add karein to AI jawab dega.", 'ai'), 500);
-};
-
-// Init on load
-window.onload = ()=>{ getLocation(); loadChats(); getRealTimeData(userLocation.lat, userLocation.lon); };
-</script>
-</body>
-</html>
+const Speech
