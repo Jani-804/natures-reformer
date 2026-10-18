@@ -1,98 +1,126 @@
 <!DOCTYPE html>
 <html lang="ur">
 <head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Nature Reformer AI V6 - DG Khan Live</title>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nature Reformer AI V6 - DG Khan - V7 Upgraded</title>
 <style>
 *{box-sizing:border-box}body{margin:0;font-family:system-ui;background:#0f172a;color:#e2e8f0}
-.header{height:78px;background:linear-gradient(90deg,#020617,#0f5d2f 60%,#16a34a);display:flex;justify-content:space-between;align-items:center;padding:0 16px;border-bottom:3px solid #22c55e;position:sticky;top:0;z-index:20}
-.logo{display:flex;gap:14px;align-items:center;font-weight:900;font-size:22px;color:#fff}
-.logo img{height:62px;width:62px;border-radius:50%;background:#fff;padding:4px;border:3px solid #fff;box-shadow:0 0 15px #22c55e}
+.header{height:78px;background:linear-gradient(90deg,#14532d,#16a34a);display:flex;align-items:center;padding:0 16px;justify-content:space-between}
+.logo{display:flex;gap:14px;align-items:center;font-weight:bold}
+.logo img{height:62px;width:62px;border-radius:50%}
 .main{display:flex;min-height:calc(100vh - 78px)}
-.side{width:290px;background:#1e293b;padding:10px;border-right:1px solid #334155;overflow-y:auto}
-.item{padding:11px;border-radius:10px;margin-bottom:5px;cursor:pointer;display:flex;gap:8px;align-items:center;font-size:13.5px}
-.item.active{background:#16a34a;color:#fff;box-shadow:0 0 12px #16a34a55}
-.content{flex:1;padding:14px;overflow-y:auto}
-.top4{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.card{border-radius:14px;padding:14px;border:1px solid #334155;position:relative}
-.panel{background:#1e293b;border:1px solid #334155;border-radius:16px;padding:14px;margin-top:12px}
-.badge{padding:3px 9px;border-radius:20px;font-size:10px;font-weight:800;display:inline-block}
-table{width:100%;border-collapse:collapse;font-size:13px;margin-top:8px}th,td{border:1px solid #334155;padding:8px}th{background:#0f172a;color:#94a3b8}
-.contact{background:linear-gradient(135deg,#052e16,#16a34a);border-radius:14px;padding:14px;margin-top:14px;border:1px solid #22c55e}
-.waBtn{display:inline-block;background:#25D366;color:#fff;padding:12px 22px;border-radius:30px;text-decoration:none;font-weight:800;margin-top:8px}
-.prog{height:8px;background:#334155;border-radius:10px;overflow:hidden;margin-top:4px}.prog>div{height:100%}
-.grid3{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:12px}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-@media(max-width:1100px){.top4{grid-template-columns:repeat(2,1fr)}.grid3,.grid2{grid-template-columns:1fr}.side{width:100%;display:flex;overflow-x:auto}.main{flex-direction:column}}
+.side{width:290px;background:#1e293b;padding:12px}
+.item{padding:11px;border-radius:10px;margin-bottom:8px;cursor:pointer;background:#0f172a}
+.item.active{background:#16a34a;color:#fff}
+.content{flex:1;padding:14px;display:flex;flex-direction:column}
+#chatBox{flex:1;overflow-y:auto}
+.msg{padding:10px 14px;border-radius:12px;margin:8px 0;max-width:85%}
+.user{background:#1e40af;align-self:flex-end}
+.ai{background:#1e293b}
+.inputArea{display:flex;gap:8px;margin-top:10px;background:#1e293b;padding:10px;border-radius:12px}
+.inputArea input{flex:1;background:transparent;border:none;color:white;outline:none;font-size:16px}
+.inputArea button{border:none;background:#16a34a;color:white;padding:10px 14px;border-radius:8px}
+.live{font-size:12px;background:#0f172a;padding:8px;border-radius:8px;margin-bottom:10px}
 </style>
 </head>
 <body>
 <div class="header">
-<div class="logo"><img src="logo.png"><span>Nature Reformer AI V6 <small style="font-size:12px;background:#22c55e;padding:2px 8px;border-radius:20px;margin-left:8px">ULTIMATE • LIVE • DG KHAN</small></span></div>
-<div style="font-size:12px;text-align:right"><div>📍 <b id="loc">Dera Ghazi Khan, Punjab, PK</b></div><div id="liveDate">15 Oct 2026 • SYSTEM ONLINE • Auto Updating Daily</div></div>
+  <div class="logo"><img src="https://i.imgur.com/8Km9tLL.png"> Nature Reformer AI V6</div>
+  <div id="liveWeather">📍 DG Khan - Loading...</div>
 </div>
 <div class="main">
-<div class="side">
-<div class="item active" onclick="showPage('dashboard',this)">🏠 Dashboard</div>
-<div class="item" onclick="showPage('wheat',this)">🌾 Wheat Prediction</div>
-<div class="item" onclick="showPage('cotton',this)">🧵 Cotton Prediction</div>
-<div class="item" onclick="showPage('weather',this)">⛅ Live Weather API</div>
-<div class="item" onclick="showPage('disease',this)">🦠 Disease AI</div>
-<div class="item" onclick="showPage('insect',this)">🐞 Insect Forecast</div>
-<div class="item" onclick="showPage('contact',this)">📞 Contact Us</div>
-<div class="contact">
-<h4>📞 Contact Us</h4>
-<p style="font-size:13px">Nature Reformer AI<br>Dera Ghazi Khan<br>Phone: 0300-6823639</p>
-<a class="waBtn" href="https://wa.me/923006823639?text=Salam%20Jani%2C%20Nature%20Reformer%20AI%20V6%20ke%20bare%20me%20baat%20karni%20hai" target="_blank">WhatsApp پر رابطہ کریں 💬</a>
-<p style="font-size:11px;margin-top:8px">24/7 Live Support • Daily Updates</p>
-</div>
-</div>
-
-<div class="content" id="content">
-<div class="top4">
-<div class="card" style="background:linear-gradient(135deg,#052e16,#16a34a)"><div>Wheat Stripe Rust</div><h2>LOW 12% <span style="font-size:11px;background:#22c55e;padding:2px 6px;border-radius:10px">AI 92%</span></h2><small>No outbreak • DG Khan (120ha)</small><div class="prog"><div style="width:12%;background:#22c55e"></div></div></div>
-<div class="card" style="background:linear-gradient(135deg,#1e1b4b,#7c3aed)"><div>Cotton Bollworm</div><h2>MODERATE 43%</h2><small>Jassid & Whitefly Elevated</small></div>
-<div class="card" style="background:linear-gradient(135deg,#0c4a6e,#0ea5e9)"><div id="weatherTitle">Live Weather DG Khan - Loading...</div><h2 id="liveTemp">--°C</h2><small id="liveDetails">Fetching live API...</small></div>
-<div class="card" style="background:linear-gradient(135deg,#422006,#f59e0b)"><div>Yield Forecast 2026</div><h2>+8.4% YoY</h2><small>Wheat 3.2 t/ha • DG Khan</small></div>
-</div>
-<div id="dynamic"></div>
-</div>
+  <div class="side">
+    <div class="live" id="weatherBox">Weather: --<br>Soil: --<br>Market: Cotton 8500 PKR</div>
+    <div class="item active" onclick="clearHistory()">🗑️ Clear History</div>
+    <div class="item">🌾 DG Khan Crops</div>
+    <div class="item">🌧️ Weather Update</div>
+  </div>
+  <div class="content">
+    <div id="chatBox"></div>
+    <div class="inputArea">
+      <input id="userInput" placeholder="Sawal likhein... / Ask question">
+      <button id="micBtn">🎤</button>
+      <button id="sendBtn">↑</button>
+    </div>
+  </div>
 </div>
 
 <script>
-const DG_LAT=30.05, DG_LON=70.64;
-async function fetchLiveWeather(){
-try{
-let url=`https://api.open-meteo.com/v1/forecast?latitude=${DG_LAT}&longitude=${DG_LON}&current=temperature_2m,relative_humidity_2m,wind_speed_10m,precipitation&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&timezone=Asia/Karachi`;
-let r=await fetch(url); let j=await r.json();
-let t=j.current.temperature_2m; let h=j.current.relative_humidity_2m; let w=j.current.wind_speed_10m;
-document.getElementById('liveTemp').innerText=t+"°C LIVE";
-document.getElementById('weatherTitle').innerText=`Live Weather - Dera Ghazi Khan`;
-document.getElementById('liveDetails').innerText=`Humidity ${h}% • Wind ${w} km/h • Updated: ${new Date().toLocaleTimeString()} • Auto Daily`;
-document.getElementById('dynamic').innerHTML+=``;
-let forecastHTML=`<div class="panel"><h3>⛅ 7 Days Live Forecast - DG Khan (Open-Meteo API)</h3><table><tr><th>Date</th><th>Max</th><th>Min</th><th>Rain %</th></tr>${j.daily.time.map((d,i)=>`<tr><td>${d}</td><td>${j.daily.temperature_2m_max[i]}°C</td><td>${j.daily.temperature_2m_min[i]}°C</td><td>${j.daily.precipitation_probability_max[i]}%</td></tr>`).join('')}</table><p style="font-size:12px">Source: Open-Meteo Live API • Updates every hour • Location: Dera Ghazi Khan (30.05, 70.64)</p></div>`;
-if(document.getElementById('dynamic').innerHTML.includes('Live Forecast')==false){ document.getElementById('dynamic').innerHTML+=forecastHTML; }
-}catch(e){ document.getElementById('liveDetails').innerText='Live API offline, showing cached data - will auto update'; }
+// ===== 2. USER LOCATION DETECTION - FIXED =====
+let userLocation = { lat: 30.05, lon: 70.64 };
+function getLocation(){
+  if(navigator.geolocation){
+    navigator.geolocation.getCurrentPosition((pos)=>{
+      userLocation.lat = pos.coords.latitude;
+      userLocation.lon = pos.coords.longitude;
+      localStorage.setItem('dg_lat', userLocation.lat);
+      localStorage.setItem('dg_lon', userLocation.lon);
+      getRealTimeData(userLocation.lat, userLocation.lon);
+    });
+  }
 }
-setInterval(fetchLiveWeather, 600000); // har 10 minute update
-fetchLiveWeather();
-document.getElementById('liveDate').innerText=new Date().toLocaleDateString('en-PK',{day:'numeric',month:'short',year:'numeric'})+" • "+new Date().toLocaleTimeString()+" • SYSTEM ONLINE • Live API • Auto Updating Daily";
 
-const PAGES={
-dashboard:`<div class="grid3"><div class="panel"><h3>🌾 Wheat Prediction - DG Khan</h3><p>Yield: 3.2 t/ha +8.4% • Best sowing: 18-25 Oct • Stripe Rust 12% LOW • Aphid 35% MOD - Nov 2nd week</p><div style="background:#052e16;padding:10px;border-radius:10px;font-size:13px">AI Insight: DG Khan me is saal gandum per kangi kam rahe gi, nami 42% hai. Neam oil 20ml/L spray karein. Reference: PARC, CABI</div></div><div class="panel"><h3>🧵 Cotton - DG Khan</h3><p>Whitefly 78% HIGH - DG Khan me garmi 34°C per tez • Jassid 52% • Action: Yellow traps 8/acre + Neem</p></div><div class="panel"><h3>📍 DG Khan Live System</h3><p>Lat: 30.05, Lon: 70.64<br>Fields: 1,248<br>Crops: Wheat, Cotton, Rice, Maize, Sugarcane<br>Data: Sentinel-2, PMD, PARC, FAO<br>Auto Update: Daily via Live Weather API</p></div></div>`,
-wheat:`<div class="panel"><h2>🌾 Wheat Full Prediction - Dera Ghazi Khan</h2><p>Yield 3.2 t/ha, Sowing 18-25 Oct, Rust 12% LOW, Aphid 35% MOD, Treatment: Tebuconazole + Neem + Reformer 10kg/acre + mulch 3 inches • Reference: PARC 2023</p></div>`,
-cotton:`<div class="panel"><h2>🧵 Cotton Prediction - DG Khan</h2><p>Whitefly 78% HIGH - Peak 22 Oct, Jassid 52%, Bollworm 43% MOD - Use Yellow traps + Neem oil</p></div>`,
-weather:`<div class="panel"><h2>⛅ Live Weather API - Dera Ghazi Khan</h2><p>Ye API har 10 minute me live update hoti hai, rozana auto update rahe gi. Source: Open-Meteo.com</p><p id="weatherExtra">Loading live data...</p></div>`,
-disease:`<div class="panel"><h2>🦠 Disease AI - DG Khan</h2><p>Wheat Yellow Rust 12% LOW, Brown Rust 18% LOW, Cotton CLCuV 38% MOD - Whitefly se phailta hai</p></div>`,
-insect:`<div class="panel"><h2>🐞 Insect Forecast</h2><p>Whitefly 78% HIGH, Jassid 52% MOD, Aphid 35% MOD - DG Khan Hotspot</p></div>`,
-contact:`<div class="panel"><h2>📞 Contact Us - Dera Ghazi Khan</h2><div style="background:linear-gradient(135deg,#052e16,#16a34a);padding:20px;border-radius:14px;color:#fff"><h3>Nature Reformer AI</h3><p>Location: Dera Ghazi Khan, Punjab, Pakistan</p><p>Phone / WhatsApp: <b>0300-6823639</b></p><a class="waBtn" href="https://wa.me/923006823639" target="_blank">WhatsApp پر میسج کریں</a><br><br><p style="font-size:12px">Agar kisi fasal ke bare me puchna hai to direct WhatsApp karein, hum foran jawab dein ge. Website rozana live update hoti rahe gi.</p></div></div>`
-};
-function showPage(k,el){
-document.querySelectorAll('.item').forEach(i=>i.classList.remove('active'));
-if(el) el.classList.add('active');
-if(k!='weather') document.getElementById('dynamic').innerHTML=PAGES[k]||PAGES.dashboard;
-else { document.getElementById('dynamic').innerHTML=PAGES.weather; fetchLiveWeather(); }
+// ===== 1. REAL-TIME API INTEGRATION =====
+async function getRealTimeData(lat, lon){
+  try{
+    let res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m&hourly=soil_temperature_0_to_7cm,soil_moisture_0_to_7cm`);
+    let data = await res.json();
+    let temp = data.current.temperature_2m;
+    document.getElementById('liveWeather').innerText = `📍 ${temp}°C DG Khan`;
+    document.getElementById('weatherBox').innerHTML = `🌡️ ${temp}°C<br>🌱 Soil: ${data.hourly.soil_temperature_0_to_7cm[0]}°C<br>💧 Moisture: ${data.hourly.soil_moisture_0_to_7cm[0]}`;
+    localStorage.setItem('real_data', JSON.stringify(data));
+  }catch(e){
+    console.log("API error", e);
+  }
 }
-showPage('dashboard');
+
+// ===== 4. SAVE CHAT HISTORY =====
+function saveChat(msg, who){
+  let chats = JSON.parse(localStorage.getItem('natures_chats')||'[]');
+  chats.push({msg, who});
+  localStorage.setItem('natures_chats', JSON.stringify(chats));
+}
+function loadChats(){
+  let chats = JSON.parse(localStorage.getItem('natures_chats')||'[]');
+  chats.forEach(c=> addMsg(c.msg, c.who, false));
+}
+function clearHistory(){
+  localStorage.removeItem('natures_chats');
+  document.getElementById('chatBox').innerHTML="";
+}
+function addMsg(text, who, save=true){
+  let div = document.createElement('div');
+  div.className = `msg ${who}`;
+  div.innerText = text;
+  document.getElementById('chatBox').appendChild(div);
+  if(save) saveChat(text, who);
+}
+
+// ===== 3. VOICE INPUT =====
+const micBtn = document.getElementById('micBtn');
+const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+if(SpeechRecognition){
+  const rec = new SpeechRecognition();
+  rec.lang = 'ur-PK';
+  micBtn.onclick = ()=>{ rec.start(); micBtn.innerText="🔴"; };
+  rec.onresult = (e)=>{
+    document.getElementById('userInput').value = e.results[0][0].transcript;
+    micBtn.innerText="🎤";
+  };
+  rec.onerror = ()=> micBtn.innerText="🎤";
+}
+
+// Simple send function - you can connect OpenRouter here
+document.getElementById('sendBtn').onclick = ()=>{
+  let input = document.getElementById('userInput');
+  if(!input.value) return;
+  addMsg(input.value, 'user');
+  input.value="";
+  setTimeout(()=> addMsg("Ye feature ab connected hai. OpenRouter key add karein to AI jawab dega.", 'ai'), 500);
+};
+
+// Init on load
+window.onload = ()=>{ getLocation(); loadChats(); getRealTimeData(userLocation.lat, userLocation.lon); };
 </script>
 </body>
 </html>
